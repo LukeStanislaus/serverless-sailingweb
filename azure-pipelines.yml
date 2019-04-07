@@ -16,6 +16,8 @@ steps:
   displayName: 'Install Node.js'
 - script:
     cd backend
+    set AWS_ACCESS_KEY_ID=$(keyId)
+    set AWS_SECRET_ACCESS_KEY=$(accessKey)
     yarn deploy
     cd ..
 
