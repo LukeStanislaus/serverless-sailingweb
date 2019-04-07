@@ -40,6 +40,6 @@ echo "Phase 3: Create S3 Bucket for serverless function"
 node scripts/createS3Bucket.js
 
 echo "Phase 4: Deploy package to AWS"
-sls deploy -p .serverless
+npx sls deploy -p .serverless
 
 echo "Complete"
