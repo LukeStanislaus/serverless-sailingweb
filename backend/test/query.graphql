@@ -1,0 +1,1 @@
+{ "query": "mutation { authenticate (input: { clientMutationId: \"cmId\", email: \"spowell0@noaa.gov\", password: \"iFbWWlc\" }) { jwtToken } }" }
