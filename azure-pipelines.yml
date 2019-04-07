@@ -23,4 +23,5 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)'
+    SourceFolder: '$(System.DefaultWorkingDirectory)/clientapp/build'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
