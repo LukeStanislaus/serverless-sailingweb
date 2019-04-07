@@ -14,6 +14,10 @@ steps:
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
+- script:
+    cd backend
+    yarn deploy
+    cd ..
 
 - script: |
     cd clientapp
