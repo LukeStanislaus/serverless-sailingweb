@@ -8,7 +8,7 @@
     "build": ". ./.env && scripts/build && scripts/generate-cache && scripts/bundle",
     "sam": ". ./.env && scripts/build && scripts/generate-cache && scripts/bundle && scripts/sam",
     "test": ". ./.env && scripts/build && scripts/generate-cache && scripts/bundle && scripts/test",
-    "deploy": "sudo scripts/serverless"
+    "deploy": "scripts/serverless"
   },
   "dependencies": {
     "aws-serverless-express": "^3.3.5",
