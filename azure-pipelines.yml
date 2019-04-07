@@ -23,6 +23,7 @@ steps:
     export 'AWS_SECRET_ACCESS_KEY=$(accessKey)'
     yarn global add serverless
     sudo chmod +x scripts/serverless
+    sudo chmod +x .env
     sudo yarn deploy
     cd ..
 
