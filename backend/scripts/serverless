@@ -32,7 +32,7 @@ node src/makeCache
 
 rm -f lambda.zip
 cd dist
-find . -type f  -not -name '*.js.map' | zip -Xqr@ ../lambda.zip | tee -a /dev/tty
+find . -type f  -not -name '*.js.map' | zip -Xqr@ ../lambda.zip 
 sudo mv -f ./$CURRENT_DIR/../lambda.zip ./$CURRENT_DIR/../.serverless/graphql.zip
 
 # Update SHA hash for modified function zip file
