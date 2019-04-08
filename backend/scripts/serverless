@@ -23,8 +23,9 @@ npx sls package
 
 echo "Phase 2: Build webpack bundle and add it to serverless package"
 scripts/build
-scripts/generate-cache
+#scripts/generate-cache
 set -e
+node src/makeCache
 
 rm -f lambda.zip
 cd dist
