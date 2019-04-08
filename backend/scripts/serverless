@@ -1,5 +1,7 @@
 #!/bin/bash
+
 set -e
+set x
 CURRENT_DIR=`dirname $BASH_SOURCE`
 
 # Source env variables
@@ -25,6 +27,7 @@ echo "Phase 2: Build webpack bundle and add it to serverless package"
 scripts/build
 #scripts/generate-cache
 set -e
+set x
 node src/makeCache
 
 rm -f lambda.zip
