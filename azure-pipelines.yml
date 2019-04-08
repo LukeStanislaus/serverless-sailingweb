@@ -29,7 +29,7 @@ steps:
     sudo yarn deploy
     cd ..
     cd clientapp
-    npm install
+    sudo npm install
     npm run build
   displayName: 'npm install and build'
 
