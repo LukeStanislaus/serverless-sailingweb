@@ -1,7 +1,5 @@
 #!/bin/bash
-
 set -e
-set x
 CURRENT_DIR=`dirname $BASH_SOURCE`
 
 # Source env variables
@@ -21,19 +19,13 @@ fi
 rm -rf $CURRENT_DIR/../.serverless
 
 echo "Phase 1: Create serverless package"
-npx sls package
+sls package
 
 echo "Phase 2: Build webpack bundle and add it to serverless package"
 scripts/build
-#scripts/generate-cache
-set -e
-set x
-node src/makeCache
-
-rm -f lambda.zip
-cd dist
-find . -type f  -not -name '*.js.map' | zip -Xqr@ ../lambda.zip 
-sudo mv -f ./$CURRENT_DIR/../lambda.zip ./$CURRENT_DIR/../.serverless/graphql.zip
+scripts/generate-cache
+scripts/bundle
+mv $CURRENT_DIR/../lambda.zip $CURRENT_DIR/../.serverless/graphql.zip
 
 # Update SHA hash for modified function zip file
 SHA=$(openssl dgst -sha256 -binary $CURRENT_DIR/../.serverless/graphql.zip | openssl enc -base64 | sed -e "s#/#\\\/#g")
@@ -48,6 +40,6 @@ echo "Phase 3: Create S3 Bucket for serverless function"
 node scripts/createS3Bucket.js
 
 echo "Phase 4: Deploy package to AWS"
-npx sls deploy -p .serverless
+sls deploy -p .serverless
 
 echo "Complete"
