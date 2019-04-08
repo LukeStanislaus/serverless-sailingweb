@@ -29,7 +29,7 @@ set -e
 rm -f lambda.zip
 cd dist
 find . -type f  -not -name '*.js.map' | zip -Xqr@ ../lambda.zip
-sudo mv -f $CURRENT_DIR/../lambda.zip $CURRENT_DIR/../.serverless/graphql.zip
+sudo mv -f ./$CURRENT_DIR/../lambda.zip ./$CURRENT_DIR/../.serverless/graphql.zip
 
 # Update SHA hash for modified function zip file
 SHA=$(openssl dgst -sha256 -binary $CURRENT_DIR/../.serverless/graphql.zip | openssl enc -base64 | sed -e "s#/#\\\/#g")
