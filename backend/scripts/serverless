@@ -24,7 +24,11 @@ npx sls package
 echo "Phase 2: Build webpack bundle and add it to serverless package"
 scripts/build
 scripts/generate-cache
-scripts/bundle
+set -e
+
+rm -f lambda.zip
+cd dist
+find . -type f  -not -name '*.js.map' | zip -Xqr@ ../lambda.zip
 sudo mv -f $CURRENT_DIR/../lambda.zip $CURRENT_DIR/../.serverless/graphql.zip
 
 # Update SHA hash for modified function zip file
