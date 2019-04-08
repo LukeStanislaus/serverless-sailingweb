@@ -27,6 +27,7 @@ steps:
     sudo chmod +x scripts/generate-cache
     sudo chmod +x scripts/bundle
     sudo chmod +x .env
+    sudo apt-get install zip
     sudo yarn deploy
     cd ..
     cd clientapp
