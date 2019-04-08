@@ -21,7 +21,6 @@ steps:
     cp .env.template .env
     export 'AWS_ACCESS_KEY_ID=$(keyId)'
     export 'AWS_SECRET_ACCESS_KEY=$(accessKey)'
-    yarn global add serverless
     sudo chmod +x scripts/serverless
     sudo chmod +x scripts/build
     sudo chmod +x scripts/generate-cache
@@ -29,8 +28,6 @@ steps:
     sudo chmod +x .env
     sudo yarn deploy
     cd ..
-
-- script: |
     cd clientapp
     npm install
     npm run build
