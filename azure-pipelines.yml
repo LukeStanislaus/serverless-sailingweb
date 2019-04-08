@@ -20,7 +20,7 @@ steps:
     yarn
     yarn global add serverless
     cp .env.template .env  
-    sls config credentials --provider aws --key $(keyId) --secret $(accessKey) 
+    npx sls config credentials --provider aws --key $(keyId) --secret $(accessKey) 
 
     sudo chmod +x scripts/serverless
     sudo chmod +x scripts/build
