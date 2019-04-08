@@ -18,9 +18,9 @@ steps:
 - script: |
     cd backend
     yarn
-    yarn global add serverless@1.38
+    yarn global add serverless
     cp .env.template .env  
-    serverless config credentials --provider aws --key $(keyId) --secret $(accessKey) 
+    sls config credentials --provider aws --key $(keyId) --secret $(accessKey) 
 
     sudo chmod +x scripts/serverless
     sudo chmod +x scripts/build
