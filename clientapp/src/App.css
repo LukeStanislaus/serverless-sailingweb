@@ -18,7 +18,11 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.awesomplete {
+  display: block;
+  max-width: 500px;
+  box-sizing: border-box; 
+}
 .App-link {
   color: #61dafb;
 }

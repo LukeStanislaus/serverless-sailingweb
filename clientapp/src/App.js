@@ -1,39 +1,37 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
-function Index() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
+import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import home from './home/home';
+import managerace from './managerace/managerace';
+import signon from './signon/signon';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import { LinkContainer } from 'react-router-bootstrap';
 
 function AppRouter() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about/">About</Link>
-            </li>
-            <li>
-              <Link to="/users/">Users</Link>
-            </li>
-          </ul>
-        </nav>
+<Navbar bg="dark" variant="dark"  expand="lg">
 
-        <Route path="/" exact component={Index} />
-        <Route path="/about/" component={About} />
-        <Route path="/users/" component={Users} />
+<Link to="/"> <Navbar.Brand>Whitefriars Sailing Club</Navbar.Brand></Link>
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
+    <Nav className="mr-auto">
+    <LinkContainer exact to="/">
+    <Nav.Link >Home</Nav.Link>
+</LinkContainer>
+<LinkContainer to="/signon/">
+    <Nav.Link >Sign On</Nav.Link>
+</LinkContainer>
+<LinkContainer to="/racemanagement/">
+    <Nav.Link >Race Management</Nav.Link>
+</LinkContainer>
+    </Nav>
+  </Navbar.Collapse>
+</Navbar>
+        <Route path="/" exact component={home} />
+        <Route path="/signon/" component={signon} />
+        <Route path="/racemanagement/" component={managerace} />
       </div>
     </Router>
   );
