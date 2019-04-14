@@ -22,7 +22,7 @@ const typeDefs = gql`
       pY: Int!
   }
   type CreateRacesPayload{
-
+    result: String
   }
   input CreateRacesInput{
     raceId: ID!
@@ -30,20 +30,20 @@ const typeDefs = gql`
     eventTimeStamp: String!
     calendarData: calendarData
   }
-  type Creator{
+  input Creator{
     email: String
     displayName: String
     self: Boolean
   }
-  type Organizer{
+  input Organizer{
     email: String
     displayName: String
     self: Boolean
   }
-  type Time{
+  input Time{
     dateTime: String
   }
-  type calendarData{
+  input calendarData{
     kind: String
     etag: String
     id: String
@@ -79,6 +79,18 @@ const getAllBoatData = ()=> {
   }
   return db.scan(params)
 }
+const getAllRaces = ()=> {
+  let params = {
+    TableName: "Races",    
+    AttributesToGet: [
+      'raceId',
+      'eventTimeStamp',
+      'calendarData',
+      'name'
+    ],
+  }
+  return db.scan(params)
+}
     // method for updates
     const changeBoatData = (args) => {
 let params = {
@@ -92,12 +104,27 @@ let params = {
 }
 return db.updateItem(params, {boatData:args})
 }
+    // method for updates
+    const createRaces = (args) => {
+      let params = {
+        TableName: "Races",
+        Key: { raceId: args.raceId, eventTimeStamp: args.eventTimeStamp },
+        UpdateExpression: 'SET name = :name, calendarData = :calendarData',
+        ExpressionAttributeValues: {
+        ':name': args.name,
+        ':calendarData': args.calendarData
+        },
+        ReturnValues: "ALL_NEW"
+      }
+      return db.updateItem(params, "Success")
+      }
 
 
 // Provide resolver functions for your schema fields
 const resolvers = {
   RootQuery: {
-    allBoatData: () => getAllBoatData()
+    allBoatData: () => getAllBoatData(),
+    allRaces: () => getAllRaces()
   },
   RootMutation: {
     updateBoatData: (parent, args) => changeBoatData(args.input),
