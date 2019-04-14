@@ -10,23 +10,8 @@
       "variableSyntax": "\\${([ ~:a-zA-Z0-9._@'\",\\-\\/\\(\\)*]+?)}",
       "name": "aws",
       "runtime": "nodejs8.10",
-      "environment": {
-        "DYNAMODB_TABLE": "BoatData"
-      },
-      "iamRoleStatements": [
-        {
-          "Effect": "Allow",
-          "Action": [
-            "dynamodb:GetItem",
-            "dynamodb:UpdateItem",
-            "dynamodb:Scan",
-            "dynamodb:ScanItem",
-            "dynamodb:DeleteItem",
-            "dynamodb:PutItem"
-          ],
-          "Resource": "arn:aws:dynamodb:us-east-1:*:table/BoatData"
-        }
-      ],
+      "environment": null,
+      "role": "arn:aws:iam::118983564982:role/sailingweb",
       "versionFunctions": true,
       "remoteFunctionData": null,
       "compiledCloudFormationTemplate": {
@@ -53,83 +38,6 @@
               "LogGroupName": "/aws/lambda/SailingWeb-dev-query"
             }
           },
-          "IamRoleLambdaExecution": {
-            "Type": "AWS::IAM::Role",
-            "Properties": {
-              "AssumeRolePolicyDocument": {
-                "Version": "2012-10-17",
-                "Statement": [
-                  {
-                    "Effect": "Allow",
-                    "Principal": {
-                      "Service": [
-                        "lambda.amazonaws.com"
-                      ]
-                    },
-                    "Action": [
-                      "sts:AssumeRole"
-                    ]
-                  }
-                ]
-              },
-              "Policies": [
-                {
-                  "PolicyName": {
-                    "Fn::Join": [
-                      "-",
-                      [
-                        "dev",
-                        "SailingWeb",
-                        "lambda"
-                      ]
-                    ]
-                  },
-                  "PolicyDocument": {
-                    "Version": "2012-10-17",
-                    "Statement": [
-                      {
-                        "Effect": "Allow",
-                        "Action": [
-                          "logs:CreateLogStream"
-                        ],
-                        "Resource": [
-                          {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/SailingWeb-dev-query:*"
-                          }
-                        ]
-                      },
-                      {
-                        "Effect": "Allow",
-                        "Action": [
-                          "logs:PutLogEvents"
-                        ],
-                        "Resource": [
-                          {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/SailingWeb-dev-query:*:*"
-                          }
-                        ]
-                      },
-                      {
-                        "$ref": "$[\"service\"][\"provider\"][\"iamRoleStatements\"][0]"
-                      }
-                    ]
-                  }
-                }
-              ],
-              "Path": "/",
-              "RoleName": {
-                "Fn::Join": [
-                  "-",
-                  [
-                    "SailingWeb",
-                    "dev",
-                    "us-east-1",
-                    "lambdaRole"
-                  ]
-                ]
-              }
-            }
-          },
           "QueryLambdaFunction": {
             "Type": "AWS::Lambda::Function",
             "Properties": {
@@ -137,38 +45,27 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/SailingWeb/dev/1555260124883-2019-04-14T16:42:04.883Z/SailingWeb.zip"
+                "S3Key": "serverless/SailingWeb/dev/1555266938104-2019-04-14T18:35:38.104Z/SailingWeb.zip"
               },
               "FunctionName": "SailingWeb-dev-query",
               "Handler": "src/graphql.graphqlHandler",
               "MemorySize": 1024,
-              "Role": {
-                "Fn::GetAtt": [
-                  "IamRoleLambdaExecution",
-                  "Arn"
-                ]
-              },
+              "Role": "arn:aws:iam::118983564982:role/sailingweb",
               "Runtime": "nodejs8.10",
-              "Timeout": 6,
-              "Environment": {
-                "Variables": {
-                  "DYNAMODB_TABLE": "BoatData"
-                }
-              }
+              "Timeout": 6
             },
             "DependsOn": [
-              "QueryLogGroup",
-              "IamRoleLambdaExecution"
+              "QueryLogGroup"
             ]
           },
-          "QueryLambdaVersionOG6F3mNsG5leDAtf2zsIW6esqzHF0k1RgbO6poNs0": {
+          "QueryLambdaVersionuVlj5VvBAzmU3IUKBfgxrtg25EfVdPRYDML9IuopCo": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "QueryLambdaFunction"
               },
-              "CodeSha256": "eEyDHqV6Ox1RN38ASdCu+srac3H7c6J9994W/8Igb2U="
+              "CodeSha256": "+I1BQz6fdI0y2oI4oUUuXamzFxA9HNVEsQxv+xYQdx4="
             }
           },
           "ApiGatewayRestApi": {
@@ -287,7 +184,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1555260061017": {
+          "ApiGatewayDeployment1555266877162": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -347,7 +244,7 @@
               }
             }
           },
-          "SailingWeb": {
+          "BoatData": {
             "Type": "AWS::DynamoDB::Table",
             "Properties": {
               "AttributeDefinitions": [
@@ -376,6 +273,36 @@
               },
               "TableName": "BoatData"
             }
+          },
+          "Races": {
+            "Type": "AWS::DynamoDB::Table",
+            "Properties": {
+              "AttributeDefinitions": [
+                {
+                  "AttributeName": "raceId",
+                  "AttributeType": "S"
+                },
+                {
+                  "AttributeName": "eventTimeStamp",
+                  "AttributeType": "N"
+                }
+              ],
+              "KeySchema": [
+                {
+                  "AttributeName": "raceId",
+                  "KeyType": "HASH"
+                },
+                {
+                  "AttributeName": "eventTimeStamp",
+                  "KeyType": "RANGE"
+                }
+              ],
+              "ProvisionedThroughput": {
+                "ReadCapacityUnits": 1,
+                "WriteCapacityUnits": 1
+              },
+              "TableName": "Races"
+            }
           }
         },
         "Outputs": {
@@ -387,7 +314,7 @@
           "QueryLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "QueryLambdaVersionOG6F3mNsG5leDAtf2zsIW6esqzHF0k1RgbO6poNs0"
+              "Ref": "QueryLambdaVersionuVlj5VvBAzmU3IUKBfgxrtg25EfVdPRYDML9IuopCo"
             }
           },
           "ServiceEndpoint": {
@@ -492,7 +419,7 @@
     },
     "resources": {
       "Resources": {
-        "SailingWeb": {
+        "BoatData": {
           "Type": "AWS::DynamoDB::Table",
           "Properties": {
             "AttributeDefinitions": [
@@ -521,6 +448,36 @@
             },
             "TableName": "BoatData"
           }
+        },
+        "Races": {
+          "Type": "AWS::DynamoDB::Table",
+          "Properties": {
+            "AttributeDefinitions": [
+              {
+                "AttributeName": "raceId",
+                "AttributeType": "S"
+              },
+              {
+                "AttributeName": "eventTimeStamp",
+                "AttributeType": "N"
+              }
+            ],
+            "KeySchema": [
+              {
+                "AttributeName": "raceId",
+                "KeyType": "HASH"
+              },
+              {
+                "AttributeName": "eventTimeStamp",
+                "KeyType": "RANGE"
+              }
+            ],
+            "ProvisionedThroughput": {
+              "ReadCapacityUnits": 1,
+              "WriteCapacityUnits": 1
+            },
+            "TableName": "Races"
+          }
         }
       },
       "Outputs": {}
@@ -528,7 +485,7 @@
     "layers": {}
   },
   "package": {
-    "artifactDirectoryName": "serverless/SailingWeb/dev/1555260124883-2019-04-14T16:42:04.883Z",
+    "artifactDirectoryName": "serverless/SailingWeb/dev/1555266938104-2019-04-14T18:35:38.104Z",
     "artifact": ""
   }
 }

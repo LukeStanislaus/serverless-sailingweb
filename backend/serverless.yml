@@ -4,21 +4,11 @@ provider:
   name: aws
   runtime: nodejs8.10
   environment:
-    DYNAMODB_TABLE: BoatData
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - dynamodb:GetItem
-        - dynamodb:UpdateItem
-        - dynamodb:Scan
-        - dynamodb:ScanItem
-        - dynamodb:DeleteItem
-        - dynamodb:PutItem
-      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
-
+  role: arn:aws:iam::118983564982:role/sailingweb
+    
 resources:
   Resources:
-    SailingWeb:
+    BoatData:
       Type: 'AWS::DynamoDB::Table'
       Properties:
         AttributeDefinitions:
@@ -34,7 +24,24 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        TableName: ${self:provider.environment.DYNAMODB_TABLE}
+        TableName: BoatData
+    Races:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: raceId
+            AttributeType: S
+          - AttributeName: eventTimeStamp
+            AttributeType: N
+        KeySchema:
+          - AttributeName: raceId
+            KeyType: HASH
+          - AttributeName: eventTimeStamp
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: Races
         
 plugins:
   - serverless-webpack
