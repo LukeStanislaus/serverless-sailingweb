@@ -20,15 +20,8 @@ steps:
     yarn
     yarn global add serverless
     cp .env.template .env  
-    npx sls config credentials --provider aws --key $(keyId) --secret $(accessKey) 
-
-    sudo chmod +x scripts/serverless
-    sudo chmod +x scripts/build
-    sudo chmod +x scripts/generate-cache
-    sudo chmod +x scripts/bundle
-    sudo chmod +x .env
-    sudo apt-get install zip
-    sudo yarn deploy
+    sls config credentials --provider aws --key $(keyId) --secret $(accessKey) 
+    sudo sls deploy
     cd ..
     cd clientapp
     sudo npm install
