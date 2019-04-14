@@ -1,28 +1,29 @@
 {
+  "name": "serverless-dynamodb-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "webpack": "webpack",
-    "phase1": ". ./.env && scripts/build",
-    "phase2": ". ./.env && scripts/generate-cache",
-    "phase3": ". ./.env && scripts/bundle",
-    "phase4": ". ./.env && scripts/test",
-    "build": ". ./.env && scripts/build && scripts/generate-cache && scripts/bundle",
-    "sam": ". ./.env && scripts/build && scripts/generate-cache && scripts/bundle && scripts/sam",
-    "test": ". ./.env && scripts/build && scripts/generate-cache && scripts/bundle && scripts/test",
-    "deploy": "scripts/serverless"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "aws-serverless-express": "^3.3.5",
-    "cors": "^2.8.5",
-    "global": "^4.3.2",
-    "pg": "7.4.1",
-    "postgraphile": "v4.2",
-    "postgraphile-core": "^4.2.0",
-    "serverless": "^1.40.0"
+    "apollo-server-lambda": "^2.4.8",
+    "aws-sdk": "^2.437.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "graphql": "^14.2.1",
+    "imports-loader": "^0.8.0",
+    "path": "^0.12.7",
+    "serverless-webpack": "^5.2.0",
+    "webpack": "^4.30.0",
+    "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
-    "aws-sdk": "^2.389.0",
-    "serverless-content-encoding": "^1.1.0",
-    "webpack": "4.17.2",
-    "webpack-cli": "3.1.0"
+    "eslint": "^5.16.0"
   }
 }

@@ -1,8 +1,2 @@
-/.env
 /node_modules
-/yarn-error.log
-/dist
-/test/template.yml
-/lambda.zip
-/.serverless/
-.DS_Store
+/.webpack

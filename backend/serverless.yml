@@ -1,35 +1,49 @@
-service: ${env:AWS_SERVICE_NAME}
-
-plugins:
-  - serverless-content-encoding
-
-custom:
-  contentEncoding:
-    minimumCompressionSize: 0
-
-package:
-  individually: true
-
-provider:
+#serverless.yml
+service: lukes-epic-graphql-dynamodb-api
+provider: 
   name: aws
   runtime: nodejs8.10
-  deploymentBucket:
-    name: ${env:AWS_SERVICE_NAME}
-  region: ${env:AWS_REGION}
-  stage: ${env:AWS_STAGE}
+  environment:
+    DYNAMODB_TABLE: BoatData
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:GetItem
+        - dynamodb:UpdateItem
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
+
+resources:
+  Resources:
+    NicknamesTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: BoatName
+            AttributeType: S
+          - AttributeName: Crew
+            AttributeType: N
+        KeySchema:
+          - AttributeName: BoatName
+            KeyType: HASH
+          - AttributeName: Crew
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: BoatData
+        
+plugins:
+  - serverless-webpack
+
+custom: 
+  webpack:
+    includeModules: true
 
 functions:
-  graphql:
-    memorySize: 3008
-    handler: index.handler # Actual handler substituted in during deploy script
+  query:
+    handler: src/graphql.graphqlHandler
     events:
       - http:
-          method: post
           path: graphql
+          method: post
           cors: true
-          integration: lambda-proxy
-    environment:
-      DATABASE_URL: ${env:DATABASE_URL}
-      DATABASE_SCHEMAS: ${env:DATABASE_SCHEMAS}
-      JWT_SECRET: ${env:JWT_SECRET}
-      JWT_PG_TYPE_IDENTIFIER: ${env:JWT_PG_TYPE_IDENTIFIER}
