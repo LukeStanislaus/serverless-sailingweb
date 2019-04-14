@@ -1,5 +1,5 @@
 #serverless.yml
-service: lukes-epic-graphql-dynamodb-api
+service: SailingWeb
 provider: 
   name: aws
   runtime: nodejs8.10
@@ -10,27 +10,31 @@ provider:
       Action:
         - dynamodb:GetItem
         - dynamodb:UpdateItem
+        - dynamodb:Scan
+        - dynamodb:ScanItem
+        - dynamodb:DeleteItem
+        - dynamodb:PutItem
       Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
 
 resources:
   Resources:
-    NicknamesTable:
+    SailingWeb:
       Type: 'AWS::DynamoDB::Table'
       Properties:
         AttributeDefinitions:
-          - AttributeName: BoatName
+          - AttributeName: boatName
             AttributeType: S
-          - AttributeName: Crew
+          - AttributeName: crew
             AttributeType: N
         KeySchema:
-          - AttributeName: BoatName
+          - AttributeName: boatName
             KeyType: HASH
-          - AttributeName: Crew
+          - AttributeName: crew
             KeyType: RANGE
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        TableName: BoatData
+        TableName: ${self:provider.environment.DYNAMODB_TABLE}
         
 plugins:
   - serverless-webpack

@@ -29,7 +29,7 @@ export function createItem(params) {
 export function updateItem(params, args) {
   return new Promise((resolve, reject) =>
     dynamoDb.update(params).promise()
-      .then(() => resolve(JSON.stringify(args))
+      .then(() => resolve(args))
       .catch(err => reject(err)),
   );
 }
