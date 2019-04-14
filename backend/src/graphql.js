@@ -2,11 +2,15 @@
 
 const { ApolloServer, gql } = require('apollo-server-lambda');
 import * as db from './dynamo';
+import GraphQLLong from "graphql-type-long"
 
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
+scalar Long
   type RootQuery {
     allBoatData: [BoatData]
+    allRaces: [Race]
+    recentRaces(input: RecentRacesInput!): [Race]
   }
   schema {
     query: RootQuery
@@ -21,13 +25,22 @@ const typeDefs = gql`
       crew: Int!
       pY: Int!
   }
+  type Race {
+    raceId: ID!
+    raceName: String!
+    eventTimeStamp: Long!
+  }
+  input RecentRacesInput{
+    start: Long!
+    end: Long!
+  }
   type CreateRacesPayload{
     result: String
   }
   input CreateRacesInput{
     raceId: ID!
-    name: String!
-    eventTimeStamp: String!
+    raceName: String!
+    eventTimeStamp: Long!
     calendarData: calendarData
   }
   input Creator{
@@ -58,6 +71,7 @@ const typeDefs = gql`
     end: Time
     iCalUID: String
     sequence: Int
+    location: String
   }
   input UpdateBoatDataInput{
     boatName: String!
@@ -68,6 +82,7 @@ const typeDefs = gql`
     boatData: BoatData
   }
 `;
+
 const getAllBoatData = ()=> {
   let params = {
     TableName: "BoatData",    
@@ -86,7 +101,7 @@ const getAllRaces = ()=> {
       'raceId',
       'eventTimeStamp',
       'calendarData',
-      'name'
+      'raceName'
     ],
   }
   return db.scan(params)
@@ -109,22 +124,35 @@ return db.updateItem(params, {boatData:args})
       let params = {
         TableName: "Races",
         Key: { raceId: args.raceId, eventTimeStamp: args.eventTimeStamp },
-        UpdateExpression: 'SET name = :name, calendarData = :calendarData',
+        UpdateExpression: 'SET raceName = :raceName, calendarData = :calendarData',
         ExpressionAttributeValues: {
-        ':name': args.name,
-        ':calendarData': args.calendarData
+        ':raceName': args.raceName,
+        ':calendarData': args.calendarData == null? " " : args.calendarData
         },
         ReturnValues: "ALL_NEW"
       }
-      return db.updateItem(params, "Success")
+      return db.updateItem(params, {"Success!"})
       }
 
+function recentRaces(args){
+let params = {
+  TableName: "Races",
+  KeyConditionExpression: "eventTimeStamp > :start and eventTimeStamp < :end",
+  ExpressionAttributeValues: {
+    ':start': args.start,
+    ':end': args.end
+  }
+}
+  return db.queryItem(params)
+}
 
 // Provide resolver functions for your schema fields
 const resolvers = {
+  Long: GraphQLLong,
   RootQuery: {
     allBoatData: () => getAllBoatData(),
-    allRaces: () => getAllRaces()
+    allRaces: () => getAllRaces(),
+    recentRaces: (parent, args) => recentRaces(args.input)
   },
   RootMutation: {
     updateBoatData: (parent, args) => changeBoatData(args.input),

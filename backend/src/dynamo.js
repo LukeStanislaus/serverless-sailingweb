@@ -34,6 +34,14 @@ export function updateItem(params, args) {
   );
 }
 
+export function queryItem(params){
+  return new Promise((resolve, reject) =>
+  dynamoDb.get(params).promise()
+    .then(data => resolve(data.Items))
+    .catch(err => reject(err)),
+);
+}
+
 export function deleteItem(params, args) {
   return new Promise((resolve, reject) =>
     dynamoDb.delete(params).promise()
