@@ -17,9 +17,8 @@ steps:
 
 - script: |
     cd backend
-    yarn
+    yarn i
     yarn global add serverless
-    cp .env.template .env  
     sls config credentials --provider aws --key $(keyId) --secret $(accessKey) 
     sudo sls deploy
     cd ..

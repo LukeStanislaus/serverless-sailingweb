@@ -1,21 +1,21 @@
-
 import * as db from './dynamo';
 
 export const signOn = (args)=> {
     let params = {
-        TableName: "SignOn",
-        Item: args,
-        ReturnValues: "ALL_NEW"
+        TableName: "Races",
+        Item: {...args.signOn, signOn: 1, type_id: "signOn_"+ args.signOn.userId},
+        ReturnValues: "ALL_OLD"
       }
-      return db.createItem(params, {boatData:args})
+      return {signOn: db.createItem(params)}
   }
   
-  export const specificRace = (args) => {
+  export const specificEvent = (args) => {
     let params = {
-      TableName: "SignOn", 
-      KeyConditionExpression: 'eventId = :eventId',   
+      TableName: "Races", 
+      KeyConditionExpression: 'eventId = :eventId and begins_with(type_id, :type_id)',   
       ExpressionAttributeValues: {
-        ':eventId': args.eventId
+        ':eventId': args.eventData.eventId,
+        ':type_id': "signOn_"
       }
     }
     return db.queryItem(params)

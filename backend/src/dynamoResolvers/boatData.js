@@ -1,7 +1,7 @@
 
 import * as db from './dynamo';
 
-export const getAllBoatData = ()=> {
+export const allBoatData = ()=> {
     let params = {
       TableName: "BoatData",    
       AttributesToGet: [
@@ -13,15 +13,15 @@ export const getAllBoatData = ()=> {
     return db.scan(params)
   }
   
-  export const changeBoatData = (args) => {
+  export const createBoat = (args) => {
     let params = {
       TableName: "BoatData",
       Item: {
-        boatName: args.boatName,
-        crew: args.crew,
-        pY: args.py
+        boatName: args.boatData.boatName,
+        crew: args.boatData.crew,
+        pY: args.boatData.pY
       },
-      ReturnValues: "ALL_NEW"
+      ReturnValues: "ALL_OLD"
     }
-    return db.createItem(params, {boatData:args})
+    return {boatData: db.createItem(params)}
     }

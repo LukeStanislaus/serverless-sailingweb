@@ -14,7 +14,8 @@ module.exports = {
         {
           loader: 'babel-loader',
           options: {
-            presets: ['es2015'],
+            presets: ['env'],
+            plugins: ["syntax-object-rest-spread"],
           },
         },
       ],

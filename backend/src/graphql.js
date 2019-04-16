@@ -3,21 +3,21 @@
 import { ApolloServer } from 'apollo-server-lambda';
 import GraphQLLong from "graphql-type-long"
 import typeDefs from './schema'
-import { getAllBoatData, changeBoatData } from './dynamoResolvers/boatData'
-import { recentEvents, getAllEvents, createEvents } from './dynamoResolvers/events'
-import {signOn, specificRace} from './dynamoResolvers/signOn'
+import { allBoatData, createBoat } from './dynamoResolvers/boatData'
+import { recentEvents, allEvents, createEvent } from './dynamoResolvers/events'
+import {signOn, specificEvent} from './dynamoResolvers/signOn'
 
 const resolvers = {
   Long: GraphQLLong,
   RootQuery: {
-    allBoatData: () => getAllBoatData(),
-    allEvents: () => getAllEvents(),
+    allBoatData: () => allBoatData(),
+    allEvents: () => allEvents(),
     recentEvents: (parent, args) => recentEvents(args.input),
-    specificRace: (parents, args) => specificRace(args.input)
+    specificEvent: (parents, args) => specificEvent(args.input)
   },
   RootMutation: {
-    updateBoatData: (parent, args) => changeBoatData(args.input),
-    createEvents: (parent, args) => createEvents(args.input),
+    createBoat: (parent, args) => createBoat(args.input),
+    createEvent: (parent, args) => createEvent(args.input),
     signOn: (parent, args) => signOn(args.input)
   }
 };

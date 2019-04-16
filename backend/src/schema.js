@@ -2,35 +2,43 @@
 import { gql } from 'apollo-server-lambda';
 
 const typeDefs = gql`
-scalar Long
-  type RootQuery {
-    allBoatData: [BoatData]
-    allEvents: [Event]
-    recentEvents(input: RecentEventsInput!): [Event]
-    specificRace(input: SpecificRaceInput!): [signOn]
-  }
   schema {
     query: RootQuery
     mutation: RootMutation
   }
+
+  scalar Long
+
+  type RootQuery {
+    allBoatData: [BoatData]
+    allEvents: [Event]
+    recentEvents(input: RecentEventsInput!): [Event]
+    specificEvent(input: SpecificEventInput!): [SignOn]
+  }
+
   type RootMutation {
-    updateBoatData(input: UpdateBoatDataInput!): UpdateBoatDataPayload
-    createEvents(input: CreateEventsInput!): CreateEventsPayload
+    createBoat(input: CreateBoatInput!): CreateBoatPayload
+    createEvent(input: CreateEventInput!): CreateEventPayload
     signOn(input: SignOnInput!): SignOnPayload
     
   }
 
-  input SpecificRaceInput{
-      eventId: ID!
+  input SpecificEventInput{
+      eventData: SpecificEventInputData!
   }
-  type signOn{
+  input SpecificEventInputData{
+    eventId: ID!
+  }
+  type SignOn{
     eventId: ID!
     userId: ID!
+    helmName: String!
     boatName: String!
     boatNumber: String!
     crew: String
     pY: Int!
     notes: String
+    crewName: String
 
   }
   type BoatData {
@@ -42,47 +50,91 @@ scalar Long
     eventId: ID!
     eventName: String!
     eventTimeStamp: Long!
+    calendarData: calendarData
   }
   input SignOnInput{
-      eventId: ID!
-      userId: ID!
-      boatName: String!
-      boatNumber: String!
-      crew: String
-      pY: Int!
-      notes: String
+    signOn: SignOnData!
+
+  }
+  input SignOnData{
+    eventId: ID!
+    userId: ID!
+    helmName: String!
+    boatName: String!
+    boatNumber: String!
+    crew: String
+    pY: Int!
+    notes: String
+    crewName: String
 
   }
   type SignOnPayload{
-      
+    signOn: SignOn
+
   }
   input RecentEventsInput{
+    range: RecentEventsInputRange!
+  }
+  input RecentEventsInputRange{
     start: Long!
     end: Long!
   }
-  type CreateEventsPayload{
-    result: String
+  type CreateEventPayload{
+    event: Event
   }
-  input CreateEventsInput{
+  input CreateEventInput{
+    event: CreateEventData!
+  }
+  input CreateEventData {
     eventId: ID!
     eventName: String!
     eventTimeStamp: Long!
-    calendarData: calendarData
+    calendarData: calendarDataInput
   }
-  input Creator{
+  input CreatorInput{
     email: String
     displayName: String
     self: Boolean
   }
-  input Organizer{
+  input OrganizerInput{
     email: String
     displayName: String
     self: Boolean
   }
-  input Time{
+  input TimeInput{
     dateTime: String
   }
-  input calendarData{
+  input calendarDataInput{
+    kind: String
+    etag: String
+    id: String
+    status: String
+    htmlLink: String
+    created: String
+    updated: String
+    summary: String
+    creator: CreatorInput
+    organizer: OrganizerInput
+    start: TimeInput
+    end: TimeInput
+    iCalUID: String
+    sequence: Int
+    location: String
+  }
+  type Creator{
+    email: String
+    displayName: String
+    self: Boolean
+  }
+  type Organizer{
+    email: String
+    displayName: String
+    self: Boolean
+  }
+  type Time{
+    dateTime: String
+  }
+  type calendarData{
     kind: String
     etag: String
     id: String
@@ -99,12 +151,16 @@ scalar Long
     sequence: Int
     location: String
   }
-  input UpdateBoatDataInput{
+
+  input CreateBoatInput{
+    boatData: CreateBoatData!
+  }
+  input CreateBoatData {
     boatName: String!
     crew: Int!
     pY: Int!
-  }
-  type UpdateBoatDataPayload{
+}
+  type CreateBoatPayload{
     boatData: BoatData
   }
 `;
