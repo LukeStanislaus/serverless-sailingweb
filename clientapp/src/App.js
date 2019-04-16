@@ -13,9 +13,8 @@ function App() {
   return (
     <Root>
       <nav>
-        <Link to="/">Whitefriars Sailing Club</Link>
         <Link to="/">Home</Link>
-        <Link to="/enter race">Enter Race</Link>
+        <Link to="/about">About</Link>
         <Link to="/blog">Blog</Link>
         <Link to="/dynamic">Dynamic</Link>
       </nav>
