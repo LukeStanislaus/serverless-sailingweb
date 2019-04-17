@@ -678,18 +678,18 @@ var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_)
 // EXTERNAL MODULE: external "react-static"
 var external_react_static_ = __webpack_require__(4);
 
-// EXTERNAL MODULE: C:/Users/Luke.SONYLAPTOP/source/repos/serverless-sailingweb/clientapp/src/components/Router.js
+// EXTERNAL MODULE: C:/Users/Luke/source/repos/serverless-sailingweb/clientapp/src/components/Router.js
 var Router = __webpack_require__(3);
 
-// CONCATENATED MODULE: C:/Users/Luke.SONYLAPTOP/source/repos/serverless-sailingweb/clientapp/src/containers/Dynamic.js
+// CONCATENATED MODULE: C:/Users/Luke/source/repos/serverless-sailingweb/clientapp/src/containers/Dynamic.js
 
 /* harmony default export */ var Dynamic = (function () {
   return external_react_default.a.createElement("div", null, "This is a dynamic page! It will not be statically exported, but is available at runtime");
 });
-// EXTERNAL MODULE: C:/Users/Luke.SONYLAPTOP/source/repos/serverless-sailingweb/clientapp/src/app.css
+// EXTERNAL MODULE: C:/Users/Luke/source/repos/serverless-sailingweb/clientapp/src/app.css
 var app = __webpack_require__(40);
 
-// CONCATENATED MODULE: C:/Users/Luke.SONYLAPTOP/source/repos/serverless-sailingweb/clientapp/src/App.js
+// CONCATENATED MODULE: C:/Users/Luke/source/repos/serverless-sailingweb/clientapp/src/App.js
 
  //
 
@@ -963,7 +963,7 @@ var plugins = [{
 /* 14 */
 /***/ (function(module, exports) {
 
-module.exports = require("C:\\Users\\Luke.SONYLAPTOP\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\browser");
+module.exports = require("C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\browser");
 
 /***/ }),
 /* 15 */
@@ -978,8 +978,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var babel_plugin_universal_import_universalImport__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(babel_plugin_universal_import_universalImport__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var C_Users_Luke_SONYLAPTOP_source_repos_serverless_sailingweb_clientapp_node_modules_react_universal_component_dist_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
-/* harmony import */ var C_Users_Luke_SONYLAPTOP_source_repos_serverless_sailingweb_clientapp_node_modules_react_universal_component_dist_index_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(C_Users_Luke_SONYLAPTOP_source_repos_serverless_sailingweb_clientapp_node_modules_react_universal_component_dist_index_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var C_Users_Luke_source_repos_serverless_sailingweb_clientapp_node_modules_react_universal_component_dist_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
+/* harmony import */ var C_Users_Luke_source_repos_serverless_sailingweb_clientapp_node_modules_react_universal_component_dist_index_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(C_Users_Luke_source_repos_serverless_sailingweb_clientapp_node_modules_react_universal_component_dist_index_js__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
@@ -992,7 +992,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-Object(C_Users_Luke_SONYLAPTOP_source_repos_serverless_sailingweb_clientapp_node_modules_react_universal_component_dist_index_js__WEBPACK_IMPORTED_MODULE_3__["setHasBabelPlugin"])();
+Object(C_Users_Luke_source_repos_serverless_sailingweb_clientapp_node_modules_react_universal_component_dist_index_js__WEBPACK_IMPORTED_MODULE_3__["setHasBabelPlugin"])();
 var universalOptions = {
   loading: function loading() {
     return null;
@@ -1003,7 +1003,7 @@ var universalOptions = {
   },
   ignoreBabelRename: true
 };
-var t_0 = C_Users_Luke_SONYLAPTOP_source_repos_serverless_sailingweb_clientapp_node_modules_react_universal_component_dist_index_js__WEBPACK_IMPORTED_MODULE_3___default()(babel_plugin_universal_import_universalImport__WEBPACK_IMPORTED_MODULE_1___default()({
+var t_0 = C_Users_Luke_source_repos_serverless_sailingweb_clientapp_node_modules_react_universal_component_dist_index_js__WEBPACK_IMPORTED_MODULE_3___default()(babel_plugin_universal_import_universalImport__WEBPACK_IMPORTED_MODULE_1___default()({
   id: "../src/pages/404.js",
   load: function load() {
     return Promise.all([Promise.resolve(/* import() | src/pages/404 */).then(__webpack_require__.bind(null, 18))]).then(function (proms) {
@@ -1021,7 +1021,7 @@ var t_0 = C_Users_Luke_SONYLAPTOP_source_repos_serverless_sailingweb_clientapp_n
   }
 }), universalOptions);
 t_0.template = '../src/pages/404.js';
-var t_1 = C_Users_Luke_SONYLAPTOP_source_repos_serverless_sailingweb_clientapp_node_modules_react_universal_component_dist_index_js__WEBPACK_IMPORTED_MODULE_3___default()(babel_plugin_universal_import_universalImport__WEBPACK_IMPORTED_MODULE_1___default()({
+var t_1 = C_Users_Luke_source_repos_serverless_sailingweb_clientapp_node_modules_react_universal_component_dist_index_js__WEBPACK_IMPORTED_MODULE_3___default()(babel_plugin_universal_import_universalImport__WEBPACK_IMPORTED_MODULE_1___default()({
   id: "../src/pages/about.js",
   load: function load() {
     return Promise.all([Promise.resolve(/* import() | src/pages/about */).then(__webpack_require__.bind(null, 19))]).then(function (proms) {
@@ -1039,7 +1039,7 @@ var t_1 = C_Users_Luke_SONYLAPTOP_source_repos_serverless_sailingweb_clientapp_n
   }
 }), universalOptions);
 t_1.template = '../src/pages/about.js';
-var t_2 = C_Users_Luke_SONYLAPTOP_source_repos_serverless_sailingweb_clientapp_node_modules_react_universal_component_dist_index_js__WEBPACK_IMPORTED_MODULE_3___default()(babel_plugin_universal_import_universalImport__WEBPACK_IMPORTED_MODULE_1___default()({
+var t_2 = C_Users_Luke_source_repos_serverless_sailingweb_clientapp_node_modules_react_universal_component_dist_index_js__WEBPACK_IMPORTED_MODULE_3___default()(babel_plugin_universal_import_universalImport__WEBPACK_IMPORTED_MODULE_1___default()({
   id: "../src/pages/blog.js",
   load: function load() {
     return Promise.all([Promise.resolve(/* import() | src/pages/blog */).then(__webpack_require__.bind(null, 20))]).then(function (proms) {
@@ -1057,7 +1057,7 @@ var t_2 = C_Users_Luke_SONYLAPTOP_source_repos_serverless_sailingweb_clientapp_n
   }
 }), universalOptions);
 t_2.template = '../src/pages/blog.js';
-var t_3 = C_Users_Luke_SONYLAPTOP_source_repos_serverless_sailingweb_clientapp_node_modules_react_universal_component_dist_index_js__WEBPACK_IMPORTED_MODULE_3___default()(babel_plugin_universal_import_universalImport__WEBPACK_IMPORTED_MODULE_1___default()({
+var t_3 = C_Users_Luke_source_repos_serverless_sailingweb_clientapp_node_modules_react_universal_component_dist_index_js__WEBPACK_IMPORTED_MODULE_3___default()(babel_plugin_universal_import_universalImport__WEBPACK_IMPORTED_MODULE_1___default()({
   id: "../src/pages/index.js",
   load: function load() {
     return Promise.all([Promise.resolve(/* import() | src/pages/index */).then(__webpack_require__.bind(null, 21))]).then(function (proms) {
@@ -1075,7 +1075,7 @@ var t_3 = C_Users_Luke_SONYLAPTOP_source_repos_serverless_sailingweb_clientapp_n
   }
 }), universalOptions);
 t_3.template = '../src/pages/index.js';
-var t_4 = C_Users_Luke_SONYLAPTOP_source_repos_serverless_sailingweb_clientapp_node_modules_react_universal_component_dist_index_js__WEBPACK_IMPORTED_MODULE_3___default()(babel_plugin_universal_import_universalImport__WEBPACK_IMPORTED_MODULE_1___default()({
+var t_4 = C_Users_Luke_source_repos_serverless_sailingweb_clientapp_node_modules_react_universal_component_dist_index_js__WEBPACK_IMPORTED_MODULE_3___default()(babel_plugin_universal_import_universalImport__WEBPACK_IMPORTED_MODULE_1___default()({
   id: "../src/containers/Post",
   load: function load() {
     return Promise.all([Promise.resolve(/* import() | src/containers/Post */).then(__webpack_require__.bind(null, 22))]).then(function (proms) {
@@ -1371,7 +1371,7 @@ var _require = __webpack_require__(14),
 registerPlugins(plugins);
 
 if (typeof document !== 'undefined' && module && module.hot) {
-  module.hot.accept("C:\\Users\\Luke.SONYLAPTOP\\source\\repos\\serverless-sailingweb\\clientapp\\artifacts\\react-static-browser-plugins.js", function () {
+  module.hot.accept("C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\artifacts\\react-static-browser-plugins.js", function () {
     registerPlugins(__webpack_require__(13)["default"]);
   });
 }
@@ -1395,7 +1395,7 @@ var _require2 = __webpack_require__(15),
 registerTemplates(templates, notFoundTemplate);
 
 if (typeof document !== 'undefined' && module && module.hot) {
-  module.hot.accept("C:\\Users\\Luke.SONYLAPTOP\\source\\repos\\serverless-sailingweb\\clientapp\\artifacts\\react-static-templates.js", function () {
+  module.hot.accept("C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\artifacts\\react-static-templates.js", function () {
     var _require3 = __webpack_require__(15),
         templates = _require3["default"],
         notFoundTemplate = _require3.notFoundTemplate;
@@ -1912,7 +1912,7 @@ module.exports = require("@babel/runtime/helpers/objectWithoutProperties");
 /* 37 */
 /***/ (function(module, exports) {
 
-module.exports = require("C:\\Users\\Luke.SONYLAPTOP\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\browser\\hooks\\useStaticInfo");
+module.exports = require("C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\browser\\hooks\\useStaticInfo");
 
 /***/ }),
 /* 38 */
