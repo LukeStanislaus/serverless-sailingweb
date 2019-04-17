@@ -18,13 +18,13 @@ steps:
 - script: |
     cd backend
     npm i
-    sudo npx sls config credentials --provider aws --key $(keyId) --secret $(accessKey) 
-    sudo npx sls deploy
+    npx sls config credentials --provider aws --key $(keyId) --secret $(accessKey) 
+    npx sls deploy
     cd ..
     cd clientapp
-    sudo npm install
-    sudo npm run build
-    sudo npx firebase deploy --token $FIREBASE_DEPLOY_KEY
+    npm install
+    npm run build
+    npx firebase deploy --token $FIREBASE_DEPLOY_KEY
   env: {
         AWS_ACCESS_KEY_ID: $(keyId),
         AWS_SECRET_ACCESS_KEY: $(accessKey)
