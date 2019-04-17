@@ -18,6 +18,8 @@ steps:
 - script: |
     cd backend
     npm i
+    npm i -g serverless
+    npm i -g firebase-tools
     npx sls config credentials --provider aws --key $(keyId) --secret $(accessKey) 
     npx sls deploy
     cd ..
