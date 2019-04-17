@@ -1,8 +1,0 @@
-language: node_js
-
-install: 
-  - cd backend
-  - npm i 
-  - npm i -g serverless
-  - npm i -g firebase-tools
-  

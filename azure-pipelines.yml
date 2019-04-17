@@ -21,6 +21,7 @@ steps:
     npm i -g serverless
     npm i -g firebase-tools
     npx -q sls config credentials --provider aws --key $(keyId) --secret $(accessKey) 
+    npm -q sls offline start
     npx -q sls deploy
     cd ..
     cd clientapp
@@ -33,4 +34,8 @@ steps:
 
   }
 
-- task: PublishBuildArtifacts@1
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testRunner: JUnit
+    testResultsFiles: 'backend/tests/result/junit.xml'
