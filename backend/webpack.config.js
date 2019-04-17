@@ -14,7 +14,7 @@ module.exports = {
         {
           loader: 'babel-loader',
           options: {
-            presets: ['env'],
+            presets: ['@babel/preset-env'],
             plugins: ["syntax-object-rest-spread"],
           },
         },
@@ -22,7 +22,7 @@ module.exports = {
     }],
   },
   output: {
-    libraryTarget: 'commonjs',
+    libraryTarget: 'commonjs2',
     path: path.join(__dirname, '.webpack'),
     filename: '[name].js',
   },

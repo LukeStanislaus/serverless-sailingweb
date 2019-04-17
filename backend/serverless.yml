@@ -57,13 +57,18 @@ resources:
 plugins:
   - serverless-webpack
   - serverless-jest-plugin
-
+  - serverless-dynamodb-local
+  - serverless-offline
 custom: 
-  webpack:    
-    keepOutputDirectory: true
-    includeModules: true
-    forceExclude: 
-      - aws-sdk
+  dynamodb: 
+    start:
+      port: 8000
+      inMemory: true
+      migrate: true
+  webpack:
+    webpackConfig: './webpack.config.js'   # Name of webpack configuration file
+    includeModules: true   # Node modules configuration for packaging
+    packager: 'yarn'   # Packager that will be used to package your external modules
   jest:
     # You can pass jest options here
     # See details here: https://facebook.github.io/jest/docs/configuration.html

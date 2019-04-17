@@ -11,13 +11,119 @@ const wrapped = lambdaWrapper.wrap(mod, { handler: 'graphqlHandler' });
 
 describe('query', () => {
   beforeAll((done) => {
-  lambdaWrapper.init(liveFunction); // Run the deployed lambda
+  lambdaWrapper.init(wrapped); // Run the deployed lambda
 
     done();
   });
 
-  it('implement tests here', () => {
-    return wrapped.run({}).then((response) => {
+  it('returns something', () => {
+    return wrapped.run(
+      {
+        "resource": "/graphql",
+        "path": "/graphql",
+        "httpMethod": "POST",
+        "headers": {
+            "CloudFront-Forwarded-Proto": "https",
+            "CloudFront-Is-Desktop-Viewer": "true",
+            "CloudFront-Is-Mobile-Viewer": "false",
+            "CloudFront-Is-SmartTV-Viewer": "false",
+            "CloudFront-Is-Tablet-Viewer": "false",
+            "CloudFront-Viewer-Country": "GB",
+            "Content-Type": "application/json",
+            "Host": "hfnajybwp9.execute-api.us-east-1.amazonaws.com",
+            "User-Agent": "graphiql-app",
+            "Via": "1.1 c8af64e6cd4225d75ce8f5c40c654b89.cloudfront.net (CloudFront)",
+            "X-Amz-Cf-Id": "nQ_yqXeIjqdmarhXcYdougEvOgsNwQEtsecD7NfTM6IGiyOtT_UbLw==",
+            "X-Amzn-Trace-Id": "Root=1-5cb64eb8-8f827079f3510105f87ae4be",
+            "X-Forwarded-For": "2.30.63.213, 70.132.49.76",
+            "X-Forwarded-Port": "443",
+            "X-Forwarded-Proto": "https"
+        },
+        "multiValueHeaders": {
+            "CloudFront-Forwarded-Proto": [
+                "https"
+            ],
+            "CloudFront-Is-Desktop-Viewer": [
+                "true"
+            ],
+            "CloudFront-Is-Mobile-Viewer": [
+                "false"
+            ],
+            "CloudFront-Is-SmartTV-Viewer": [
+                "false"
+            ],
+            "CloudFront-Is-Tablet-Viewer": [
+                "false"
+            ],
+            "CloudFront-Viewer-Country": [
+                "GB"
+            ],
+            "Content-Type": [
+                "application/json"
+            ],
+            "Host": [
+                "hfnajybwp9.execute-api.us-east-1.amazonaws.com"
+            ],
+            "User-Agent": [
+                "graphiql-app"
+            ],
+            "Via": [
+                "1.1 c8af64e6cd4225d75ce8f5c40c654b89.cloudfront.net (CloudFront)"
+            ],
+            "X-Amz-Cf-Id": [
+                "nQ_yqXeIjqdmarhXcYdougEvOgsNwQEtsecD7NfTM6IGiyOtT_UbLw=="
+            ],
+            "X-Amzn-Trace-Id": [
+                "Root=1-5cb64eb8-8f827079f3510105f87ae4be"
+            ],
+            "X-Forwarded-For": [
+                "2.30.63.213, 70.132.49.76"
+            ],
+            "X-Forwarded-Port": [
+                "443"
+            ],
+            "X-Forwarded-Proto": [
+                "https"
+            ]
+        },
+        "queryStringParameters": null,
+        "multiValueQueryStringParameters": null,
+        "pathParameters": null,
+        "stageVariables": null,
+        "requestContext": {
+            "resourceId": "901dzs",
+            "resourcePath": "/graphql",
+            "httpMethod": "POST",
+            "extendedRequestId": "YQE83HNYIAMFo-w=",
+            "requestTime": "16/Apr/2019:21:52:56 +0000",
+            "path": "/dev/graphql",
+            "accountId": "118983564982",
+            "protocol": "HTTP/1.1",
+            "stage": "dev",
+            "domainPrefix": "hfnajybwp9",
+            "requestTimeEpoch": 1555451576793,
+            "requestId": "fe8145ca-6091-11e9-9425-9b4cee0a6d3f",
+            "identity": {
+                "cognitoIdentityPoolId": null,
+                "accountId": null,
+                "cognitoIdentityId": null,
+                "caller": null,
+                "sourceIp": "2.30.63.213",
+                "accessKey": null,
+                "cognitoAuthenticationType": null,
+                "cognitoAuthenticationProvider": null,
+                "userArn": null,
+                "userAgent": "graphiql-app",
+                "user": null
+            },
+            "domainName": "hfnajybwp9.execute-api.us-east-1.amazonaws.com",
+            "apiId": "hfnajybwp9"
+        },
+        "body": "{\"query\":\"query{\\n  specificEvent(input: {eventData:{eventId:\\\"4f061a32-682e-40e3-bc7e-036b58a2e2e6\\\"}}){\\n    pY\\n    helmName\\n  }\\n}\",\"variables\":null}",
+        "isBase64Encoded": false
+    }
+     ).then((response) => {
+      console.log(response);
       expect(response).toBeDefined();
     });
   });

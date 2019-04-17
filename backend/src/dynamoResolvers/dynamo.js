@@ -1,6 +1,6 @@
-import AWS from 'aws-sdk'; // eslint-disable-line import/no-extraneous-dependencies
+var dynamodb = require('serverless-dynamodb-client');
 
-const dynamoDb = new AWS.DynamoDB.DocumentClient();
+var dynamoDb = dynamodb.doc;  // return an instance of new AWS.DynamoDB.DocumentClient()
 
 export function scan(params) {
   return new Promise((resolve, reject) =>

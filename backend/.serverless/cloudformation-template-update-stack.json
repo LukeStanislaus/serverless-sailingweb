@@ -29,7 +29,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/SailingWeb/dev/1555429505610-2019-04-16T15:45:05.610Z/SailingWeb.zip"
+          "S3Key": "serverless/SailingWeb/dev/1555504622538-2019-04-17T12:37:02.538Z/SailingWeb.zip"
         },
         "FunctionName": "SailingWeb-dev-query",
         "Handler": "src/graphql.graphqlHandler",
@@ -42,14 +42,14 @@
         "QueryLogGroup"
       ]
     },
-    "QueryLambdaVersion05IEI7hbUTUzLGEQYADCakR50I0sGZHP7VtTHW0C1FM": {
+    "QueryLambdaVersionb7K3OaOuJYzjK7Euh5xnrGTKhJaXPclel4WlLNzieDU": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "QueryLambdaFunction"
         },
-        "CodeSha256": "wjhkpJqafOFHr/Xs8dzoklplA6LSugQruixT5ed0VhI="
+        "CodeSha256": "QZe1aF/SSfCvm4QtZzUaMd9JnUsWmjVy081KfLuhQXQ="
       }
     },
     "ApiGatewayRestApi": {
@@ -168,7 +168,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1555429441270": {
+    "ApiGatewayDeployment1555504563463": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -320,7 +320,7 @@
     "QueryLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "QueryLambdaVersion05IEI7hbUTUzLGEQYADCakR50I0sGZHP7VtTHW0C1FM"
+        "Ref": "QueryLambdaVersionb7K3OaOuJYzjK7Euh5xnrGTKhJaXPclel4WlLNzieDU"
       }
     },
     "ServiceEndpoint": {
