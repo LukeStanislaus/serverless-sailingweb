@@ -21,7 +21,7 @@ steps:
     npm i -g serverless
     npm i -g firebase-tools
     npx -q sls config credentials --provider aws --key $(keyId) --secret $(accessKey) 
-    npm -q sls offline start
+    npx -q sls offline start
     npx -q sls deploy
     cd ..
     cd clientapp
