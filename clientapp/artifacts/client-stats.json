@@ -2,27 +2,27 @@
   "errors": [],
   "warnings": [],
   "version": "4.30.0",
-  "hash": "6d45a5befc654d290f1b",
-  "time": 12130,
-  "builtAt": 1555513043584,
+  "hash": "8565933ee6ae3e87ba1e",
+  "time": 11362,
+  "builtAt": 1555536771608,
   "publicPath": "/",
   "outputPath": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\dist",
   "assetsByChunkName": {
-    "main": "main.6d45a5be.js",
+    "main": "main.8565933e.js",
     "src/containers/Post": "templates/src/containers/Post.049c1841.js",
     "src/pages/404": "templates/src/pages/404.150b84cb.js",
     "src/pages/about": "templates/src/pages/about.fa2b6956.js",
     "src/pages/blog": "templates/src/pages/blog.6f59e674.js",
     "src/pages/index": "templates/src/pages/index.f90cc053.js",
     "styles": [
-      "styles.49c5db09.css",
-      "templates/styles.49c5db09.js"
+      "styles.c1b368bf.css",
+      "templates/styles.c1b368bf.js"
     ],
     "vendors~main": "templates/vendors~main.a633e6a9.js"
   },
   "assets": [
     {
-      "name": "main.6d45a5be.js",
+      "name": "main.8565933e.js",
       "size": 6513,
       "chunks": [
         0
@@ -33,7 +33,7 @@
       "emitted": true
     },
     {
-      "name": "styles.49c5db09.css",
+      "name": "styles.c1b368bf.css",
       "size": 361,
       "chunks": [
         6
@@ -99,7 +99,7 @@
       "emitted": true
     },
     {
-      "name": "templates/styles.49c5db09.js",
+      "name": "templates/styles.c1b368bf.js",
       "size": 82,
       "chunks": [
         6
@@ -130,10 +130,10 @@
         0
       ],
       "assets": [
-        "styles.49c5db09.css",
-        "templates/styles.49c5db09.js",
+        "styles.c1b368bf.css",
+        "templates/styles.c1b368bf.js",
         "templates/vendors~main.a633e6a9.js",
-        "main.6d45a5be.js"
+        "main.8565933e.js"
       ],
       "children": {},
       "childAssets": {}
@@ -147,10 +147,10 @@
         0
       ],
       "assets": [
-        "styles.49c5db09.css",
-        "templates/styles.49c5db09.js",
+        "styles.c1b368bf.css",
+        "templates/styles.c1b368bf.js",
         "templates/vendors~main.a633e6a9.js",
-        "main.6d45a5be.js"
+        "main.8565933e.js"
       ],
       "children": {},
       "childAssets": {}
@@ -217,7 +217,7 @@
         "main"
       ],
       "files": [
-        "main.6d45a5be.js"
+        "main.8565933e.js"
       ],
       "hash": "d47ff33bd828eadd40a8",
       "siblings": [
@@ -1444,10 +1444,10 @@
         "styles"
       ],
       "files": [
-        "styles.49c5db09.css",
-        "templates/styles.49c5db09.js"
+        "styles.c1b368bf.css",
+        "templates/styles.c1b368bf.js"
       ],
-      "hash": "49c5db095548b8eba869",
+      "hash": "c1b368bf66c5e2dac0a7",
       "siblings": [
         0,
         7
@@ -1522,7 +1522,7 @@
             "ModuleConcatenation bailout: Module is not an ECMAScript module"
           ],
           "depth": 4,
-          "source": "// extracted by extract-css-chunks-webpack-plugin\n    if(module.hot) {\n      // 1555513035614\n      var cssReload = require(\"C:/Users/Luke/source/repos/serverless-sailingweb/clientapp/node_modules/extract-css-chunks-webpack-plugin/dist/hmr/hotModuleReplacement.js\")(module.id, {\"hot\":true,\"locals\":false});\n      module.hot.dispose(cssReload);\n      module.hot.accept(undefined, cssReload);\n    }\n  "
+          "source": "// extracted by extract-css-chunks-webpack-plugin\n    if(module.hot) {\n      // 1555536764047\n      var cssReload = require(\"C:/Users/Luke/source/repos/serverless-sailingweb/clientapp/node_modules/extract-css-chunks-webpack-plugin/dist/hmr/hotModuleReplacement.js\")(module.id, {\"hot\":true,\"locals\":false});\n      module.hot.dispose(cssReload);\n      module.hot.accept(undefined, cssReload);\n    }\n  "
         },
         {
           "id": "",
@@ -24482,7 +24482,7 @@
         "ModuleConcatenation bailout: Module is not an ECMAScript module"
       ],
       "depth": 4,
-      "source": "// extracted by extract-css-chunks-webpack-plugin\n    if(module.hot) {\n      // 1555513035614\n      var cssReload = require(\"C:/Users/Luke/source/repos/serverless-sailingweb/clientapp/node_modules/extract-css-chunks-webpack-plugin/dist/hmr/hotModuleReplacement.js\")(module.id, {\"hot\":true,\"locals\":false});\n      module.hot.dispose(cssReload);\n      module.hot.accept(undefined, cssReload);\n    }\n  "
+      "source": "// extracted by extract-css-chunks-webpack-plugin\n    if(module.hot) {\n      // 1555536764047\n      var cssReload = require(\"C:/Users/Luke/source/repos/serverless-sailingweb/clientapp/node_modules/extract-css-chunks-webpack-plugin/dist/hmr/hotModuleReplacement.js\")(module.id, {\"hot\":true,\"locals\":false});\n      module.hot.dispose(cssReload);\n      module.hot.accept(undefined, cssReload);\n    }\n  "
     },
     {
       "id": "",
