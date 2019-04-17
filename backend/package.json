@@ -41,7 +41,7 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
     ],
-    "coverageReporters": ["cobertura"]
+    "coverageReporters": ["cobertura", "html"]
   },
   "jest-junit":{
     "output": "./tests/result/junit.xml"
