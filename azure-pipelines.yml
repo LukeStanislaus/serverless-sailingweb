@@ -26,8 +26,8 @@ steps:
     cd ..
     cd clientapp
     sudo npm install
-    npm run build
-    firebase deploy --token $FIREBASE_DEPLOY_KEY
+    sudo npm run build
+    sudo firebase deploy --token $FIREBASE_DEPLOY_KEY
   env: {
         AWS_ACCESS_KEY_ID: $(keyId),
         AWS_SECRET_ACCESS_KEY: $(accessKey)
