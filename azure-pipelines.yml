@@ -18,16 +18,13 @@ steps:
 - script: |
     cd backend
     npm i
-    npm i -g serverless
-    
-    npm i -g firebase-tools
-    sls config credentials --provider aws --key $(keyId) --secret $(accessKey) 
-    sudo sls deploy
+    sudo npx sls config credentials --provider aws --key $(keyId) --secret $(accessKey) 
+    sudo npx sls deploy
     cd ..
     cd clientapp
     sudo npm install
     sudo npm run build
-    sudo firebase deploy --token $FIREBASE_DEPLOY_KEY
+    sudo npx firebase deploy --token $FIREBASE_DEPLOY_KEY
   env: {
         AWS_ACCESS_KEY_ID: $(keyId),
         AWS_SECRET_ACCESS_KEY: $(accessKey)
