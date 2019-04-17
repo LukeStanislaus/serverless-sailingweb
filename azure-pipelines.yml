@@ -17,10 +17,10 @@ steps:
 
 - script: |
     cd backend
-    yarn i
-    yarn global add serverless
+    npm i
+    npm i -g serverless
     
-    yarn global add firebase-tools
+    npm i -g firebase-tools
     sls config credentials --provider aws --key $(keyId) --secret $(accessKey) 
     sudo sls deploy
     cd ..
