@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="1" failures="1" time="8.192">
+  <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2019-04-17T22:41:13" time="4.216" tests="1">
+    <testcase classname=" returns something" name=" returns something" time="2.055">
+      <failure>FetchError: request to http://localhost:3000/graphql failed, reason: connect ECONNREFUSED 127.0.0.1:3000
+    at ClientRequest.&lt;anonymous&gt; (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\node-fetch\lib\index.js:1444:11)
+    at ClientRequest.emit (events.js:197:13)
+    at Socket.socketErrorListener (_http_client.js:399:9)
+    at Socket.emit (events.js:197:13)
+    at emitErrorNT (internal/streams/destroy.js:82:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:50:3)
+    at processTicksAndRejections (internal/process/next_tick.js:76:17)</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

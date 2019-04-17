@@ -56,7 +56,6 @@ resources:
         
 plugins:
   - serverless-webpack
-  - serverless-jest-plugin
   - serverless-dynamodb-local
   - serverless-offline
 custom: 
@@ -69,11 +68,8 @@ custom:
     webpackConfig: './webpack.config.js'   # Name of webpack configuration file
     includeModules: true   # Node modules configuration for packaging
     packager: 'yarn'   # Packager that will be used to package your external modules
-  jest:
-    # You can pass jest options here
-    # See details here: https://facebook.github.io/jest/docs/configuration.html
-    # For instance, uncomment next line to enable code coverage
-    collectCoverage: true
+  serverless-offline:
+    exec: "test.bat"
 functions:
   query:
     handler: src/graphql.graphqlHandler
