@@ -22,6 +22,7 @@ steps:
     npm i -g serverless
     npm i -g firebase-tools
     npx -q sls config credentials --provider aws --key $(keyId) --secret $(accessKey) 
+    npx -q sls dynamodb install
     npx -q sls offline start
     npx -q sls deploy
     cd ..
