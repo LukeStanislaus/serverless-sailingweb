@@ -17,24 +17,21 @@ steps:
 
 - script: |
     cd backend
-    yarn i
-    yarn global add serverless
+    npm i
+    npm i -g serverless
+    
+    npm i -g firebase-tools
     sls config credentials --provider aws --key $(keyId) --secret $(accessKey) 
     sudo sls deploy
     cd ..
     cd clientapp
     sudo npm install
-    npm run build
+    sudo npm run build
+    sudo firebase deploy --token $FIREBASE_DEPLOY_KEY
   env: {
         AWS_ACCESS_KEY_ID: $(keyId),
         AWS_SECRET_ACCESS_KEY: $(accessKey)
 
   }
-  displayName: 'npm install and build'
-
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)/clientapp/build'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
