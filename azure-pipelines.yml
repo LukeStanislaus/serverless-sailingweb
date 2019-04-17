@@ -16,6 +16,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    sudo apt install jre
     cd backend
     npm i
     npm i -g serverless
