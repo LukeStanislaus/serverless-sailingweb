@@ -49,5 +49,5 @@ steps:
 - task: PublishCodeCoverageResults@1
   inputs: 
     codeCoverageTool: Cobertura
-    summaryFileLocation: '$(System.DefaultWorkingDirectory)/backend/coverage/clover.xml'
-    reportDirectory: '$(System.DefaultWorkingDirectory)/backend/coverage'
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/backend/coverage/cobertura-coverage.xml'
+    reportDirectory: '$(System.DefaultWorkingDirectory)/backend/coverage/lcov-report'
