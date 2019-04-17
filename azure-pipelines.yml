@@ -24,15 +24,19 @@ steps:
     npx -q sls offline start
     npx -q sls deploy
     cd ..
-    cd clientapp
-    npm install
-    npm run build
-    npx -q firebase deploy --token "$FIREBASE_DEPLOY_KEY" --non-interactive
   env: {
         AWS_ACCESS_KEY_ID: $(keyId),
         AWS_SECRET_ACCESS_KEY: $(accessKey)
 
   }
+  displayName: Backend
+
+- script: |
+    cd clientapp
+    npm install
+    npm run build
+    npx -q firebase deploy --token "$FIREBASE_DEPLOY_KEY" --non-interactive
+  displayName: Clientapp
 
 - task: PublishTestResults@2
   condition: succeededOrFailed()
