@@ -39,3 +39,9 @@ steps:
   inputs:
     testRunner: JUnit
     testResultsFiles: 'backend/tests/result/junit.xml'
+
+- task: PublishCodeCoverageResults@1
+  inputs: 
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/backend/coverage/clover.xml'
+    reportDirectory: '$(System.DefaultWorkingDirectory)/backend/coverage'
