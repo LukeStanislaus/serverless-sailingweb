@@ -24,10 +24,6 @@ const resolvers = {
 
 const server = new ApolloServer({ typeDefs, 
   resolvers,
-context: ({event, context}) => {
-  console.log(JSON.stringify(event));
-  
-  console.log(JSON.stringify(context));
-} });
+});
 export {server}
 exports.graphqlHandler = server.createHandler();

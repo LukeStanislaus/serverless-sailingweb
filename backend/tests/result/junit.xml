@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="1" failures="0" time="7.299">
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-04-17T23:39:27" time="3.47" tests="1">
-    <testcase classname=" returns something" name=" returns something" time="1.383">
+<testsuites name="jest tests" tests="4" failures="0" time="8.39">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-04-18T17:12:29" time="3.611" tests="1">
+    <testcase classname=" allBoatData" name=" allBoatData" time="1.345">
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-04-18T17:12:29" time="3.922" tests="3">
+    <testcase classname=" allEvents query returns event" name=" allEvents query returns event" time="0.374">
+    </testcase>
+    <testcase classname=" recentEvents query returns event" name=" recentEvents query returns event" time="0.183">
+    </testcase>
+    <testcase classname=" specificEvent query returns event" name=" specificEvent query returns event" time="0.124">
     </testcase>
   </testsuite>
 </testsuites>

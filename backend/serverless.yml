@@ -64,6 +64,14 @@ custom:
       port: 8000
       inMemory: true
       migrate: true
+      seed: true
+    seed:
+      test:
+        sources:
+          - table: BoatData
+            sources: [./tests/seed/BoatData.json]
+          - table: Races
+            sources: [./tests/seed/Races.json]
   webpack:
     webpackConfig: './webpack.config.js'   # Name of webpack configuration file
     includeModules: true   # Node modules configuration for packaging

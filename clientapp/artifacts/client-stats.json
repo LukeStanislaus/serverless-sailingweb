@@ -2,27 +2,27 @@
   "errors": [],
   "warnings": [],
   "version": "4.30.0",
-  "hash": "8565933ee6ae3e87ba1e",
-  "time": 11362,
-  "builtAt": 1555536771608,
+  "hash": "3e194e5cfbd143d1ac23",
+  "time": 4112,
+  "builtAt": 1555589909999,
   "publicPath": "/",
   "outputPath": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\dist",
   "assetsByChunkName": {
-    "main": "main.8565933e.js",
+    "main": "main.3e194e5c.js",
     "src/containers/Post": "templates/src/containers/Post.049c1841.js",
     "src/pages/404": "templates/src/pages/404.150b84cb.js",
     "src/pages/about": "templates/src/pages/about.fa2b6956.js",
     "src/pages/blog": "templates/src/pages/blog.6f59e674.js",
-    "src/pages/index": "templates/src/pages/index.f90cc053.js",
+    "src/pages/index": "templates/src/pages/index.695b5596.js",
     "styles": [
-      "styles.c1b368bf.css",
-      "templates/styles.c1b368bf.js"
+      "styles.18bf04ee.css",
+      "templates/styles.18bf04ee.js"
     ],
     "vendors~main": "templates/vendors~main.a633e6a9.js"
   },
   "assets": [
     {
-      "name": "main.8565933e.js",
+      "name": "main.3e194e5c.js",
       "size": 6513,
       "chunks": [
         0
@@ -33,7 +33,7 @@
       "emitted": true
     },
     {
-      "name": "styles.c1b368bf.css",
+      "name": "styles.18bf04ee.css",
       "size": 361,
       "chunks": [
         6
@@ -88,8 +88,8 @@
       "emitted": true
     },
     {
-      "name": "templates/src/pages/index.f90cc053.js",
-      "size": 258,
+      "name": "templates/src/pages/index.695b5596.js",
+      "size": 250,
       "chunks": [
         5
       ],
@@ -99,7 +99,7 @@
       "emitted": true
     },
     {
-      "name": "templates/styles.c1b368bf.js",
+      "name": "templates/styles.18bf04ee.js",
       "size": 82,
       "chunks": [
         6
@@ -130,10 +130,10 @@
         0
       ],
       "assets": [
-        "styles.c1b368bf.css",
-        "templates/styles.c1b368bf.js",
+        "styles.18bf04ee.css",
+        "templates/styles.18bf04ee.js",
         "templates/vendors~main.a633e6a9.js",
-        "main.8565933e.js"
+        "main.3e194e5c.js"
       ],
       "children": {},
       "childAssets": {}
@@ -147,10 +147,10 @@
         0
       ],
       "assets": [
-        "styles.c1b368bf.css",
-        "templates/styles.c1b368bf.js",
+        "styles.18bf04ee.css",
+        "templates/styles.18bf04ee.js",
         "templates/vendors~main.a633e6a9.js",
-        "main.8565933e.js"
+        "main.3e194e5c.js"
       ],
       "children": {},
       "childAssets": {}
@@ -190,7 +190,7 @@
         5
       ],
       "assets": [
-        "templates/src/pages/index.f90cc053.js"
+        "templates/src/pages/index.695b5596.js"
       ],
       "children": {},
       "childAssets": {}
@@ -217,9 +217,9 @@
         "main"
       ],
       "files": [
-        "main.8565933e.js"
+        "main.3e194e5c.js"
       ],
-      "hash": "d47ff33bd828eadd40a8",
+      "hash": "ebbf7d6302895778137d",
       "siblings": [
         6,
         7
@@ -1334,14 +1334,14 @@
       "rendered": true,
       "initial": false,
       "entry": false,
-      "size": 174,
+      "size": 166,
       "names": [
         "src/pages/index"
       ],
       "files": [
-        "templates/src/pages/index.f90cc053.js"
+        "templates/src/pages/index.695b5596.js"
       ],
-      "hash": "f90cc05308e7fcc79b83",
+      "hash": "695b5596f5513c3214ba",
       "siblings": [],
       "parents": [
         0,
@@ -1357,7 +1357,7 @@
           "name": "C:/Users/Luke/source/repos/serverless-sailingweb/clientapp/src/pages/index.js",
           "index": 139,
           "index2": 139,
-          "size": 174,
+          "size": 166,
           "cacheable": true,
           "built": true,
           "optional": false,
@@ -1417,7 +1417,7 @@
             "ModuleConcatenation bailout: Module is referenced from these modules with unsupported syntax: C:/Users/Luke/source/repos/serverless-sailingweb/clientapp/artifacts/react-static-templates.js (referenced with import(), require.resolve)"
           ],
           "depth": 3,
-          "source": "import React from'react';export default(function(){return React.createElement(\"div\",{style:{textAlign:'center'}},React.createElement(\"h1\",null,\"Welcome to React-Static\"));});"
+          "source": "import React from'react';export default(function(){return React.createElement(\"div\",{style:{textAlign:'center'}},React.createElement(\"h1\",null,\"This is a thing\"));});"
         }
       ],
       "filteredModules": 0,
@@ -1444,10 +1444,10 @@
         "styles"
       ],
       "files": [
-        "styles.c1b368bf.css",
-        "templates/styles.c1b368bf.js"
+        "styles.18bf04ee.css",
+        "templates/styles.18bf04ee.js"
       ],
-      "hash": "c1b368bf66c5e2dac0a7",
+      "hash": "18bf04ee933ac7cb1577",
       "siblings": [
         0,
         7
@@ -1522,7 +1522,7 @@
             "ModuleConcatenation bailout: Module is not an ECMAScript module"
           ],
           "depth": 4,
-          "source": "// extracted by extract-css-chunks-webpack-plugin\n    if(module.hot) {\n      // 1555536764047\n      var cssReload = require(\"C:/Users/Luke/source/repos/serverless-sailingweb/clientapp/node_modules/extract-css-chunks-webpack-plugin/dist/hmr/hotModuleReplacement.js\")(module.id, {\"hot\":true,\"locals\":false});\n      module.hot.dispose(cssReload);\n      module.hot.accept(undefined, cssReload);\n    }\n  "
+          "source": "// extracted by extract-css-chunks-webpack-plugin\n    if(module.hot) {\n      // 1555589907699\n      var cssReload = require(\"C:/Users/Luke/source/repos/serverless-sailingweb/clientapp/node_modules/extract-css-chunks-webpack-plugin/dist/hmr/hotModuleReplacement.js\")(module.id, {\"hot\":true,\"locals\":false});\n      module.hot.dispose(cssReload);\n      module.hot.accept(undefined, cssReload);\n    }\n  "
         },
         {
           "id": "",
@@ -2996,9 +2996,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -3570,9 +3570,9 @@
           "chunks": [
             7
           ],
-          "issuer": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "issuerId": 117,
-          "issuerName": "../lib/bootstrapTemplates.js",
+          "issuer": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "issuerId": 54,
+          "issuerName": "../lib/bootstrapPlugins.js",
           "issuerPath": [
             {
               "id": 53,
@@ -3580,9 +3580,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             }
           ],
           "failed": false,
@@ -3695,9 +3695,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -3910,9 +3910,9 @@
           "chunks": [
             7
           ],
-          "issuer": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "issuerId": 117,
-          "issuerName": "../lib/bootstrapTemplates.js",
+          "issuer": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "issuerId": 54,
+          "issuerName": "../lib/bootstrapPlugins.js",
           "issuerPath": [
             {
               "id": 53,
@@ -3920,9 +3920,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             }
           ],
           "failed": false,
@@ -4106,9 +4106,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -4436,9 +4436,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -5419,9 +5419,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -5988,9 +5988,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -6054,9 +6054,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -6125,9 +6125,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -6191,9 +6191,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -6257,9 +6257,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -6404,9 +6404,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -6485,9 +6485,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -6571,9 +6571,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -6647,9 +6647,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -6723,9 +6723,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -8634,9 +8634,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -8696,9 +8696,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -8758,9 +8758,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -8820,9 +8820,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -8877,9 +8877,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -8939,9 +8939,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -9001,9 +9001,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -9063,9 +9063,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -9125,9 +9125,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -9197,9 +9197,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -9264,9 +9264,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -9336,9 +9336,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -9413,9 +9413,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -9495,9 +9495,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -9572,9 +9572,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -9649,9 +9649,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -9726,9 +9726,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -9803,9 +9803,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -9880,9 +9880,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -9952,9 +9952,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -10024,9 +10024,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -10101,9 +10101,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -10178,9 +10178,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -10255,9 +10255,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -10322,9 +10322,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -10389,9 +10389,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -10451,9 +10451,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -10518,9 +10518,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -10583,9 +10583,9 @@
               "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
             },
             {
-              "id": 117,
-              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-              "name": "../lib/bootstrapTemplates.js"
+              "id": 54,
+              "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+              "name": "../lib/bootstrapPlugins.js"
             },
             {
               "id": 7,
@@ -13898,9 +13898,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -14472,9 +14472,9 @@
       "chunks": [
         7
       ],
-      "issuer": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-      "issuerId": 117,
-      "issuerName": "../lib/bootstrapTemplates.js",
+      "issuer": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+      "issuerId": 54,
+      "issuerName": "../lib/bootstrapPlugins.js",
       "issuerPath": [
         {
           "id": 53,
@@ -14482,9 +14482,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         }
       ],
       "failed": false,
@@ -14597,9 +14597,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -14959,9 +14959,9 @@
       "chunks": [
         7
       ],
-      "issuer": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-      "issuerId": 117,
-      "issuerName": "../lib/bootstrapTemplates.js",
+      "issuer": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+      "issuerId": 54,
+      "issuerName": "../lib/bootstrapPlugins.js",
       "issuerPath": [
         {
           "id": 53,
@@ -14969,9 +14969,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         }
       ],
       "failed": false,
@@ -15155,9 +15155,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -15485,9 +15485,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -16699,9 +16699,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -17331,9 +17331,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -17397,9 +17397,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -17468,9 +17468,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -17534,9 +17534,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -17600,9 +17600,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -17747,9 +17747,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -17828,9 +17828,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -17914,9 +17914,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -17990,9 +17990,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -18066,9 +18066,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -18812,7 +18812,7 @@
       "name": "C:/Users/Luke/source/repos/serverless-sailingweb/clientapp/src/pages/index.js",
       "index": 139,
       "index2": 139,
-      "size": 174,
+      "size": 166,
       "cacheable": true,
       "built": true,
       "optional": false,
@@ -18872,7 +18872,7 @@
         "ModuleConcatenation bailout: Module is referenced from these modules with unsupported syntax: C:/Users/Luke/source/repos/serverless-sailingweb/clientapp/artifacts/react-static-templates.js (referenced with import(), require.resolve)"
       ],
       "depth": 3,
-      "source": "import React from'react';export default(function(){return React.createElement(\"div\",{style:{textAlign:'center'}},React.createElement(\"h1\",null,\"Welcome to React-Static\"));});"
+      "source": "import React from'react';export default(function(){return React.createElement(\"div\",{style:{textAlign:'center'}},React.createElement(\"h1\",null,\"This is a thing\"));});"
     },
     {
       "id": 52,
@@ -20418,9 +20418,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -20480,9 +20480,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -20542,9 +20542,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -20604,9 +20604,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -20661,9 +20661,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -20723,9 +20723,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -20785,9 +20785,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -20847,9 +20847,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -20909,9 +20909,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -20981,9 +20981,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -21048,9 +21048,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -21120,9 +21120,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -21197,9 +21197,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -21279,9 +21279,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -21356,9 +21356,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -21433,9 +21433,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -21510,9 +21510,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -21587,9 +21587,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -21664,9 +21664,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -21736,9 +21736,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -21808,9 +21808,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -21885,9 +21885,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -21962,9 +21962,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -22039,9 +22039,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -22106,9 +22106,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -22173,9 +22173,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -22235,9 +22235,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -22302,9 +22302,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -22367,9 +22367,9 @@
           "name": "multi ../lib/bootstrapPlugins.js ../lib/bootstrapTemplates.js ../lib/bootstrapApp.js"
         },
         {
-          "id": 117,
-          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapTemplates.js",
-          "name": "../lib/bootstrapTemplates.js"
+          "id": 54,
+          "identifier": "C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\babel-loader\\lib\\index.js??ref--4-oneOf-1-0!C:\\Users\\Luke\\source\\repos\\serverless-sailingweb\\clientapp\\node_modules\\react-static\\lib\\bootstrapPlugins.js",
+          "name": "../lib/bootstrapPlugins.js"
         },
         {
           "id": 7,
@@ -24482,7 +24482,7 @@
         "ModuleConcatenation bailout: Module is not an ECMAScript module"
       ],
       "depth": 4,
-      "source": "// extracted by extract-css-chunks-webpack-plugin\n    if(module.hot) {\n      // 1555536764047\n      var cssReload = require(\"C:/Users/Luke/source/repos/serverless-sailingweb/clientapp/node_modules/extract-css-chunks-webpack-plugin/dist/hmr/hotModuleReplacement.js\")(module.id, {\"hot\":true,\"locals\":false});\n      module.hot.dispose(cssReload);\n      module.hot.accept(undefined, cssReload);\n    }\n  "
+      "source": "// extracted by extract-css-chunks-webpack-plugin\n    if(module.hot) {\n      // 1555589907699\n      var cssReload = require(\"C:/Users/Luke/source/repos/serverless-sailingweb/clientapp/node_modules/extract-css-chunks-webpack-plugin/dist/hmr/hotModuleReplacement.js\")(module.id, {\"hot\":true,\"locals\":false});\n      module.hot.dispose(cssReload);\n      module.hot.accept(undefined, cssReload);\n    }\n  "
     },
     {
       "id": "",

@@ -9,9 +9,18 @@
     "serve": "serve dist -p 3000"
   },
   "dependencies": {
+    "@babel/core": "^7.4.3",
     "@reach/router": "^1.2.1",
+    "apollo-cache-inmemory": "^1.5.1",
+    "apollo-client": "^2.5.1",
+    "apollo-link-http": "^1.5.14",
     "axios": "^0.18.0",
+    "graphql": "^14.2.1",
+    "graphql-tag": "^2.10.1",
+    "node-fetch": "^2.3.0",
     "react": "^16.8.2",
+    "react-apollo": "^2.5.4",
+    "react-autocomplete": "^1.8.1",
     "react-dom": "^16.8.2",
     "react-static": "^7.0.0",
     "react-static-plugin-reach-router": "^7.0.0",
@@ -28,5 +37,8 @@
     "eslint-plugin-jsx-a11y": "6.x",
     "eslint-plugin-react": "7.x",
     "serve": "10.1.2"
+  },
+  "resolutions": {
+    "react-static/webpack-dev-server": "3.2.1"
   }
 }

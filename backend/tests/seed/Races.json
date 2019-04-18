@@ -1,0 +1,19 @@
+[
+    {
+        "eventId": "1",
+        "type_id": "event_1",
+        "eventName": "test",
+        "eventTimeStamp": 0
+
+    },
+    {
+        "eventId": "2",
+        "type_id": "signOn_2",
+        "eventName": "test",
+        "userId": "1",
+        "helmName": " ",
+        "boatName": " ",
+        "boatNumber": " "
+
+    }
+]

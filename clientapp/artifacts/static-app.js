@@ -1192,7 +1192,7 @@ __webpack_require__.r(__webpack_exports__);
     style: {
       textAlign: 'center'
     }
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to React-Static"));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is a thing"));
 });
 
 /***/ }),
