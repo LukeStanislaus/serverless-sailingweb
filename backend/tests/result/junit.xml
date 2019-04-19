@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="4" failures="0" time="8.39">
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-04-18T17:12:29" time="3.611" tests="1">
-    <testcase classname=" allBoatData" name=" allBoatData" time="1.345">
+<testsuites name="jest tests" tests="4" failures="0" time="15.455">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-04-19T11:18:43" time="6.076" tests="1">
+    <testcase classname=" allBoatData" name=" allBoatData" time="3.001">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-04-18T17:12:29" time="3.922" tests="3">
-    <testcase classname=" allEvents query returns event" name=" allEvents query returns event" time="0.374">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-04-19T11:18:43" time="6.51" tests="3">
+    <testcase classname=" allEvents query returns event" name=" allEvents query returns event" time="1.029">
     </testcase>
-    <testcase classname=" recentEvents query returns event" name=" recentEvents query returns event" time="0.183">
+    <testcase classname=" recentEvents query returns event" name=" recentEvents query returns event" time="0.258">
     </testcase>
-    <testcase classname=" specificEvent query returns event" name=" specificEvent query returns event" time="0.124">
+    <testcase classname=" specificEvent query returns event" name=" specificEvent query returns event" time="0.17">
     </testcase>
   </testsuite>
 </testsuites>
