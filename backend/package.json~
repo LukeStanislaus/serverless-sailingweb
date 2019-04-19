@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "jest": "jest --watch 2> jest.txt"
+    "test": "jest 2> jest.txt"
   },
   "author": "",
   "license": "ISC",
@@ -34,7 +33,6 @@
     "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
-    "babel-plugin-transform-runtime": "^6.23.0",
     "jest": "^24.7.1"
   },
   "jest": {
@@ -42,6 +40,7 @@
       "default",
       "jest-junit"
     ],
+    "watch": true,
     "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"

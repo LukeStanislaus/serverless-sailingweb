@@ -20,7 +20,21 @@ const typeDefs = gql`
     createBoat(input: CreateBoatInput!): CreateBoatPayload
     createEvent(input: CreateEventInput!): CreateEventPayload
     signOn(input: SignOnInput!): SignOnPayload
-    
+    removeEvent(input: RemoveEventInput!): RemoveEventPayload
+  }
+
+  input RemoveEventInput{
+    event: RemoveEventData!
+  }
+  input RemoveEventData{
+    eventId: ID!
+  }
+
+  type RemoveEventPayload{
+    event: RemoveEventPayloadData
+  }
+  type RemoveEventPayloadData{
+    eventId: ID
   }
 
   input SpecificEventInput{

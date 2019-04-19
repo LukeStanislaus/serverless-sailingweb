@@ -2,7 +2,6 @@ import Races from '../seed/Races';
 import fetch from 'node-fetch'
 
 
-
 test("allEvents query returns event", async () => {
 
   const response = await fetch('http://localhost:3000/graphql', {
@@ -100,110 +99,4 @@ test("specificEvent query returns event", async () => {
       }
     })
   expect(result.data.specificEvent).toEqual(RacesEvents);
-})
-
-test("createEvent mutation returns event", async () => {
-  const input = `{
-    "input": {
-      "event":{
-        "eventId": "3",
-        "eventName": "test",
-        "eventTimeStamp": 0
-      } 
-    }
-  }`
-  const response = await fetch('http://localhost:3000/graphql', {
-    method: 'post',
-    body: JSON.stringify({
-      query: `mutation createEvent($input: CreateEventInput!){
-        createEvent(input: $input){
-          event{
-            eventId
-            eventName
-            eventTimeStamp
-          }
-        }
-      }`,
-      variables: input
-    })
-  })
-  const result = await response.json()
-  expect(result.data.createEvent).toEqual(JSON.parse(input).input);
-  const remove = await fetch('http://localhost:3000/graphql', {
-    method: 'post',
-    body: JSON.stringify({
-      query: `mutation removeEvent($input: RemoveEventInput!){
-        removeEvent(input: $input){
-          event{
-            eventId
-          }
-        }
-      }`,
-      variables: input
-    })
-  })
-})
-
-
-test("removeEvent mutation removes event", async () => {
-  const obj = {"event":{
-    "eventId": "3",
-    "eventName": "test",
-    "eventTimeStamp": 0
-  }}
-  const create = await fetch('http://localhost:3000/graphql', {
-    method: 'post',
-    body: JSON.stringify({
-      query: `mutation createEvent($input: CreateEventInput!){
-        createEvent(input: $input){
-          event{
-            eventId
-            eventName
-            eventTimeStamp
-          }
-        }
-      }`,
-      variables: `{
-      "input": {
-        "event":{
-          "eventId": "3",
-          "eventName": "test",
-          "eventTimeStamp": 0
-        } 
-      }
-    }`})
-  })
-  const response = await fetch('http://localhost:3000/graphql', {
-    method: 'post',
-    body: JSON.stringify({
-      query: `mutation removeEvent($input: RemoveEventInput!){
-        removeEvent(input: $input){
-          event{
-            eventId
-          }
-        }
-      }`,
-      variables: `{
-      "input": {
-        "event":{
-          "eventId": "3"
-        } 
-      }
-    }`})
-  })
-  const responseJson = await response.json();
-  expect(responseJson.data.removeEvent).toEqual({event:{eventId:obj.event.eventId}});
-  const check = await fetch('http://localhost:3000/graphql', {
-    method: 'post',
-    body: JSON.stringify({
-      query: `query {
-        allEvents{
-          eventId
-          eventName
-          eventTimeStamp
-        }
-      }`})
-  });
-  const json = await check.json();
-  expect(json.data.allEvents).not.toContain(obj)
 })

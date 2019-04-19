@@ -49,3 +49,10 @@ export function deleteItem(params, args) {
       .catch(err => reject(err)),
   );
 }
+export function batchDelete(params, args) {
+  return new Promise((resolve, reject) =>
+    dynamoDb.batchWrite(params).promise()
+      .then(() => resolve(args))
+      .catch(err => reject(err)),
+  );
+}
