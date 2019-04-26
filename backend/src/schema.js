@@ -67,10 +67,10 @@ const typeDefs = gql`
     calendarData: calendarData
   }
   input SignOnInput{
-    signOn: SignOnData!
+    signOn: SignOnInputData!
 
   }
-  input SignOnData{
+  input SignOnInputData{
     eventId: ID!
     userId: ID!
     helmName: String!

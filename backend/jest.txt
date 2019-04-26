@@ -1,12 +1,8 @@
+PASS tests/integration/signOn.test.js
 PASS tests/integration/events.test.js
-  √ allEvents query returns event (971ms)
-  √ recentEvents query returns event (200ms)
-  √ specificEvent query returns event (125ms)
-  √ createEvent mutation returns event (162ms)
-  √ removeEvent mutation removes event (180ms)
 
-Test Suites: 1 passed, 1 total
-Tests:       5 passed, 5 total
+Test Suites: 2 passed, 2 total
+Tests:       6 passed, 6 total
 Snapshots:   0 total
-Time:        8.863s
+Time:        8.267s
 Ran all test suites related to changed files.

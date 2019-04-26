@@ -102,7 +102,8 @@ test("specificEvent query returns event", async () => {
   expect(result.data.specificEvent).toEqual(RacesEvents);
 })
 
-test("createEvent mutation returns event", async () => {
+
+test("createEvent mutation creates and returns event", async () => {
   const input = `{
     "input": {
       "event":{
@@ -129,6 +130,19 @@ test("createEvent mutation returns event", async () => {
   })
   const result = await response.json()
   expect(result.data.createEvent).toEqual(JSON.parse(input).input);
+  const check = await fetch('http://localhost:3000/graphql', {
+    method: 'post',
+    body: JSON.stringify({
+      query: `query {
+        allEvents{
+          eventId
+          eventName
+          eventTimeStamp
+        }
+      }`})
+  });
+  const json = await check.json();
+  expect(json.data.allEvents).toContainEqual(JSON.parse(input).input.event)
   const remove = await fetch('http://localhost:3000/graphql', {
     method: 'post',
     body: JSON.stringify({
@@ -205,5 +219,6 @@ test("removeEvent mutation removes event", async () => {
       }`})
   });
   const json = await check.json();
-  expect(json.data.allEvents).not.toContain(obj)
+  expect(json.data.allEvents).not.toContainEqual(obj)
 })
+
