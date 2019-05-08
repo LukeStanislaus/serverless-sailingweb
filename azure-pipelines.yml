@@ -18,13 +18,13 @@ steps:
 - script: |
     sudo apt install -y default-jre 
     cd backend
-    npm i
-    npm i -g serverless
-    npm i -g firebase-tools
-    npx -q sls config credentials --provider aws --key $(keyId) --secret $(accessKey) 
-    npx -q sls dynamodb install
-    npx -q sls offline start
-    npx -q sls deploy
+    yarn
+    yarn global add serverless
+    yarn global add firebase-tools
+    yarn exec sls config credentials --provider aws --key $(keyId) --secret $(accessKey) 
+    yarn exec sls dynamodb install
+    yarn exec sls offline start
+    yarn exec sls deploy
     cd ..
   env: {
         AWS_ACCESS_KEY_ID: $(keyId),
@@ -35,9 +35,9 @@ steps:
 
 - script: |
     cd clientapp
-    npm install
-    npm run build
-    npx -q firebase deploy --token "$FIREBASE_DEPLOY_KEY" --non-interactive
+    yarn
+    yarn run build
+    yarn exec firebase deploy --token "$FIREBASE_DEPLOY_KEY" --non-interactive
   displayName: Clientapp
 
 - task: PublishTestResults@2
