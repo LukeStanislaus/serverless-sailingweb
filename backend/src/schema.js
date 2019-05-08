@@ -10,6 +10,7 @@ const typeDefs = gql`
   scalar Long
 
   type RootQuery {
+    allHelms: [Person]
     allBoatData: [BoatData]
     allEvents: [Event]
     recentEvents(input: RecentEventsInput!): [Event]
@@ -21,26 +22,48 @@ const typeDefs = gql`
     createEvent(input: CreateEventInput!): CreateEventPayload
     signOn(input: SignOnInput!): SignOnPayload
     removeEvent(input: RemoveEventInput!): RemoveEventPayload
+    newPerson(input: NewPersonInput!): NewPersonPayload
   }
 
-  input RemoveEventInput{
+  type NewPersonPayload {
+    newPerson: Person
+  }
+
+  type Person {
+    userId: ID!
+    name: String!
+    boatName: String!
+    boatNumber: String!
+    pY: Int!
+  }
+
+  input NewPersonInput {
+    newPersonData: NewPersonInputData!
+  }
+  input NewPersonInputData {
+    name: String!
+    boatName: String!
+    boatNumber: String!
+    pY: Int!
+  }
+  input RemoveEventInput {
     event: RemoveEventData!
   }
-  input RemoveEventData{
+  input RemoveEventData {
     eventId: ID!
   }
 
-  type RemoveEventPayload{
+  type RemoveEventPayload {
     event: RemoveEventPayloadData
   }
   type RemoveEventPayloadData{
     eventId: ID
   }
 
-  input SpecificEventInput{
+  input SpecificEventInput {
       eventData: SpecificEventInputData!
   }
-  input SpecificEventInputData{
+  input SpecificEventInputData {
     eventId: ID!
   }
   type SignOn{
@@ -66,11 +89,11 @@ const typeDefs = gql`
     eventTimeStamp: Long!
     calendarData: calendarData
   }
-  input SignOnInput{
+  input SignOnInput {
     signOn: SignOnInputData!
 
   }
-  input SignOnInputData{
+  input SignOnInputData {
     eventId: ID!
     userId: ID!
     helmName: String!
@@ -82,21 +105,21 @@ const typeDefs = gql`
     crewName: String
 
   }
-  type SignOnPayload{
+  type SignOnPayload {
     signOn: SignOn
 
   }
-  input RecentEventsInput{
+  input RecentEventsInput {
     range: RecentEventsInputRange!
   }
-  input RecentEventsInputRange{
+  input RecentEventsInputRange {
     start: Long!
     end: Long!
   }
-  type CreateEventPayload{
+  type CreateEventPayload {
     event: Event
   }
-  input CreateEventInput{
+  input CreateEventInput {
     event: CreateEventData!
   }
   input CreateEventData {
@@ -105,20 +128,20 @@ const typeDefs = gql`
     eventTimeStamp: Long!
     calendarData: calendarDataInput
   }
-  input CreatorInput{
+  input CreatorInput {
     email: String
     displayName: String
     self: Boolean
   }
-  input OrganizerInput{
+  input OrganizerInput {
     email: String
     displayName: String
     self: Boolean
   }
-  input TimeInput{
+  input TimeInput {
     dateTime: String
   }
-  input calendarDataInput{
+  input calendarDataInput {
     kind: String
     etag: String
     id: String
@@ -135,20 +158,20 @@ const typeDefs = gql`
     sequence: Int
     location: String
   }
-  type Creator{
+  type Creator {
     email: String
     displayName: String
     self: Boolean
   }
-  type Organizer{
+  type Organizer {
     email: String
     displayName: String
     self: Boolean
   }
-  type Time{
+  type Time {
     dateTime: String
   }
-  type calendarData{
+  type calendarData {
     kind: String
     etag: String
     id: String
@@ -166,7 +189,7 @@ const typeDefs = gql`
     location: String
   }
 
-  input CreateBoatInput{
+  input CreateBoatInput {
     boatData: CreateBoatData!
   }
   input CreateBoatData {
@@ -174,7 +197,7 @@ const typeDefs = gql`
     crew: Int!
     pY: Int!
 }
-  type CreateBoatPayload{
+  type CreateBoatPayload {
     boatData: BoatData
   }
 `;

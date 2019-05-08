@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="6" failures="0" time="8.269">
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-04-19T21:26:58" time="3.162" tests="1">
-    <testcase classname=" signOn mutation signs on a person" name=" signOn mutation signs on a person" time="0.629">
-    </testcase>
-  </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-04-19T21:26:58" time="3.389" tests="5">
-    <testcase classname=" allEvents query returns event" name=" allEvents query returns event" time="0.134">
-    </testcase>
-    <testcase classname=" recentEvents query returns event" name=" recentEvents query returns event" time="0.251">
-    </testcase>
-    <testcase classname=" specificEvent query returns event" name=" specificEvent query returns event" time="0.08">
-    </testcase>
-    <testcase classname=" createEvent mutation creates and returns event" name=" createEvent mutation creates and returns event" time="0.119">
-    </testcase>
-    <testcase classname=" removeEvent mutation removes event" name=" removeEvent mutation removes event" time="0.146">
+<testsuites name="jest tests" tests="1" failures="0" time="9.953">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-08T14:22:55" time="3.184" tests="1">
+    <testcase classname=" signOn mutation signs on a person" name=" signOn mutation signs on a person" time="0.255">
     </testcase>
   </testsuite>
 </testsuites>

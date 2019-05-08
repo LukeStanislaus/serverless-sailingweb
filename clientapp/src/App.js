@@ -1,32 +1,30 @@
 import React from 'react'
-import { Root, Routes, addPrefetchExcludes } from 'react-static'
+import { Root, Routes } from 'react-static'
+import {ApolloProvider} from 'react-apollo'
 //
 import { Link, Router } from 'components/Router'
-import Dynamic from 'containers/Dynamic'
-
+import client from './apolloClient'
 import './app.css'
 
-// Any routes that start with 'dynamic' will be treated as non-static routes
-addPrefetchExcludes(['dynamic'])
 
 function App() {
   return (
+    <ApolloProvider client={client}>
     <Root>
       <nav>
         <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/blog">Blog</Link>
-        <Link to="/dynamic">Dynamic</Link>
+        <Link to="/SignOn">Sign On</Link>
+        <Link to="/ManageRace">Manage Race</Link>
       </nav>
       <div className="content">
         <React.Suspense fallback={<em>Loading...</em>}>
           <Router>
-            <Dynamic path="dynamic" />
             <Routes path="*" />
           </Router>
         </React.Suspense>
       </div>
     </Root>
+    </ApolloProvider>
   )
 }
 

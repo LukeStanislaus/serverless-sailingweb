@@ -2,6 +2,7 @@ import Races from '../seed/Races';
 import fetch from 'node-fetch'
 
 
+
 test("signOn mutation signs on a person", async () => {
     let obj = {
         signOn: {

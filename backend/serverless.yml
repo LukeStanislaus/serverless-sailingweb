@@ -77,7 +77,7 @@ custom:
     includeModules: true   # Node modules configuration for packaging
     packager: 'yarn'   # Packager that will be used to package your external modules
   serverless-offline:
-    exec: "npm test"
+    exec: "yarn run test"
 functions:
   query:
     handler: src/graphql.graphqlHandler
