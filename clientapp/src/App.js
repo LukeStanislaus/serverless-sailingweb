@@ -1,31 +1,26 @@
-import React from 'react'
-import { Root, Routes } from 'react-static'
+import React from 'react';
+import './App.css';
+import {Link, Router} from '@reach/router'
 import {ApolloProvider} from 'react-apollo'
-//
-import { Link, Router } from 'components/Router'
-import client from './apolloClient'
-import './app.css'
-
+import {client} from './apolloClient'
+import SignOn from './signOn'
 
 function App() {
-  return (
-    <ApolloProvider client={client}>
-    <Root>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/SignOn">Sign On</Link>
-        <Link to="/ManageRace">Manage Race</Link>
-      </nav>
-      <div className="content">
-        <React.Suspense fallback={<em>Loading...</em>}>
-          <Router>
-            <Routes path="*" />
-          </Router>
-        </React.Suspense>
-      </div>
-    </Root>
-    </ApolloProvider>
-  )
+  return (<>
+  <ApolloProvider client={client}>
+<nav> 
+  <Link to="/">Home</Link>
+  <Link to="/SignOn">Sign On</Link>
+</nav>
+<Router>
+  <Home path="/" />
+  <SignOn path="/SignOn" /> 
+  </Router>
+  </ApolloProvider>
+  </>);
+}
+const Home = () => {
+  return <h2>Welcome to Whitefriars Sailing Club</h2>
 }
 
-export default App
+export default App;
