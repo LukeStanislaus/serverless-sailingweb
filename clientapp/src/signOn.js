@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import gql from 'graphql-tag'
-import {Query} from 'react-apollo'
+import { Query } from 'react-apollo'
+import Autocomplete from 'react-autocomplete'
 const allHelms = gql`
-query {
+query getAllHelms{
   allHelms{
     name
     userId
@@ -12,15 +13,29 @@ query {
   }
 }`
 
-const signOn = () => {
+function SignOn(){
+  const [name, setName] = useState("")
     return <Query query={allHelms}>
         {({loading, error, data})=>{
             if (loading) return 'Loading...';
             if (error) return `Error! ${error.message}`
-            return (
-                <h1>{data.toString()}</h1>
+            
+            return (<>
+              <Autocomplete 
+                getItemValue={(item) => item.label}
+                items={data.allHelms.map(elem => {return {label: elem.name}})}
+                renderItem={(item, isHighlighted) =>
+                  <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
+                    {item.label}
+                  </div>
+                }
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                onSelect={(val) => setName(val)}
+              />
+</>
             )
         }}
 </Query>
 }
-export default signOn
+export default SignOn

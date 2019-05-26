@@ -4,19 +4,22 @@
   "private": true,
   "dependencies": {
     "@reach/router": "^1.2.1",
+    "@rescripts/cli": "^0.0.10",
+    "@rescripts/rescript-env": "^0.0.10",
     "apollo-boost": "^0.3.1",
+    "babel-plugin-inline-import": "^3.0.0",
     "graphql": "^14.3.0",
     "graphql-tag": "^2.10.1",
     "react": "^16.8.6",
     "react-apollo": "^2.5.5",
+    "react-autocomplete": "^1.8.1",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "rescripts start",
+    "build": "rescripts build",
+    "test": "rescripts test"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -32,5 +35,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "rescripts": [
+    "env"
+  ]
 }
