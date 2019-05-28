@@ -21,6 +21,14 @@ query getAllHelmsAndRecentEvents($input: RecentEventsInput!){
 `
 
 const getBoats = gql`
+query getBoatsOfHelm($input: GetBoatsOfHelmInput!) {
+  getBoatsOfHelm(input: $input){
+    boatName
+    boatNumber
+    pY
+    name
+  }
+}
 `
 
 function SignOn(){
@@ -38,7 +46,11 @@ return <Query query={allHelms} variables={allHelmsInput}>
     {({loading, error, data})=>{
         if (loading) return 'Loading...';
         if (error) return `Error! ${error.message}`
-        
+        const boatsOfHelmVariables = {
+          input: {
+            helmName: name
+          }
+        }
         return (<>
         Select Race:
                   <Autocomplete 
@@ -70,21 +82,19 @@ return <Query query={allHelms} variables={allHelmsInput}>
             onChange={(e) => setName(e.target.value)}
             onSelect={(val) => setName(val)}
           />
-          Boat Class:<Query query={getBoats}>
-          <Autocomplete 
-            shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
-            getItemValue={(item) => item.label}
-            items={data.allHelms.map(elem => {return {label: elem.name, id: elem.name}})}
-            renderItem={(item, isHighlighted) =>
-              <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
-                {item.label}
-              </div>
-            }
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            onSelect={(val) => setName(val)}
-          />
-</Query>
+          Boat Class:<Query query={getBoats} variables={boatsOfHelmVariables}>
+          {({loading, error, data})=>{
+        if (loading) return 'Loading...';
+        if (error) return `Error! ${error.message}`
+
+            return (<Select
+            value={boatClass}
+            onChange={(e) => setBoatClass(e.target.value)}
+            options={data.getBoatsOfHelm.map(elem => {return { label: elem.boatName + ", " +
+             elem.boatNumber+ ". (PY "+ elem.pY+")", value: elem }})}
+            />)
+        }}
+  </Query>
           
               
 </>

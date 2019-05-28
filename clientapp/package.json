@@ -14,7 +14,8 @@
     "react-apollo": "^2.5.5",
     "react-autocomplete": "^1.8.1",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "react-select": "^3.0.3"
   },
   "scripts": {
     "start": "rescripts start",

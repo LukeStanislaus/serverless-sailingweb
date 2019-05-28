@@ -16,8 +16,7 @@ export const allHelms = async (args) => {
     TableName: "Races", 
     KeyConditionExpression: 'eventId = :eventId',   
     ExpressionAttributeValues: {
-      ':eventId': "person",
-      ':type_id': "person_"
+      ':eventId': "person"
     }
   }
   const array = await db.queryItem(params);
