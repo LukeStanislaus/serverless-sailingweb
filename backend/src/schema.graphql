@@ -11,6 +11,7 @@
     allEvents: [Event]
     recentEvents(input: RecentEventsInput!): [Event]
     specificEvent(input: SpecificEventInput!): [SignOn]
+    getBoatsOfHelm(input: GetBoatsOfHelmInput!): [BoatData]
   }
 
   type RootMutation {
@@ -23,6 +24,10 @@
 
   type NewPersonPayload {
     newPerson: Person
+  }
+
+  input GetBoatsOfHelmInput {
+    helmId: ID!
   }
 
   type Person {
