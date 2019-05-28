@@ -2,7 +2,7 @@
 
 import { ApolloServer } from 'apollo-server-lambda';
 import GraphQLLong from "graphql-type-long"
-import typeDefs from './schema'
+import typeDefs from './schema.graphql'
 import { allBoatData, createBoat } from './dynamoResolvers/boatData'
 import { recentEvents, allEvents, createEvent, removeEvent } from './dynamoResolvers/events'
 import {signOn, specificEvent} from './dynamoResolvers/signOn'

@@ -1,86 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="7" failures="7" time="13.674">
-  <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2019-05-26T15:59:19" time="5.35" tests="1">
-    <testcase classname=" signOn mutation signs on a person" name=" signOn mutation signs on a person" time="1.573">
-      <failure>Error: expect(received).toEqual(expected) // deep equality
-
-- Expected
-+ Received
-
-  Object {
--   &quot;signOn&quot;: Object {
--     &quot;boatName&quot;: &quot; &quot;,
--     &quot;boatNumber&quot;: &quot; &quot;,
--     &quot;eventId&quot;: &quot;1&quot;,
--     &quot;helmName&quot;: &quot; &quot;,
--     &quot;pY&quot;: 0,
--     &quot;userId&quot;: &quot;1&quot;,
--   },
-+   &quot;signOn&quot;: null,
-  }
-    at Object.toEqual (/mnt/c/Users/Luke/source/repos/serverless-sailingweb/backend/tests/integration/signOn.test.js:37:34)
-    at process._tickCallback (internal/process/next_tick.js:68:7)</failure>
+<testsuites name="jest tests" tests="7" failures="0" time="8.396">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-28T14:26:33" time="3.3" tests="1">
+    <testcase classname=" allBoatData" name=" allBoatData" time="1.027">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2019-05-26T15:59:20" time="5.158" tests="1">
-    <testcase classname=" allBoatData" name=" allBoatData" time="1.053">
-      <failure>Error: expect(received).toEqual(expected) // deep equality
-
-Expected: [{&quot;boatName&quot;: &quot;test&quot;, &quot;crew&quot;: 0, &quot;pY&quot;: 0}]
-Received: null
-    at Object.toEqual (/mnt/c/Users/Luke/source/repos/serverless-sailingweb/backend/tests/integration/boatData.test.js:21:35)
-    at process._tickCallback (internal/process/next_tick.js:68:7)</failure>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-28T14:26:33" time="3.649" tests="1">
+    <testcase classname=" signOn mutation signs on a person" name=" signOn mutation signs on a person" time="1.388">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="5" skipped="0" timestamp="2019-05-26T15:59:19" time="5.596" tests="5">
-    <testcase classname=" allEvents query returns event" name=" allEvents query returns event" time="1.554">
-      <failure>Error: expect(received).toEqual(expected) // deep equality
-
-Expected: [{&quot;eventId&quot;: &quot;1&quot;, &quot;eventName&quot;: &quot;test&quot;, &quot;eventTimeStamp&quot;: 0}]
-Received: null
-    at Object.toEqual (/mnt/c/Users/Luke/source/repos/serverless-sailingweb/backend/tests/integration/events.test.js:29:33)
-    at process._tickCallback (internal/process/next_tick.js:68:7)</failure>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-28T14:26:33" time="3.855" tests="5">
+    <testcase classname=" allEvents query returns event" name=" allEvents query returns event" time="1.003">
     </testcase>
-    <testcase classname=" recentEvents query returns event" name=" recentEvents query returns event" time="0.068">
-      <failure>Error: expect(received).toEqual(expected) // deep equality
-
-Expected: [{&quot;eventId&quot;: &quot;1&quot;, &quot;eventName&quot;: &quot;test&quot;, &quot;eventTimeStamp&quot;: 0}]
-Received: null
-    at Object.toEqual (/mnt/c/Users/Luke/source/repos/serverless-sailingweb/backend/tests/integration/events.test.js:64:36)
-    at process._tickCallback (internal/process/next_tick.js:68:7)</failure>
+    <testcase classname=" recentEvents query returns event" name=" recentEvents query returns event" time="0.256">
     </testcase>
-    <testcase classname=" specificEvent query returns event" name=" specificEvent query returns event" time="0.047">
-      <failure>Error: expect(received).toEqual(expected) // deep equality
-
-Expected: [{&quot;boatName&quot;: &quot; &quot;, &quot;boatNumber&quot;: &quot; &quot;, &quot;eventId&quot;: &quot;2&quot;, &quot;helmName&quot;: &quot; &quot;, &quot;userId&quot;: &quot;1&quot;}]
-Received: null
-    at Object.toEqual (/mnt/c/Users/Luke/source/repos/serverless-sailingweb/backend/tests/integration/events.test.js:102:37)
-    at process._tickCallback (internal/process/next_tick.js:68:7)</failure>
+    <testcase classname=" specificEvent query returns event" name=" specificEvent query returns event" time="0.065">
     </testcase>
-    <testcase classname=" createEvent mutation creates and returns event" name=" createEvent mutation creates and returns event" time="0.043">
-      <failure>Error: expect(received).toEqual(expected) // deep equality
-
-- Expected
-+ Received
-
-  Object {
--   &quot;event&quot;: Object {
--     &quot;eventId&quot;: &quot;3&quot;,
--     &quot;eventName&quot;: &quot;test&quot;,
--     &quot;eventTimeStamp&quot;: 0,
--   },
-+   &quot;event&quot;: null,
-  }
-    at Object.toEqual (/mnt/c/Users/Luke/source/repos/serverless-sailingweb/backend/tests/integration/events.test.js:132:35)
-    at process._tickCallback (internal/process/next_tick.js:68:7)</failure>
+    <testcase classname=" createEvent mutation creates and returns event" name=" createEvent mutation creates and returns event" time="0.111">
     </testcase>
-    <testcase classname=" removeEvent mutation removes event" name=" removeEvent mutation removes event" time="0.086">
-      <failure>Error: expect(received).toEqual(expected) // deep equality
-
-Expected: {&quot;event&quot;: {&quot;eventId&quot;: &quot;3&quot;}}
-Received: null
-    at Object.toEqual (/mnt/c/Users/Luke/source/repos/serverless-sailingweb/backend/tests/integration/events.test.js:209:41)
-    at process._tickCallback (internal/process/next_tick.js:68:7)</failure>
+    <testcase classname=" removeEvent mutation removes event" name=" removeEvent mutation removes event" time="0.158">
     </testcase>
   </testsuite>
 </testsuites>
