@@ -1,115 +1,121 @@
 PASS tests/integration/signOn.test.js
-  √ signOn mutation signs on a person (1316ms)
+PASS tests/integration/events.test.js
+PASS tests/integration/helm.test.js
 
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
+Test Suites: 3 passed, 3 total
+Tests:       7 passed, 7 total
 Snapshots:   0 total
-Time:        8.773s
+Time:        13.135s
 Ran all test suites related to changed files.
 PASS tests/integration/signOn.test.js
-  √ signOn mutation signs on a person (221ms)
+PASS tests/integration/events.test.js
+PASS tests/integration/helm.test.js
 
-Failed to collect coverage from C:\Users\Luke\source\repos\serverless-sailingweb\backend\src\dynamoResolvers\helm.js
-ERROR: C:\Users\Luke\source\repos\serverless-sailingweb\backend\src\dynamoResolvers\helm.js: Unexpected token (12:0)
-
-  10 |     }
-  11 |     return {newPerson: db.createItem(params)}}
-> 12 | }
-     | ^
-  13 | 
-  14 | export const allHelms = (args) => {
-  15 |     let params = {
-STACK: SyntaxError: C:\Users\Luke\source\repos\serverless-sailingweb\backend\src\dynamoResolvers\helm.js: Unexpected token (12:0)
-
-  10 |     }
-  11 |     return {newPerson: db.createItem(params)}}
-> 12 | }
-     | ^
-  13 | 
-  14 | export const allHelms = (args) => {
-  15 |     let params = {
-    at Parser.raise (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@babel\parser\lib\index.js:6322:17)
-    at Parser.unexpected (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@babel\parser\lib\index.js:7638:16)
-    at Parser.parseExprAtom (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@babel\parser\lib\index.js:8799:20)
-    at Parser.parseExprSubscripts (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@babel\parser\lib\index.js:8385:23)
-    at Parser.parseMaybeUnary (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@babel\parser\lib\index.js:8365:21)
-    at Parser.parseExprOps (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@babel\parser\lib\index.js:8252:23)
-    at Parser.parseMaybeConditional (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@babel\parser\lib\index.js:8225:23)
-    at Parser.parseMaybeAssign (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@babel\parser\lib\index.js:8172:21)
-    at Parser.parseExpression (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@babel\parser\lib\index.js:8120:23)
-    at Parser.parseStatementContent (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@babel\parser\lib\index.js:9892:23)
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
+Test Suites: 3 passed, 3 total
+Tests:       7 passed, 7 total
 Snapshots:   0 total
-Time:        8.79s
+Time:        9.381s
 Ran all test suites related to changed files.
 PASS tests/integration/signOn.test.js
-  √ signOn mutation signs on a person (202ms)
+PASS tests/integration/events.test.js
+PASS tests/integration/helm.test.js
 
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
+Test Suites: 3 passed, 3 total
+Tests:       7 passed, 7 total
 Snapshots:   0 total
-Time:        7.843s
+Time:        8.643s
 Ran all test suites related to changed files.
 PASS tests/integration/signOn.test.js
-  √ signOn mutation signs on a person (178ms)
+PASS tests/integration/events.test.js
+FAIL tests/integration/helm.test.js
+  ● getBoatsOfHelm works
 
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
+    ReferenceError: obj is not defined
+
+      25 |       }`,
+      26 |       variables: {
+    > 27 |           input: obj
+         |                  ^
+      28 |       }})
+      29 |   })
+      30 |     expect()
+
+      at Object.obj (tests/integration/helm.test.js:27:18)
+
+Test Suites: 1 failed, 2 passed, 3 total
+Tests:       1 failed, 6 passed, 7 total
 Snapshots:   0 total
-Time:        8.404s
+Time:        8.097s
 Ran all test suites related to changed files.
+PASS tests/integration/events.test.js
 PASS tests/integration/signOn.test.js
-  √ signOn mutation signs on a person (186ms)
+FAIL tests/integration/helm.test.js
+  ● getBoatsOfHelm works
 
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
+    ReferenceError: obj is not defined
+
+      19 |   })
+      20 |   const helmJson = await helm.json()
+    > 21 |   expect(helmJson.data.signOn).toEqual(obj)
+         |                                        ^
+      22 | })
+
+      at Object.obj (tests/integration/helm.test.js:21:40)
+
+Test Suites: 1 failed, 2 passed, 3 total
+Tests:       1 failed, 6 passed, 7 total
 Snapshots:   0 total
-Time:        8.945s
+Time:        7.946s
 Ran all test suites related to changed files.
-FAIL tests/integration/signOn.test.js
-  × signOn mutation signs on a person (59ms)
-
-  ● signOn mutation signs on a person
-
-    TypeError: Cannot read property 'signOn' of undefined
-
-      35 |   })
-      36 |   const signOnJson = await signOn.json();
-    > 37 |   expect(signOnJson.data.signOn).toEqual(obj)
-         |                          ^
-      38 |   const response = await fetch('http://localhost:3000/graphql', {
-      39 |     method: 'post',
-      40 |     body: JSON.stringify({
-
-      at Object.signOn (tests/integration/signOn.test.js:37:26)
-
-Test Suites: 1 failed, 1 total
-Tests:       1 failed, 1 total
-Snapshots:   0 total
-Time:        11.235s
-Ran all test suites related to changed files.
+PASS tests/integration/events.test.js
 PASS tests/integration/signOn.test.js
-  √ signOn mutation signs on a person (172ms)
+FAIL tests/integration/helm.test.js
+  ● getBoatsOfHelm works
 
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
+    ReferenceError: obj is not defined
+
+      23 |   const helmJson = await helm.json()
+      24 |   const expectedResponse = 
+    > 25 |   expect(helmJson.data.getBoatsOfHelm).toEqual(obj)
+         |                                                ^
+      26 | })
+
+      at Object.obj (tests/integration/helm.test.js:25:48)
+
+Test Suites: 1 failed, 2 passed, 3 total
+Tests:       1 failed, 6 passed, 7 total
 Snapshots:   0 total
-Time:        9.05s
+Time:        7.847s
 Ran all test suites related to changed files.
+PASS tests/integration/events.test.js
 PASS tests/integration/signOn.test.js
-  √ signOn mutation signs on a person (203ms)
+FAIL tests/integration/helm.test.js
+  ● getBoatsOfHelm works
 
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: {"boatName": " ", "boatNumber": " ", "name": " ", "pY": 0}
+    Received: [{"boatName": " ", "boatNumber": " ", "name": " ", "pY": 0}]
+
+      28 |           name: " "
+      29 |         }
+    > 30 |   expect(helmJson.data.getBoatsOfHelm).toEqual(expectedResponse)
+         |                                        ^
+      31 | })
+
+      at Object.toEqual (tests/integration/helm.test.js:30:40)
+
+Test Suites: 1 failed, 2 passed, 3 total
+Tests:       1 failed, 6 passed, 7 total
 Snapshots:   0 total
-Time:        9.476s
+Time:        7.929s
 Ran all test suites related to changed files.
+PASS tests/integration/events.test.js
 PASS tests/integration/signOn.test.js
-  √ signOn mutation signs on a person (255ms)
+PASS tests/integration/helm.test.js
 
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
+Test Suites: 3 passed, 3 total
+Tests:       7 passed, 7 total
 Snapshots:   0 total
-Time:        9.951s
+Time:        7.342s
 Ran all test suites related to changed files.

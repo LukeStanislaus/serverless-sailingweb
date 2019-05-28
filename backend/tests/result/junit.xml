@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="7" failures="0" time="8.396">
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-28T14:26:33" time="3.3" tests="1">
-    <testcase classname=" allBoatData" name=" allBoatData" time="1.027">
+<testsuites name="jest tests" tests="7" failures="0" time="7.343">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-28T15:08:44" time="2.557" tests="5">
+    <testcase classname=" allEvents query returns event" name=" allEvents query returns event" time="0.066">
+    </testcase>
+    <testcase classname=" recentEvents query returns event" name=" recentEvents query returns event" time="0.045">
+    </testcase>
+    <testcase classname=" specificEvent query returns event" name=" specificEvent query returns event" time="0.046">
+    </testcase>
+    <testcase classname=" createEvent mutation creates and returns event" name=" createEvent mutation creates and returns event" time="0.095">
+    </testcase>
+    <testcase classname=" removeEvent mutation removes event" name=" removeEvent mutation removes event" time="0.112">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-28T14:26:33" time="3.649" tests="1">
-    <testcase classname=" signOn mutation signs on a person" name=" signOn mutation signs on a person" time="1.388">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-28T15:08:47" time="0.49" tests="1">
+    <testcase classname=" signOn mutation signs on a person" name=" signOn mutation signs on a person" time="0.156">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-28T14:26:33" time="3.855" tests="5">
-    <testcase classname=" allEvents query returns event" name=" allEvents query returns event" time="1.003">
-    </testcase>
-    <testcase classname=" recentEvents query returns event" name=" recentEvents query returns event" time="0.256">
-    </testcase>
-    <testcase classname=" specificEvent query returns event" name=" specificEvent query returns event" time="0.065">
-    </testcase>
-    <testcase classname=" createEvent mutation creates and returns event" name=" createEvent mutation creates and returns event" time="0.111">
-    </testcase>
-    <testcase classname=" removeEvent mutation removes event" name=" removeEvent mutation removes event" time="0.158">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-28T15:08:44" time="3.368" tests="1">
+    <testcase classname=" getBoatsOfHelm works" name=" getBoatsOfHelm works" time="0.092">
     </testcase>
   </testsuite>
 </testsuites>

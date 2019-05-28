@@ -15,5 +15,14 @@
         "boatName": " ",
         "boatNumber": " "
 
+    },
+    {
+        "eventId": "person",
+        "type_id": "_",
+        "boatName": " ",
+        "boatNumber": " ",
+        "pY": 0,
+        "name": " "
+
     }
 ]
