@@ -1,4 +1,0 @@
-
-> serverless-dynamodb-test@1.0.0 test C:\Users\Luke\source\repos\serverless-sailingweb\backend
-> jest >jest.txt
-

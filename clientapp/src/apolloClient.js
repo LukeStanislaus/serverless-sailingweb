@@ -1,6 +1,10 @@
 import {ApolloClient} from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import {InMemoryCache} from 'apollo-cache-inmemory'
+import {resolvers} from './resolvers'
+import {typeDefs} from './schema.graphql'
+
+const cache = new InMemoryCache();
 const link =new HttpLink({
   uri: "https://hfnajybwp9.execute-api.us-east-1.amazonaws.com/dev/graphql",
   headers: {
@@ -13,5 +17,13 @@ const link =new HttpLink({
   })
 export const client = new ApolloClient({
   link: link,
-  cache: new InMemoryCache()
+  cache: cache,
+  typeDefs,
+  resolvers
 });
+
+cache.writeData({
+  data: {
+    selectedRace: null
+    }
+})

@@ -54,7 +54,6 @@ test("signOn mutation signs on a person", async () => {
     }`})
   })
   const responseJson = await response.json();
-  //expect(responseJson.data.removeEvent).toEqual({event:{eventId:obj.event.eventId}});
   const check = await fetch('http://localhost:3000/graphql', {
     method: 'post',
     body: JSON.stringify({

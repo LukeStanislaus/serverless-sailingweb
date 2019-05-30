@@ -25,6 +25,7 @@
     "node-fetch": "^2.3.0",
     "path": "^0.12.7",
     "react-static": "^7.0.9",
+    "serverless": "^1.44.1",
     "serverless-dynamodb-client": "0.0.2",
     "serverless-dynamodb-local": "^0.2.37",
     "serverless-jest-plugin": "^0.2.1",

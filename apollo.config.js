@@ -1,10 +1,10 @@
 module.exports = {
     client: {
         
-        includes: ['./clientapp/src/signOn.js'],
+        includes: ['./clientapp/src/**'],
         service: {
             name: 'SailingWeb',
-            localSchemaFile: './backend/src/schema.graphql'
+            localSchemaFile: './client/src/schema.graphql'
         }
     },
     service: {

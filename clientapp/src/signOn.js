@@ -1,20 +1,17 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import gql from 'graphql-tag'
-import { Query } from 'react-apollo'
+import { Query, Mutation } from 'react-apollo'
 import Autocomplete from 'react-autocomplete'
+import { AwesomeButton } from 'react-awesome-button'
+import "react-awesome-button/dist/styles.css";
 import Select from 'react-select'
-const allHelms = gql`
-query getAllHelmsAndRecentEvents($input: RecentEventsInput!){
-  allHelms{
-    name
-    userId
-    boatName
-    boatNumber
-    pY
-  }
-  recentEvents(input: $input){
-    eventId
+import SelectRace from './raceSelector'
+
+const selectedRace = gql`
+query getSelectedRace{
+  selectedRace @client{
     eventName
+    eventId
     eventTimeStamp
   }
 }
@@ -30,76 +27,163 @@ query getBoatsOfHelm($input: GetBoatsOfHelmInput!) {
   }
 }
 `
-
-function SignOn(){
-const [name, setName] = useState("")
-const [calendar, setCalendar] = useState("")
-const [boatClass, setBoatClass] = useState("")
-const timeRounded = Math.round((new Date().getTime()/100000))*100000
-const allHelmsInput = {"input":{
-  "range": {
-    "start" : timeRounded,
-    "end": (timeRounded+1000000000)
+const signOn = gql`
+mutation SignOn ($input: SignOnInput!){
+  signOn(input:$input){
+    signOn{
+      helmName
+    }
   }
-}}
-return <Query query={allHelms} variables={allHelmsInput}>
-    {({loading, error, data})=>{
-        if (loading) return 'Loading...';
-        if (error) return `Error! ${error.message}`
-        const boatsOfHelmVariables = {
-          input: {
-            helmName: name
-          }
-        }
-        return (<>
-        Select Race:
-                  <Autocomplete 
-            shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
-            getItemValue={(item) => item.label}
-            items={data.recentEvents.map(elem => {return {label: elem.eventName + ", " + 
-            new Date(elem.eventTimeStamp).toLocaleTimeString() + ", " + 
-            new Date(elem.eventTimeStamp).toDateString(), id: elem.eventName}})}
-            renderItem={(item, isHighlighted) =>
-              <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
-                {item.label}
-              </div>
-            }
-            value={calendar}
-            onChange={(e) => setCalendar(e.target.value)}
-            onSelect={(val) => setCalendar(val)}
-          />
-        Helm Name: 
-          <Autocomplete 
-            shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
-            getItemValue={(item) => item.label}
-            items={data.allHelms.map(elem => {return {label: elem.name, id: elem.name}})}
-            renderItem={(item, isHighlighted) =>
-              <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
-                {item.label}
-              </div>
-            }
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            onSelect={(val) => setName(val)}
-          />
-          Boat Class:<Query query={getBoats} variables={boatsOfHelmVariables}>
-          {({loading, error, data})=>{
-        if (loading) return 'Loading...';
-        if (error) return `Error! ${error.message}`
+}`
 
-            return (<Select
-            value={boatClass}
-            onChange={(e) => setBoatClass(e.target.value)}
-            options={data.getBoatsOfHelm.map(elem => {return { label: elem.boatName + ", " +
-             elem.boatNumber+ ". (PY "+ elem.pY+")", value: elem }})}
-            />)
-        }}
-  </Query>
-          
+const allHelms = gql`
+query getAllHelms{
+  allHelms{
+    name
+    userId
+    boatName
+    boatNumber
+    pY
+  }
+
+}
+`
+
+
+
+function SignOn() {
+  const [crew, setCrew] = useState("")
+  const [name, setName] = useState("")
+  const [boatClass, setBoatClass] = useState("")
+  const [notes, setNotes] = useState("")
+
+  const signOnInput = {
+    input: {
+      signOn: {
+        userId: name.userId,
+        helmName: name.name,
+        boatName: boatClass.boatName,
+        boatNumber: boatClass.boatNumber,
+        crew: crew === ""? null:crew,
+        pY: boatClass.pY,
+        notes: notes===""?null:notes
+        
+      }
+    }
+  }
+  const boatsOfHelmVariables = {
+    input: {
+      helmName: name.name
+    }
+  }
+  useEffect(() => {
+    setBoatClass("")
+  }, [name])
+      return (<>
+        Select Race:<SelectRace AfterSelection={()=><div>done</div>}/>
+        Helm Name:
+        
+        <Query query={allHelms}>            
+        {
+          ({ loading, error, data }) => {
+              if (error) return `Error! ${error.message}`
+              if (loading) return <Select/>
+              return (
+
+          <Select
+          isClearable
+          key={"HelmName"}
+          options={data.allHelms.filter(onlyUnique)}
+          value={name}
+          getOptionLabel={elem => elem.name}
+          onChange={(val) => { setName(val); }}
+        />
+
+
+              )
+            }}</Query>
+        <div>
+        Boat Class:
+        {name.name!==undefined ?
+          <Query query={getBoats} variables={boatsOfHelmVariables}>
+            {({ loading, error, data }) => {
+              if (loading) return <Select/>
+              if (error) return `Error! ${error.message}`
+              return (<Select
+              isClearable
+                isSearchable = {false} 
+                key={"BoatClass"}
+                value={boatClass}
+                onChange={val => setBoatClass(val)}
+                options={data.getBoatsOfHelm}
+                onSelect={(val) => setBoatClass(val)}
+                getOptionLabel={elem => elem.boatName + ", " +
+                elem.boatNumber + ". (PY " + elem.pY + ")"}
+              />)
+            }}
+             </Query> : <Select/> 
               
-</>
-            )
-        }}
-</Query>
+              }
+              
+            </div>
+        Crew Name:
+        <Query query={allHelms}>            
+        {
+          ({ loading, error, data }) => {
+              if (error) return `Error! ${error.message}`
+              
+          return <Autocomplete 
+          key={"CrewName"}
+          shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
+          getItemValue={(item) => item.label}
+          items={data.allHelms=== undefined?[]:data.allHelms.map(elem => { return { label: elem.name, id: elem.name, name: elem.name } }).filter(onlyUnique)}
+          renderItem={(item, isHighlighted) =>
+            <div key={item.label} style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
+              {item.label}
+            </div>
+          }
+          value={crew}
+          onChange={(e) => setCrew(e.target.value)}
+          onSelect={(val) => setCrew(val)}
+        />
+          }}</Query>
+        Notes
+        <input value={notes} onChange={e=>setNotes(e.target.value)} /><div align="center" style={{"paddingTop": "50px"}}>
+        <Query query={selectedRace}>
+          {({data,loading,error})=> { 
+            const queryData = data;
+            if (loading ) return "Loading"
+            return   <Mutation mutation={signOn}>
+          {(signOn, { data, loading, error }) => {
+            if (data) return `Success.`
+            
+            let signOnInputVariables = {}
+            if(queryData.selectedRace != null){
+            signOnInputVariables ={variables: {input: {signOn:{...signOnInput.input.signOn, eventId: queryData.selectedRace.eventId}}}}
+            
+            console.log(signOnInputVariables)
+            }
+            return (<AwesomeButton 
+              disabled={(boatClass === "" || name === "" || queryData.selectedRace === null)} 
+              ripple 
+              onPress={(e)=>{signOn(signOnInputVariables)}} 
+              type="primary" 
+              style={{
+              "--button-raise-level": "4px",
+              "--button-hover-pressure": 3
+            }}>Enter Race</AwesomeButton>)
+
+
+          }}
+          </Mutation>}}</Query></div>
+      </>
+      )}
+    
+
+
+function onlyUnique(value, index, self) {
+  return index === self.findIndex((t) => (
+    t.name === value.name
+  ))
 }
 export default SignOn

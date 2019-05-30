@@ -12,6 +12,7 @@
     recentEvents(input: RecentEventsInput!): [Event]
     specificEvent(input: SpecificEventInput!): [SignOn]
     getBoatsOfHelm(input: GetBoatsOfHelmInput!): [BoatOfHelmData]
+    getLapsOfRace(input: GetLapsOfRaceInput!): [Lap]
   }
 
   type RootMutation {
@@ -20,6 +21,49 @@
     signOn(input: SignOnInput!): SignOnPayload
     removeEvent(input: RemoveEventInput!): RemoveEventPayload
     newPerson(input: NewPersonInput!): NewPersonPayload
+    createLap(input: CreateLapInput!): CreateLapPayload
+    updateLap(input: UpdateLapInput!): UpdateLapPayload
+  }
+
+  type UpdateLapPayload {
+    Lap: UpdatedLap!
+  }
+  input UpdateLapInput {
+    LapData: LapData!
+  }
+
+  type UpdatedLap {
+    eventId: ID!
+    lapTime: Long
+    lapId: ID!
+  }
+
+  input LapData {
+    eventId: ID!
+    lapTime: Long
+    lapId: ID!
+  }
+  input GetLapsOfRaceInput {
+    eventId: ID!
+  }
+
+  type Lap{
+    userId: ID!
+    eventId: ID!
+    lapTime: Long!
+    lapId: ID!
+  }
+  type CreateLapPayload {
+    eventId: ID!
+    userId: ID!
+    lapTime: Long!
+    lapId: ID!
+  }
+
+  input CreateLapInput {
+    eventId: ID!
+    userId: ID!
+    lapTime: Long!
   }
 
   type BoatOfHelmData {

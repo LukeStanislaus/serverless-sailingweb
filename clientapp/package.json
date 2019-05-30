@@ -13,6 +13,8 @@
     "react": "^16.8.6",
     "react-apollo": "^2.5.5",
     "react-autocomplete": "^1.8.1",
+    "react-awesome-button": "^6.1.2",
+    "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
     "react-select": "^3.0.3"

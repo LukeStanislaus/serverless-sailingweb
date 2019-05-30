@@ -1,0 +1,10 @@
+extend type RootQuery {
+    selectedRace: Event
+}
+extend type RootMutation {
+    selectRace(input: SelectRaceInput!): Event
+}
+
+input SelectRaceInput {
+    Event: Event
+}

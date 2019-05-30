@@ -1,121 +1,599 @@
-PASS tests/integration/signOn.test.js
-PASS tests/integration/events.test.js
-PASS tests/integration/helm.test.js
+FAIL tests/integration/signOn.test.js
+  ● signOn mutation signs on a person
 
-Test Suites: 3 passed, 3 total
-Tests:       7 passed, 7 total
-Snapshots:   0 total
-Time:        13.135s
-Ran all test suites related to changed files.
-PASS tests/integration/signOn.test.js
-PASS tests/integration/events.test.js
-PASS tests/integration/helm.test.js
+    expect(received).toEqual(expected) // deep equality
 
-Test Suites: 3 passed, 3 total
-Tests:       7 passed, 7 total
-Snapshots:   0 total
-Time:        9.381s
-Ran all test suites related to changed files.
-PASS tests/integration/signOn.test.js
-PASS tests/integration/events.test.js
-PASS tests/integration/helm.test.js
+    - Expected
+    + Received
 
-Test Suites: 3 passed, 3 total
-Tests:       7 passed, 7 total
-Snapshots:   0 total
-Time:        8.643s
-Ran all test suites related to changed files.
-PASS tests/integration/signOn.test.js
-PASS tests/integration/events.test.js
-FAIL tests/integration/helm.test.js
-  ● getBoatsOfHelm works
+      Object {
+    -   "signOn": Object {
+    -     "boatName": " ",
+    -     "boatNumber": " ",
+    -     "eventId": "1",
+    -     "helmName": " ",
+    -     "pY": 0,
+    -     "userId": "1",
+    -   },
+    +   "signOn": null,
+      }
 
-    ReferenceError: obj is not defined
+      35 |   })
+      36 |   const signOnJson = await signOn.json();
+    > 37 |   expect(signOnJson.data.signOn).toEqual(obj)
+         |                                  ^
+      38 |   const response = await fetch('http://localhost:3000/graphql', {
+      39 |     method: 'post',
+      40 |     body: JSON.stringify({
 
-      25 |       }`,
-      26 |       variables: {
-    > 27 |           input: obj
-         |                  ^
-      28 |       }})
-      29 |   })
-      30 |     expect()
+      at Object.toEqual (tests/integration/signOn.test.js:37:34)
 
-      at Object.obj (tests/integration/helm.test.js:27:18)
+FAIL tests/integration/events.test.js
+  ● allEvents query returns event
 
-Test Suites: 1 failed, 2 passed, 3 total
-Tests:       1 failed, 6 passed, 7 total
-Snapshots:   0 total
-Time:        8.097s
-Ran all test suites related to changed files.
-PASS tests/integration/events.test.js
-PASS tests/integration/signOn.test.js
-FAIL tests/integration/helm.test.js
-  ● getBoatsOfHelm works
+    expect(received).toEqual(expected) // deep equality
 
-    ReferenceError: obj is not defined
+    Expected: [{"eventId": "1", "eventName": "test", "eventTimeStamp": 0}]
+    Received: null
 
-      19 |   })
-      20 |   const helmJson = await helm.json()
-    > 21 |   expect(helmJson.data.signOn).toEqual(obj)
-         |                                        ^
-      22 | })
+      27 |     }
+      28 |   })
+    > 29 |   expect(result.data.allEvents).toEqual(RacesEvents);
+         |                                 ^
+      30 | })
+      31 | 
+      32 | 
 
-      at Object.obj (tests/integration/helm.test.js:21:40)
+      at Object.toEqual (tests/integration/events.test.js:29:33)
 
-Test Suites: 1 failed, 2 passed, 3 total
-Tests:       1 failed, 6 passed, 7 total
-Snapshots:   0 total
-Time:        7.946s
-Ran all test suites related to changed files.
-PASS tests/integration/events.test.js
-PASS tests/integration/signOn.test.js
-FAIL tests/integration/helm.test.js
-  ● getBoatsOfHelm works
+  ● recentEvents query returns event
 
-    ReferenceError: obj is not defined
+    expect(received).toEqual(expected) // deep equality
 
-      23 |   const helmJson = await helm.json()
-      24 |   const expectedResponse = 
-    > 25 |   expect(helmJson.data.getBoatsOfHelm).toEqual(obj)
-         |                                                ^
-      26 | })
+    Expected: [{"eventId": "1", "eventName": "test", "eventTimeStamp": 0}]
+    Received: null
 
-      at Object.obj (tests/integration/helm.test.js:25:48)
+      62 |     }
+      63 |   })
+    > 64 |   expect(result.data.recentEvents).toEqual(RacesEvents);
+         |                                    ^
+      65 | })
+      66 | 
+      67 | 
 
-Test Suites: 1 failed, 2 passed, 3 total
-Tests:       1 failed, 6 passed, 7 total
-Snapshots:   0 total
-Time:        7.847s
-Ran all test suites related to changed files.
-PASS tests/integration/events.test.js
-PASS tests/integration/signOn.test.js
+      at Object.toEqual (tests/integration/events.test.js:64:36)
+
+  ● specificEvent query returns event
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: [{"boatName": " ", "boatNumber": " ", "eventId": "2", "helmName": " ", "userId": "1"}]
+    Received: null
+
+      100 |       }
+      101 |     })
+    > 102 |   expect(result.data.specificEvent).toEqual(RacesEvents);
+          |                                     ^
+      103 | })
+      104 | 
+      105 | 
+
+      at Object.toEqual (tests/integration/events.test.js:102:37)
+
+  ● createEvent mutation creates and returns event
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected
+    + Received
+
+      Object {
+    -   "event": Object {
+    -     "eventId": "3",
+    -     "eventName": "test",
+    -     "eventTimeStamp": 0,
+    -   },
+    +   "event": null,
+      }
+
+      130 |   })
+      131 |   const result = await response.json()
+    > 132 |   expect(result.data.createEvent).toEqual(JSON.parse(input).input);
+          |                                   ^
+      133 |   const check = await fetch('http://localhost:3000/graphql', {
+      134 |     method: 'post',
+      135 |     body: JSON.stringify({
+
+      at Object.toEqual (tests/integration/events.test.js:132:35)
+
+  ● removeEvent mutation removes event
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: {"event": {"eventId": "3"}}
+    Received: null
+
+      207 |   })
+      208 |   const responseJson = await response.json();
+    > 209 |   expect(responseJson.data.removeEvent).toEqual({event:{eventId:obj.event.eventId}});
+          |                                         ^
+      210 |   const check = await fetch('http://localhost:3000/graphql', {
+      211 |     method: 'post',
+      212 |     body: JSON.stringify({
+
+      at Object.toEqual (tests/integration/events.test.js:209:41)
+
 FAIL tests/integration/helm.test.js
   ● getBoatsOfHelm works
 
     expect(received).toEqual(expected) // deep equality
 
-    Expected: {"boatName": " ", "boatNumber": " ", "name": " ", "pY": 0}
-    Received: [{"boatName": " ", "boatNumber": " ", "name": " ", "pY": 0}]
+    Expected: [{"boatName": " ", "boatNumber": " ", "name": " ", "pY": 0}]
+    Received: null
 
       28 |           name: " "
-      29 |         }
+      29 |         }]
     > 30 |   expect(helmJson.data.getBoatsOfHelm).toEqual(expectedResponse)
          |                                        ^
       31 | })
 
       at Object.toEqual (tests/integration/helm.test.js:30:40)
 
-Test Suites: 1 failed, 2 passed, 3 total
-Tests:       1 failed, 6 passed, 7 total
-Snapshots:   0 total
-Time:        7.929s
-Ran all test suites related to changed files.
-PASS tests/integration/events.test.js
-PASS tests/integration/signOn.test.js
-PASS tests/integration/helm.test.js
+FAIL tests/integration/boatData.test.js
+  ● allBoatData
 
-Test Suites: 3 passed, 3 total
-Tests:       7 passed, 7 total
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: [{"boatName": "test", "crew": 0, "pY": 0}]
+    Received: null
+
+      19 |   })
+      20 |   const result =await response.json()
+    > 21 |   expect(result.data.allBoatData).toEqual(BoatData);
+         |                                   ^
+      22 | })
+
+      at Object.toEqual (tests/integration/boatData.test.js:21:35)
+
+FAIL tests/integration/laps.test.js
+  ● newlap creates a new lap
+
+    TypeError: Cannot read property 'eventId' of null
+
+      21 |   })
+      22 |   const newLapJson = await newLap.json()
+    > 23 |   expect(newLapJson.data.createLap.eventId).toEqual("2")
+         |                                    ^
+      24 | 
+      25 |   let obj1 = {
+      26 |     eventId: "2"
+
+      at Object.eventId (tests/integration/laps.test.js:23:36)
+
+  ● getLaps returns laps
+
+    TypeError: Cannot read property '0' of null
+
+      68 | })
+      69 | const getLapsJson = await getLap.json()
+    > 70 | expect(getLapsJson.data.getLapsOfRace[0].lapId).toEqual("0")
+         |        ^
+      71 | 
+      72 | })
+      73 | test('updateLap removes lap', async ()=> {
+
+      at Object.<anonymous>.test (tests/integration/laps.test.js:70:8)
+
+Test Suites: 5 failed, 5 total
+Tests:       10 failed, 1 passed, 11 total
 Snapshots:   0 total
-Time:        7.342s
+Time:        8.354s
+Ran all test suites related to changed files.
+FAIL tests/integration/signOn.test.js
+  ● signOn mutation signs on a person
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected
+    + Received
+
+      Object {
+    -   "signOn": Object {
+    -     "boatName": " ",
+    -     "boatNumber": " ",
+    -     "eventId": "1",
+    -     "helmName": " ",
+    -     "pY": 0,
+    -     "userId": "1",
+    -   },
+    +   "signOn": null,
+      }
+
+      35 |   })
+      36 |   const signOnJson = await signOn.json();
+    > 37 |   expect(signOnJson.data.signOn).toEqual(obj)
+         |                                  ^
+      38 |   const response = await fetch('http://localhost:3000/graphql', {
+      39 |     method: 'post',
+      40 |     body: JSON.stringify({
+
+      at Object.toEqual (tests/integration/signOn.test.js:37:34)
+
+FAIL tests/integration/events.test.js
+  ● allEvents query returns event
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: [{"eventId": "1", "eventName": "test", "eventTimeStamp": 0}]
+    Received: null
+
+      27 |     }
+      28 |   })
+    > 29 |   expect(result.data.allEvents).toEqual(RacesEvents);
+         |                                 ^
+      30 | })
+      31 | 
+      32 | 
+
+      at Object.toEqual (tests/integration/events.test.js:29:33)
+
+  ● recentEvents query returns event
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: [{"eventId": "1", "eventName": "test", "eventTimeStamp": 0}]
+    Received: null
+
+      62 |     }
+      63 |   })
+    > 64 |   expect(result.data.recentEvents).toEqual(RacesEvents);
+         |                                    ^
+      65 | })
+      66 | 
+      67 | 
+
+      at Object.toEqual (tests/integration/events.test.js:64:36)
+
+  ● specificEvent query returns event
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: [{"boatName": " ", "boatNumber": " ", "eventId": "2", "helmName": " ", "userId": "1"}]
+    Received: null
+
+      100 |       }
+      101 |     })
+    > 102 |   expect(result.data.specificEvent).toEqual(RacesEvents);
+          |                                     ^
+      103 | })
+      104 | 
+      105 | 
+
+      at Object.toEqual (tests/integration/events.test.js:102:37)
+
+  ● createEvent mutation creates and returns event
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected
+    + Received
+
+      Object {
+    -   "event": Object {
+    -     "eventId": "3",
+    -     "eventName": "test",
+    -     "eventTimeStamp": 0,
+    -   },
+    +   "event": null,
+      }
+
+      130 |   })
+      131 |   const result = await response.json()
+    > 132 |   expect(result.data.createEvent).toEqual(JSON.parse(input).input);
+          |                                   ^
+      133 |   const check = await fetch('http://localhost:3000/graphql', {
+      134 |     method: 'post',
+      135 |     body: JSON.stringify({
+
+      at Object.toEqual (tests/integration/events.test.js:132:35)
+
+  ● removeEvent mutation removes event
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: {"event": {"eventId": "3"}}
+    Received: null
+
+      207 |   })
+      208 |   const responseJson = await response.json();
+    > 209 |   expect(responseJson.data.removeEvent).toEqual({event:{eventId:obj.event.eventId}});
+          |                                         ^
+      210 |   const check = await fetch('http://localhost:3000/graphql', {
+      211 |     method: 'post',
+      212 |     body: JSON.stringify({
+
+      at Object.toEqual (tests/integration/events.test.js:209:41)
+
+FAIL tests/integration/boatData.test.js
+  ● allBoatData
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: [{"boatName": "test", "crew": 0, "pY": 0}]
+    Received: null
+
+      19 |   })
+      20 |   const result =await response.json()
+    > 21 |   expect(result.data.allBoatData).toEqual(BoatData);
+         |                                   ^
+      22 | })
+
+      at Object.toEqual (tests/integration/boatData.test.js:21:35)
+
+FAIL tests/integration/helm.test.js
+  ● getBoatsOfHelm works
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: [{"boatName": " ", "boatNumber": " ", "name": " ", "pY": 0}]
+    Received: null
+
+      28 |           name: " "
+      29 |         }]
+    > 30 |   expect(helmJson.data.getBoatsOfHelm).toEqual(expectedResponse)
+         |                                        ^
+      31 | })
+
+      at Object.toEqual (tests/integration/helm.test.js:30:40)
+
+FAIL tests/integration/laps.test.js
+  ● newlap creates a new lap
+
+    TypeError: Cannot read property 'eventId' of null
+
+      21 |   })
+      22 |   const newLapJson = await newLap.json()
+    > 23 |   expect(newLapJson.data.createLap.eventId).toEqual("2")
+         |                                    ^
+      24 | 
+      25 |   let obj1 = {
+      26 |     eventId: "2"
+
+      at Object.eventId (tests/integration/laps.test.js:23:36)
+
+  ● getLaps returns laps
+
+    TypeError: Cannot read property '0' of null
+
+      68 | })
+      69 | const getLapsJson = await getLap.json()
+    > 70 | expect(getLapsJson.data.getLapsOfRace[0].lapId).toEqual("0")
+         |        ^
+      71 | 
+      72 | })
+      73 | test('updateLap removes lap', async ()=> {
+
+      at Object.<anonymous>.test (tests/integration/laps.test.js:70:8)
+
+  ● updateLap removes lap
+
+    TypeError: Cannot read property 'getLapsOfRace' of undefined
+
+      91 |   })
+      92 |   const getLapsJson = await getLap.json()
+    > 93 |   expect(getLapsJson.data.getLapsOfRace[0].lapId).toEqual("0")
+         |                           ^
+      94 | 
+      95 | })
+
+      at Object.getLapsOfRace (tests/integration/laps.test.js:93:27)
+
+Test Suites: 5 failed, 5 total
+Tests:       11 failed, 11 total
+Snapshots:   0 total
+Time:        6.74s
+Ran all test suites related to changed files.
+FAIL tests/integration/signOn.test.js
+  ● signOn mutation signs on a person
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected
+    + Received
+
+      Object {
+    -   "signOn": Object {
+    -     "boatName": " ",
+    -     "boatNumber": " ",
+    -     "eventId": "1",
+    -     "helmName": " ",
+    -     "pY": 0,
+    -     "userId": "1",
+    -   },
+    +   "signOn": null,
+      }
+
+      35 |   })
+      36 |   const signOnJson = await signOn.json();
+    > 37 |   expect(signOnJson.data.signOn).toEqual(obj)
+         |                                  ^
+      38 |   const response = await fetch('http://localhost:3000/graphql', {
+      39 |     method: 'post',
+      40 |     body: JSON.stringify({
+
+      at Object.toEqual (tests/integration/signOn.test.js:37:34)
+
+FAIL tests/integration/events.test.js
+  ● allEvents query returns event
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: [{"eventId": "1", "eventName": "test", "eventTimeStamp": 0}]
+    Received: null
+
+      27 |     }
+      28 |   })
+    > 29 |   expect(result.data.allEvents).toEqual(RacesEvents);
+         |                                 ^
+      30 | })
+      31 | 
+      32 | 
+
+      at Object.toEqual (tests/integration/events.test.js:29:33)
+
+  ● recentEvents query returns event
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: [{"eventId": "1", "eventName": "test", "eventTimeStamp": 0}]
+    Received: null
+
+      62 |     }
+      63 |   })
+    > 64 |   expect(result.data.recentEvents).toEqual(RacesEvents);
+         |                                    ^
+      65 | })
+      66 | 
+      67 | 
+
+      at Object.toEqual (tests/integration/events.test.js:64:36)
+
+  ● specificEvent query returns event
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: [{"boatName": " ", "boatNumber": " ", "eventId": "2", "helmName": " ", "userId": "1"}]
+    Received: null
+
+      100 |       }
+      101 |     })
+    > 102 |   expect(result.data.specificEvent).toEqual(RacesEvents);
+          |                                     ^
+      103 | })
+      104 | 
+      105 | 
+
+      at Object.toEqual (tests/integration/events.test.js:102:37)
+
+  ● createEvent mutation creates and returns event
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected
+    + Received
+
+      Object {
+    -   "event": Object {
+    -     "eventId": "3",
+    -     "eventName": "test",
+    -     "eventTimeStamp": 0,
+    -   },
+    +   "event": null,
+      }
+
+      130 |   })
+      131 |   const result = await response.json()
+    > 132 |   expect(result.data.createEvent).toEqual(JSON.parse(input).input);
+          |                                   ^
+      133 |   const check = await fetch('http://localhost:3000/graphql', {
+      134 |     method: 'post',
+      135 |     body: JSON.stringify({
+
+      at Object.toEqual (tests/integration/events.test.js:132:35)
+
+  ● removeEvent mutation removes event
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: {"event": {"eventId": "3"}}
+    Received: null
+
+      207 |   })
+      208 |   const responseJson = await response.json();
+    > 209 |   expect(responseJson.data.removeEvent).toEqual({event:{eventId:obj.event.eventId}});
+          |                                         ^
+      210 |   const check = await fetch('http://localhost:3000/graphql', {
+      211 |     method: 'post',
+      212 |     body: JSON.stringify({
+
+      at Object.toEqual (tests/integration/events.test.js:209:41)
+
+FAIL tests/integration/boatData.test.js
+  ● allBoatData
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: [{"boatName": "test", "crew": 0, "pY": 0}]
+    Received: null
+
+      19 |   })
+      20 |   const result =await response.json()
+    > 21 |   expect(result.data.allBoatData).toEqual(BoatData);
+         |                                   ^
+      22 | })
+
+      at Object.toEqual (tests/integration/boatData.test.js:21:35)
+
+FAIL tests/integration/helm.test.js
+  ● getBoatsOfHelm works
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: [{"boatName": " ", "boatNumber": " ", "name": " ", "pY": 0}]
+    Received: null
+
+      28 |           name: " "
+      29 |         }]
+    > 30 |   expect(helmJson.data.getBoatsOfHelm).toEqual(expectedResponse)
+         |                                        ^
+      31 | })
+
+      at Object.toEqual (tests/integration/helm.test.js:30:40)
+
+FAIL tests/integration/laps.test.js
+  ● newlap creates a new lap
+
+    TypeError: Cannot read property 'eventId' of null
+
+      21 |   })
+      22 |   const newLapJson = await newLap.json()
+    > 23 |   expect(newLapJson.data.createLap.eventId).toEqual("2")
+         |                                    ^
+      24 | 
+      25 |   let obj1 = {
+      26 |     eventId: "2"
+
+      at Object.eventId (tests/integration/laps.test.js:23:36)
+
+  ● getLaps returns laps
+
+    TypeError: Cannot read property '0' of null
+
+      68 | })
+      69 | const getLapsJson = await getLap.json()
+    > 70 | expect(getLapsJson.data.getLapsOfRace[0].lapId).toEqual("0")
+         |        ^
+      71 | 
+      72 | })
+      73 | test('updateLap removes lap', async ()=> {
+
+      at Object.<anonymous>.test (tests/integration/laps.test.js:70:8)
+
+  ● updateLap removes lap
+
+    TypeError: Cannot read property 'getLapsOfRace' of undefined
+
+      93 |   })
+      94 |   const getLapsJson = await getLap.json()
+    > 95 |   expect(getLapsJson.data.getLapsOfRace[0].lapId).toEqual("0")
+         |                           ^
+      96 | 
+      97 | })
+
+      at Object.getLapsOfRace (tests/integration/laps.test.js:95:27)
+
+Test Suites: 5 failed, 5 total
+Tests:       11 failed, 11 total
+Snapshots:   0 total
+Time:        6.555s
 Ran all test suites related to changed files.
