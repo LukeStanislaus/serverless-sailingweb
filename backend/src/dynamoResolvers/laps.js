@@ -1,14 +1,16 @@
 import * as db from './dynamo'
 import uuid4v from 'uuid/v4'
-export const createLap = (args) => {
+export const createLap =async  (args) => {
+  const lapId= uuid4v();
   let params = {
     TableName: "Races",
     Item: {
-      ...args, type_id: "lap_" + uuid4v()
+      ...args, type_id: "lap_" + lapId
     },
     ReturnValues: "ALL_OLD"
   }
-  return db.createItem(params)
+  const res= await db.createItem(params)
+  return {...res, lapId: lapId}
 }
 
 

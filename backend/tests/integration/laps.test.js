@@ -13,6 +13,9 @@ test('newlap creates a new lap', async ()=> {
       query: `mutation newLap ($input:CreateLapInput!){
         createLap(input:$input){
           eventId
+          userId
+          lapId
+          lapTime
         }
       }`,
       variables: {
@@ -20,7 +23,7 @@ test('newlap creates a new lap', async ()=> {
       }})
   })
   const newLapJson = await newLap.json()
-  expect(newLapJson.data.createLap.eventId).toEqual("2")
+  expect(newLapJson.data.createLap.userId).toEqual("2")
 
   let obj1 = {
     eventId: "2"

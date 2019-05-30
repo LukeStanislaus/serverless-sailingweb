@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="12" failures="0" time="8.053">
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-30T20:29:56" time="3.086" tests="1">
-    <testcase classname=" getBoatsOfHelm works" name=" getBoatsOfHelm works" time="1.108">
+<testsuites name="jest tests" tests="12" failures="0" time="9.698">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-30T20:52:57" time="3.519" tests="1">
+    <testcase classname=" getBoatsOfHelm works" name=" getBoatsOfHelm works" time="1.173">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-30T20:29:56" time="3.526" tests="4">
-    <testcase classname=" newlap creates a new lap" name=" newlap creates a new lap" time="0.312">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-30T20:52:57" time="4.241" tests="4">
+    <testcase classname=" newlap creates a new lap" name=" newlap creates a new lap" time="0.324">
     </testcase>
-    <testcase classname=" getLaps returns laps" name=" getLaps returns laps" time="0.09">
+    <testcase classname=" getLaps returns laps" name=" getLaps returns laps" time="0.1">
     </testcase>
-    <testcase classname=" updateLap removes lap" name=" updateLap removes lap" time="0.094">
+    <testcase classname=" updateLap removes lap" name=" updateLap removes lap" time="0.236">
     </testcase>
-    <testcase classname=" updateLap updates lap" name=" updateLap updates lap" time="0.126">
-    </testcase>
-  </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-30T20:29:56" time="3.603" tests="5">
-    <testcase classname=" allEvents query returns event" name=" allEvents query returns event" time="0.864">
-    </testcase>
-    <testcase classname=" recentEvents query returns event" name=" recentEvents query returns event" time="0.191">
-    </testcase>
-    <testcase classname=" specificEvent query returns event" name=" specificEvent query returns event" time="0.104">
-    </testcase>
-    <testcase classname=" createEvent mutation creates and returns event" name=" createEvent mutation creates and returns event" time="0.227">
-    </testcase>
-    <testcase classname=" removeEvent mutation removes event" name=" removeEvent mutation removes event" time="0.205">
+    <testcase classname=" updateLap updates lap" name=" updateLap updates lap" time="0.21">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-30T20:29:59" time="0.717" tests="1">
-    <testcase classname=" signOn mutation signs on a person" name=" signOn mutation signs on a person" time="0.147">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-30T20:52:57" time="4.34" tests="5">
+    <testcase classname=" allEvents query returns event" name=" allEvents query returns event" time="0.944">
+    </testcase>
+    <testcase classname=" recentEvents query returns event" name=" recentEvents query returns event" time="0.206">
+    </testcase>
+    <testcase classname=" specificEvent query returns event" name=" specificEvent query returns event" time="0.118">
+    </testcase>
+    <testcase classname=" createEvent mutation creates and returns event" name=" createEvent mutation creates and returns event" time="0.329">
+    </testcase>
+    <testcase classname=" removeEvent mutation removes event" name=" removeEvent mutation removes event" time="0.369">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-30T20:30:00" time="0.464" tests="1">
-    <testcase classname=" allBoatData" name=" allBoatData" time="0.042">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-30T20:53:01" time="1.371" tests="1">
+    <testcase classname=" signOn mutation signs on a person" name=" signOn mutation signs on a person" time="0.204">
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-30T20:53:02" time="0.844" tests="1">
+    <testcase classname=" allBoatData" name=" allBoatData" time="0.037">
     </testcase>
   </testsuite>
 </testsuites>
