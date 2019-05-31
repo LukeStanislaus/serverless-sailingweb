@@ -96,5 +96,10 @@ export const getRaceStart = async (args) => {
     }
   }
   const array = await db.queryItem(params);
+  try{
   return array[0].startTime
+  }
+  catch{
+    return null
+  }
 }
