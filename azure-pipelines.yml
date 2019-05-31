@@ -33,12 +33,12 @@ steps:
   }
   displayName: Backend
 
-# - script: |
-#     cd clientapp
-#     yarn
-#     yarn run build
-#     yarn exec firebase deploy --token "$FIREBASE_DEPLOY_KEY" --non-interactive
-#   displayName: Clientapp
+- script: |
+    cd clientapp
+    yarn
+    yarn run build
+    yarn exec firebase deploy --token "$FIREBASE_DEPLOY_KEY" --non-interactive
+  displayName: Clientapp
 
 - task: PublishTestResults@2
   condition: succeededOrFailed()
