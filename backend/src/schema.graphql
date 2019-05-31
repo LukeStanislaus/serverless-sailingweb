@@ -13,6 +13,7 @@
     specificEvent(input: SpecificEventInput!): [SignOn]
     getBoatsOfHelm(input: GetBoatsOfHelmInput!): [BoatOfHelmData]
     getLapsOfRace(input: GetLapsOfRaceInput!): [Lap]
+    getRaceStart(input: GetRaceStartInput!): Long
   }
 
   type RootMutation {
@@ -23,8 +24,29 @@
     newPerson(input: NewPersonInput!): NewPersonPayload
     createLap(input: CreateLapInput!): CreateLapPayload
     updateLap(input: UpdateLapInput!): UpdateLapPayload
+    startRace(input: StartRaceInput!): StartRacePayload
   }
 
+
+
+  type StartRacePayload {
+    StartRaceData: StartRaceReturnData
+  }
+  type StartRaceReturnData {
+    eventId: ID!
+    startTime: Long
+  }
+  input StartRaceInput {
+    StartRaceData: StartRaceData!
+
+  }
+  input StartRaceData {
+    eventId: ID!
+    startTime: Long
+  }
+  input GetRaceStartInput{
+    eventId: ID!
+  }
   type UpdateLapPayload {
     Lap: UpdatedLap!
   }
@@ -175,7 +197,6 @@
     event: CreateEventData!
   }
   input CreateEventData {
-    eventId: ID!
     eventName: String!
     eventTimeStamp: Long!
     calendarData: calendarDataInput

@@ -1,4 +1,7 @@
 import React from 'react'
-export default () => <>
-<td>7</td>
-</>
+export default (props) => {
+    if (props.lap ==undefined) return <td></td>
+
+return <>
+<td key={props.lap.lapId}>{(new Date(props.lap.lapTime)).toLocaleTimeString()}</td>
+</>}

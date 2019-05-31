@@ -1,37 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="12" failures="0" time="9.698">
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-30T20:52:57" time="3.519" tests="1">
-    <testcase classname=" getBoatsOfHelm works" name=" getBoatsOfHelm works" time="1.173">
+<testsuites name="jest tests" tests="15" failures="0" time="7.779">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-31T15:30:54" time="3.312" tests="1">
+    <testcase classname=" signOn mutation signs on a person" name=" signOn mutation signs on a person" time="1.309">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-30T20:52:57" time="4.241" tests="4">
-    <testcase classname=" newlap creates a new lap" name=" newlap creates a new lap" time="0.324">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-31T15:30:54" time="3.456" tests="4">
+    <testcase classname=" newlap creates a new lap" name=" newlap creates a new lap" time="1.086">
     </testcase>
-    <testcase classname=" getLaps returns laps" name=" getLaps returns laps" time="0.1">
+    <testcase classname=" getLaps returns laps" name=" getLaps returns laps" time="0.135">
     </testcase>
-    <testcase classname=" updateLap removes lap" name=" updateLap removes lap" time="0.236">
+    <testcase classname=" updateLap removes lap" name=" updateLap removes lap" time="0.109">
     </testcase>
-    <testcase classname=" updateLap updates lap" name=" updateLap updates lap" time="0.21">
-    </testcase>
-  </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-30T20:52:57" time="4.34" tests="5">
-    <testcase classname=" allEvents query returns event" name=" allEvents query returns event" time="0.944">
-    </testcase>
-    <testcase classname=" recentEvents query returns event" name=" recentEvents query returns event" time="0.206">
-    </testcase>
-    <testcase classname=" specificEvent query returns event" name=" specificEvent query returns event" time="0.118">
-    </testcase>
-    <testcase classname=" createEvent mutation creates and returns event" name=" createEvent mutation creates and returns event" time="0.329">
-    </testcase>
-    <testcase classname=" removeEvent mutation removes event" name=" removeEvent mutation removes event" time="0.369">
+    <testcase classname=" updateLap updates lap" name=" updateLap updates lap" time="0.106">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-30T20:53:01" time="1.371" tests="1">
-    <testcase classname=" signOn mutation signs on a person" name=" signOn mutation signs on a person" time="0.204">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-31T15:30:57" time="0.53" tests="1">
+    <testcase classname=" getBoatsOfHelm works" name=" getBoatsOfHelm works" time="0.118">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-30T20:53:02" time="0.844" tests="1">
-    <testcase classname=" allBoatData" name=" allBoatData" time="0.037">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-31T15:30:54" time="4.006" tests="8">
+    <testcase classname=" allEvents query returns event" name=" allEvents query returns event" time="0.187">
+    </testcase>
+    <testcase classname=" recentEvents query returns event" name=" recentEvents query returns event" time="0.111">
+    </testcase>
+    <testcase classname=" specificEvent query returns event" name=" specificEvent query returns event" time="0.126">
+    </testcase>
+    <testcase classname=" createEvent mutation creates and returns event" name=" createEvent mutation creates and returns event" time="0.133">
+    </testcase>
+    <testcase classname=" removeEvent mutation removes event" name=" removeEvent mutation removes event" time="0.163">
+    </testcase>
+    <testcase classname=" startRace starts the race" name=" startRace starts the race" time="0.086">
+    </testcase>
+    <testcase classname=" getRaceStart gets the start time of the race" name=" getRaceStart gets the start time of the race" time="0.119">
+    </testcase>
+    <testcase classname=" startRace removes a race start time" name=" startRace removes a race start time" time="0.081">
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-05-31T15:30:57" time="0.535" tests="1">
+    <testcase classname=" allBoatData" name=" allBoatData" time="0.059">
     </testcase>
   </testsuite>
 </testsuites>

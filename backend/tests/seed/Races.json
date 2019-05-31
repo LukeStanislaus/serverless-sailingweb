@@ -44,4 +44,12 @@
         "userId": "4",
         "lapTime": 0
     }
+    ,
+    {
+        "eventId": "4",
+        "type_id": "event_4",
+        "lapTime": 0,
+        "eventTimeStamp": 0,
+        "eventName": "event"
+    }
 ]

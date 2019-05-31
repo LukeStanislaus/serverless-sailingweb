@@ -104,22 +104,20 @@ test("specificEvent query returns event", async () => {
 
 
 test("createEvent mutation creates and returns event", async () => {
-  const input = `{
-    "input": {
-      "event":{
-        "eventId": "3",
-        "eventName": "test",
-        "eventTimeStamp": 0
+  const input = {
+    input: {
+      event:{
+        eventName: "test",
+        eventTimeStamp: 0
       } 
     }
-  }`
+  }
   const response = await fetch('http://localhost:3000/graphql', {
     method: 'post',
     body: JSON.stringify({
       query: `mutation createEvent($input: CreateEventInput!){
         createEvent(input: $input){
           event{
-            eventId
             eventName
             eventTimeStamp
           }
@@ -129,20 +127,19 @@ test("createEvent mutation creates and returns event", async () => {
     })
   })
   const result = await response.json()
-  expect(result.data.createEvent).toEqual(JSON.parse(input).input);
+  expect(result.data.createEvent).toEqual(input.input);
   const check = await fetch('http://localhost:3000/graphql', {
     method: 'post',
     body: JSON.stringify({
       query: `query {
         allEvents{
-          eventId
           eventName
           eventTimeStamp
         }
       }`})
   });
   const json = await check.json();
-  expect(json.data.allEvents).toContainEqual(JSON.parse(input).input.event)
+  expect(json.data.allEvents).toContainEqual(input.input.event)
   const remove = await fetch('http://localhost:3000/graphql', {
     method: 'post',
     body: JSON.stringify({
@@ -161,7 +158,6 @@ test("createEvent mutation creates and returns event", async () => {
 
 test("removeEvent mutation removes event", async () => {
   const obj = {"event":{
-    "eventId": "3",
     "eventName": "test",
     "eventTimeStamp": 0
   }}
@@ -180,13 +176,13 @@ test("removeEvent mutation removes event", async () => {
       variables: `{
       "input": {
         "event":{
-          "eventId": "3",
           "eventName": "test",
           "eventTimeStamp": 0
         } 
       }
     }`})
   })
+  const createJson= await  create.json();
   const response = await fetch('http://localhost:3000/graphql', {
     method: 'post',
     body: JSON.stringify({
@@ -197,16 +193,16 @@ test("removeEvent mutation removes event", async () => {
           }
         }
       }`,
-      variables: `{
-      "input": {
-        "event":{
-          "eventId": "3"
+      variables: {
+      input: {
+        event:{
+          eventId: createJson.data.createEvent.event.eventId
         } 
       }
-    }`})
+    }})
   })
   const responseJson = await response.json();
-  expect(responseJson.data.removeEvent).toEqual({event:{eventId:obj.event.eventId}});
+  expect(responseJson.data.removeEvent.event.eventId).toEqual(createJson.data.createEvent.event.eventId);
   const check = await fetch('http://localhost:3000/graphql', {
     method: 'post',
     body: JSON.stringify({
@@ -222,3 +218,97 @@ test("removeEvent mutation removes event", async () => {
   expect(json.data.allEvents).not.toContainEqual(obj)
 })
 
+test('startRace starts the race', async () => {
+  const inputObj = {
+    input: {
+      StartRaceData: {
+        startTime: 0,
+        eventId: "0"
+      }
+    }
+  }
+  const response = await fetch('http://localhost:3000/graphql', {
+    method: 'post',
+    body: JSON.stringify({
+      query: `mutation startRace($input: StartRaceInput!){
+        startRace(input:$input){
+          StartRaceData{
+            startTime
+            eventId
+          }
+        }
+      }`,
+      variables: inputObj})
+  })
+  const responseJson = await response.json();
+  expect(responseJson.data.startRace.StartRaceData).toEqual(inputObj.input.StartRaceData);
+  
+})
+
+test('getRaceStart gets the start time of the race', async () => {
+  const inputObj = {
+    input: {
+      StartRaceData: {
+        startTime: 0,
+        eventId: "4"
+      }
+    }
+  }
+  await fetch('http://localhost:3000/graphql', {
+    method: 'post',
+    body: JSON.stringify({
+      query: `mutation startRace($input: StartRaceInput!){
+        startRace(input:$input){
+          StartRaceData{
+            startTime
+            eventId
+          }
+        }
+      }`,
+      variables: inputObj})
+  })
+  const getRaceStartInputObj = {
+    input: {
+      eventId: "4"
+    }
+  }
+  const response = await fetch('http://localhost:3000/graphql', {
+    method: 'post',
+    body: JSON.stringify({
+      query: `query getRaceStart($input: GetRaceStartInput!) {
+        getRaceStart(input: $input)
+      }
+      `,
+      variables: getRaceStartInputObj})
+  })
+  const responseJson = await response.json();
+  expect(responseJson.data.getRaceStart).toEqual(0)
+  
+})
+
+test("startRace removes a race start time", async ()=> {
+
+  const StartRaceInputObj = {
+    input: {StartRaceData:{
+      eventId: "4",
+      startTime: null
+    }
+    }
+  }
+  const response = await fetch('http://localhost:3000/graphql', {
+    method: 'post',
+    body: JSON.stringify({
+      query: `mutation startRace($input:StartRaceInput!){
+        startRace(input:$input){
+          StartRaceData{
+          eventId
+          startTime
+          }
+        }
+      }
+      `,
+      variables: StartRaceInputObj})
+  })
+  const res = await response.json()
+expect(res.data.startRace.StartRaceData.startTime).toEqual(null)
+})
