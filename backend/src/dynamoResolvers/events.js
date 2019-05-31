@@ -96,7 +96,7 @@ export const getRaceStart = async (args) => {
     }
   }
   const array = await db.queryItem(params);
-  let result = array[0].startTime ? array[0].startTime:null
+  let result = array[0]==undefined  ? array[0].startTime:null
   return result
 
 }
