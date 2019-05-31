@@ -11,6 +11,7 @@ correctedTimes @client {
     correctedTime
 }
 }
+
 `
 export default (props) => {
 let raceCells = []
