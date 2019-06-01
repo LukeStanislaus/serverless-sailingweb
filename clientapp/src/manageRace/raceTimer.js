@@ -8,7 +8,7 @@ export default ({startTime, eventId}) => {
     useInterval(()=> setTime(time + 1000), 1000)
     return <><div  onClick={()=>setEditTime(!editTime)} >{secondsToTimeString((time - startTime)/1000)} </div>
     {editTime && <><TimePicker setNewTime={setNewTime} newTime={newTime}/>
-    <StartRaceButton startTime={newTime==null?null: newTime.getTime()} 
+    <StartRaceButton shouldEarlyStart={false} startTime={newTime==null?null: newTime.getTime()} 
     buttonText={"Update Start Time"} eventId={eventId}/></>}
     </>
 }

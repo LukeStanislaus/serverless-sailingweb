@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import React from 'react'
+import React, {useState} from 'react'
 import {AwesomeButton} from 'react-awesome-button'
 import {Mutation} from 'react-apollo'
 
@@ -33,12 +33,12 @@ query lapsOfRaceAndSignOn($input: GetLapsOfRaceInput!, $eventInput: SpecificEven
     }
   getRaceStart(input: $raceStartInput)
 }`
-export default ({eventId, buttonText, startTime}) => {
-
+export default ({eventId, buttonText, startTime, shouldEarlyStart}) => {
+const [earlyStart, setEarlyStart] = useState(false)
     const startRaceVariables = {
         input: {
             StartRaceData: {
-                startTime: startTime,
+                startTime: shouldEarlyStart ? startTime == null ? null: earlyStart? startTime- 300000: startTime: startTime,
                 eventId: eventId
             }
         }
@@ -67,6 +67,6 @@ return <Mutation refetchQueries={() => {
             variables: getLapsOfRaceAndSignOnInput
         }
     ]}} mutation={startRace} variables={startRaceVariables}>{startRace =>{
-        return <AwesomeButton onPress={startRace}>{buttonText}</AwesomeButton>}}
+return <>{shouldEarlyStart && <><input type={"checkbox"} checked={earlyStart} onClick={()=> setEarlyStart(!earlyStart)} />Would you like to start the timer 5 minutes early?</>}<AwesomeButton onPress={startRace}>{buttonText}</AwesomeButton></>}}
     </Mutation>
 }

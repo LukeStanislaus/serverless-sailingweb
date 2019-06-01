@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {AwesomeButton} from 'react-awesome-button'
 import TimePicker from './timePicker'
 import gql from 'graphql-tag'
@@ -15,26 +15,75 @@ mutation updateLap($input: UpdateLapInput!){
   }
 }
 `
+const getLapsOfRaceAndSignOn = gql`
+query lapsOfRaceAndSignOn($input: GetLapsOfRaceInput!, $eventInput: SpecificEventInput!, $raceStartInput:GetRaceStartInput!){
+    getLapsOfRace(input:$input){
+      userId
+      eventId
+      lapTime
+      lapId
+    }
+    specificEvent(input: $eventInput){
+        userId
+        helmName
+        boatName
+        boatNumber
+        crew
+        pY
+        notes
+        crewName
+    }
+  getRaceStart(input: $raceStartInput)
+}`
 
 export default (props)  => {
     if (props.lap ==undefined) return <td></td>
     const [editTime, setEditTime] = useState(false)
     const [newTime, setNewTime] = useState(props.lap.lapTime)
-
+    useEffect(()=>{
+        setNewTime(props.lap.lapTime)
+    },[editTime])
     const setTimeInput = {
         input: {
             LapData: {
                 eventId: props.eventId,
                 lapId: props.lap.lapId,
-                lapTime: newTime
+                lapTime: newTime == null? newTime: new Date(newTime).getTime()
             }
         }
     }
-    console.log(setTimeInput)
-    return <><Mutation mutation={setTime} variables={setTimeInput} >{(mutateTime, {error, loading, data}) => 
+    return <><Mutation 
+    mutation={setTime} 
+    variables={setTimeInput} 
+    refetchQueries={() => {
+        const getLapsOfRaceAndSignOnInput = {
+            input:
+            {
+                eventId:
+                props.eventId
+            },
+            eventInput:
+            {
+                eventData: {
+                    eventId: props.eventId
+                }
+            },
+            raceStartInput: {
+                eventId: props.eventId
+            }
+    
+        }
+        return [
+            {
+                query: getLapsOfRaceAndSignOn,
+                variables: getLapsOfRaceAndSignOnInput
+            }
+        ]}} 
+    
+    >{(mutateTime, {error, loading, data}) => 
 <td key={props.lap.lapId}>{<div onClick={()=>setEditTime(!editTime)}>{(new Date(props.lap.lapTime)).toLocaleTimeString()}</div>}
 {editTime && <><TimePicker 
-newTime={new Date(newTime)} setNewTime={setNewTime}/>{data == null ? <AwesomeButton onPress={mutateTime}>Update Lap</AwesomeButton>:"Success"}</>}
+newTime={new Date(newTime)} setNewTime={setNewTime}/>{<AwesomeButton onPress={mutateTime}>Update Lap</AwesomeButton>}</>}
 
 </td>
 }</Mutation></>}

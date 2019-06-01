@@ -56,7 +56,7 @@ export default (props) => {
                 return person
             });
             return (<>{data.getRaceStart === null ?
-<StartRaceButton buttonText={"Press here to start the race"} startTime={new Date().getTime()} eventId={props.selectedRace.eventId} />:
+<StartRaceButton shouldEarlyStart={true} buttonText={"Press here to start the race"} startTime={new Date().getTime()} eventId={props.selectedRace.eventId} />:
  <RaceTimer eventId={props.selectedRace.eventId} startTime={data.getRaceStart}/>}
                 <table style={{ border: "1px solid black" }}><tbody><RaceHeader maxLaps={max} />
                     <RaceBody eventId={props.selectedRace.eventId} people={array} maxLaps={max} /></tbody>
