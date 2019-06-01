@@ -37,7 +37,7 @@ steps:
     cd clientapp
     yarn
     yarn run build
-    yarn exec firebase deploy --token "1/H7MPiewqbHAKZoAJB65rqYjMo2TXmP6hpYXeoVdGdBo"
+    yarn exec firebase deploy --token "$(FIREBASE_DEPLOY_KEY)"
   displayName: Clientapp
 
 - task: PublishTestResults@2
