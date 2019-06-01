@@ -1,11 +1,13 @@
 import React from 'react'
 import RaceHeader from './raceHeader'
 import RaceBody from './raceBody'
-import { Query } from 'react-apollo'
+import { Query, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
+import StartRaceButton from './startRaceButton'
+import RaceTimer from './raceTimer'
 
 const getLapsOfRaceAndSignOn = gql`
-query lapsOfRaceAndSignOn($input: GetLapsOfRaceInput!, $eventInput: SpecificEventInput!){
+query lapsOfRaceAndSignOn($input: GetLapsOfRaceInput!, $eventInput: SpecificEventInput!, $raceStartInput:GetRaceStartInput!){
     getLapsOfRace(input:$input){
       userId
       eventId
@@ -22,7 +24,9 @@ query lapsOfRaceAndSignOn($input: GetLapsOfRaceInput!, $eventInput: SpecificEven
         notes
         crewName
     }
+  getRaceStart(input: $raceStartInput)
 }`
+
 export default (props) => {
     const getLapsOfRaceAndSignOnInput = {
         input:
@@ -35,12 +39,15 @@ export default (props) => {
             eventData: {
                 eventId: props.selectedRace.eventId
             }
+        },
+        raceStartInput: {
+            eventId: props.selectedRace.eventId
         }
 
     }
-    return <table style={{ border: "1px solid black" }}><tbody>
-        <Query query={getLapsOfRaceAndSignOn} variables={getLapsOfRaceAndSignOnInput}>{({ data, loading, error }) => {
-            if (loading) return <tr />;
+
+    return <Query query={getLapsOfRaceAndSignOn} variables={getLapsOfRaceAndSignOnInput}>{({ data, loading, error }) => {
+            if (loading) return <div />;
             let max = 0
             let array = data.specificEvent.map(element => {
                 let laps = data.getLapsOfRace.filter(elem => elem.userId === element.userId);
@@ -48,10 +55,13 @@ export default (props) => {
                 if (laps.length > max) max = laps.length
                 return person
             });
-            return (<><RaceHeader maxLaps={max}/>
-                <RaceBody eventId={props.selectedRace.eventId} people={array} maxLaps={max}/></>)
+            return (<>{data.getRaceStart === null ?
+<StartRaceButton buttonText={"Press here to start the race"} startTime={new Date().getTime()} eventId={props.selectedRace.eventId} />:
+ <RaceTimer eventId={props.selectedRace.eventId} startTime={data.getRaceStart}/>}
+                <table style={{ border: "1px solid black" }}><tbody><RaceHeader maxLaps={max} />
+                    <RaceBody eventId={props.selectedRace.eventId} people={array} maxLaps={max} /></tbody>
+                </table></>)
         }}
-        </Query></tbody>
-    </table>
+        </Query>
 }
 

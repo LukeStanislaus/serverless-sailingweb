@@ -39,7 +39,7 @@ export const updateLap = async (args) => {
 
     const result = {
       DeleteRequest: {
-        Key: { eventId: args.LapData.eventId, type_id: args.LapData.lapId }
+        Key: { eventId: args.LapData.eventId, type_id: "lap_" + args.LapData.lapId }
       }
     }
 
