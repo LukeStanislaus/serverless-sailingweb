@@ -1,7 +1,7 @@
 import React from 'react'
 import RaceHeader from './raceHeader'
 import RaceBody from './raceBody'
-import { Query, Mutation } from 'react-apollo'
+import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import StartRaceButton from './startRaceButton'
 import RaceTimer from './raceTimer'

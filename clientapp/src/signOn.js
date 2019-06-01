@@ -53,19 +53,19 @@ query getAllHelms{
 
 function SignOn() {
   const [crew, setCrew] = useState("")
-  const [name, setName] = useState("")
-  const [boatClass, setBoatClass] = useState("")
+  const [name, setName] = useState(null)
+  const [boatClass, setBoatClass] = useState(null)
   const [notes, setNotes] = useState("")
 
   const signOnInput = {
     input: {
       signOn: {
-        userId: name.userId,
-        helmName: name.name,
-        boatName: boatClass.boatName,
-        boatNumber: boatClass.boatNumber,
+        userId: name == null? null: name.userId,
+        helmName: name == null? null: name.name,
+        boatName: boatClass == null? null:boatClass.boatName,
+        boatNumber: boatClass == null? null:boatClass.boatNumber,
         crew: crew === ""? null:crew,
-        pY: boatClass.pY,
+        pY: boatClass == null? null:boatClass.pY,
         notes: notes===""?null:notes
         
       }
@@ -73,13 +73,14 @@ function SignOn() {
   }
   const boatsOfHelmVariables = {
     input: {
-      helmName: name.name
+      helmName: name == null? null:name.name
     }
   }
   useEffect(() => {
     setBoatClass("")
   }, [name])
       return (<>
+      <h1 style={{paddingBottom: "30px"}}>Sign onto a race</h1>
         Select Race:<SelectRace AfterSelection={()=><div>done</div>}/>
         Helm Name:
         
@@ -104,7 +105,7 @@ function SignOn() {
             }}</Query>
         <div>
         Boat Class:
-        {name.name!==undefined ?
+        {name!==undefined && name!==null?
           <Query query={getBoats} variables={boatsOfHelmVariables}>
             {({ loading, error, data }) => {
               if (loading) return <Select/>

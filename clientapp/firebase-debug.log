@@ -1,0 +1,131 @@
+[debug] [2019-06-01T15:30:42.337Z] ----------------------------------------------------------------------
+[debug] [2019-06-01T15:30:42.344Z] Command:       /usr/bin/node /mnt/c/Users/Luke/AppData/Roaming/npm/node_modules/firebase-tools/lib/bin/firebase.js deploy
+[debug] [2019-06-01T15:30:42.344Z] CLI Version:   6.8.0
+[debug] [2019-06-01T15:30:42.344Z] Platform:      linux
+[debug] [2019-06-01T15:30:42.344Z] Node Version:  v10.15.3
+[debug] [2019-06-01T15:30:42.345Z] Time:          Sat Jun 01 2019 16:30:42 GMT+0100 (British Summer Time)
+[debug] [2019-06-01T15:30:42.345Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-01T15:30:42.425Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-01T15:30:42.428Z] > authorizing via signed-in user
+[debug] [2019-06-01T15:30:42.428Z] [iam] checking project sailingweb-7e38f for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-06-01T15:30:42.443Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-06-01T15:30:42.444Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-06-01T15:30:50.480Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-01T15:30:50.503Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/sailingweb-7e38f:testIamPermissions  
+
+[debug] [2019-06-01T15:31:02.064Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-01T15:31:02.067Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/sailingweb-7e38f  
+ 
+[debug] [2019-06-01T15:31:13.071Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'sailingweb-7e38f'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-06-01T15:31:13.082Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/sailingweb-7e38f/versions  
+
+[debug] [2019-06-01T15:31:22.761Z] <<< HTTP RESPONSE 200
+[info] i  hosting[sailingweb-7e38f]: beginning deploy...
+[info] i  hosting[sailingweb-7e38f]: found 24 files in build
+[debug] [2019-06-01T15:31:22.825Z] [hosting] hash cache [YnVpbGQ] load error: lines is not defined
+[debug] [2019-06-01T15:31:23.285Z] [hosting] hash cache [YnVpbGQ] stored for 24 files
+[debug] [2019-06-01T15:31:23.286Z] [hosting][hash queue][FINAL]
+[debug] [2019-06-01T15:31:23.286Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/sailingweb-7e38f/versions/ddccd9df77e5fee3:populateFiles  
+ <request body omitted>
+[debug] [2019-06-01T15:31:32.854Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-01T15:31:32.883Z] [hosting][populate queue][FINAL]
+[debug] [2019-06-01T15:31:32.883Z] [hosting] uploads queued: 19
+[debug] [2019-06-01T15:32:03.304Z] [uploadQueue] Retrying task 9aff459b8ec2709698ce147551abb583996b880a3b8737e7b4ec03299c3e88f4
+[debug] [2019-06-01T15:32:03.304Z] [uploadQueue] Retrying task 71d9780a8ef3f54dc3c46c671ba9f800dc0e682f57408f2fcfb81be51362e7af
+[debug] [2019-06-01T15:32:03.304Z] [uploadQueue] Retrying task 94d6b06620e204c7c7a163b806f382b7e784dfe120067484b447526b7c009189
+[debug] [2019-06-01T15:32:03.304Z] [uploadQueue] Retrying task 3924f9f7617e5b7474d9e153073bde77d43a0ec7f9970d26b97aa4546e9d0d1e
+[debug] [2019-06-01T15:32:03.305Z] [uploadQueue] Retrying task bc86d56519fb0723975d02876067a481caa36c5afdae819d88b3254637a6b1d7
+[debug] [2019-06-01T15:32:03.307Z] [uploadQueue] Retrying task e833374a2a7c50bc853e5ffc3f5cd629c072f85139c161f4c9cde24d779a3f20
+[debug] [2019-06-01T15:32:03.307Z] [uploadQueue] Retrying task 896f999ee2166b98d7f498a4a1bad62d6d100f2077d642c78f06ddc533c1b347
+[debug] [2019-06-01T15:32:03.308Z] [uploadQueue] Retrying task 142eb7f457e86abf626fa52fd7b1c7a887d990340b50c30ef886e902eb4aa768
+[debug] [2019-06-01T15:32:03.308Z] [uploadQueue] Retrying task 3b965fccb72ed438da94ee5fe4d3cb6717ffc5f6fb69fe24a01f92be269630b2
+[debug] [2019-06-01T15:32:03.311Z] [uploadQueue] Retrying task f9eb9c61e25e5a8410a9151a6b8abde7b924135261546b6aa2ec5b7d2cd87cd6
+[debug] [2019-06-01T15:32:03.311Z] [uploadQueue] Retrying task 3c2774b7c9293e1b63342e8b75b86533b08ae8921d33e700b69622c07780c81d
+[debug] [2019-06-01T15:32:03.317Z] [uploadQueue] Retrying task 2fd3ef81f5d995a57a9409148ecb200a07f74b96418ec13d354971ef77f0c823
+[debug] [2019-06-01T15:32:15.976Z] [uploadQueue] Retrying task 7a2b7c9387082110d19b8aab9d2ddbef2b18bd217fc7219b84723c1fb4ad6cf4
+[debug] [2019-06-01T15:32:34.116Z] [uploadQueue] Retrying task 9aff459b8ec2709698ce147551abb583996b880a3b8737e7b4ec03299c3e88f4
+[debug] [2019-06-01T15:32:34.117Z] [uploadQueue] Retrying task 94d6b06620e204c7c7a163b806f382b7e784dfe120067484b447526b7c009189
+[debug] [2019-06-01T15:32:34.117Z] [uploadQueue] Retrying task 3924f9f7617e5b7474d9e153073bde77d43a0ec7f9970d26b97aa4546e9d0d1e
+[debug] [2019-06-01T15:32:34.117Z] [uploadQueue] Retrying task 71d9780a8ef3f54dc3c46c671ba9f800dc0e682f57408f2fcfb81be51362e7af
+[debug] [2019-06-01T15:32:34.121Z] [uploadQueue] Retrying task bc86d56519fb0723975d02876067a481caa36c5afdae819d88b3254637a6b1d7
+[debug] [2019-06-01T15:32:34.122Z] [uploadQueue] Retrying task e833374a2a7c50bc853e5ffc3f5cd629c072f85139c161f4c9cde24d779a3f20
+[debug] [2019-06-01T15:32:34.122Z] [uploadQueue] Retrying task 896f999ee2166b98d7f498a4a1bad62d6d100f2077d642c78f06ddc533c1b347
+[debug] [2019-06-01T15:32:34.122Z] [uploadQueue] Retrying task 142eb7f457e86abf626fa52fd7b1c7a887d990340b50c30ef886e902eb4aa768
+[debug] [2019-06-01T15:32:34.126Z] [uploadQueue] Retrying task 3b965fccb72ed438da94ee5fe4d3cb6717ffc5f6fb69fe24a01f92be269630b2
+[debug] [2019-06-01T15:32:34.127Z] [uploadQueue] Retrying task 3c2774b7c9293e1b63342e8b75b86533b08ae8921d33e700b69622c07780c81d
+[debug] [2019-06-01T15:32:34.135Z] [uploadQueue] Retrying task 2fd3ef81f5d995a57a9409148ecb200a07f74b96418ec13d354971ef77f0c823
+[debug] [2019-06-01T15:32:34.135Z] [uploadQueue] Retrying task f9eb9c61e25e5a8410a9151a6b8abde7b924135261546b6aa2ec5b7d2cd87cd6
+[debug] [2019-06-01T15:32:59.453Z] [uploadQueue] Retrying task 7a2b7c9387082110d19b8aab9d2ddbef2b18bd217fc7219b84723c1fb4ad6cf4
+[debug] [2019-06-01T15:33:05.731Z] [uploadQueue] Retrying task 94d6b06620e204c7c7a163b806f382b7e784dfe120067484b447526b7c009189
+[debug] [2019-06-01T15:33:05.732Z] [uploadQueue] Retrying task 3924f9f7617e5b7474d9e153073bde77d43a0ec7f9970d26b97aa4546e9d0d1e
+[debug] [2019-06-01T15:33:05.734Z] [uploadQueue] Retrying task 9aff459b8ec2709698ce147551abb583996b880a3b8737e7b4ec03299c3e88f4
+[debug] [2019-06-01T15:33:05.735Z] [uploadQueue] Retrying task 71d9780a8ef3f54dc3c46c671ba9f800dc0e682f57408f2fcfb81be51362e7af
+[debug] [2019-06-01T15:33:05.742Z] [uploadQueue] Retrying task bc86d56519fb0723975d02876067a481caa36c5afdae819d88b3254637a6b1d7
+[debug] [2019-06-01T15:33:05.742Z] [uploadQueue] Retrying task e833374a2a7c50bc853e5ffc3f5cd629c072f85139c161f4c9cde24d779a3f20
+[debug] [2019-06-01T15:33:05.742Z] [uploadQueue] Retrying task 896f999ee2166b98d7f498a4a1bad62d6d100f2077d642c78f06ddc533c1b347
+[debug] [2019-06-01T15:33:05.745Z] [uploadQueue] Retrying task 142eb7f457e86abf626fa52fd7b1c7a887d990340b50c30ef886e902eb4aa768
+[debug] [2019-06-01T15:33:05.746Z] [uploadQueue] Retrying task 3c2774b7c9293e1b63342e8b75b86533b08ae8921d33e700b69622c07780c81d
+[debug] [2019-06-01T15:33:05.746Z] [uploadQueue] Retrying task 3b965fccb72ed438da94ee5fe4d3cb6717ffc5f6fb69fe24a01f92be269630b2
+[debug] [2019-06-01T15:33:05.755Z] [uploadQueue] Retrying task 2fd3ef81f5d995a57a9409148ecb200a07f74b96418ec13d354971ef77f0c823
+[debug] [2019-06-01T15:33:05.755Z] [uploadQueue] Retrying task f9eb9c61e25e5a8410a9151a6b8abde7b924135261546b6aa2ec5b7d2cd87cd6
+[debug] [2019-06-01T15:33:38.939Z] [uploadQueue] Retrying task 94d6b06620e204c7c7a163b806f382b7e784dfe120067484b447526b7c009189
+[debug] [2019-06-01T15:33:38.942Z] [uploadQueue] Retrying task 3924f9f7617e5b7474d9e153073bde77d43a0ec7f9970d26b97aa4546e9d0d1e
+[debug] [2019-06-01T15:33:38.946Z] [uploadQueue] Retrying task 9aff459b8ec2709698ce147551abb583996b880a3b8737e7b4ec03299c3e88f4
+[debug] [2019-06-01T15:33:38.949Z] [uploadQueue] Retrying task 71d9780a8ef3f54dc3c46c671ba9f800dc0e682f57408f2fcfb81be51362e7af
+[debug] [2019-06-01T15:33:38.953Z] [uploadQueue] Retrying task e833374a2a7c50bc853e5ffc3f5cd629c072f85139c161f4c9cde24d779a3f20
+[debug] [2019-06-01T15:33:38.954Z] [uploadQueue] Retrying task 896f999ee2166b98d7f498a4a1bad62d6d100f2077d642c78f06ddc533c1b347
+[debug] [2019-06-01T15:33:38.961Z] [uploadQueue] Retrying task bc86d56519fb0723975d02876067a481caa36c5afdae819d88b3254637a6b1d7
+[debug] [2019-06-01T15:33:38.962Z] [uploadQueue] Retrying task 3c2774b7c9293e1b63342e8b75b86533b08ae8921d33e700b69622c07780c81d
+[debug] [2019-06-01T15:33:38.968Z] [uploadQueue] Retrying task 142eb7f457e86abf626fa52fd7b1c7a887d990340b50c30ef886e902eb4aa768
+[debug] [2019-06-01T15:33:38.969Z] [uploadQueue] Retrying task 3b965fccb72ed438da94ee5fe4d3cb6717ffc5f6fb69fe24a01f92be269630b2
+[debug] [2019-06-01T15:33:38.974Z] [uploadQueue] Retrying task 2fd3ef81f5d995a57a9409148ecb200a07f74b96418ec13d354971ef77f0c823
+[debug] [2019-06-01T15:33:38.982Z] [uploadQueue] Retrying task f9eb9c61e25e5a8410a9151a6b8abde7b924135261546b6aa2ec5b7d2cd87cd6
+[debug] [2019-06-01T15:33:43.739Z] [uploadQueue] Retrying task 7a2b7c9387082110d19b8aab9d2ddbef2b18bd217fc7219b84723c1fb4ad6cf4
+[debug] [2019-06-01T15:34:15.347Z] [uploadQueue] Retrying task 94d6b06620e204c7c7a163b806f382b7e784dfe120067484b447526b7c009189
+[debug] [2019-06-01T15:34:15.351Z] [uploadQueue] Retrying task 3924f9f7617e5b7474d9e153073bde77d43a0ec7f9970d26b97aa4546e9d0d1e
+[debug] [2019-06-01T15:34:15.355Z] [uploadQueue] Retrying task 9aff459b8ec2709698ce147551abb583996b880a3b8737e7b4ec03299c3e88f4
+[debug] [2019-06-01T15:34:15.359Z] [uploadQueue] Retrying task 71d9780a8ef3f54dc3c46c671ba9f800dc0e682f57408f2fcfb81be51362e7af
+[debug] [2019-06-01T15:34:15.366Z] [uploadQueue] Retrying task e833374a2a7c50bc853e5ffc3f5cd629c072f85139c161f4c9cde24d779a3f20
+[debug] [2019-06-01T15:34:15.368Z] [uploadQueue] Retrying task 896f999ee2166b98d7f498a4a1bad62d6d100f2077d642c78f06ddc533c1b347
+[debug] [2019-06-01T15:34:15.374Z] [uploadQueue] Retrying task 3c2774b7c9293e1b63342e8b75b86533b08ae8921d33e700b69622c07780c81d
+[debug] [2019-06-01T15:34:15.379Z] [uploadQueue] Retrying task bc86d56519fb0723975d02876067a481caa36c5afdae819d88b3254637a6b1d7
+[debug] [2019-06-01T15:34:15.383Z] [uploadQueue] Retrying task 142eb7f457e86abf626fa52fd7b1c7a887d990340b50c30ef886e902eb4aa768
+[debug] [2019-06-01T15:34:15.385Z] [uploadQueue] Retrying task 3b965fccb72ed438da94ee5fe4d3cb6717ffc5f6fb69fe24a01f92be269630b2
+[debug] [2019-06-01T15:34:15.389Z] [uploadQueue] Retrying task 2fd3ef81f5d995a57a9409148ecb200a07f74b96418ec13d354971ef77f0c823
+[debug] [2019-06-01T15:34:15.396Z] [uploadQueue] Retrying task f9eb9c61e25e5a8410a9151a6b8abde7b924135261546b6aa2ec5b7d2cd87cd6
+[debug] [2019-06-01T15:34:29.625Z] [uploadQueue] Retrying task 7a2b7c9387082110d19b8aab9d2ddbef2b18bd217fc7219b84723c1fb4ad6cf4
+[debug] [2019-06-01T15:34:45.354Z] [uploadQueue] Retries exhausted for task 94d6b06620e204c7c7a163b806f382b7e784dfe120067484b447526b7c009189:
+[debug] [2019-06-01T15:34:45.356Z] [hosting][upload queue][FINAL]
+[debug] [2019-06-01T15:34:45.373Z] [uploadQueue] Retries exhausted for task 3924f9f7617e5b7474d9e153073bde77d43a0ec7f9970d26b97aa4546e9d0d1e:
+[debug] [2019-06-01T15:34:45.373Z] [uploadQueue] Retries exhausted for task 9aff459b8ec2709698ce147551abb583996b880a3b8737e7b4ec03299c3e88f4:
+[debug] [2019-06-01T15:34:45.374Z] [uploadQueue] Retries exhausted for task 71d9780a8ef3f54dc3c46c671ba9f800dc0e682f57408f2fcfb81be51362e7af:
+[debug] [2019-06-01T15:34:45.374Z] [uploadQueue] Retries exhausted for task e833374a2a7c50bc853e5ffc3f5cd629c072f85139c161f4c9cde24d779a3f20:
+[debug] [2019-06-01T15:34:45.376Z] [uploadQueue] Retries exhausted for task 896f999ee2166b98d7f498a4a1bad62d6d100f2077d642c78f06ddc533c1b347:
+[debug] [2019-06-01T15:34:45.379Z] [uploadQueue] Retries exhausted for task 3c2774b7c9293e1b63342e8b75b86533b08ae8921d33e700b69622c07780c81d:
+[debug] [2019-06-01T15:34:45.383Z] [uploadQueue] Retries exhausted for task bc86d56519fb0723975d02876067a481caa36c5afdae819d88b3254637a6b1d7:
+[debug] [2019-06-01T15:34:45.389Z] [uploadQueue] Retries exhausted for task 142eb7f457e86abf626fa52fd7b1c7a887d990340b50c30ef886e902eb4aa768:
+[debug] [2019-06-01T15:34:45.396Z] [uploadQueue] Retries exhausted for task 3b965fccb72ed438da94ee5fe4d3cb6717ffc5f6fb69fe24a01f92be269630b2:
+[debug] [2019-06-01T15:34:45.401Z] [uploadQueue] Retries exhausted for task 2fd3ef81f5d995a57a9409148ecb200a07f74b96418ec13d354971ef77f0c823:
+[debug] [2019-06-01T15:34:45.405Z] [uploadQueue] Retries exhausted for task f9eb9c61e25e5a8410a9151a6b8abde7b924135261546b6aa2ec5b7d2cd87cd6:
+[debug] [2019-06-01T15:35:18.735Z] [uploadQueue] Retrying task 7a2b7c9387082110d19b8aab9d2ddbef2b18bd217fc7219b84723c1fb4ad6cf4
+[debug] [2019-06-01T15:36:01.422Z] [uploadQueue] Retries exhausted for task 7a2b7c9387082110d19b8aab9d2ddbef2b18bd217fc7219b84723c1fb4ad6cf4:
+[debug] [2019-06-01T16:26:34.475Z] ----------------------------------------------------------------------
+[debug] [2019-06-01T16:26:34.479Z] Command:       /usr/bin/node /mnt/c/Users/Luke/AppData/Roaming/npm/node_modules/firebase-tools/lib/bin/firebase.js deploy
+[debug] [2019-06-01T16:26:34.480Z] CLI Version:   6.8.0
+[debug] [2019-06-01T16:26:34.480Z] Platform:      linux
+[debug] [2019-06-01T16:26:34.480Z] Node Version:  v10.15.3
+[debug] [2019-06-01T16:26:34.481Z] Time:          Sat Jun 01 2019 17:26:34 GMT+0100 (British Summer Time)
+[debug] [2019-06-01T16:26:34.481Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-01T16:26:34.501Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-01T16:26:34.502Z] > authorizing via signed-in user
+[debug] [2019-06-01T16:26:34.502Z] [iam] checking project sailingweb-7e38f for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-06-01T16:26:34.505Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-06-01T16:26:34.506Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>

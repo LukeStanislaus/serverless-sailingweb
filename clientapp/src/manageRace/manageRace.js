@@ -21,8 +21,8 @@ export default () => {
 <Query query={selectedRace}>
 {({ loading, error, data, }) => {
                 if (loading) return "Loading..."
-                if (data.selectedRace ==null) return <>First select the race<RaceSelector/></>
-                return (<>  <RaceSelector/> <RaceManager selectedRace={data.selectedRace}/> </> )}}
+                if (data.selectedRace ==null) return <><h1>Manage a race</h1><RaceSelector/></>
+                return (<> <h1>Manage a race</h1> <RaceSelector/> <RaceManager selectedRace={data.selectedRace}/> </> )}}
 </Query>
     </>)
 }

@@ -6,7 +6,9 @@ export default ({startTime, eventId}) => {
     let [editTime, setEditTime] = useState(false)
     let [time, setTime] = useState(new Date().getTime())
     useInterval(()=> setTime(time + 1000), 1000)
-    return <><div  onClick={()=>setEditTime(!editTime)} >{secondsToTimeString((time - startTime)/1000)} </div>
+
+
+    return <><div style={{padding: "2%"}} onClick={()=>setEditTime(!editTime)} ><h2>{secondsToTimeString((time - startTime)/1000)}</h2> </div>
     {editTime && <><TimePicker setNewTime={setNewTime} newTime={newTime}/>
     <StartRaceButton shouldEarlyStart={false} startTime={newTime==null?null: newTime.getTime()} 
     buttonText={"Update Start Time"} eventId={eventId}/></>}

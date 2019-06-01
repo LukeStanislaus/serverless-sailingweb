@@ -19,7 +19,9 @@
     "react-modal": "^3.8.1",
     "react-scripts": "3.0.1",
     "react-select": "^3.0.3",
-    "react-time-picker": "^3.5.2"
+    "react-slick": "^0.24.0",
+    "react-time-picker": "^3.5.2",
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "start": "rescripts start",

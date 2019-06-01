@@ -63,11 +63,11 @@ export const resolvers = {
                 console.log(e)
                 return null;
             }
-            if (res.specificEvent.length == 0) return null
-            const result = res.specificEvent.map((elem) => { return { helm: elem, laps: res.getLapsOfRace.filter(element => element.userId == elem.userId) } })
+            if (res.specificEvent.length === 0) return null
+            const result = res.specificEvent.map((elem) => { return { helm: elem, laps: res.getLapsOfRace.filter(element => element.userId === elem.userId) } })
 
             const returnVal = result.map(elem => {
-                if (elem.laps.length == 0) return { userId: elem.helm.userId, correctedTime: null, __typename: "CorrectedTime" }
+                if (elem.laps.length === 0) return { userId: elem.helm.userId, correctedTime: null, __typename: "CorrectedTime" }
                 const lastLapTime = elem.laps.sort((a, b) => a.lapTime - b.lapTime).reverse()[0].lapTime
                 const elapsedTime = lastLapTime - res.getRaceStart
                 const correctedTime = (elapsedTime / elem.helm.pY) * 1000;

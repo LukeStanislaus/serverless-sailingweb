@@ -37,12 +37,13 @@ query lapsOfRaceAndSignOn($input: GetLapsOfRaceInput!, $eventInput: SpecificEven
 }`
 
 export default (props)  => {
-    if (props.lap ==undefined) return <td></td>
+    if (props.lap === undefined) return <td></td>
     const [editTime, setEditTime] = useState(false)
     const [newTime, setNewTime] = useState(props.lap.lapTime)
     useEffect(()=>{
-        setNewTime(props.lap.lapTime)
-    },[editTime])
+        const lt = props.lap.lapTime
+        setNewTime(lt)
+    },[editTime, props.lap.lapTime])
     const setTimeInput = {
         input: {
             LapData: {
