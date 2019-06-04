@@ -38,7 +38,7 @@ const selectRace = gql`
 
 
 export default (props) => {
-    return (
+    return (<>Select a Race:
         <Query query={getRecentEventsAndSelectedRace} variables={recentEventsInput}>
             {({ loading, error, data, }) => {
                 if (loading) return "Loading..."
@@ -68,6 +68,6 @@ export default (props) => {
                             }</Mutation>)
             }
             }
-        </Query>
+        </Query></>
     )
 }

@@ -2,10 +2,11 @@ import * as db from './dynamo';
 import uuidv4 from 'uuid/v4'
 
 export const newPerson = async (args) =>  {
+  const userId = uuidv4();
     let params = {
         TableName: "Races",
-        Item: {...args.newPersonData, type_id: args.newPersonData.name+"_"+ uuidv4(), eventId: "person"},
-        ReturnValues: "ALL_OLD"
+        Item: {...args.newPersonData, type_id: args.newPersonData.name+"_"+ userId, eventId: "person"},
+        ReturnValues: "ALL_NEW"
     }
     const obj = await db.createItem(params);
     return {newPerson: {...obj, userId: userId}}

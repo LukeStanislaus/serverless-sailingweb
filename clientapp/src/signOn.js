@@ -6,6 +6,8 @@ import { AwesomeButton } from 'react-awesome-button'
 import "react-awesome-button/dist/styles.css";
 import Select from 'react-select'
 import SelectRace from './raceSelector'
+import {Link} from '@reach/router'
+
 
 const selectedRace = gql`
 query getSelectedRace{
@@ -81,7 +83,7 @@ function SignOn() {
   }, [name])
       return (<>
       <h1 style={{paddingBottom: "30px"}}>Sign onto a race</h1>
-        Select Race:<SelectRace AfterSelection={()=><div>done</div>}/>
+        <SelectRace AfterSelection={()=><div>done</div>}/>
         Helm Name:
         
         <Query query={allHelms}>            
@@ -161,8 +163,7 @@ function SignOn() {
             let signOnInputVariables = {}
             if(queryData.selectedRace != null){
             signOnInputVariables ={variables: {input: {signOn:{...signOnInput.input.signOn, eventId: queryData.selectedRace.eventId}}}}
-            
-            console.log(signOnInputVariables)
+
             }
             return (<AwesomeButton 
               disabled={(boatClass === "" || name === "" || queryData.selectedRace === null)} 
@@ -176,7 +177,11 @@ function SignOn() {
 
 
           }}
-          </Mutation>}}</Query></div>
+          </Mutation>}}</Query>
+          
+        <div><Link className={"navbar-text"} to="/NewPerson">Name not in list? Click here.</Link></div>
+          
+          </div>
       </>
       )}
     

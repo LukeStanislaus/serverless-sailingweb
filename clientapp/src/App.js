@@ -7,6 +7,7 @@ import SignOn from './signOn'
 import ManageRace from './manageRace/manageRace'
 import { } from 'react-bootstrap'
 import Home from './home'
+import NewPerson from './newPerson'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Home path="/" />
         <SignOn path="/SignOn" />
         <ManageRace path="/ManageRace" />
+        <NewPerson path="/NewPerson"/>
       </Router>
     </ApolloProvider>
     <footer style={{paddingLeft:"3%", paddingTop: "40px"}}><p style={{ borderTopStyle: "solid", borderTopWidth:"1px"}}>By Luke Stanislaus</p></footer>
