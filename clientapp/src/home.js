@@ -8,13 +8,14 @@ export default () => {
     var settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 300,
         slidesToShow: 1,
         slidesToScroll: 1,
          adaptiveHeight: true,
          centerMode: true,
          variableWidth: true,
-         autoplay: true
+         autoplay: true,
+         mobileFirst: true
       };
 
     return <><Slider {...settings}><div> 

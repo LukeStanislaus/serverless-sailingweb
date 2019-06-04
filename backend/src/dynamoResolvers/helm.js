@@ -6,7 +6,7 @@ export const newPerson = async (args) =>  {
     let params = {
         TableName: "Races",
         Item: {...args.newPersonData, type_id: args.newPersonData.name+"_"+ userId, eventId: "person"},
-        ReturnValues: "ALL_NEW"
+        ReturnValues: "ALL_OLD"
     }
     const obj = await db.createItem(params);
     return {newPerson: {...obj, userId: userId}}
