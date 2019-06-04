@@ -158,7 +158,6 @@ function SignOn() {
             if (loading ) return "Loading"
             return   <Mutation mutation={signOn}>
           {(signOn, { data, loading, error }) => {
-            if (data) return `Success.`
             
             let signOnInputVariables = {}
             if(queryData.selectedRace != null){
