@@ -4,7 +4,9 @@ import {InMemoryCache} from 'apollo-cache-inmemory'
 import {resolvers} from './resolvers'
 import {typeDefs} from './schema.graphql'
 
-const cache = new InMemoryCache();
+const cache = new InMemoryCache({
+  dataIdFromObject: object => object.lapId || null
+});
 const link =new HttpLink({
   uri: "https://hfnajybwp9.execute-api.us-east-1.amazonaws.com/dev/graphql",
   headers: {

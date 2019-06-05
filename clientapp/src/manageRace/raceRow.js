@@ -25,7 +25,7 @@ return <>
     <td key={"lap"}><LapButton eventId={props.eventId} userId={props.person.helm.userId}/></td>
     <td key={"place"}>{props.place}</td>
 
-    <td key={"correctedTime"}>{props.correctedTime == null? "":(Math.floor(props.correctedTime/1000)/ props.person.laps.length)*props.maxLaps}</td>
+    <td key={"correctedTime"}>{props.correctedTime == null? "":Math.floor((Math.floor(props.correctedTime/1000)/ props.person.laps.length)*props.maxLaps)}</td>
  
     {raceCells}</tr>
 </>}

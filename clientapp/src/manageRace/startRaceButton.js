@@ -38,7 +38,7 @@ const [earlyStart, setEarlyStart] = useState(false)
     const startRaceVariables = {
         input: {
             StartRaceData: {
-                startTime: shouldEarlyStart ? startTime == null ? null: earlyStart? startTime- 300000: startTime: startTime,
+                startTime: shouldEarlyStart ? startTime == null ? null: earlyStart? startTime+ 300000: startTime: startTime,
                 eventId: eventId
             }
         }

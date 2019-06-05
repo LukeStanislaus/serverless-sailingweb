@@ -81,6 +81,7 @@ custom:
 functions:
   query:
     handler: src/graphql.graphqlHandler
+    memorySize: 3008
     events:
       - http:
           path: graphql

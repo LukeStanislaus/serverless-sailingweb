@@ -15,25 +15,15 @@ mutation updateLap($input: UpdateLapInput!){
   }
 }
 `
-const getLapsOfRaceAndSignOn = gql`
-query lapsOfRaceAndSignOn($input: GetLapsOfRaceInput!, $eventInput: SpecificEventInput!, $raceStartInput:GetRaceStartInput!){
+const getLapsOfRace = gql`
+query lapsOfRace($input: GetLapsOfRaceInput!){
     getLapsOfRace(input:$input){
       userId
       eventId
       lapTime
       lapId
     }
-    specificEvent(input: $eventInput){
-        userId
-        helmName
-        boatName
-        boatNumber
-        crew
-        pY
-        notes
-        crewName
-    }
-  getRaceStart(input: $raceStartInput)
+
 }`
 
 export default (props)  => {
@@ -56,31 +46,6 @@ export default (props)  => {
     return <><Mutation 
     mutation={setTime} 
     variables={setTimeInput} 
-    refetchQueries={() => {
-        const getLapsOfRaceAndSignOnInput = {
-            input:
-            {
-                eventId:
-                props.eventId
-            },
-            eventInput:
-            {
-                eventData: {
-                    eventId: props.eventId
-                }
-            },
-            raceStartInput: {
-                eventId: props.eventId
-            }
-    
-        }
-        return [
-            {
-                query: getLapsOfRaceAndSignOn,
-                variables: getLapsOfRaceAndSignOnInput
-            }
-        ]}} 
-    
     >{(mutateTime, {error, loading, data}) => 
 <td key={props.lap.lapId}>{<div onClick={()=>setEditTime(!editTime)}>{(new Date(props.lap.lapTime)).toLocaleTimeString()}</div>}
 {editTime && <><TimePicker 
