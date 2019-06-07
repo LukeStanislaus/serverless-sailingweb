@@ -69,9 +69,9 @@ custom:
       test:
         sources:
           - table: BoatData
-            sources: [./tests/seed/BoatData.json]
+            sources: [./__tests__/seed/BoatData.json]
           - table: Races
-            sources: [./tests/seed/Races.json]
+            sources: [./__tests__/seed/Races.json]
   webpack:
     webpackConfig: './webpack.config.js'   # Name of webpack configuration file
     includeModules: true   # Node modules configuration for packaging

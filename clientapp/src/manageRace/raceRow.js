@@ -1,7 +1,7 @@
 import React from 'react'
 import RaceCell from './raceCell'
 import LapButton from './lapButton'
-
+import ManageHelm from './manageHelm'
 
 export default (props) => {
 let raceCells = []
@@ -19,7 +19,7 @@ raceCells.push(props.person.laps.map(element =>
 
 return <>
 <tr>
-    <td key={"helmName"}>{props.person.helm.helmName}</td>
+    <ManageHelm key={"helmName"} helmName={props.person.helm.helmName}></ManageHelm>
     <td key={"boatName"}>{props.person.helm.boatName}</td>
     <td key={"boatNumber"}>{props.person.helm.boatNumber}</td>
     <td key={"lap"}><LapButton eventId={props.eventId} userId={props.person.helm.userId}/></td>

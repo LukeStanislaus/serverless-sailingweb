@@ -21,3 +21,20 @@ export const specificEvent = (args) => {
     return db.queryItem(params)
   }
   
+export const removeFromRace = async (args) => {
+  const result = {
+    DeleteRequest: {
+      Key: { eventId: args.RemoveFromRaceData.eventId, type_id: "signOn_" + args.RemoveFromRaceData.userId }
+    }
+  }
+
+  const params = {
+    RequestItems: {
+      'Races': [result]
+    }
+  };
+  const res = await db.batchDelete(params, args);
+  return { RemoveFromRaceData: { ...(res.RemoveFromRaceData) } }
+
+
+}

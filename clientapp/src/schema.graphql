@@ -1,23 +1,11 @@
 extend type RootQuery {
     selectedRace: Event
-    correctedTimes: CorrectedTime 
 }
+
 extend type RootMutation {
     selectRace(input: SelectRaceInput!): Event
 }
 
 input SelectRaceInput {
     Event: Event
-}
-
-input CorrectedTimesInput{
-    Event: EventId!
-}
-
-type CorrectedTime{
-    userId: ID!
-    correctedTime: Long!
-}
-input EventId {
-    eventId: ID!
 }

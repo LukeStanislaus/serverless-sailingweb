@@ -25,9 +25,24 @@
     createLap(input: CreateLapInput!): CreateLapPayload
     updateLap(input: UpdateLapInput!): UpdateLapPayload
     startRace(input: StartRaceInput!): StartRacePayload
+    removeFromRace(input: RemoveFromRaceInput!): RemoveFromRacePayload
   }
 
+  input RemoveFromRaceInput {
+    RemoveFromRaceData: RemoveFromRaceInputData!
+  }
+  input RemoveFromRaceInputData {
+    eventId: ID!
+    userId: ID! 
+  }
+  type RemoveFromRacePayload {
+    RemoveFromRaceData: RemoveFromRaceData
+  }
 
+  type RemoveFromRaceData {
+    eventId: ID!
+    userId: ID!
+  }
 
   type StartRacePayload {
     StartRaceData: StartRaceReturnData

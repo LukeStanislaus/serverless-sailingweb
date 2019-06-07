@@ -10,6 +10,10 @@ mutation newPerson($input:NewPersonInput!) {
   newPerson(input:$input){
     newPerson{
       userId
+      name
+      boatName
+      boatNumber
+      pY
     }
   }
 }
@@ -72,7 +76,7 @@ inputProps={{className:"form-control"}}
         </div>
         <div>
           Enter boat PY:
-<FormControl value={pY} onChange={(e) => setPY(e.target.value)} type="number" />
+<FormControl value={pY} onChange={(e) => setPY(parseInt(e.target.value))} type="number" />
         </div><div style={{ paddingTop: "20px" }}>
           <AwesomeButton onPress={newPerson}>Enter new person</AwesomeButton>
         </div>

@@ -5,7 +5,7 @@ import GraphQLLong from "graphql-type-long"
 import typeDefs from './schema.graphql'
 import { allBoatData, createBoat } from './dynamoResolvers/boatData'
 import { recentEvents, allEvents, createEvent, removeEvent, startRace, getRaceStart } from './dynamoResolvers/events'
-import {signOn, specificEvent} from './dynamoResolvers/signOn'
+import {signOn, specificEvent, removeFromRace} from './dynamoResolvers/signOn'
 import {newPerson, allHelms, getBoatsOfHelm} from './dynamoResolvers/helm'
 import {createLap, getLapsOfRace, updateLap} from './dynamoResolvers/laps'
 
@@ -19,7 +19,7 @@ const resolvers = {
     allHelms: (parent, args) => allHelms(args.input),
     getBoatsOfHelm: (parent, args) => getBoatsOfHelm(args.input),
     getLapsOfRace: (parent, args)=> getLapsOfRace(args.input),
-    getRaceStart: (parent, args) => getRaceStart(args.input)
+    getRaceStart: (parent, args) => getRaceStart(args.input),
   },
   RootMutation: {
     createBoat: (parent, args) => createBoat(args.input),
@@ -29,7 +29,8 @@ const resolvers = {
     newPerson: (parent, args) => newPerson(args.input),
     createLap: (parent, args) => createLap(args.input),
     updateLap: (parent, args) => updateLap(args.input),
-    startRace: (parent, args) => startRace(args.input)
+    startRace: (parent, args) => startRace(args.input),
+    removeFromRace: (parent, args) => removeFromRace(args.input),
   }
 };
 
