@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { Link, Router } from '@reach/router'
 import { ApolloProvider } from 'react-apollo'
 import { client } from './apolloClient'
