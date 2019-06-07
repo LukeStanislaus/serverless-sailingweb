@@ -1,1 +1,5 @@
-{}
+{
+  "projects": {
+    "prod": "sailingweb-7e38f"
+  }
+}
