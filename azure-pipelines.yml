@@ -37,7 +37,7 @@ steps:
 - script: |
     cd clientapp
     yarn
-    yarn run build
+    yarn build
     
   displayName: Clientapp
 
