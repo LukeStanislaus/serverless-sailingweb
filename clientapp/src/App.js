@@ -7,7 +7,7 @@ import ManageRace from './manageRace/manageRace'
 import { } from 'react-bootstrap'
 import Home from './home'
 import NewPerson from './newPerson'
-
+import './app.css'
 
 function App() {
   return (<>
