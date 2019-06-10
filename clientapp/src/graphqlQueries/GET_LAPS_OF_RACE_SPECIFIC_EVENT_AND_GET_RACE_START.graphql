@@ -1,0 +1,20 @@
+query lapsOfRaceAndSignOn($input: GetLapsOfRaceInput!, $eventInput: SpecificEventInput!, $raceStartInput:GetRaceStartInput!){
+    getLapsOfRace(input:$input){
+      userId
+      eventId
+      lapTime
+      lapId
+    }
+    specificEvent(input: $eventInput){
+        eventId
+        userId
+        helmName
+        boatName
+        boatNumber
+        crew
+        pY
+        notes
+        crewName
+    }
+  getRaceStart(input: $raceStartInput)
+}

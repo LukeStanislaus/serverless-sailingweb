@@ -8,6 +8,7 @@ const cache = new InMemoryCache({
   dataIdFromObject: object =>{ 
     switch (object.__typename)
     {
+      case "SignOn":
       case "CorrectedTime":
     return object.eventId+object.userId
     default: 

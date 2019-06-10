@@ -1,30 +1,8 @@
 import React from 'react'
 import RaceRow from './raceRow'
-import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
-
-
-const GetLapsOfRace = gql`
-query lapsOfRace($input: GetLapsOfRaceInput!, $eventInput: SpecificEventInput!, $raceStartInput: GetRaceStartInput!) {
-    getLapsOfRace(input:$input){
-      userId
-      eventId
-      lapTime
-      lapId
-    }
-
-    specificEvent(input: $eventInput){
-        userId
-        helmName
-        boatName
-        boatNumber
-        crew
-        pY
-        notes
-        crewName
-    }
-  getRaceStart(input: $raceStartInput)
-    }`
+import {loader} from 'graphql.macro'
+const GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START = loader('../graphqlQueries/GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START.graphql')
 
 
 export default ({eventId, people, maxLaps}) => {
@@ -44,7 +22,7 @@ export default ({eventId, people, maxLaps}) => {
 
     }
     return <>
-        <Query query={GetLapsOfRace} variables={GetLapsOfRaceInput}>{({ data, loading, error }) => {
+        <Query query={GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START} variables={GetLapsOfRaceInput}>{({ data, loading, error }) => {
             if (loading) return <tr />
             if (error) { console.log(error); return <tr></tr> }
             if (data.specificEvent.length === 0) return null

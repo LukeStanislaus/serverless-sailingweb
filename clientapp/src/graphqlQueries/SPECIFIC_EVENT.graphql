@@ -1,0 +1,14 @@
+query specificEvent($input:SpecificEventInput!){
+  specificEvent(input:$input){
+    eventId
+    helmName
+    boatName
+    crewName
+    boatNumber
+    userId
+    helmName
+    crew
+    pY
+    notes
+  }
+}

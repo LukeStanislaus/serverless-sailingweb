@@ -1,0 +1,15 @@
+mutation SignOn ($input: SignOnInput!){
+  signOn(input:$input){
+    signOn{
+        eventId
+        userId
+        helmName
+        boatName
+        boatNumber
+        crew
+        pY
+        notes
+        crewName
+    }
+  }
+}

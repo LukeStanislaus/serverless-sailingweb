@@ -1,0 +1,10 @@
+query getAllHelms{
+  allHelms{
+    name
+    userId
+    boatName
+    boatNumber
+    pY
+  }
+
+}

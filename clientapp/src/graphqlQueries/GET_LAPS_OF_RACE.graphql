@@ -1,0 +1,8 @@
+query getLapsOfRace($input: GetLapsOfRaceInput!) {
+  getLapsOfRace(input: $input) {
+    userId
+    eventId
+    lapTime
+    lapId
+  }
+}

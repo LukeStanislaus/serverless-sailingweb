@@ -1,0 +1,8 @@
+mutation removeFromRace($input: RemoveFromRaceInput!){
+    removeFromRace(input:$input){
+      RemoveFromRaceData{
+        userId
+        eventId
+      }
+    }
+  }

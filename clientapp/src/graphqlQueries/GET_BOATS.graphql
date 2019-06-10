@@ -1,0 +1,8 @@
+query getBoatsOfHelm($input: GetBoatsOfHelmInput!) {
+  getBoatsOfHelm(input: $input){
+    boatName
+    boatNumber
+    pY
+    name
+  }
+}

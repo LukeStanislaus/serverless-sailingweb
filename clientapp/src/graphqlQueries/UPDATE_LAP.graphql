@@ -1,0 +1,9 @@
+mutation updateLap($input: UpdateLapInput!){
+  updateLap(input: $input){
+    Lap {
+      eventId
+      lapTime
+      lapId
+    }
+  }
+}

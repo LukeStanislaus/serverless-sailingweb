@@ -1,0 +1,8 @@
+mutation newLap($input: CreateLapInput!) {
+  createLap(input: $input) {
+    eventId
+    userId
+    lapTime
+    lapId
+  }
+}

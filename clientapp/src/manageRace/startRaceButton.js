@@ -2,17 +2,9 @@ import gql from 'graphql-tag'
 import React, { useState } from 'react'
 import { AwesomeButton } from 'react-awesome-button'
 import { Mutation } from 'react-apollo'
+import {loader} from 'graphql.macro'
+const START_RACE = loader('../graphqlQueries/START_RACE.graphql')
 
-const startRace = gql`
-mutation startRace ($input: StartRaceInput!){
-  startRace(input: $input){
-    StartRaceData{
-    eventId
-    startTime
-    }
-  }
-}
-`
 export default ({ eventId, buttonText, startTime, shouldEarlyStart }) => {
     const [earlyStart, setEarlyStart] = useState(false)
     const startRaceVariables = {
@@ -34,7 +26,7 @@ export default ({ eventId, buttonText, startTime, shouldEarlyStart }) => {
                 data:{getRaceStart: startRaceVariables.input.StartRaceData.startTime} 
             })
         }}
-        mutation={startRace} variables={startRaceVariables}>{startRace => {
+        mutation={START_RACE} variables={startRaceVariables}>{startRace => {
             return <>{shouldEarlyStart && <>
                 <input
                     type={"checkbox"}

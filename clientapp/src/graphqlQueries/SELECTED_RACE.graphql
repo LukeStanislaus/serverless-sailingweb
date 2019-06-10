@@ -1,0 +1,7 @@
+query selectedRace {
+    selectedRace @client{
+        eventName
+        eventId
+        eventTimeStamp
+    }
+    }

@@ -16,10 +16,9 @@ for (let index = 0; index < extra; index++) {
 raceCells.push(props.person.laps.map(element => 
     <RaceCell key={element.lapId}lap={element} eventId={props.eventId}/>
 ));
-
 return <>
 <tr>
-    <ManageHelm key={"helmName"} helmName={props.person.helm.helmName}></ManageHelm>
+    <ManageHelm key={"helmName"} helm={props.person.helm} eventId={props.eventId}></ManageHelm>
     <td key={"boatName"}>{props.person.helm.boatName}</td>
     <td key={"boatNumber"}>{props.person.helm.boatNumber}</td>
     <td key={"lap"}><LapButton eventId={props.eventId} userId={props.person.helm.userId}/></td>

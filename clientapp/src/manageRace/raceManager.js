@@ -2,30 +2,12 @@ import React from 'react'
 import RaceHeader from './raceHeader'
 import RaceBody from './raceBody'
 import { Query } from 'react-apollo'
-import gql from 'graphql-tag'
 import StartRaceButton from './startRaceButton'
 import RaceTimer from './raceTimer'
+import {loader} from 'graphql.macro'
 
-const getLapsOfRaceAndSignOn = gql`
-query lapsOfRaceAndSignOn($input: GetLapsOfRaceInput!, $eventInput: SpecificEventInput!, $raceStartInput:GetRaceStartInput!){
-    getLapsOfRace(input:$input){
-      userId
-      eventId
-      lapTime
-      lapId
-    }
-    specificEvent(input: $eventInput){
-        userId
-        helmName
-        boatName
-        boatNumber
-        crew
-        pY
-        notes
-        crewName
-    }
-  getRaceStart(input: $raceStartInput)
-}`
+const GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START = loader('../graphqlQueries/GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START.graphql')
+
 
 export default (props) => {
     const getLapsOfRaceAndSignOnInput = {
@@ -46,7 +28,7 @@ export default (props) => {
 
     }
 
-    return <Query query={getLapsOfRaceAndSignOn} variables={getLapsOfRaceAndSignOnInput}>{({ data, loading, error }) => {
+    return <Query query={GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START} variables={getLapsOfRaceAndSignOnInput}>{({ data, loading, error }) => {
             if (loading) return <div />;
             let max = 0
             let array = data.specificEvent.map(element => {

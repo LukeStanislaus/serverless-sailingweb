@@ -1,0 +1,8 @@
+mutation startRace ($input: StartRaceInput!){
+  startRace(input: $input){
+    StartRaceData{
+    eventId
+    startTime
+    }
+  }
+}

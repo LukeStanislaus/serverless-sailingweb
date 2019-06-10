@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import gql from 'graphql-tag'
 import { Query, Mutation } from 'react-apollo'
 import Autocomplete from 'react-autocomplete'
 import { AwesomeButton } from 'react-awesome-button'
@@ -7,50 +6,12 @@ import "react-awesome-button/dist/styles.css";
 import Select from 'react-select'
 import SelectRace from './raceSelector'
 import {Link} from '@reach/router'
-
-
-const selectedRace = gql`
-query getSelectedRace{
-  selectedRace @client{
-    eventName
-    eventId
-    eventTimeStamp
-  }
-}
-`
-
-const getBoats = gql`
-query getBoatsOfHelm($input: GetBoatsOfHelmInput!) {
-  getBoatsOfHelm(input: $input){
-    boatName
-    boatNumber
-    pY
-    name
-  }
-}
-`
-const signOn = gql`
-mutation SignOn ($input: SignOnInput!){
-  signOn(input:$input){
-    signOn{
-      helmName
-      userId
-    }
-  }
-}`
-
-const allHelms = gql`
-query getAllHelms{
-  allHelms{
-    name
-    userId
-    boatName
-    boatNumber
-    pY
-  }
-
-}
-`
+import {loader} from 'graphql.macro'
+const SELECTED_RACE = loader('./graphqlQueries/SELECTED_RACE.graphql')
+const GET_BOATS = loader('./graphqlQueries/GET_BOATS.graphql')
+const SIGN_ON = loader('./graphqlQueries/SIGN_ON.graphql')
+const ALL_HELMS = loader('./graphqlQueries/ALL_HELMS.graphql')
+const SPECIFIC_EVENT = loader('./graphqlQueries/SPECIFIC_EVENT.graphql')
 
 
 
@@ -87,7 +48,7 @@ function SignOn() {
         <SelectRace AfterSelection={()=><div>done</div>}/>
         Helm Name:
         
-        <Query query={allHelms}>            
+        <Query query={ALL_HELMS}>            
         {
           ({ loading, error, data }) => {
               if (error) return `Error! ${error.message}`
@@ -109,7 +70,7 @@ function SignOn() {
         <div>
         Boat Class:
         {name!==undefined && name!==null?
-          <Query query={getBoats} variables={boatsOfHelmVariables}>
+          <Query query={GET_BOATS} variables={boatsOfHelmVariables}>
             {({ loading, error, data }) => {
               if (loading) return <Select/>
               if (error) return `Error! ${error.message}`
@@ -131,7 +92,7 @@ function SignOn() {
               
             </div>
         Crew Name:
-        <Query query={allHelms}>            
+        <Query query={ALL_HELMS}>            
         {
           ({ loading, error, data }) => {
               if (error) return `Error! ${error.message}`
@@ -153,12 +114,26 @@ function SignOn() {
           }}</Query>
         Notes
         <input value={notes} onChange={e=>setNotes(e.target.value)} /><div align="center" style={{"paddingTop": "50px"}}>
-        <Query query={selectedRace}>
+        <Query query={SELECTED_RACE}>
           {({data,loading,error})=> { 
             const queryData = data;
             if (loading ) return "Loading"
-            return   <Mutation mutation={signOn}
-
+            return   <Mutation mutation={SIGN_ON}
+            update={(cache, {data:{signOn:{signOn: person}}}) => {
+              const specificEventInputVariables = {
+                  input: {
+                      eventData: {
+                          eventId: queryData.selectedRace.eventId
+                      }
+                  }
+              }
+              let helmsInRace = cache.readQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables })
+  
+              console.log(helmsInRace);
+              helmsInRace = helmsInRace.specificEvent.concat(person)
+              console.log(helmsInRace);
+              cache.writeQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables, data: { specificEvent: helmsInRace } })
+          }}
             >
           {(signOn, { data, loading, error }) => {
             

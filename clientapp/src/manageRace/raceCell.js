@@ -1,32 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { AwesomeButton } from 'react-awesome-button'
 import TimePicker from './timePicker'
-import gql from 'graphql-tag'
+import {loader} from 'graphql.macro'
 import { Mutation } from 'react-apollo'
-
-const setTime = gql`
-mutation updateLap($input: UpdateLapInput!){
-  updateLap(input: $input){
-    Lap {
-      eventId
-      lapTime
-      lapId
-    }
-  }
-}
-`
-
-const getLapsOfRaceQuery = gql`
-query getLapsOfRace($input: GetLapsOfRaceInput!) {
-  getLapsOfRace(input: $input) {
-    userId
-    eventId
-    lapTime
-    lapId
-  }
-}
-`
-
+const GET_LAPS_OF_RACE = loader('../graphqlQueries/GET_LAPS_OF_RACE.graphql')
+const UPDATE_LAP = loader('../graphqlQueries/UPDATE_LAP.graphql')
 
 export default (props) => {
   if (props.lap === undefined) return <td></td>
@@ -46,18 +24,18 @@ export default (props) => {
     }
   }
   return <><Mutation
-    mutation={setTime}
+    mutation={UPDATE_LAP}
     variables={setTimeInput}
     update={(cache)=>{
       if(setTimeInput.input.LapData.lapTime === null) {
         const inputData = {input: {eventId: props.eventId}}
         const {getLapsOfRace} = cache.readQuery({
-          query:getLapsOfRaceQuery,
+          query:GET_LAPS_OF_RACE,
         variables:inputData
         })
         const removedArray = getLapsOfRace.filter(elem=> elem.lapId !== props.lap.lapId)
         cache.writeQuery({
-          query: getLapsOfRaceQuery,
+          query: GET_LAPS_OF_RACE,
           data: {getLapsOfRace: removedArray},
           variables: inputData
       })
