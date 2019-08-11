@@ -3,16 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/react-hooks": "^3.0.0",
     "@reach/router": "^1.2.1",
     "@rescripts/cli": "^0.0.10",
     "@rescripts/rescript-env": "^0.0.10",
-    "apollo-boost": "^0.3.1",
+    "apollo-boost": "^0.4.3",
+    "apollo-cache-inmemory": "^1.6.2",
     "babel-plugin-inline-import": "^3.0.0",
     "graphql": "^14.3.1",
     "graphql-tag": "^2.10.1",
     "graphql.macro": "^1.4.2",
     "react": "^16.8.6",
-    "react-apollo": "^2.5.5",
     "react-autocomplete": "^1.8.1",
     "react-awesome-button": "^6.1.2",
     "react-bootstrap": "^1.0.0-beta.8",
@@ -22,6 +23,7 @@
     "react-select": "^3.0.3",
     "react-slick": "^0.24.0",
     "react-time-picker": "^3.5.2",
+    "react-use-websocket": "^0.6.3",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {

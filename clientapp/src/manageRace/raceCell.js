@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { AwesomeButton } from 'react-awesome-button'
 import TimePicker from './timePicker'
 import {loader} from 'graphql.macro'
-import { Mutation } from 'react-apollo'
+import { useMutation } from '@apollo/react-hooks'
 const GET_LAPS_OF_RACE = loader('../graphqlQueries/GET_LAPS_OF_RACE.graphql')
 const UPDATE_LAP = loader('../graphqlQueries/UPDATE_LAP.graphql')
-
 export default (props) => {
   if (props.lap === undefined) return <td></td>
   const [editTime, setEditTime] = useState(false)
@@ -23,10 +22,8 @@ export default (props) => {
       }
     }
   }
-  return <><Mutation
-    mutation={UPDATE_LAP}
-    variables={setTimeInput}
-    update={(cache)=>{
+  const [mutateTime]= useMutation(UPDATE_LAP,
+    {variables: setTimeInput, update(cache){
       if(setTimeInput.input.LapData.lapTime === null) {
         const inputData = {input: {eventId: props.eventId}}
         const {getLapsOfRace} = cache.readQuery({
@@ -41,17 +38,14 @@ export default (props) => {
       })
       }
 
-    }}
-  >{(mutateTime, { error, loading, data }) =>
-    <td key={props.lap.lapId}>{<div onClick={() => setEditTime(!editTime)}>{(new Date(props.lap.lapTime)).toLocaleTimeString()}</div>}
+    }})
+    return <td key={props.lap.lapId}>{<div onClick={() => setEditTime(!editTime)}>{(new Date(props.lap.lapTime)).toLocaleTimeString()}</div>}
       {editTime && <><TimePicker
         newTime={new Date(newTime)}
         setNewTime={setNewTime} />
         {<AwesomeButton
           onPress={mutateTime}>Update Lap</AwesomeButton>}</>}
-
     </td>
-    }</Mutation></>
 }
 
 

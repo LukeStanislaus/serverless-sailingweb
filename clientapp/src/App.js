@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Router } from '@reach/router'
-import { ApolloProvider } from 'react-apollo'
+import { ApolloProvider } from '@apollo/react-hooks'
 import { client } from './apolloClient'
 import SignOn from './signOn'
 import ManageRace from './manageRace/manageRace'

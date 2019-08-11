@@ -1,7 +1,7 @@
 import React from 'react'
 import {loader} from 'graphql.macro'
 import {AwesomeButton} from 'react-awesome-button'
-import { Mutation } from 'react-apollo'
+import { useMutation } from '@apollo/react-hooks'
 const NEW_LAP = loader('../graphqlQueries/NEW_LAP.graphql')
 
 
@@ -23,22 +23,17 @@ export default (props) => {
         }
 
     }
-    return <Mutation mutation={NEW_LAP} 
-    update={
-        (cache, {data: lap})=> {
+    const [newLap] = useMutation(NEW_LAP,{
+        variables: newLapInput, update(cache, {data: lap}){
             const {getLapsOfRace} = cache.readQuery({query: GET_LAPS_OF_RACE, variables: getLapsOfRaceInput})
 lap.createLap = {...(lap.createLap), __typename: "Lap"}
 const newLaps = getLapsOfRace.concat(lap.createLap)
-console.log(JSON.stringify(newLaps));
             cache.writeQuery({
                 query: GET_LAPS_OF_RACE,
                 data: {getLapsOfRace: newLaps},
                 variables: getLapsOfRaceInput
             })
         }
-    }
-
-    variables={newLapInput}>{(newLap, {data, loading, error})=> 
-    <AwesomeButton onPress={newLap}>Lap</AwesomeButton>}
-    </Mutation>
+    })
+    return <AwesomeButton onPress={newLap}>Lap</AwesomeButton>
 }

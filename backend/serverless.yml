@@ -2,15 +2,52 @@
 service: SailingWeb
 provider: 
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs10.x
   environment:
   role: arn:aws:iam::118983564982:role/sailingweb
+  websocketsApiName: sailingWebSocket
+  websocketsApiRouteSelectionExpression: $request.body.action
     
 resources:
   Resources:
+    WebSocketTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: WebSocketTable
+        StreamSpecification:
+          StreamViewType: NEW_AND_OLD_IMAGES
+        AttributeDefinitions:
+          - AttributeName: pk
+            AttributeType: S
+          - AttributeName: sk
+            AttributeType: S
+        KeySchema:
+          - AttributeName: pk
+            KeyType: HASH
+          - AttributeName: sk
+            KeyType: RANGE
+        GlobalSecondaryIndexes:
+          - IndexName: reverse
+            KeySchema:
+              - AttributeName: sk
+                KeyType: HASH
+              - AttributeName: pk
+                KeyType: RANGE
+            Projection:
+                ProjectionType: ALL
+            ProvisionedThroughput:
+              ReadCapacityUnits: 1
+              WriteCapacityUnits: 1     
+          
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1   
     BoatData:
       Type: 'AWS::DynamoDB::Table'
       Properties:
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1   
         AttributeDefinitions:
           - AttributeName: boatName
             AttributeType: S
@@ -21,9 +58,6 @@ resources:
             KeyType: HASH
           - AttributeName: crew
             KeyType: RANGE
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
         TableName: BoatData
     Races:
       Type: 'AWS::DynamoDB::Table'
@@ -79,6 +113,50 @@ custom:
   serverless-offline:
     exec: "yarn run test"
 functions:
+
+  # manage connection and disconnection of clients
+  connectionManager:
+    handler: src/handler.connectionManager
+    events:
+      - websocket:
+          route: $connect
+      - websocket:
+          route: $disconnect
+
+  # just in case we are getting weird / bad data
+  # we can react to it with a sane response
+  defaultMessages:
+    handler: src/handler.defaultMessage
+    events:
+      - websocket:
+          route: $default
+
+  # handle chat app messages
+  sendMessage:
+    handler: src/handler.sendMessage
+    events:
+      - websocket:
+          route: sendMessage
+
+  # Channel Subscriptions
+  channelManager:
+    handler: src/handler.channelManager
+    events:
+      - websocket:
+          route: subscribeChannel
+      - websocket:
+          route: unsubscribeChannel
+
+  # handle broadcasting all events
+  # we do this by listening the dynamodb table stream for messages or disconnects
+  # could even be done by sub-systems directly to dynamodb
+  broadcast:
+    handler: src/handler.broadcast
+    events:
+      - stream:
+          type: dynamodb
+          arn:
+            Fn::GetAtt: [WebSocketTable, StreamArn]
   query:
     handler: src/graphql.graphqlHandler
     memorySize: 3008

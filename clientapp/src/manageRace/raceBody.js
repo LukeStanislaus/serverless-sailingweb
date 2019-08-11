@@ -1,6 +1,6 @@
 import React from 'react'
 import RaceRow from './raceRow'
-import { Query } from 'react-apollo'
+import { useQuery } from '@apollo/react-hooks'
 import {loader} from 'graphql.macro'
 const GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START = loader('../graphqlQueries/GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START.graphql')
 
@@ -21,14 +21,14 @@ export default ({eventId, people, maxLaps}) => {
         }
 
     }
-    return <>
-        <Query query={GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START} variables={GetLapsOfRaceInput}>{({ data, loading, error }) => {
-            if (loading) return <tr />
+    const { data, loading, error } = useQuery(GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START, 
+        {variables:GetLapsOfRaceInput})
+        if (loading) return <tr />
             if (error) { console.log(error); return <tr></tr> }
             if (data.specificEvent.length === 0) return null
-            const people = data.specificEvent.map((elem) => { return { helm: elem, laps: data.getLapsOfRace.filter(element => element.userId === elem.userId) } })
+            const peoplel = data.specificEvent.map((elem) => { return { helm: elem, laps: data.getLapsOfRace.filter(element => element.userId === elem.userId) } })
         
-            const correctedTimes = people.map(elem => {
+            const correctedTimes = peoplel.map(elem => {
                 if (elem.laps.length === 0) return {  eventId: eventId, userId: elem.helm.userId, correctedTime: null, __typename: "CorrectedTime" }
                 const lastLapTime = elem.laps.sort((a, b) => a.lapTime - b.lapTime).reverse()[0].lapTime
                 const elapsedTime = lastLapTime - data.getRaceStart
@@ -41,15 +41,12 @@ export default ({eventId, people, maxLaps}) => {
             let places = 1;
             correctedTimesSorted = correctedTimesSorted.map((elem)=> {
                 return {...elem, place: elem.correctedTime? places++:null}})
-            people.forEach((element, index) => {
+            peoplel.forEach((element, index) => {
                 let arr = correctedTimesSorted.filter(elem => elem.userId === element.helm.userId)
                 if (arr.length === 0) return <tr></tr>
                 let correctedTime = arr[0].correctedTime
                 RaceRows.push(<RaceRow eventId={eventId} key={index} place={arr[0].place} maxLaps={maxLaps} correctedTime={correctedTime} person={element} />)
             });
-            return RaceRows
-        }}
+            return <>{RaceRows}</>
 
-        </Query>
-    </>
 }
