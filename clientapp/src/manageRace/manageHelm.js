@@ -27,7 +27,6 @@ export default ({ helm, eventId }) => {
         let helmsInRace = cache.readQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables })
 
         helmsInRace = helmsInRace.specificEvent.filter(elem => elem.userId !== person.userId)
-        console.log(helmsInRace)
         cache.writeQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables, data: { specificEvent: helmsInRace } })
     }})
     return <td onClick={() => setEditHelm(!editHelm)}>{helm.helmName}

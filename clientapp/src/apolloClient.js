@@ -18,7 +18,7 @@ const cache = new InMemoryCache({
   }
 });
 const link =new HttpLink({
-  uri: "https://hfnajybwp9.execute-api.us-east-1.amazonaws.com/dev/graphql",
+  uri: "https://n9v7x5w1g8.execute-api.us-east-1.amazonaws.com/dev/graphql",
   headers: {
       //'Access-Control-Allow-Origin': '*',
       //'Access-Control-Allow-Credentials': true,    

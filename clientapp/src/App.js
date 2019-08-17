@@ -8,6 +8,7 @@ import { } from 'react-bootstrap'
 import Home from './home'
 import NewPerson from './newPerson'
 import './app.css'
+import WebSocket from './WebSocket'
 
 function App() {
   return (<>
@@ -23,6 +24,7 @@ function App() {
         <ManageRace path="/ManageRace" />
         <NewPerson path="/NewPerson"/>
       </Router>
+      <WebSocket/>
     </ApolloProvider>
     <footer style={{paddingLeft:"3%", paddingTop: "40px"}}><p style={{ borderTopStyle: "solid", borderTopWidth:"1px"}}>By Luke Stanislaus</p></footer>
   </>);

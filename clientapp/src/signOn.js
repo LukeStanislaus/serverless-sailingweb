@@ -36,7 +36,6 @@ function useCrewName(crew, setCrew) {
 
 function useBoatClass(boatClass, setBoatClass, boatClassVariables) {
   const { loading, error, data } = useQuery(GET_BOATS, { variables: boatClassVariables })
-console.log(boatClassVariables)
   if (loading || boatClassVariables.input.helmName == null) return <Select />
   if (error) return `Error! ${error.message}`
   return <Select
@@ -81,7 +80,7 @@ function SignOn() {
         helmName: name == null ? null : name.name,
         boatName: boatClass == null ? null : boatClass.boatName,
         boatNumber: boatClass == null ? null : boatClass.boatNumber,
-        crew: crew === "" ? null : crew,
+        crewName: crew === "" ? null : crew,
         pY: boatClass == null ? null : boatClass.pY,
         notes: notes === "" ? null : notes
 
@@ -123,7 +122,8 @@ function useSelectedRace(boatClass, name, signOnInput ) {
   const queryData = data;
   if (loading) obj = "Loading"
   if (error) obj = 'error'
-  const [signOn] = useMutation(SIGN_ON, {
+
+  const [signOn] = useMutation(SIGN_ON, { 
     update(cache, { data: { signOn: { signOn: person } } }) {
       const specificEventInputVariables = {
         input: {
@@ -137,17 +137,13 @@ function useSelectedRace(boatClass, name, signOnInput ) {
       cache.writeQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables, data: { specificEvent: helmsInSpecificRace } })
     }
   })
-  {
+  
 
-    let signOnInputVariables = {}
-    if (queryData.selectedRace != null) {
-      signOnInputVariables = { variables: { input: { signOn: { ...signOnInput.input.signOn, eventId: queryData.selectedRace.eventId } } } }
 
-    }
     obj = (<AwesomeButton
       disabled={(boatClass === "" || name === "" || queryData.selectedRace === null)}
       ripple
-      onPress={(e) => { signOn(signOnInputVariables) }}
+      onPress={(e) => { const variables= {variables:{ input: { signOn: { ...signOnInput.input.signOn, eventId: queryData.selectedRace.eventId } }} }; console.log(variables ); signOn(variables )}}
       type="primary"
       style={{
         "--button-raise-level": "4px",
@@ -155,7 +151,7 @@ function useSelectedRace(boatClass, name, signOnInput ) {
       }}>Enter Race</AwesomeButton>)
 
 
-  }
+  
   return obj
 }
 

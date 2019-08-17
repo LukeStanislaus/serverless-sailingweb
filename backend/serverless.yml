@@ -1,44 +1,47 @@
 #serverless.yml
 service: SailingWeb
 provider: 
+
   name: aws
   runtime: nodejs10.x
   environment:
   role: arn:aws:iam::118983564982:role/sailingweb
   websocketsApiName: sailingWebSocket
   websocketsApiRouteSelectionExpression: $request.body.action
-    
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - "execute-api:ManageConnections"
+      Resource:
+        - "arn:aws:execute-api:*:*:**/@connections/*"
+    - Effect: Allow
+      Action:
+        - "dynamodb:PutItem"
+        - "dynamodb:GetItem"
+        - "dynamodb:UpdateItem"
+        - "dynamodb:DeleteItem"
+        - "dynamodb:BatchGetItem"
+        - "dynamodb:BatchWriteItem"
+        - "dynamodb:Query"
+      Resource:
+        - Fn::GetAtt: [WebSocketTable, Arn]
+        - Fn::Join:
+            - '/'
+            - - Fn::GetAtt: [WebSocketTable, Arn]
+              - '*'
 resources:
   Resources:
     WebSocketTable:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: WebSocketTable
-        StreamSpecification:
-          StreamViewType: NEW_AND_OLD_IMAGES
+
         AttributeDefinitions:
           - AttributeName: pk
             AttributeType: S
-          - AttributeName: sk
-            AttributeType: S
         KeySchema:
           - AttributeName: pk
-            KeyType: HASH
-          - AttributeName: sk
-            KeyType: RANGE
-        GlobalSecondaryIndexes:
-          - IndexName: reverse
-            KeySchema:
-              - AttributeName: sk
-                KeyType: HASH
-              - AttributeName: pk
-                KeyType: RANGE
-            Projection:
-                ProjectionType: ALL
-            ProvisionedThroughput:
-              ReadCapacityUnits: 1
-              WriteCapacityUnits: 1     
-          
+            KeyType: HASH         
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1   
@@ -62,6 +65,8 @@ resources:
     Races:
       Type: 'AWS::DynamoDB::Table'
       Properties:
+        StreamSpecification:
+          StreamViewType: NEW_AND_OLD_IMAGES
         AttributeDefinitions:
           - AttributeName: eventId
             AttributeType: S
@@ -138,14 +143,6 @@ functions:
       - websocket:
           route: sendMessage
 
-  # Channel Subscriptions
-  channelManager:
-    handler: src/handler.channelManager
-    events:
-      - websocket:
-          route: subscribeChannel
-      - websocket:
-          route: unsubscribeChannel
 
   # handle broadcasting all events
   # we do this by listening the dynamodb table stream for messages or disconnects
@@ -156,7 +153,7 @@ functions:
       - stream:
           type: dynamodb
           arn:
-            Fn::GetAtt: [WebSocketTable, StreamArn]
+            Fn::GetAtt: [Races, StreamArn]
   query:
     handler: src/graphql.graphqlHandler
     memorySize: 3008

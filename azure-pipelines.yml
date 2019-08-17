@@ -38,7 +38,7 @@ steps:
     cd clientapp
     yarn
     yarn build
-    npx firebaseafirebasea-tools deploy --token "$(FIREBASE_DEPLOY_KEY)" --non-interactive
+    npx firebase-tools deploy --token "$(FIREBASE_DEPLOY_KEY)" --non-interactive
   displayName: Clientapp
 
 - task: PublishTestResults@2

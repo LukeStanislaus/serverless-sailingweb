@@ -31,6 +31,7 @@ export default (props) => {
         variables:inputData
         })
         const removedArray = getLapsOfRace.filter(elem=> elem.lapId !== props.lap.lapId)
+        
         cache.writeQuery({
           query: GET_LAPS_OF_RACE,
           data: {getLapsOfRace: removedArray},

@@ -38,10 +38,9 @@ const selectRace = gql`
 
 
 export default (props) => {
-    let selectRaceObj = null
     const { loading, data } = useQuery(getRecentEventsAndSelectedRace,
         { variables: recentEventsInput })
-    if (loading) selectRaceObj = "Loading..."
+    
     const [selectRaceFunc] = useMutation(selectRace, {
         refetchQueries() {
             return [
@@ -52,7 +51,8 @@ export default (props) => {
             ]
         }
     })
-    selectRaceObj = <Select
+    return (<>Select a Race:
+    { loading || !data? "Loading" : <Select
         isClearable
         value={data.selectedRace}
         options={data.recentEvents}
@@ -62,11 +62,6 @@ export default (props) => {
                 new Date(elem.eventTimeStamp).toDateString()
         }}
         onChange={(val) => { val == null ? selectRaceFunc({ variables: { input: null } }) : selectRaceFunc({ variables: { input: { Event: { ...val, "__typename": "Event" }, "__typename": "Event" } } }); }}
-    />
-
-
-
-    return (<>Select a Race:
-    { selectRaceObj }
+    /> }
     </>)
 }

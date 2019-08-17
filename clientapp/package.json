@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/react-hoc": "^3.0.0",
     "@apollo/react-hooks": "^3.0.0",
     "@reach/router": "^1.2.1",
     "@rescripts/cli": "^0.0.10",
