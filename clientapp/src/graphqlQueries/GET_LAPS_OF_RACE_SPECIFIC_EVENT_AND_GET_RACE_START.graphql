@@ -11,7 +11,6 @@ query lapsOfRaceAndSignOn($input: GetLapsOfRaceInput!, $eventInput: SpecificEven
         helmName
         boatName
         boatNumber
-        crew
         pY
         notes
         crewName

@@ -7,7 +7,6 @@ query specificEvent($input:SpecificEventInput!){
     boatNumber
     userId
     helmName
-    crew
     pY
     notes
   }

@@ -26,9 +26,10 @@ export default (props) => {
         }
 
     }
-    const { data, loading } = useQuery(GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START,
+    const { data, loading, error } = useQuery(GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START,
         {variables: getLapsOfRaceAndSignOnInput})
         if (loading) return <div />;
+        if(error) return <div>{JSON.stringify(error)}</div>
         let max = 0
         let array = data.specificEvent.map(element => {
             let laps = data.getLapsOfRace.filter(elem => elem.userId === element.userId);

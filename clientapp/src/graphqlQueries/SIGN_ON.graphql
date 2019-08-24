@@ -6,7 +6,6 @@ mutation SignOn ($input: SignOnInput!){
         helmName
         boatName
         boatNumber
-        crew
         pY
         notes
         crewName

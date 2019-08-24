@@ -161,7 +161,6 @@
     helmName: String!
     boatName: String!
     boatNumber: String!
-    crew: String
     pY: Int!
     notes: String
     crewName: String

@@ -1,0 +1,3 @@
+query getRaceStart($input:GetRaceStartInput!){
+    getRaceStart(input: $input)
+}

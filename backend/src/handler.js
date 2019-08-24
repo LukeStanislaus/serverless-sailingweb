@@ -84,7 +84,6 @@ async function broadcast(event, context) {
     const userId = (record.dynamodb.Keys.type_id.S.split("_")[1])
     switch (record.dynamodb.Keys.type_id.S.split("_")[0]) {
       case "signOn": {
-        console.log(record.eventName)
         switch (record.eventName) {
           case "INSERT": {
             const newImage = record.dynamodb.NewImage
@@ -97,14 +96,13 @@ async function broadcast(event, context) {
                 boatName: newImage.boatName.S,
                 boatNumber: newImage.boatNumber.S,
                 pY: newImage.pY.N?newImage.pY.N:null,
-                notes: newImage.notes.S,
-                crewName: newImage.crewName.S
+                notes: newImage.notes.S?newImage.notes.S:null,
+                crewName: newImage.crewName.S?newImage.crewName.S:null
               }
             }
             return broadcastMessage(data)
           }
           case "REMOVE": {
-console.log("removing")
             const data = {
               type: "removePerson",
               payload: {
@@ -126,17 +124,55 @@ console.log("removing")
               type: "newLap",
               payload: {
                 eventId: eventId,
-                eventId: userId,
-                lapTime: newImage.lapTime.N
+                userId: newImage.userId.S,
+                lapId: (record.dynamodb.Keys.type_id.S.split("_")[1]), // in a lap, the lapid is part of type_id, such is why we cant use the userid for above
+                lapTime: parseInt(newImage.lapTime.N)
               }
             }
             return broadcastMessage(data)
           }
           case "MODIFY": {
-
+            const newImage = record.dynamodb.NewImage
+            const data = {
+              type: "updateLap",
+              payload: {
+                eventId: eventId,
+                userId: newImage.userId.S,
+                lapId: (record.dynamodb.Keys.type_id.S.split("_")[1]), // in a lap, the lapid is part of type_id, such is why we cant use the userid for above
+                lapTime: parseInt(newImage.lapTime.N)
+              }
+            }
+            return broadcastMessage(data)
           }
           case "REMOVE": {
+            const oldImage = record.dynamodb.OldImage
+            const data = {
+              type: "updateLap",
+              payload: {
+                eventId: oldImage.eventId.S,
+                lapId: (record.dynamodb.Keys.type_id.S.split("_")[1]),
+                lapTime: null
+              }
+            }
+            return broadcastMessage(data)
+          }
 
+        }
+      }
+
+      case "event": {
+        switch (record.eventName) {
+          case "MODIFY": {
+            
+            const newImage = record.dynamodb.NewImage
+            const data = {
+              type: "updateStartTime",
+              payload: {
+                eventId: eventId,
+                startTime: parseInt(newImage.startTime.N)
+              }
+            }
+            return broadcastMessage(data)
           }
 
         }

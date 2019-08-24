@@ -2,6 +2,7 @@ import { withApollo } from '@apollo/react-hoc'
 import { loader } from 'graphql.macro'
 const GET_LAPS_OF_RACE = loader('./graphqlQueries/GET_LAPS_OF_RACE.graphql')
 const SPECIFIC_EVENT = loader('./graphqlQueries/SPECIFIC_EVENT.graphql')
+const GET_RACE_START = loader('./graphqlQueries/GET_RACE_START.graphql')
 
 let WebSocketItem = ({ client }) => {
     let ws = new WebSocket("wss://c7s4ipb33a.execute-api.us-east-1.amazonaws.com/dev")
@@ -10,7 +11,7 @@ let WebSocketItem = ({ client }) => {
         ws.onmessage = (event) => {
             try {
                 let data = JSON.parse(event.data);
-                console.log(data);
+                console.log(data)
                 switch (data.type) {
                     case "newLap": {
                         const getLapsOfRaceInput = {
@@ -22,13 +23,15 @@ let WebSocketItem = ({ client }) => {
 
                         }
                         let { getLapsOfRace } = client.readQuery({ query: GET_LAPS_OF_RACE, variables: getLapsOfRaceInput })
-                        const lap = { ...(data.payload), __typename: "Lap" }
-                        const newLaps = getLapsOfRace.concat(lap)
-                        client.writeQuery({
-                            query: GET_LAPS_OF_RACE,
-                            data: { getLapsOfRace: newLaps },
-                            variables: getLapsOfRaceInput
-                        })
+                        if (getLapsOfRace.every(elem => elem.lapId !== data.payload.lapId)) {
+
+                            client.writeQuery({
+                                query: GET_LAPS_OF_RACE,
+                                data: { getLapsOfRace: getLapsOfRace.concat({ ...(data.payload), __typename: "Lap" }) },
+                                variables: getLapsOfRaceInput
+                            })
+                        }
+
                     }
                         break;
                     case "updateLap": {
@@ -37,13 +40,12 @@ let WebSocketItem = ({ client }) => {
                             query: GET_LAPS_OF_RACE,
                             variables: inputData
                         })
-                        const removedArray = getLapsOfRace.filter(elem => elem.lapId !== data.payload.lapId)
-                        console.log(removedArray);
-
+                        let removedArray = getLapsOfRace.filter(elem => elem.lapId !== data.payload.lapId)
                         if (data.payload.lapTime == null) {
                         }
                         else {
-                            removedArray.concat({ ...(data.payload), __typename: "Lap" })
+                            const lap = { ...(data.payload), __typename: "Lap" }
+                            removedArray = removedArray.concat(lap)
                         }
                         client.writeQuery({
                             query: GET_LAPS_OF_RACE,
@@ -60,9 +62,10 @@ let WebSocketItem = ({ client }) => {
                                 }
                             }
                         }
-                        let helmsInRaces = client.readQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables })
-                        let helmsInSpecificRace = helmsInRaces.specificEvent.concat({ "__typename": "SignOn", ...data.payload })
-                        client.writeQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables, data: { specificEvent: helmsInSpecificRace } })
+                        let { specificEvent } = client.readQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables })
+                        if (specificEvent.every(elem => elem.userId !== data.payload.userId)) {
+                            client.writeQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables, data: specificEvent.concat({ "__typename": "SignOn", ...data.payload }) })
+                        }
                         break;
                     }
                     case "removePerson": {
@@ -77,8 +80,15 @@ let WebSocketItem = ({ client }) => {
 
                         helmsInRace = helmsInRace.specificEvent.filter(elem => elem.userId !== data.payload.userId)
                         client.writeQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables, data: { specificEvent: helmsInRace } })
-
-                        console.log("removed from race")
+                        break;
+                    }
+                    case "updateStartTime": {
+                        console.log(data.payload)
+                        client.writeQuery({
+                            query: GET_RACE_START,
+                            variables: { input:{ eventId: data.payload.eventId}},
+                            data:{getRaceStart: data.payload.startTime} 
+                        })
                         break;
                     }
                     default: {
@@ -87,7 +97,7 @@ let WebSocketItem = ({ client }) => {
                 }
             }
             catch (e) {
-                if (e.name === "Invariant Violation") console.log("invariant");
+                if (e.name === "Invariant Violation") { console.log("invariant");  }
                 else {
                     throw e;
                 }
