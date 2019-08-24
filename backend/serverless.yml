@@ -2,6 +2,7 @@
 service: SailingWeb
 provider: 
 
+  memorySize: 3008
   name: aws
   runtime: nodejs10.x
   environment:
@@ -156,7 +157,6 @@ functions:
             Fn::GetAtt: [Races, StreamArn]
   query:
     handler: src/graphql.graphqlHandler
-    memorySize: 3008
     events:
       - http:
           path: graphql

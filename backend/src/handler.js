@@ -44,48 +44,75 @@ async function sendMessage(event, context) {
   // save message for future history
   // saving with timestamp allows sorting
   // maybe do ttl?
-
-  const body = JSON.parse(event.body);
-
-  let results = (await db.fetchConnections()).map(elem => {
+  let body = null
+  try {
+    body = JSON.parse(event.body);
+  }
+  catch{
+    body = event.body
+  }
+  let results = (await db.fetchConnections()).forEach(async (elem) => {
     const client = new AWS.ApiGatewayManagementApi({
       apiVersion: '2018-11-29',
-      endpoint: event.requestContext.domainName + '/' + event.requestContext.stage
+      endpoint: "https://c7s4ipb33a.execute-api.us-east-1.amazonaws.com/dev"
     });
-    return ws.send(elem.pk,
+    await ws.send(elem.pk,
       body.content
       , client);
   })
 
-  await Promise.all(results);
   return success;
 }
-
+async function broadcastMessage(data) {
+  console.log("broadcast message")
+  const items = (await db.fetchConnections()).map(elem=>{
+     console.log("mapping connections to sending")
+     return ws.send(elem.pk, data);
+  })
+  await Promise.all(items)
+}
 // oh my... this got out of hand refactor for sanity
 async function broadcast(event, context) {
   // info from table stream, we'll learn about connections
   // disconnections, messages, etc
   // get all connections for channel of interest
   // broadcast the news
-  const results = event.Records.map(async record => {
-    switch (record.dynamodb.Keys["type_id"].S.split("_")[1]) {
+
+  console.log(JSON.stringify(event))
+  const results = event.Records.map(record=> {
+    const eventId = (record.dynamodb.Keys.eventId.S)
+    const userId = (record.dynamodb.Keys.type_id.S.split("_")[1])
+    switch (record.dynamodb.Keys.type_id.S.split("_")[0]) {
       case "signOn": {
+        console.log(record.eventName)
         switch (record.eventName) {
           case "INSERT": {
+            const newImage = record.dynamodb.NewImage
+            const data = {
+              type: "signOn",
+              payload: {
+                eventId: eventId,
+                userId: newImage.userId.S,
+                helmName: newImage.helmName.S,
+                boatName: newImage.boatName.S,
+                boatNumber: newImage.boatNumber.S,
+                pY: newImage.pY.N?newImage.pY.N:null,
+                notes: newImage.notes.S,
+                crewName: newImage.crewName.S
+              }
+            }
+            return broadcastMessage(data)
           }
           case "REMOVE": {
-
-            event.body = {
-              "action": "sendMessage",
-              "content": {
-                  "type": "removePerson",
-                  "payload": {
-                      "eventId": (record.dynamodb.Keys[eventId].S),
-                      "userId":  (record.dynamodb.Keys["type_id"].S.split("_")[0])
-                  }
+console.log("removing")
+            const data = {
+              type: "removePerson",
+              payload: {
+                eventId: eventId,
+                userId: userId
               }
-          }
-          sendMessage(event, context)
+            }
+            return broadcastMessage(data)
           }
         }
       }
@@ -93,6 +120,17 @@ async function broadcast(event, context) {
       case "lap": {
         switch (record.eventName) {
           case "INSERT": {
+
+            const newImage = record.dynamodb.NewImage
+            const data = {
+              type: "newLap",
+              payload: {
+                eventId: eventId,
+                eventId: userId,
+                lapTime: newImage.lapTime.N
+              }
+            }
+            return broadcastMessage(data)
           }
           case "MODIFY": {
 
@@ -104,78 +142,8 @@ async function broadcast(event, context) {
         }
       }
     }
-    switch (record.dynamodb.Keys[db.Primary.Key].S.split("|")[0]) {
-      // Connection entities
-      case db.Connection.Entity:
-        break;
-
-      // Channel entities (most stuff)
-      case db.Channel.Entity:
-        // figure out what to do based on full entity model
-
-        // get secondary ENTITY| type by splitting on | and looking at first part
-        switch (record.dynamodb.Keys[db.Primary.Range].S.split("|")[0]) {
-          // if we are a CONNECTION
-          case db.Connection.Entity: {
-            let eventType = "sub";
-            if (record.eventName === "REMOVE") {
-              eventType = "unsub";
-            } else if (record.eventName === "UPDATE") {
-              // currently not possible, and not handled
-              break;
-            }
-
-            // A connection event on the channel
-            // let all users know a connection was created or dropped
-            const channelId = db.parseEntityId(
-              record.dynamodb.Keys[db.Primary.Key].S
-            );
-            const subscribers = await db.fetchChannelSubscriptions(channelId);
-            const results = subscribers.map(async subscriber => {
-              const subscriberId = db.parseEntityId(
-                subscriber[db.Channel.Connections.Range]
-              );
-              return wsClient.send(
-                subscriberId, // really backwards way of getting connection id
-                {
-                  event: `subscriber_${eventType}`,
-                  channelId,
-
-                  // sender of message "from id"
-                  subscriberId: db.parseEntityId(
-                    record.dynamodb.Keys[db.Primary.Range].S
-                  )
-                }
-              );
-            });
-
-            await Promise.all(results);
-            break;
-          }
-
-          // If we are a MESSAGE
-          case db.Message.Entity: {
-            if (record.eventName !== "INSERT") {
-              return success;
-            }
-
-            // We could do interesting things like see if this was a bot
-            // or other system directly adding messages to the dynamodb table
-            // then send them out, otherwise assume it was already blasted out on the sockets
-            // and no need to send it again!
-            break;
-          }
-          default:
-            break;
-        }
-
-        break;
-      default:
-        break;
-    }
   });
-
-  await Promise.all(results);
+  await Promise.all(results)
   return success;
 }
 
