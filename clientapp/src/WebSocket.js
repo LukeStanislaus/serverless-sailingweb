@@ -62,9 +62,10 @@ let WebSocketItem = ({ client }) => {
                                 }
                             }
                         }
+                        console.log(specificEventInputVariables);
                         let { specificEvent } = client.readQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables })
                         if (specificEvent.every(elem => elem.userId !== data.payload.userId)) {
-                            client.writeQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables, data: specificEvent.concat({ "__typename": "SignOn", ...data.payload }) })
+                            client.writeQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables, data: {specificEvent:specificEvent.concat({ "__typename": "SignOn", ...data.payload })} })
                         }
                         break;
                     }
