@@ -1,14 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import RaceHeader from './raceHeader'
 import RaceBody from './raceBody'
 import { useQuery } from '@apollo/react-hooks'
 import StartRaceButton from './startRaceButton'
 import RaceTimer from './raceTimer'
 import {loader} from 'graphql.macro'
+import {AwesomeButton} from 'react-awesome-button'
 const GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START = loader('../graphqlQueries/GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START.graphql')
 
 
 export default (props) => {
+    const [orderBy, setOrderBy] = useState((a,b)=>true)
     const getLapsOfRaceAndSignOnInput = {
         input:
         {
@@ -40,9 +42,10 @@ export default (props) => {
         return (<>{data.getRaceStart === null ?
 <StartRaceButton shouldEarlyStart={true} buttonText={"Press here to start the race"} startTime={new Date().getTime()} eventId={props.selectedRace.eventId} />:
 <RaceTimer eventId={props.selectedRace.eventId} startTime={data.getRaceStart}/>}
-            <table style={{ border: "1px solid black" }}><tbody><RaceHeader maxLaps={max} />
-                <RaceBody eventId={props.selectedRace.eventId} people={array} maxLaps={max} /></tbody>
-            </table></>)
+            <table style={{ border: "1px solid black" }}><tbody><RaceHeader maxLaps={max} setOrderBy={setOrderBy} />
+                <RaceBody eventId={props.selectedRace.eventId} people={array} maxLaps={max} compareFn={orderBy} /></tbody>
+            </table>
+            {/*<AwesomeButton onPress={setOrderBy((a,b)=>true)}>Remove sorting</AwesomeButton>*/}</>)
 
 }
 

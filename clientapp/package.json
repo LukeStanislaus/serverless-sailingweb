@@ -25,6 +25,7 @@
     "react-slick": "^0.24.0",
     "react-time-picker": "^3.5.2",
     "react-use-websocket": "^0.6.3",
+    "serverdate": "^3.1.0",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {

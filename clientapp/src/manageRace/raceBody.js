@@ -5,7 +5,7 @@ import {loader} from 'graphql.macro'
 const GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START = loader('../graphqlQueries/GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START.graphql')
 
 
-export default ({eventId, people, maxLaps}) => {
+export default ({eventId, people, maxLaps, compareFn}) => {
     const GetLapsOfRaceInput = {
         input: {
             eventId: eventId
@@ -47,6 +47,7 @@ export default ({eventId, people, maxLaps}) => {
                 let correctedTime = arr[0].correctedTime
                 RaceRows.push(<RaceRow eventId={eventId} key={index} place={arr[0].place} maxLaps={maxLaps} correctedTime={correctedTime} person={element} />)
             });
-            return <>{RaceRows}</>
+            console.log(RaceRows)
+            return <>{RaceRows.sort(compareFn)}</>
 
 }

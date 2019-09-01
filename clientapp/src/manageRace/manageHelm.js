@@ -30,6 +30,6 @@ export default ({ helm, eventId }) => {
         cache.writeQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables, data: { specificEvent: helmsInRace } })
     }})
     return <td onClick={() => setEditHelm(!editHelm)}>{helm.helmName}
-    {editHelm && <AwesomeButton onPress={() => removeFromRace()} >Remove from race</AwesomeButton>}
+    {editHelm && <AwesomeButton onPress={() => removeFromRace()} >Remove</AwesomeButton>}
 </td>
 }

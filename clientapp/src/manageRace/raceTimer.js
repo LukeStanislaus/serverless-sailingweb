@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import StartRaceButton from './startRaceButton'
 import TimePicker from './timePicker'
+/* global ServerDate*/
+console.log(ServerDate);
 export default ({ startTime, eventId }) => {
   let [newTime, setNewTime] = useState(new Date(startTime))
   let [editTime, setEditTime] = useState(false)
-  let [time, setTime] = useState(new Date().getTime())
+  let [time, setTime] = useState(ServerDate.getTime())
   useInterval(() => setTime(time + 1000), 1000)
 
 
