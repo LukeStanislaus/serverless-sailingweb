@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {AwesomeButton} from 'react-awesome-button'
 
-export default ({maxLaps, setOrderBy}) => {
+export default ({maxLaps}) => {
     let laps = []
     for (let index = maxLaps; index > 0; index--) {
         laps.push(<th key={index}>{index}</th>)
@@ -18,10 +18,8 @@ export default ({maxLaps, setOrderBy}) => {
 
     </tr>}
 
-// function headerCell(setOrderBy, text, predicate, reversePredicate){
-// const [picker, setPicker] =useState(false)
-// const handleClick=()=>{
-//     setOrderBy
-// }
-//     return <th><div onClick={e=>setPicker(!picker)}>{picker&& <AwesomeButton onPress={handleClick}>Order by {text}? </AwesomeButton>}</div></th>
-// }
+function HeaderCell(text){
+const [picker, setPicker] =useState(false)
+
+    return <th><div onClick={e=>setPicker(!picker)}>{picker&& <AwesomeButton onPress={console.log("object")}>Order by {text}? </AwesomeButton>}</div></th>
+}

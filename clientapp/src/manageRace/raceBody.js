@@ -3,6 +3,7 @@ import RaceRow from './raceRow'
 import { useQuery } from '@apollo/react-hooks'
 import {loader} from 'graphql.macro'
 const GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START = loader('../graphqlQueries/GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START.graphql')
+const ORDER_BY = loader('../graphqlQueries/ORDER_BY.graphql')
 
 
 export default ({eventId, people, maxLaps, compareFn}) => {
@@ -46,8 +47,19 @@ export default ({eventId, people, maxLaps, compareFn}) => {
                 if (arr.length === 0) return <tr></tr>
                 let correctedTime = arr[0].correctedTime
                 RaceRows.push(<RaceRow eventId={eventId} key={index} place={arr[0].place} maxLaps={maxLaps} correctedTime={correctedTime} person={element} />)
-            });
-            console.log(RaceRows)
-            return <>{RaceRows.sort(compareFn)}</>
-
+            });    
+            const comparisons = {
+         
+                helmName: (a,b) => a.helmName.toLowerCase() > b.helmName.toLowerCase()
+                
+            }
+            if(true){
+            const { data, loading, error } = useQuery(ORDER_BY)
+            if (loading) return <tr/>
+        if (error) {console.log(error);return <tr></tr> }
+        console.log(data);
+const sorted =RaceRows.sort(comparisons[data.type])
+            
+            return <>{data.reverse? sorted.reverse(): sorted}</>
+            }
 }

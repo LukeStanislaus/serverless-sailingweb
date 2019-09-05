@@ -36,6 +36,9 @@ export const client = new ApolloClient({
 
 cache.writeData({
   data: {
-    selectedRace: null
+    selectedRace: null,
+    orderBy: {
+    reverse: false,
+    type: undefined
     }
-})
+}})

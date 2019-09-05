@@ -1,6 +1,6 @@
 extend type RootQuery {
     selectedRace: Event
-    OrderBy: orderBy
+    orderBy: OrderBy
 
 }
 extend type RootMutation {
@@ -13,7 +13,7 @@ input SelectRaceInput {
 }
 
 type OrderBy {
-    reverse: Bool
+    reverse: Boolean
     type: String
 }
 

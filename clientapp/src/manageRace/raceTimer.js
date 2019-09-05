@@ -7,8 +7,8 @@ export default ({ startTime, eventId }) => {
   let [newTime, setNewTime] = useState(new Date(startTime))
   let [editTime, setEditTime] = useState(false)
   let [time, setTime] = useState(ServerDate.getTime())
-  useInterval(() => setTime(time + 1000), 1000)
-
+  useInterval(() =>{setTime(time + 1000);setTime(ServerDate.getTime())}, 1000)
+  
 
   return <><div style={{ padding: "2%" }} onClick={() => setEditTime(!editTime)} ><h2>{toHHMMSS(((time - startTime)/1000).toString())}</h2> </div>
     {editTime && <><TimePicker setNewTime={setNewTime} newTime={newTime} />
