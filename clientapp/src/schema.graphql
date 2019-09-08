@@ -5,7 +5,7 @@ extend type RootQuery {
 }
 extend type RootMutation {
     selectRace(input: SelectRaceInput!): Event
-    selectOrderBy(input: SelectOrderByInput): OrderBy
+    selectOrderBy(input: SelectOrderByInput!): OrderBy
 }
 
 input SelectRaceInput {

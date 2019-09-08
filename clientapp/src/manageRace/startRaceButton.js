@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { AwesomeButton } from 'react-awesome-button'
 import { useMutation } from '@apollo/react-hooks'
+import 'react-awesome-button/dist/themes/theme-red.css';
 import {loader} from 'graphql.macro'
 const START_RACE = loader('../graphqlQueries/START_RACE.graphql')
 const GET_RACE_START = loader('../graphqlQueries/GET_RACE_START.graphql')

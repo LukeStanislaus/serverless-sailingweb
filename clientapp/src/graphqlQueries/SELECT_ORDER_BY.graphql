@@ -1,0 +1,5 @@
+mutation setOrderBy($input: SelectOrderByInput!){ 
+    selectOrderBy(input: $input)@client{
+        type
+    }
+}

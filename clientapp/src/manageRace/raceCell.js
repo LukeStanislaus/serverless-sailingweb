@@ -3,6 +3,11 @@ import { AwesomeButton } from 'react-awesome-button'
 import TimePicker from './timePicker'
 import {loader} from 'graphql.macro'
 import { useMutation } from '@apollo/react-hooks'
+import styled from "styled-components"
+let Td = styled.td`
+border: 1px solid #ddd;
+padding: 8px;
+`
 const GET_LAPS_OF_RACE = loader('../graphqlQueries/GET_LAPS_OF_RACE.graphql')
 const UPDATE_LAP = loader('../graphqlQueries/UPDATE_LAP.graphql')
 export default (props) => {
@@ -40,13 +45,13 @@ export default (props) => {
       }
 
     }})
-    return <td key={props.lap.lapId}>{<div onClick={() => setEditTime(!editTime)}>{(new Date(props.lap.lapTime)).toLocaleTimeString()}</div>}
+    return <Td key={props.lap.lapId}>{<div onClick={() => setEditTime(!editTime)}>{(new Date(props.lap.lapTime)).toLocaleTimeString()}</div>}
       {editTime && <><TimePicker
         newTime={new Date(newTime)}
         setNewTime={setNewTime} />
         {<AwesomeButton
           onPress={mutateTime}>Update Lap</AwesomeButton>}</>}
-    </td>
+    </Td>
 }
 
 

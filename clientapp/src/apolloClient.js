@@ -39,6 +39,7 @@ cache.writeData({
     selectedRace: null,
     orderBy: {
     reverse: false,
-    type: undefined
+    type: null,
+    __typename: "OrderBy"
     }
 }})

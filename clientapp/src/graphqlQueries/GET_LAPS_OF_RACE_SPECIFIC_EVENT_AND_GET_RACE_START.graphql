@@ -1,4 +1,4 @@
-query lapsOfRaceAndSignOn($input: GetLapsOfRaceInput!, $eventInput: SpecificEventInput!, $raceStartInput:GetRaceStartInput!){
+query lapsOfRaceAndSignOnAndOrderBy($input: GetLapsOfRaceInput!, $eventInput: SpecificEventInput!, $raceStartInput:GetRaceStartInput!){
     getLapsOfRace(input:$input){
       userId
       eventId

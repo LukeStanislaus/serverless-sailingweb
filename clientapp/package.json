@@ -14,6 +14,7 @@
     "graphql": "^14.3.1",
     "graphql-tag": "^2.10.1",
     "graphql.macro": "^1.4.2",
+    "node-sass": "^4.12.0",
     "ntp-time-sync": "^0.1.0",
     "react": "^16.8.6",
     "react-autocomplete": "^1.8.1",
@@ -28,6 +29,7 @@
     "react-use-websocket": "^0.6.3",
     "serverdate": "^3.1.0",
     "slick-carousel": "^1.8.1",
+    "styled-components": "^4.3.2",
     "timesync": "^1.0.3"
   },
   "scripts": {

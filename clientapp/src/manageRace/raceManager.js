@@ -44,11 +44,11 @@ export default (props) => {
     return (<>{data.getRaceStart === null ?
         <StartRaceButton shouldEarlyStart={true} buttonText={"Press here to start the race"} startTime={new Date().getTime()} eventId={props.selectedRace.eventId} /> :
         <RaceTimer eventId={props.selectedRace.eventId} startTime={data.getRaceStart} />}
-        <table style={{ border: "1px solid black" }}>
+        <table>
             <tbody><RaceHeader maxLaps={max} />
                 <RaceBody eventId={props.selectedRace.eventId} people={array} maxLaps={max}  /></tbody>
         </table>
-        <AwesomeButton onPress={console.log("object")}>Remove sorting</AwesomeButton></>)
+        <AwesomeButton onPress={console.log("")}>Remove sorting</AwesomeButton></>)
 
 }
 
