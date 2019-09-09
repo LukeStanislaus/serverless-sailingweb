@@ -1,0 +1,9 @@
+mutation creaateEvent($input:CreateEventInput!){
+  createEvent(input:$input){
+    event{
+      eventId
+      eventName
+      eventTimeStamp
+    }
+  }
+}

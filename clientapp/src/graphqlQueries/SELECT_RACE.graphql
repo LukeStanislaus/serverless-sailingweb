@@ -1,0 +1,5 @@
+    mutation selectRace ($input: SelectRaceInput!){
+        selectRace(input: $input) @client{
+            eventId
+        }
+    }

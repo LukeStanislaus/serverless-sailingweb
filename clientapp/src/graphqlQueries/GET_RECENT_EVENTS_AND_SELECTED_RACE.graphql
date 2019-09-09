@@ -1,0 +1,13 @@
+query getRecentEvents($input:RecentEventsInput!) {
+ recentEvents(input: $input){
+    eventId
+    eventName
+    eventTimeStamp
+}
+
+selectedRace @client{
+            eventName
+            eventId
+            eventTimeStamp
+        }
+}
