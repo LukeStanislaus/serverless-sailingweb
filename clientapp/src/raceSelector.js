@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Select from 'react-select'
+import Createable from 'react-select/creatable'
 import { AwesomeButton } from 'react-awesome-button'
 import { useQuery, useMutation } from '@apollo/react-hooks'
 import { loader } from 'graphql.macro'
@@ -7,6 +7,7 @@ const ADD_RACE = loader("./graphqlQueries/ADD_RACE.graphql")
 const GET_RECENT_EVENTS_AND_SELECTED_RACE = loader("./graphqlQueries/GET_RECENT_EVENTS_AND_SELECTED_RACE.graphql")
 const SELECT_RACE = loader("./graphqlQueries/SELECT_RACE.graphql")
 const SELECTED_RACE = loader("./graphqlQueries/SELECTED_RACE.graphql")
+const REMOVE_EVENT = loader("./graphqlQueries/REMOVE_EVENT.graphql")
 const timeRounded = Math.round((new Date().getTime() / 100000)) * 100000
 const recentEventsInput = {
     input: {
@@ -21,8 +22,6 @@ const recentEventsInput = {
 
 
 export default ({ includeCreateRace = false }) => {
-    let [adHoc, setAdHoc] = useState(false)
-    const [raceName, setRaceName] = useState("Ad Hoc Race")
     const { loading, data } = useQuery(GET_RECENT_EVENTS_AND_SELECTED_RACE,
         { variables: recentEventsInput })
 
@@ -36,22 +35,29 @@ export default ({ includeCreateRace = false }) => {
             ]
         }
     })
-    let adHocRace = { eventId: "createRace", eventName: "Ad Hoc Race", eventTimeStamp: Date.now() };
     function setRace(val) {
-        if (val.eventId === "createRace") {
-            setAdHoc(true)
-            return
-        }
-        setAdHoc(false)
+
         val == null ? selectRaceFunc({ variables: { input: null } }) : selectRaceFunc({ variables: { input: { Event: { ...val, "__typename": "Event" }, "__typename": "Event" } } });
     }
 
-    let onPress = () => {
-        addRace({ variables: { input: { event: { eventName: raceName, eventTimeStamp: adHocRace.eventTimeStamp } } } })
+const [removeEvent] = useMutation(REMOVE_EVENT, {
+    update(cache) {
+        cache.writeQuery({
+            query: SELECTED_RACE,
+            data: {selectedRace: null}
+        })
+    },
+    refetchQueries() {
+        return [
+            {
+                query: GET_RECENT_EVENTS_AND_SELECTED_RACE,
+                variables: recentEventsInput
+            }
+        ]
     }
+})
     const [addRace] = useMutation(ADD_RACE, {
         update(cache, {data:{createEvent:{event}}}) {
-            console.log(event);
             cache.writeQuery({
                 query: SELECTED_RACE,
                 data: {selectedRace: {...event}}
@@ -68,16 +74,24 @@ export default ({ includeCreateRace = false }) => {
     })
 
     return (<>Select a Race:
-    {loading || !data ? "Loading" : <Select
+    {<Createable
+    autoFocus
+    isLoading={loading || !data}
             isClearable
             value={data.selectedRace}
-            options={includeCreateRace ? [adHocRace, ...data.recentEvents] : data.recentEvents}
-            getOptionLabel={elem => {
-                return elem.eventName + ", " +
+            options={data.recentEvents}
+            formatOptionLabel={elem => {
+                
+                if (elem.__isNew__)return elem.label+", " + new Date(Date.now()).toLocaleTimeString()+ ", " + new Date(Date.now()).toDateString()
+                return <div>{elem.eventName + ", " +
                     new Date(elem.eventTimeStamp).toLocaleTimeString() + ", " +
-                    new Date(elem.eventTimeStamp).toDateString()
-            }}
+            new Date(elem.eventTimeStamp).toDateString()}
+            {includeCreateRace && <button style={{"float":"right"}} onClick={e=>{removeEvent({variables:{input:{event:{eventId:elem.eventId}}}})}} children={"Remove Race"}type={"button"}/>}
+            </div>}
+            }
+            onCreateOption={(elem)=>  addRace({ variables: { input: { event: { eventName: elem, eventTimeStamp: Date.now() } } } })}
+            isValidNewOption={(elem)=> elem!==""&&includeCreateRace}
             onChange={setRace}
         />}
-        {adHoc && <><input type={"text"} onChange={e => setRaceName(e.target.value)} value={raceName} /><AwesomeButton onPress={onPress}>Add Race</AwesomeButton></>}</>)
+        </>)
 }

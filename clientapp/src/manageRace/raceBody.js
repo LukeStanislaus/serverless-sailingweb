@@ -64,11 +64,12 @@ export default ({ eventId, maxLaps }) => {
 
     }
     if (true) {
+        console.log("beforequery");
         const { data, loading, error } = useQuery(ORDER_BY);
         if (loading) return <tr />
         if (error) { console.log(error); return <tr></tr> }
-        console.log(RaceRows);
-        const sorted = RaceRows.sort(comparisons[data.orderBy.type])
+        console.log(data.orderBy.type);
+        const sorted = RaceRows.sort(data.orderBy.type==null? (a,b)=>true:comparisons[data.orderBy.type])
 let items= (data.orderBy.reverse ? sorted.reverse() : sorted).map(elem=><RaceRow eventId={elem.eventId} key={elem.key} place={elem.place} maxLaps={elem.maxLaps} correctedTime={elem.correctedTime} person={elem.person} />)
       return <>{items}</>
     }

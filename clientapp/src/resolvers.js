@@ -7,7 +7,8 @@ export const resolvers = {
         },
         selectOrderBy: (_, { input }, { cache }) => {
             const { orderBy } = cache.readQuery({ query })
-            const reverse = orderBy.type === input.SelectOrderByInput.type ? !orderBy.reverse : false
+            let reverse = orderBy.type === input.SelectOrderByInput.type ? !orderBy.reverse : false
+            if(input.SelectOrderByInput.type == null) reverse = orderBy.reverse;
             cache.writeData({data:{orderBy:{ reverse: reverse, type: input.SelectOrderByInput.type, __typename: "OrderBy" }} })
             console.log({reverse: reverse, type: input.SelectOrderByInput.type, __typename: "OrderBy" });
             //return  

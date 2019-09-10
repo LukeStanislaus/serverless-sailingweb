@@ -140,14 +140,14 @@ function useSelectedRace(boatClass, name, signOnInput ) {
   
 
 
-    obj = (<AwesomeButton
+    obj = (<AwesomeButton 
       disabled={(boatClass === "" || name === "" || queryData.selectedRace === null)}
       ripple
       onPress={(e) => { const variables= {variables:{ input: { signOn: { ...signOnInput.input.signOn, eventId: queryData.selectedRace.eventId } }} }; console.log(variables ); signOn(variables )}}
       type="primary"
       style={{
         "--button-raise-level": "4px",
-        "--button-hover-pressure": 3
+        "--button-hover-pressure": 3, "zIndex": 0
       }}>Enter Race</AwesomeButton>)
 
 

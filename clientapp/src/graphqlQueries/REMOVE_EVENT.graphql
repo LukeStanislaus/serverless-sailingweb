@@ -1,0 +1,7 @@
+mutation removeEvent($input: RemoveEventInput!){
+  removeEvent(input:$input){
+    event{
+      eventId
+    }
+  }
+}

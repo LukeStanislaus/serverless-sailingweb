@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import RaceHeader from './raceHeader'
 import RaceBody from './raceBody'
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery, useMutation } from '@apollo/react-hooks'
+import { loader } from 'graphql.macro'
 import StartRaceButton from './startRaceButton'
 import RaceTimer from './raceTimer'
-import { loader } from 'graphql.macro'
 import { AwesomeButton } from 'react-awesome-button'
 const GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START = loader('../graphqlQueries/GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START.graphql')
-
+const SELECT_ORDER_BY = loader('../graphqlQueries/SELECT_ORDER_BY.graphql')
+const ORDER_BY = loader("../graphqlQueries/ORDER_BY.graphql")
 
 export default (props) => {
     const getLapsOfRaceAndSignOnInput = {
@@ -30,6 +31,15 @@ export default (props) => {
 
         
     }
+    const [selectOrderBy] = useMutation(SELECT_ORDER_BY, {
+        refetchQueries: () => {
+            return [
+                {
+                    query: ORDER_BY
+                }
+            ]
+        }
+    })
     const { data, loading, error } = useQuery(GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START,
         { variables: getLapsOfRaceAndSignOnInput })
     if (loading) return <div />;
@@ -41,14 +51,15 @@ export default (props) => {
         if (laps.length > max) max = laps.length
         return person
     });
+
     return (<>{data.getRaceStart === null ?
         <StartRaceButton shouldEarlyStart={true} buttonText={"Press here to start the race"} startTime={new Date().getTime()} eventId={props.selectedRace.eventId} /> :
         <RaceTimer eventId={props.selectedRace.eventId} startTime={data.getRaceStart} />}
-        <table style={{"display": "block", "overflow-x": "auto", "white-space": "nowrap"}}><RaceHeader maxLaps={max} /><tbody>
+        <table style={{"display": "block", "overflowX": "auto", "whiteSpace": "nowrap"}}><tbody><RaceHeader maxLaps={max} />
                 <RaceBody eventId={props.selectedRace.eventId} people={array} maxLaps={max}  />
                 </tbody> 
         </table>
-        <AwesomeButton onPress={console.log("")}>Remove sorting</AwesomeButton></>)
+        <AwesomeButton style={{"zIndex":0}} onPress={()=>selectOrderBy({variables:{input:{SelectOrderByInput:{type:null}}}})}>Remove sorting</AwesomeButton></>)
 
 }
 

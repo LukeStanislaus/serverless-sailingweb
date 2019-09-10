@@ -31,7 +31,7 @@ export default ({ eventId, buttonText, startTime, shouldEarlyStart }) => {
             checked={earlyStart}
             onChange={() => setEarlyStart(!earlyStart)} />
         Would you like to start the timer 5 minutes early?
-</>}<AwesomeButton
+</>}<AwesomeButton style={{"zIndex":0}}
             onPress={startRace}>
             {buttonText}
         </AwesomeButton></>
