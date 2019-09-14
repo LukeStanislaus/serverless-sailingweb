@@ -35,9 +35,9 @@ export default ({ maxLaps }) => {
 
     }
 
-    let text = ["Helm Name", "Boat Class", "Sail Number", "Lap", "Place", "Corrected Time"]
+    let text = [{text: "Helm Name", order: true}, {text: "Boat Class", order: true}, {text: "Sail Number", order: true}, {text: "Lap", order: false}, {text: "Place", order: true}, {text: "Corrected Time", order: true}]
     return <Tr>
-        {text.map(elem => <Th key={elem}><HeaderCell selectOrderBy={selectOrderBy} text={elem} /></Th>)}
+        {text.map(({text: elem, order}) =><Th key={elem}> {order? <HeaderCell selectOrderBy={selectOrderBy} text={elem} />: <div>{elem}</div>}</Th>)}
         {laps}
 
     </Tr>

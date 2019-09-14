@@ -27,9 +27,9 @@ export default (props) => {
             eventId: props.selectedRace.eventId
         }
 
-    
 
-        
+
+
     }
     const [selectOrderBy] = useMutation(SELECT_ORDER_BY, {
         refetchQueries: () => {
@@ -55,11 +55,11 @@ export default (props) => {
     return (<>{data.getRaceStart === null ?
         <StartRaceButton shouldEarlyStart={true} buttonText={"Press here to start the race"} startTime={new Date().getTime()} eventId={props.selectedRace.eventId} /> :
         <RaceTimer eventId={props.selectedRace.eventId} startTime={data.getRaceStart} />}
-        <table style={{"display": "block", "overflowX": "auto", "whiteSpace": "nowrap"}}><tbody><RaceHeader maxLaps={max} />
-                <RaceBody eventId={props.selectedRace.eventId} people={array} maxLaps={max}  />
-                </tbody> 
+        <table style={{ "display": "block", "overflowX": "auto", "whiteSpace": "nowrap" }}><tbody><RaceHeader maxLaps={max} />
+            <RaceBody eventId={props.selectedRace.eventId} people={array} maxLaps={max} />
+        </tbody>
         </table>
-        <AwesomeButton style={{"zIndex":0}} onPress={()=>selectOrderBy({variables:{input:{SelectOrderByInput:{type:null}}}})}>Remove sorting</AwesomeButton></>)
+        <AwesomeButton style={{ "zIndex": 0 }} onPress={() => selectOrderBy({ variables: { input: { SelectOrderByInput: { type: null } } } })}>Clear sort</AwesomeButton></>)
 
 }
 

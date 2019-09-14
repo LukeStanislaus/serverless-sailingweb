@@ -34,7 +34,8 @@ export default ({ eventId, maxLaps }) => {
         if (elem.laps.length === 0) return { eventId: eventId, userId: elem.helm.userId, correctedTime: null, __typename: "CorrectedTime" }
         const lastLapTime = elem.laps.sort((a, b) => a.lapTime - b.lapTime).reverse()[0].lapTime
         const elapsedTime = lastLapTime - data.getRaceStart
-        const correctedTime = (elapsedTime / elem.helm.pY) * 1000;
+        const correctedTime = Math.floor((Math.floor((elapsedTime / elem.helm.pY))/ elem.laps.length)*maxLaps);
+        console.log(correctedTime);
         return { eventId: eventId, userId: elem.helm.userId, correctedTime: correctedTime, __typename: "CorrectedTime" }
     })
     let RaceRows = []
@@ -70,6 +71,7 @@ export default ({ eventId, maxLaps }) => {
         if (error) { console.log(error); return <tr></tr> }
         console.log(data.orderBy.type);
         const sorted = RaceRows.sort(data.orderBy.type==null? (a,b)=>true:comparisons[data.orderBy.type])
+        console.log(sorted);
 let items= (data.orderBy.reverse ? sorted.reverse() : sorted).map(elem=><RaceRow eventId={elem.eventId} key={elem.key} place={elem.place} maxLaps={elem.maxLaps} correctedTime={elem.correctedTime} person={elem.person} />)
       return <>{items}</>
     }
