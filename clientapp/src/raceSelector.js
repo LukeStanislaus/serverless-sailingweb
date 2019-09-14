@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Createable from 'react-select/creatable'
-import { AwesomeButton } from 'react-awesome-button'
 import { useQuery, useMutation } from '@apollo/react-hooks'
 import { loader } from 'graphql.macro'
 const ADD_RACE = loader("./graphqlQueries/ADD_RACE.graphql")
