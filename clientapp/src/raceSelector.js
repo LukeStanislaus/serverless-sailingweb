@@ -71,14 +71,15 @@ const [removeEvent] = useMutation(REMOVE_EVENT, {
             ]
         }
     })
-
+let sortedRecentEvents= data.recentEvents?data.recentEvents.sort((a,b)=>{console.log(a.eventTimeStamp);    return a.eventTimeStamp-b.eventTimeStamp}): null
+console.log(sortedRecentEvents);
     return (<>Select a Race:
     {<Createable
     autoFocus
     isLoading={loading || !data}
             isClearable
             value={data.selectedRace}
-            options={data.recentEvents}
+            options={sortedRecentEvents}
             formatOptionLabel={elem => {
                 
                 if (elem.__isNew__)return elem.label+", " + new Date(Date.now()).toLocaleTimeString()+ ", " + new Date(Date.now()).toDateString()
