@@ -8,7 +8,7 @@ let Tr = styled.tr`
 :nth-child(even) {background-color: #f2f2f2;}
 :hover {background-color: #dddddd;}
 `
-export default ({eventId, correctedTime, place, maxLaps, person, viewOnly=false}) => {
+export default ({eventId, correctedTime, place, maxLaps, person, viewOnly=false, change}) => {
 let raceCells = []
 if(!viewOnly){
     if(maxLaps > person.laps.length){
@@ -38,9 +38,17 @@ case 1:
      award = undefined
 
 }
+let icon = ""
+if(change === "up")
+{
+ icon = " ↑"
+}
+else if(change === "down"){
+    icon = " ↓"
+}
 return <>
 <Tr>
-    {viewOnly?<td style={{backgroundColor:award}} key="helmName">{person.helm.helmName}</td> :<ManageHelm key={"helmName"} helm={person.helm} eventId={eventId}></ManageHelm>}
+    {viewOnly?<td style={{backgroundColor:award}} key="helmName">{person.helm.helmName + icon}</td> :<ManageHelm key={"helmName"} helm={person.helm} eventId={eventId}></ManageHelm>}
     <td key={"boatName"}>{person.helm.boatName}</td>
     <td key={"boatNumber"}>{person.helm.boatNumber}</td>
     {!viewOnly&&<td key={"lap"}><LapButton eventId={eventId} userId={person.helm.userId}/></td>}
