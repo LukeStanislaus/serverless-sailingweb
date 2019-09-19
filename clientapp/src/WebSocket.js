@@ -62,7 +62,6 @@ let WebSocketItem = ({ client }) => {
                                 }
                             }
                         }
-                        console.log(specificEventInputVariables);
                         let { specificEvent } = client.readQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables })
                         if (specificEvent.every(elem => elem.userId !== data.payload.userId)) {
                             client.writeQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables, data: {specificEvent:specificEvent.concat({ "__typename": "SignOn", ...data.payload })} })
@@ -84,7 +83,6 @@ let WebSocketItem = ({ client }) => {
                         break;
                     }
                     case "updateStartTime": {
-                        console.log(data.payload)
                         client.writeQuery({
                             query: GET_RACE_START,
                             variables: { input:{ eventId: data.payload.eventId}},

@@ -18,7 +18,7 @@ padding: 8px;
 `
 const SELECT_ORDER_BY = loader('../graphqlQueries/SELECT_ORDER_BY.graphql')
 const ORDER_BY = loader("../graphqlQueries/ORDER_BY.graphql")
-export default ({ maxLaps }) => {
+export default ({ maxLaps, viewOnly=false }) => {
     let laps = []
 
     const [selectOrderBy] = useMutation(SELECT_ORDER_BY, {
@@ -34,10 +34,12 @@ export default ({ maxLaps }) => {
         laps.push(<Th key={index}>{index}</Th>)
 
     }
+    let viewOnlyHeaders = [{text: "Helm Name", order: true}, {text: "Boat Class", order: true}, {text: "Sail Number", order: true}, {text: "Place", order: true}, {text: "Corrected Time", order: true}]
 
-    let text = [{text: "Helm Name", order: true}, {text: "Boat Class", order: true}, {text: "Sail Number", order: true}, {text: "Lap", order: false}, {text: "Place", order: true}, {text: "Corrected Time", order: true}]
+    let manageRaceHeaders = viewOnlyHeaders.slice()
+    manageRaceHeaders.splice(3, 0, {text: "Lap", order: false})
     return <Tr>
-        {text.map(({text: elem, order}) =><Th key={elem}> {order? <HeaderCell selectOrderBy={selectOrderBy} text={elem} />: <div>{elem}</div>}</Th>)}
+        {(viewOnly? viewOnlyHeaders: manageRaceHeaders).map(({text: elem, order}) =><Th key={elem}> {order? <HeaderCell selectOrderBy={selectOrderBy} text={elem} />: <div>{elem}</div>}</Th>)}
         {laps}
 
     </Tr>

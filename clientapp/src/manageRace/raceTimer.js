@@ -3,18 +3,18 @@ import StartRaceButton from './startRaceButton'
 import TimePicker from './timePicker'
 /* global ServerDate*/
 console.log(ServerDate);
-export default ({ startTime, eventId }) => {
+export default ({ startTime, eventId, viewOnly=false }) => {
   let [newTime, setNewTime] = useState(new Date(startTime))
   let [editTime, setEditTime] = useState(false)
   let [time, setTime] = useState(ServerDate.getTime())
   useInterval(() =>{setTime(time + 1000);setTime(ServerDate.getTime())}, 1000)
   
-
-  return <><div style={{ padding: "2%" }} onClick={() => setEditTime(!editTime)} ><h2>{toHHMMSS(((time - startTime)/1000).toString())}</h2> </div>
+let timer = <h2>{toHHMMSS(((time - startTime)/1000).toString())}</h2>
+  return !viewOnly?<><div style={{ padding: "2%" }} onClick={() => setEditTime(!editTime)} >{timer} </div>
     {editTime && <><TimePicker setNewTime={setNewTime} newTime={newTime} />
       <StartRaceButton shouldEarlyStart={false} startTime={newTime == null ? null : newTime.getTime()}
         buttonText={"Update Start Time"} eventId={eventId} /></>}
-  </>
+  </>:timer
 }
 
 

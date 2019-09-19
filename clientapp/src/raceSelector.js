@@ -71,8 +71,8 @@ const [removeEvent] = useMutation(REMOVE_EVENT, {
             ]
         }
     })
-let sortedRecentEvents= data.recentEvents?data.recentEvents.sort((a,b)=>{console.log(a.eventTimeStamp);    return a.eventTimeStamp-b.eventTimeStamp}): null
-console.log(sortedRecentEvents);
+let sortedRecentEvents= data.recentEvents?data.recentEvents.sort((a,b)=>{ return a.eventTimeStamp-b.eventTimeStamp}): null
+
     return (<>Select a Race:
     {<Createable
     autoFocus

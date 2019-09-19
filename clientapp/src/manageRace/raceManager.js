@@ -10,21 +10,21 @@ const GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START = loader('../graphqlQue
 const SELECT_ORDER_BY = loader('../graphqlQueries/SELECT_ORDER_BY.graphql')
 const ORDER_BY = loader("../graphqlQueries/ORDER_BY.graphql")
 
-export default (props) => {
+export default ({selectedRace, viewOnly=false}) => {
     const getLapsOfRaceAndSignOnInput = {
         input:
         {
             eventId:
-                props.selectedRace.eventId
+                selectedRace.eventId
         },
         eventInput:
         {
             eventData: {
-                eventId: props.selectedRace.eventId
+                eventId:  selectedRace.eventId
             }
         },
         raceStartInput: {
-            eventId: props.selectedRace.eventId
+            eventId:  selectedRace.eventId
         }
 
 
@@ -53,10 +53,10 @@ export default (props) => {
     });
 
     return (<>{data.getRaceStart === null ?
-        <StartRaceButton shouldEarlyStart={true} buttonText={"Press here to start the race"} startTime={new Date().getTime()} eventId={props.selectedRace.eventId} /> :
-        <RaceTimer eventId={props.selectedRace.eventId} startTime={data.getRaceStart} />}
-        <table style={{ "display": "block", "overflowX": "auto", "whiteSpace": "nowrap" }}><tbody><RaceHeader maxLaps={max} />
-            <RaceBody eventId={props.selectedRace.eventId} people={array} maxLaps={max} />
+        !viewOnly&&<StartRaceButton shouldEarlyStart={true} buttonText={"Press here to start the race"} startTime={new Date().getTime()} eventId={selectedRace.eventId} /> :
+        <RaceTimer eventId={selectedRace.eventId} startTime={data.getRaceStart} viewOnly={viewOnly}/>}
+        <table style={{ "display": "block", "overflowX": "auto", "whiteSpace": "nowrap" }}><tbody><RaceHeader maxLaps={viewOnly?undefined:max} viewOnly={viewOnly}/>
+            <RaceBody eventId={selectedRace.eventId} people={array} maxLaps={max} viewOnly={viewOnly}/>
         </tbody>
         </table>
         <AwesomeButton style={{ "zIndex": 0 }} onPress={() => selectOrderBy({ variables: { input: { SelectOrderByInput: { type: null } } } })}>Clear sort</AwesomeButton></>)
