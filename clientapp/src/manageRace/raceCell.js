@@ -49,7 +49,7 @@ export default (props) => {
       {editTime && <><TimePicker
         newTime={new Date(newTime)}
         setNewTime={setNewTime} />
-        {<AwesomeButton
+        {<AwesomeButton style={{ "zIndex": 0 }}
           onPress={mutateTime}>Update Lap</AwesomeButton>}</>}
     </Td>
 }

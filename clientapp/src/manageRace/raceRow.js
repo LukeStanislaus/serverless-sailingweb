@@ -8,7 +8,7 @@ let Tr = styled.tr`
 :nth-child(even) {background-color: #f2f2f2;}
 :hover {background-color: #dddddd;}
 `
-export default ({eventId, correctedTime, place, maxLaps, person, viewOnly=false, change}) => {
+export default ({eventId, correctedTime, place, maxLaps, person, viewOnly=false, change, correctedTimeData: {maxCorrectedTime, minCorrectedTime}}) => {
 let raceCells = []
 if(!viewOnly){
     if(maxLaps > person.laps.length){
@@ -48,13 +48,13 @@ else if(change === "down"){
 }
 return <>
 <Tr>
-    {viewOnly?<td style={{backgroundColor:award}} key="helmName">{person.helm.helmName + icon}</td> :<ManageHelm key={"helmName"} helm={person.helm} eventId={eventId}></ManageHelm>}
+    {viewOnly?<td style={{backgroundColor:award}} key="helmName">{person.helm.helmName}</td> :<ManageHelm key={"helmName"} helm={person.helm} eventId={eventId}></ManageHelm>}
     <td key={"boatName"}>{person.helm.boatName}</td>
     <td key={"boatNumber"}>{person.helm.boatNumber}</td>
     {!viewOnly&&<td key={"lap"}><LapButton eventId={eventId} userId={person.helm.userId}/></td>}
-    <td key={"place"}>{place}</td>
+    <td key={"place"}>{place?place+" " + icon:"" }</td>
 
-    <td key={"correctedTime"}>{correctedTime == null? "":correctedTime}</td>
+    <td key={"correctedTime"}><div style={viewOnly?{width: ((maxCorrectedTime - correctedTime)/(maxCorrectedTime-minCorrectedTime) )*100+ "%", backgroundColor:"red"}:{}}>{correctedTime == null? "":correctedTime}</div></td>
  
     {raceCells}</Tr>
 </>}

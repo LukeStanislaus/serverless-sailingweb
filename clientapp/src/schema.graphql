@@ -1,11 +1,19 @@
 extend type RootQuery {
     selectedRace: Event
     orderBy: OrderBy
+    error: Error
 
 }
 extend type RootMutation {
     selectRace(input: SelectRaceInput!): Event
     selectOrderBy(input: SelectOrderByInput!): OrderBy
+    setError(input: SetErrorInput!): String
+}
+type Error{
+    message: String
+}
+input SetErrorInput{ 
+    error: String
 }
 
 input SelectRaceInput {

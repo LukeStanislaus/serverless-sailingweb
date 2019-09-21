@@ -35,5 +35,5 @@ const newLaps = getLapsOfRace.concat(lap.createLap)
             })
         }
     })
-    return <AwesomeButton onPress={newLap}>Lap</AwesomeButton>
+    return <AwesomeButton style={{ "zIndex": 0 }} onPress={newLap}>Lap</AwesomeButton>
 }

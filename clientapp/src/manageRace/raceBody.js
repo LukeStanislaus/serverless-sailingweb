@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import RaceRow from './raceRow'
 import { useQuery } from '@apollo/react-hooks'
 import { loader } from 'graphql.macro'
@@ -6,7 +6,7 @@ const GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START = loader('../graphqlQue
 const ORDER_BY = loader("../graphqlQueries/ORDER_BY.graphql")
 
 var oldData = [];
-export default ({ eventId, maxLaps, viewOnly = false }) => {
+export default ({ eventId, maxLaps, viewOnly = false , hook=null}) => {
     const GetLapsOfRaceInput = {
         input: {
             eventId: eventId
@@ -63,19 +63,25 @@ export default ({ eventId, maxLaps, viewOnly = false }) => {
             +(a.correctedTime > b.correctedTime) || -(a.correctedTime < b.correctedTime),
 
     }
+    let raceStart = data.getRaceStart
     if (true) {
         const { data, loading, error } = useQuery(ORDER_BY);
         if (loading) return <tr />
         if (error) { console.log(error); return <tr></tr> }
-        console.log(data.orderBy.type);
         const sorted = RaceRows.sort(data.orderBy.type == null ? (a, b) => true : comparisons[data.orderBy.type])
         let items = (data.orderBy.reverse ? sorted.reverse() : sorted)
         if (oldData !== []) {
             items.forEach((elem, newIndex) => oldData
-                .forEach((item, oldIndex) => item.person.helm.helmName === elem.person.helm.helmName && newIndex!==oldIndex ? newIndex > oldIndex ? items[newIndex].change = "down" : items[newIndex].change = "up":null)
+                .forEach((item, oldIndex) => item.person.helm.helmName === elem.person.helm.helmName && newIndex!==oldIndex ? newIndex > oldIndex ? items[newIndex].change = "down" : items[newIndex].change = "up":undefined)
             )}
 
         oldData = items
-        return <>{items.map(elem => <RaceRow viewOnly={viewOnly} eventId={elem.eventId} key={elem.key} place={elem.place} maxLaps={viewOnly ? undefined : maxLaps} change={elem.change} correctedTime={elem.correctedTime} person={elem.person} />)}</>
+        let lastPlace = 0
+        items.forEach(elem=> elem.place > lastPlace ? lastPlace = elem.place: null)
+        let maxCorrectedTime = items.find(elem=> elem.place === lastPlace).correctedTime
+        let minCorrectedTime = items.find(elem=>elem.place === 1).correctedTime
+        let correctedTimeData = {maxCorrectedTime:  maxCorrectedTime, minCorrectedTime: minCorrectedTime}
+        let _ = hook? hook({correctedTimeData, items, raceStart: raceStart}):null
+        return <>{items.map(elem => <RaceRow correctedTimeData={correctedTimeData} viewOnly={viewOnly} eventId={elem.eventId} key={elem.key} place={elem.place} maxLaps={viewOnly ? undefined : maxLaps} change={elem.change} correctedTime={elem.correctedTime} person={elem.person} />)}</>
     }
 }

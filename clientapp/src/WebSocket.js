@@ -1,10 +1,11 @@
-import { withApollo } from '@apollo/react-hoc'
+import { useApolloClient } from '@apollo/react-hooks'
 import { loader } from 'graphql.macro'
 const GET_LAPS_OF_RACE = loader('./graphqlQueries/GET_LAPS_OF_RACE.graphql')
 const SPECIFIC_EVENT = loader('./graphqlQueries/SPECIFIC_EVENT.graphql')
 const GET_RACE_START = loader('./graphqlQueries/GET_RACE_START.graphql')
 
-let WebSocketItem = ({ client }) => {
+export default () => {
+    let client = useApolloClient()
     let ws = new WebSocket("wss://c7s4ipb33a.execute-api.us-east-1.amazonaws.com/dev")
     ws.onopen = () => {
         console.info("Websocket connected");
@@ -105,5 +106,3 @@ let WebSocketItem = ({ client }) => {
     }
     return null
 }
-
-export default withApollo(WebSocketItem)

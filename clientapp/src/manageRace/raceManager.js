@@ -1,16 +1,17 @@
 import React from 'react'
 import RaceHeader from './raceHeader'
 import RaceBody from './raceBody'
-import { useQuery, useMutation } from '@apollo/react-hooks'
+import { useQuery, useMutation, useApolloClient } from '@apollo/react-hooks'
 import { loader } from 'graphql.macro'
 import StartRaceButton from './startRaceButton'
 import RaceTimer from './raceTimer'
 import { AwesomeButton } from 'react-awesome-button'
+import DispatchErrorMessage from '../dispatchErrorMessage'
 const GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START = loader('../graphqlQueries/GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START.graphql')
 const SELECT_ORDER_BY = loader('../graphqlQueries/SELECT_ORDER_BY.graphql')
 const ORDER_BY = loader("../graphqlQueries/ORDER_BY.graphql")
 
-export default ({selectedRace, viewOnly=false}) => {
+export default ({selectedRace, viewOnly=false, hook= null}) => {
     const getLapsOfRaceAndSignOnInput = {
         input:
         {
@@ -40,7 +41,7 @@ export default ({selectedRace, viewOnly=false}) => {
             ]
         }
     })
-    const { data, loading, error } = useQuery(GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START,
+    const { data, loading, error, client } = useQuery(GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START,
         { variables: getLapsOfRaceAndSignOnInput })
     if (loading) return <div />;
     if (error) return <div>{JSON.stringify(error)}</div>
@@ -52,11 +53,11 @@ export default ({selectedRace, viewOnly=false}) => {
         return person
     });
 
-    return (<>{data.getRaceStart === null ?
+    return (<><input type={"button"} value={"click me"} onClick={()=>client.writeData({data:{error:"Error message"}})}/>{data.getRaceStart === null ?
         !viewOnly&&<StartRaceButton shouldEarlyStart={true} buttonText={"Press here to start the race"} startTime={new Date().getTime()} eventId={selectedRace.eventId} /> :
         <RaceTimer eventId={selectedRace.eventId} startTime={data.getRaceStart} viewOnly={viewOnly}/>}
         <table style={{ "display": "block", "overflowX": "auto", "whiteSpace": "nowrap" }}><tbody><RaceHeader maxLaps={viewOnly?undefined:max} viewOnly={viewOnly}/>
-            <RaceBody eventId={selectedRace.eventId} people={array} maxLaps={max} viewOnly={viewOnly}/>
+            <RaceBody hook={hook} eventId={selectedRace.eventId} people={array} maxLaps={max} viewOnly={viewOnly}/>
         </tbody>
         </table>
         <AwesomeButton style={{ "zIndex": 0 }} onPress={() => selectOrderBy({ variables: { input: { SelectOrderByInput: { type: null } } } })}>Clear sort</AwesomeButton></>)
