@@ -49,7 +49,7 @@ else if(change === "down"){
 return <>
 <Tr>
     {viewOnly?<td style={{backgroundColor:award}} key="helmName">{person.helm.helmName}</td> :<ManageHelm key={"helmName"} helm={person.helm} eventId={eventId}></ManageHelm>}
-    <td key={"PY"}>{person.helm.pY}</td>
+    {viewOnly?<td key={"PY"}>{person.helm.pY}</td>:null}
     <td key={"boatName"}>{person.helm.boatName}</td>
     
     <td key={"boatNumber"}>{person.helm.boatNumber}</td>
