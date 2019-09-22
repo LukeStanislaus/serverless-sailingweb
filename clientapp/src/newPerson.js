@@ -4,6 +4,8 @@ import gql from 'graphql-tag'
 import { AwesomeButton } from 'react-awesome-button'
 import { FormControl } from 'react-bootstrap'
 import Autocomplete from 'react-autocomplete'
+import {loader } from 'graphql.macro'
+const ALL_HELMS = loader('./graphqlQueries/ALL_HELMS.graphql')
 
 const newPerson = gql`
 mutation newPerson($input:NewPersonInput!) {
@@ -45,7 +47,7 @@ export default () => {
     
                 if (loading) newPersonObj = 'loading'
                 
-        let [newPersonFunc] = useMutation(newPerson, {variables:newPersonInput})
+        let [newPersonFunc] = useMutation(newPerson, {variables:newPersonInput, refetchQueries:[{query:ALL_HELMS}]})
 
           newPersonObj =  <><div>
             Enter helm name:
@@ -66,7 +68,7 @@ export default () => {
               }
               value={boatName}
               onChange={(e) => {console.log(e.target.value); setBoatName(e.target.value);}}
-              onSelect={(val) => setBoatName(val)}
+              onSelect={(val) => {console.log(val); setPY(data.allBoatData.find(elem=>elem.boatName === val).pY); setBoatName(val)}}
             />
             </div>
             <div>

@@ -34,7 +34,7 @@ export default ({ maxLaps, viewOnly=false }) => {
         laps.push(<Th key={index}>{index}</Th>)
 
     }
-    let viewOnlyHeaders = [{text: "Helm Name", order: true}, {text: "Boat Class", order: true}, {text: "Sail Number", order: true}, {text: "Place", order: true}, {text: "Corrected Time", order: true}]
+    let viewOnlyHeaders = [{text: "Helm Name", order: true}, {text: "PY", order: true}, {text: "Boat Class", order: true}, {text: "Sail Number", order: true}, {text: "Place", order: true}, {text: "Corrected Time", order: true}]
 
     let manageRaceHeaders = viewOnlyHeaders.slice()
     manageRaceHeaders.splice(3, 0, {text: "Lap", order: false})

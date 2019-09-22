@@ -78,8 +78,19 @@ export default ({ eventId, maxLaps, viewOnly = false , hook=null}) => {
         oldData = items
         let lastPlace = 0
         items.forEach(elem=> elem.place > lastPlace ? lastPlace = elem.place: null)
-        let maxCorrectedTime = items.find(elem=> elem.place === lastPlace).correctedTime
-        let minCorrectedTime = items.find(elem=>elem.place === 1).correctedTime
+        console.log(items);
+        console.log(lastPlace);
+        let maxCorrectedTime= 0
+        let minCorrectedTime = 0
+         try{
+            maxCorrectedTime =items.find(elem=> elem.place === lastPlace).correctedTime
+            
+        minCorrectedTime = items.find(elem=>elem.place === 1).correctedTime
+        }
+        catch{
+            maxCorrectedTime = 0
+            minCorrectedTime = 0
+        }
         let correctedTimeData = {maxCorrectedTime:  maxCorrectedTime, minCorrectedTime: minCorrectedTime}
         let _ = hook? hook({correctedTimeData, items, raceStart: raceStart}):null
         return <>{items.map(elem => <RaceRow correctedTimeData={correctedTimeData} viewOnly={viewOnly} eventId={elem.eventId} key={elem.key} place={elem.place} maxLaps={viewOnly ? undefined : maxLaps} change={elem.change} correctedTime={elem.correctedTime} person={elem.person} />)}</>
