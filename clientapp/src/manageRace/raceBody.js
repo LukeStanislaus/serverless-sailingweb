@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import RaceRow from './raceRow'
 import { useQuery } from '@apollo/react-hooks'
 import { loader } from 'graphql.macro'
@@ -92,7 +92,7 @@ export default ({ eventId, maxLaps, viewOnly = false , hook=null}) => {
             minCorrectedTime = 0
         }
         let correctedTimeData = {maxCorrectedTime:  maxCorrectedTime, minCorrectedTime: minCorrectedTime}
-        let _ = hook? hook({correctedTimeData, items, raceStart: raceStart}):null
+        if(hook) hook({correctedTimeData, items, raceStart: raceStart})
         return <>{items.map(elem => <RaceRow correctedTimeData={correctedTimeData} viewOnly={viewOnly} eventId={elem.eventId} key={elem.key} place={elem.place} maxLaps={viewOnly ? undefined : maxLaps} change={elem.change} correctedTime={elem.correctedTime} person={elem.person} />)}</>
     }
 }

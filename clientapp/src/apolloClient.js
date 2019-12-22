@@ -5,7 +5,6 @@ import {resolvers} from './resolvers'
 import {typeDefs} from './schema.graphql'
 import { RetryLink } from "apollo-link-retry"
 import { ApolloLink } from "apollo-link"
-import { persistCache } from 'apollo-cache-persist';
 
 
 const cache = new InMemoryCache({
@@ -21,10 +20,7 @@ const cache = new InMemoryCache({
     
   }
 });
-await persistCache({
-  cache,
-  storage: window.localStorage,
-});
+
 const RetryLinker = new RetryLink({
   delay: {
     initial: 300,
@@ -36,7 +32,7 @@ const RetryLinker = new RetryLink({
     retryIf: (error, _operation) => {
       console.log("retry if");
       console.log(error);
-      cache.writeData({data:{error:error.message}})
+      //cache.writeData({data:{error:error.message}})
       return !!error}
   }
 })

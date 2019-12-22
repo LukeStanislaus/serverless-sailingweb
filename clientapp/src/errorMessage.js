@@ -1,12 +1,13 @@
 import React from 'react'
 import Modal from 'react-modal'
-import {useQuery} from '@apollo/react-hooks'
-import {loader} from 'graphql.macro'
-const GET_ERROR = loader("./graphqlQueries/GET_ERROR.graphql")
-export default ()=>{
-    const {data, loading, error} = useQuery(GET_ERROR)
-    if(!data.error) return null
-    console.log(data);
-    return <Modal 
-    isOpen={data.error.message !== null}>{data.error.message}</Modal>
+
+export default function({error, setError}){
+    console.log(error);
+//const [oldError, setOldError] = useState("")
+   // const [isOpen, setIsOpen] = useState(true);
+    //useEffect(()=>{
+
+    //    setOldError(isOpen?error:"")
+   // },[isOpen, error])
+    return (<Modal isOpen={error!==""}>{error.message}<button type={"button"} onClick={()=>setError("")}>{"ok"}</button></Modal>);
 }

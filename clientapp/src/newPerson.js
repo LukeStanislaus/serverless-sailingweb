@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import {useQuery, useMutation} from '@apollo/react-hooks'
+import { useQuery, useMutation } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
-import { AwesomeButton } from 'react-awesome-button'
+import { AwesomeButtonProgress } from 'react-awesome-button'
 import { FormControl } from 'react-bootstrap'
-import Autocomplete from 'react-autocomplete'
-import {loader } from 'graphql.macro'
+import Autocomplete from 'react-autosuggest'
+import { loader } from 'graphql.macro'
+const GET_BOATS = loader('./graphqlQueries/GET_BOATS.graphql')
 const ALL_HELMS = loader('./graphqlQueries/ALL_HELMS.graphql')
 
 const newPerson = gql`
@@ -37,55 +38,81 @@ export default () => {
     }
   }
   let newPersonObj = null
-  const {loading, data} = useQuery(gql`query getBoats {
+  const { loading, data } = useQuery(gql`query getBoats {
     allBoatData{
       boatName
       crew
       pY
     }
-    }`) 
-    
-                if (loading) newPersonObj = 'loading'
-                
-        let [newPersonFunc] = useMutation(newPerson, {variables:newPersonInput, refetchQueries:[{query:ALL_HELMS}]})
+    }`)
 
-          newPersonObj =  <><div>
-            Enter helm name:
+
+  let [newPersonFunc] = useMutation(newPerson, { variables: newPersonInput, refetchQueries: [{ query: ALL_HELMS }, 
+    {query:GET_BOATS, variables:{input:{helmName:name}}}] 
+  })
+  let [suggestions, setSuggestions] = useState(null)
+  if (loading) return <>loading</>
+  if(suggestions == null) setSuggestions(data.allBoatData === undefined ? [] : data.allBoatData.map((elem) =>
+  { return { elem: elem, id: elem.boatName, label: elem.boatName, name: elem.boatName } }))
+  newPersonObj = <><div>
+    Enter helm name:
             <FormControl value={name} onChange={(e) => setName(e.target.value)} type="text" />
-          </div>
-            <div>
-              Enter boat name:
+  </div>
+    <div>
+      Enter boat name:
     <Autocomplete type={"text"}
-    inputProps={{className:"form-control"}}
-              key={"Boat"}
-              shouldItemRender={(item, value) => item.elem.boatName.toLowerCase().indexOf(value.toLowerCase()) > -1}
-              getItemValue={(item) => item.label}
-              items={data.allBoatData=== undefined?[]:data.allBoatData.map((elem)=> {return{elem:elem, id: elem.boatName, label: elem.boatName, name: elem.boatName}})}
-              renderItem={(item, isHighlighted) =>
-                <div key={item.elem.boatName} style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
-                  {item.elem.boatName+" (PY "+item.elem.pY+")"}
-                </div>
-              }
-              value={boatName}
-              onChange={(e) => {console.log(e.target.value); setBoatName(e.target.value);}}
-              onSelect={(val) => {console.log(val); setPY(data.allBoatData.find(elem=>elem.boatName === val).pY); setBoatName(val)}}
-            />
-            </div>
-            <div>
-              Enter boat number:
+        inputProps={{ className: "form-control",
+        value:boatName,
+        onChange:(e) => { console.log(e.target.value); setBoatName(e.target.value); },
+        onSelect:(val) => { 
+          let boat = data.allBoatData.find(elem => elem.boatName === val)
+          if(boat===undefined) return;
+          setPY(boat.pY); 
+          setBoatName(val)} 
+      }}
+        key={"Boat"}
+        onSuggestionsClearRequested={()=>setSuggestions([])}
+        onSuggestionsFetchRequested={({value})=>setSuggestions(data.allBoatData === undefined ? [] : 
+          data.allBoatData.map((elem) => { return { elem: elem, id: elem.boatName, label: elem.boatName, name: elem.boatName } })
+          .filter(elem=>elem.name.toLowerCase().includes(value.toLowerCase())))}
+        getSuggestionValue={(item) => item.label}
+        suggestions={suggestions==null?[]:suggestions}
+        
+    onSuggestionSelected={(e,{suggestionValue})=>{          
+      let boat = data.allBoatData.find(elem => elem.boatName === suggestionValue)
+      if(boat===undefined) return;
+      setPY(boat.pY); 
+      setBoatName(suggestionValue)
+    } 
+    }
+        renderSuggestion={(item, {isHighlighted}) =>
+          <div key={item.elem.boatName} style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
+            {item.elem.boatName + " (PY " + item.elem.pY + ")"}
+          </div>
+        }
+        
+      />
+    </div>
+    <div>
+      Enter boat number:
     <FormControl value={boatNumber} onChange={(e) => setBoatNumber(e.target.value)} type="text" />
-            </div>
-            <div>
-              Enter boat PY:
+    </div>
+    <div>
+      Enter boat PY:
     <FormControl value={pY} onChange={(e) => setPY(parseInt(e.target.value))} type="number" />
-            </div><div style={{ paddingTop: "20px" }}>
-              <AwesomeButton onPress={newPersonFunc}>Enter new person</AwesomeButton>
-            </div>
-          </>
+    </div><div style={{ paddingTop: "20px" }}>
+    <AwesomeButtonProgress
+      disabled={name ===""|| boatName===""||boatNumber ===""||pY===""}
+        //cssModule={AwesomeButtonStyles}
+        onPress={async (element, next) => { await newPersonFunc(); next(); }}>
+        Enter new person
+        </AwesomeButtonProgress>
+    </div>
+  </>
   return (<>
     <h1>Enter a new person</h1>
-    
-{newPersonObj}
+
+    {newPersonObj}
 
 
   </>)

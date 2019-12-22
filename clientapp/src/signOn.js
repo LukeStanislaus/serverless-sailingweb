@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useQuery, useMutation } from '@apollo/react-hooks'
-import Autocomplete from 'react-autocomplete'
-import { AwesomeButton } from 'react-awesome-button'
+import Autocomplete from 'react-autosuggest'
+import { AwesomeButtonProgress } from 'react-awesome-button'
 import "react-awesome-button/dist/styles.css";
 import Select from 'react-select'
 import SelectRace from './raceSelector'
@@ -15,28 +15,40 @@ const SPECIFIC_EVENT = loader('./graphqlQueries/SPECIFIC_EVENT.graphql')
 
 function useCrewName(crew, setCrew) {
   const { loading, error, data } = useQuery(ALL_HELMS)
+
+  const [suggestions, setSuggestions] = useState(null)
+
+  if (suggestions == null) setSuggestions(data === undefined ? [] : data.allHelms.map(elem => { return elem.name }).filter(onlyUnique))
+  if (loading) return <input />
   if (error) return `Error! ${error.message}`
-  if (loading) return 'Loading'
   return <Autocomplete
     key={"CrewName"}
-    shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
-    getItemValue={(item) => item.label}
-    items={data.allHelms === undefined ? [] : data.allHelms.map(elem => { return { label: elem.name, id: elem.name, name: elem.name } }).filter(onlyUnique)}
-    renderItem={(item, isHighlighted) =>
-      <div key={item.label} style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
-        {item.label}
+    getSuggestionValue={(item) => { return item }}
+    suggestions={suggestions == null ? [] : suggestions}
+    renderSuggestion={(item, { isHighlighted }) =>
+      <div key={item} style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
+        {item}
       </div>
     }
-    value={crew}
-    onChange={(e) => setCrew(e.target.value)}
-    onSelect={(val) => setCrew(val)}
+    onSuggestionSelected={(e, { suggestionValue }) => setCrew(suggestionValue)}
+    onSuggestionsClearRequested={() => setSuggestions([])}
+    onSuggestionsFetchRequested={({ value }) =>
+      setSuggestions(data.allHelms.map(elem => { return elem.name })
+        .filter(onlyUnique)
+        .filter(elem => elem.toString().toLowerCase().includes(value.toString().toLowerCase())))}
+    inputProps={{
+      type: 'search',
+      value: crew,
+      onChange: (e) => { setCrew(e.target.value) }
+    }
+    }
   />
 
 }
 
 function useBoatClass(boatClass, setBoatClass, boatClassVariables) {
-  const { loading, error, data } = useQuery(GET_BOATS, { variables: boatClassVariables })
-  if (loading || boatClassVariables.input.helmName == null) return <Select />
+  const { loading, error, data } = useQuery(GET_BOATS, { skip: boatClassVariables.input.helmName == null, variables: boatClassVariables })
+  if (loading || boatClassVariables.input.helmName == null || data === undefined) return <Select />
   if (error) return `Error! ${error.message}`
   return <Select
     isClearable
@@ -58,7 +70,11 @@ function useHelmName(name, setName) {
   return <Select
     isClearable
     key={"HelmName"}
-    options={data.allHelms.filter(onlyUnique)}
+    options={data.allHelms.filter((value, index, self) =>{
+      return index === self.findIndex((t) => (
+        t.name === value.name
+      ))
+    })}
     value={name}
     getOptionLabel={elem => elem.name}
     onChange={(val) => { setName(val); }}
@@ -69,7 +85,7 @@ function useHelmName(name, setName) {
 
 function SignOn() {
   const [crew, setCrew] = useState("")
-  const [name, setName] = useState(null)
+  const [name, setName] = useState("")
   const [boatClass, setBoatClass] = useState(null)
   const [notes, setNotes] = useState("")
 
@@ -102,8 +118,8 @@ function SignOn() {
 {useHelmName(name, setName)}
     <div>
       Boat Class:
-        {useBoatClass(boatClass, setBoatClass, boatClassVariables) }
-        </div>
+        {useBoatClass(boatClass, setBoatClass, boatClassVariables)}
+    </div>
     Crew Name:
 {useCrewName(crew, setCrew)}
     Notes
@@ -116,14 +132,14 @@ function SignOn() {
   </>
   )
 }
-function useSelectedRace(boatClass, name, signOnInput ) {
+function useSelectedRace(boatClass, name, signOnInput) {
   let obj = null
   const { data, loading, error } = useQuery(SELECTED_RACE)
   const queryData = data;
   if (loading) obj = "Loading"
   if (error) obj = 'error'
 
-  const [signOn] = useMutation(SIGN_ON, { 
+  const [signOn] = useMutation(SIGN_ON, {
     update(cache, { data: { signOn: { signOn: person } } }) {
       const specificEventInputVariables = {
         input: {
@@ -132,32 +148,49 @@ function useSelectedRace(boatClass, name, signOnInput ) {
           }
         }
       }
-      let helmsInRaces = cache.readQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables })
-      let helmsInSpecificRace = helmsInRaces.specificEvent.concat(person)
-      cache.writeQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables, data: { specificEvent: helmsInSpecificRace } })
+      try {
+        let helmsInRaces = cache.readQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables })
+        let helmsInSpecificRace = helmsInRaces.specificEvent.concat(person)
+        cache.writeQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables, data: { specificEvent: helmsInSpecificRace } })
+      }
+      catch (e) {
+        if (e.toString().substring(0, 9) !== "Invariant") throw e;
+      }
     }
   })
-  
 
 
-    obj = (<AwesomeButton 
-      disabled={(boatClass === "" || name === "" || queryData.selectedRace === null)}
-      ripple
-      onPress={(e) => { const variables= {variables:{ input: { signOn: { ...signOnInput.input.signOn, eventId: queryData.selectedRace.eventId } }} }; console.log(variables ); signOn(variables )}}
-      type="primary"
-      style={{
-        "--button-raise-level": "4px",
-        "--button-hover-pressure": 3, "zIndex": 0
-      }}>Enter Race</AwesomeButton>)
+
+  obj = (<AwesomeButtonProgress
+    disabled={(boatClass === "" || name === "" || queryData.selectedRace === null)}
+    ripple
+    onPress={async (e, next) => {
+      const variables = {
+        variables: {
+          input: {
+            signOn: {
+              ...signOnInput.input.signOn, eventId: queryData.selectedRace.eventId
+            }
+          }
+        }
+      };
+      await signOn(variables);
+      next()
+    }}
+    type="primary"
+    style={{
+      "--button-raise-level": "4px",
+      "--button-hover-pressure": 3, "zIndex": 0
+    }}>Enter Race</AwesomeButtonProgress>)
 
 
-  
+
   return obj
 }
 
 function onlyUnique(value, index, self) {
   return index === self.findIndex((t) => (
-    t.name === value.name
+    t === value
   ))
 }
 export default SignOn

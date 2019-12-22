@@ -21,9 +21,8 @@ const recentEventsInput = {
 
 
 export default ({ includeCreateRace = false }) => {
-    const { loading, data } = useQuery(GET_RECENT_EVENTS_AND_SELECTED_RACE,
+    const { loading, data, error } = useQuery(GET_RECENT_EVENTS_AND_SELECTED_RACE,
         { variables: recentEventsInput })
-
     const [selectRaceFunc] = useMutation(SELECT_RACE, {
         refetchQueries() {
             return [
@@ -71,6 +70,9 @@ const [removeEvent] = useMutation(REMOVE_EVENT, {
             ]
         }
     })
+    
+if (error) return <div>{error.message}</div>
+if (loading) return <Createable/>
 let sortedRecentEvents= data.recentEvents?data.recentEvents.sort((a,b)=>{ return a.eventTimeStamp-b.eventTimeStamp}): null
 
     return (<>Select a Race:

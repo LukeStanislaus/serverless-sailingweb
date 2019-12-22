@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import Slider from "react-slick"
-import DispatchError from './dispatchErrorMessage'
 const iconPath = process.env.PUBLIC_URL + 'assets/images/';
 // check_webp_feature:
 //   'feature' can be one of 'lossy', 'lossless', 'alpha' or 'animation'.
@@ -41,7 +40,6 @@ export default () => {
 
     </Slider>
     <h1 style={{paddingTop: "20px", paddingBottom: "30px"}} align={"center"}>Welcome to Whitefriars Sailing Club!</h1>
-    <input  type={"button"} onClick={()=>DispatchError("text")} value={"Click me"}/>
     <Info/>
 
     </>
