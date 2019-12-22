@@ -16,7 +16,7 @@ function App() {
 
   return (<>
     <ApolloProvider client={client}>
-      <nav className={"navbar navbar-dark bg-dark"}>
+      <nav style={{ paddingLeft: "13%", paddingRight: "13%" }} className={"navbar navbar-dark bg-dark"}>
         <Link className={"navbar-item"} to="/">Home</Link>
         <Link className={"navbar-text"} to="/ViewRace">View Race</Link>
         <Link className={"navbar-text"} to="/SignOn">Sign On</Link>
