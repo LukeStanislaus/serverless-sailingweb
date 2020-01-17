@@ -31,7 +31,7 @@ const resolvers = {
     updateLap: (parent, args) => updateLap(args.input),
     startRace: (parent, args) => startRace(args.input),
     removeFromRace: (parent, args) => removeFromRace(args.input),
-   // removePerson: (parent, args) => removePerson(args.input),
+    removePerson: (parent, args) => removePerson(args.input),
   }
 };
 

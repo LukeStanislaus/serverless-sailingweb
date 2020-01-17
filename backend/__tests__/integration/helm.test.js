@@ -29,3 +29,40 @@ test('getBoatsOfHelm works', async () => {
         }]
   expect(helmJson.data.getBoatsOfHelm).toEqual(expectedResponse)
 })
+
+test('removePerson works', async () => {
+
+  let input = {
+      RemovePersonData: {
+        name:" ",
+        boatName: " ",
+        boatNumber: " ",
+        pY: 0
+        
+      }
+    }
+    
+  
+    const helm = await fetch('http://localhost:3000/graphql', {
+  method: 'post',
+  body: JSON.stringify({
+    query: `mutation removePerson($input:RemovePersonInput!){
+      removePerson(input:$input){
+    RemovePersonPayloadData{
+    name
+    
+    }}
+    }`,
+    variables: {
+        input: input
+    }})
+})
+const helmJson = await helm.json()
+const expectedResponse =  {
+      RemovePersonPayloadData: {
+        name: " "
+      }
+    }
+
+expect(helmJson.data.removePerson).toEqual(expectedResponse)
+})

@@ -1,23 +1,21 @@
 import * as db from './dynamo';
 import uuidv4 from 'uuid/v4'
 
-export const removePerson = async (args) => {
-  console.log(args);
+export const removePerson = async ({RemovePersonData: {name, boatName, boatNumber, pY}}) => {
   let getParams = {
     TableName: "Races",
-    KeyConditionExpression: "eventId = :eventId and begins_with(type_id, :type_id) and boatName = :boatName and "+ 
-    "boatNumber = :boatNumber and pY = :pY",
+    KeyConditionExpression: "eventId = :eventId and begins_with(type_id, :type_id)",
     ExpressionAttributeValues: {
       ':eventId': "person",
-      ":type_id": args.RemovePersonData.name,
-      ":boatName": args.RemovePersonData.boatName,
-      ":boatNumber": args.RemovePersonData.boatNumber,
-      ":pY": args.RemovePersonData.pY
+      ":type_id": name,
     } 
   };
   let result = await db.queryItem(getParams)
-  if (result.length != 0) {
-    result = result.map(elem => {
+  //console.log(result);
+  let item = result.filter(elem=> elem.pY === pY && elem.boatName === boatName && elem.boatNumber === boatNumber)
+  console.log(item);
+  if (item.length != 0) {
+    let req = item.map(elem => {
       return {
         DeleteRequest: {
           Key: { eventId: elem.eventId, type_id: elem.type_id }
@@ -26,10 +24,10 @@ export const removePerson = async (args) => {
     })
     let params = {
       RequestItems: {
-        'Races': result
+        'Races': req
       }
     };
-    return db.batchDelete(params, args)
+    return db.batchDelete(params, {RemovePersonPayloadData: item[0]})
   }
   else {
     return null;
