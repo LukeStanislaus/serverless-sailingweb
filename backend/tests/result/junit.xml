@@ -1,45 +1,443 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="16" failures="0" time="11.783">
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-08-16T14:42:22" time="4.736" tests="4">
-    <testcase classname=" newlap creates a new lap" name=" newlap creates a new lap" time="1.657">
+<testsuites name="jest tests" tests="16" failures="16" time="54.66">
+  <testsuite name="undefined" errors="0" failures="2" skipped="0" timestamp="2019-12-30T17:01:37" time="15.047" tests="2">
+    <testcase classname=" signOn mutation signs on a person" name=" signOn mutation signs on a person" time="5.074">
+      <failure>: Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Spec.js:116:22)
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\setup_jest_globals.js:80:9)
+    at specFactory (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:575:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:644:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:132:23)
+    at test (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:93:21)
+    at Object.&lt;anonymous&gt; (C:\Users\Luke\source\repos\serverless-sailingweb\backend\__tests__\integration\signOn.test.js:6:1)
+    at Runtime._execModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:867:68)
+    at Runtime._loadModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:577:12)
+    at Runtime.requireModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:433:10)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:202:13
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:27:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:47:9)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:52:7
+    at new Promise (&lt;anonymous&gt;)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:44:12
+    at _jasmine (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:207:19)
+    at jasmine2 (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:60:19)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:385:24
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:161:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:181:9)
+    at processTicksAndRejections (internal/process/next_tick.js:81:5)</failure>
     </testcase>
-    <testcase classname=" getLaps returns laps" name=" getLaps returns laps" time="0.205">
-    </testcase>
-    <testcase classname=" updateLap removes lap" name=" updateLap removes lap" time="0.29">
-    </testcase>
-    <testcase classname=" updateLap updates lap" name=" updateLap updates lap" time="0.32">
+    <testcase classname=" RemoveFromRace from removes someone from a race" name=" RemoveFromRace from removes someone from a race" time="5.013">
+      <failure>: Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Spec.js:116:22)
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\setup_jest_globals.js:80:9)
+    at specFactory (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:575:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:644:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:132:23)
+    at test (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:93:21)
+    at Object.&lt;anonymous&gt; (C:\Users\Luke\source\repos\serverless-sailingweb\backend\__tests__\integration\signOn.test.js:72:1)
+    at Runtime._execModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:867:68)
+    at Runtime._loadModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:577:12)
+    at Runtime.requireModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:433:10)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:202:13
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:27:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:47:9)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:52:7
+    at new Promise (&lt;anonymous&gt;)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:44:12
+    at _jasmine (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:207:19)
+    at jasmine2 (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:60:19)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:385:24
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:161:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:181:9)
+    at processTicksAndRejections (internal/process/next_tick.js:81:5)</failure>
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-08-16T14:42:22" time="4.93" tests="2">
-    <testcase classname=" signOn mutation signs on a person" name=" signOn mutation signs on a person" time="1.991">
-    </testcase>
-    <testcase classname=" RemoveFromRace from removes someone from a race" name=" RemoveFromRace from removes someone from a race" time="0.662">
+  <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2019-12-30T17:01:52" time="5.718" tests="1">
+    <testcase classname=" getBoatsOfHelm works" name=" getBoatsOfHelm works" time="5.01">
+      <failure>: Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Spec.js:116:22)
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\setup_jest_globals.js:80:9)
+    at specFactory (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:575:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:644:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:132:23)
+    at test (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:93:21)
+    at Object.&lt;anonymous&gt; (C:\Users\Luke\source\repos\serverless-sailingweb\backend\__tests__\integration\helm.test.js:3:1)
+    at Runtime._execModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:867:68)
+    at Runtime._loadModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:577:12)
+    at Runtime.requireModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:433:10)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:202:13
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:27:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:47:9)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:52:7
+    at new Promise (&lt;anonymous&gt;)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:44:12
+    at jasmine2 (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:60:19)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:385:24
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:161:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:181:9)
+    at processTicksAndRejections (internal/process/next_tick.js:81:5)</failure>
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-08-16T14:42:22" time="5.325" tests="8">
-    <testcase classname=" allEvents query returns event" name=" allEvents query returns event" time="1.137">
+  <testsuite name="undefined" errors="0" failures="4" skipped="0" timestamp="2019-12-30T17:01:37" time="25.358" tests="4">
+    <testcase classname=" newlap creates a new lap" name=" newlap creates a new lap" time="5.084">
+      <failure>: Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Spec.js:116:22)
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\setup_jest_globals.js:80:9)
+    at specFactory (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:575:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:644:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:132:23)
+    at test (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:93:21)
+    at Object.&lt;anonymous&gt; (C:\Users\Luke\source\repos\serverless-sailingweb\backend\__tests__\integration\laps.test.js:3:1)
+    at Runtime._execModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:867:68)
+    at Runtime._loadModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:577:12)
+    at Runtime.requireModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:433:10)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:202:13
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:27:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:47:9)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:52:7
+    at new Promise (&lt;anonymous&gt;)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:44:12
+    at _jasmine (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:207:19)
+    at jasmine2 (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:60:19)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:385:24
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:161:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:181:9)
+    at processTicksAndRejections (internal/process/next_tick.js:81:5)</failure>
     </testcase>
-    <testcase classname=" recentEvents query returns event" name=" recentEvents query returns event" time="0.412">
+    <testcase classname=" getLaps returns laps" name=" getLaps returns laps" time="5.002">
+      <failure>: Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Spec.js:116:22)
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\setup_jest_globals.js:80:9)
+    at specFactory (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:575:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:644:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:132:23)
+    at test (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:93:21)
+    at Object.&lt;anonymous&gt; (C:\Users\Luke\source\repos\serverless-sailingweb\backend\__tests__\integration\laps.test.js:51:1)
+    at Runtime._execModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:867:68)
+    at Runtime._loadModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:577:12)
+    at Runtime.requireModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:433:10)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:202:13
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:27:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:47:9)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:52:7
+    at new Promise (&lt;anonymous&gt;)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:44:12
+    at _jasmine (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:207:19)
+    at jasmine2 (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:60:19)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:385:24
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:161:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:181:9)
+    at processTicksAndRejections (internal/process/next_tick.js:81:5)</failure>
     </testcase>
-    <testcase classname=" specificEvent query returns event" name=" specificEvent query returns event" time="0.151">
+    <testcase classname=" updateLap removes lap" name=" updateLap removes lap" time="5.002">
+      <failure>: Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Spec.js:116:22)
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\setup_jest_globals.js:80:9)
+    at specFactory (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:575:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:644:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:132:23)
+    at test (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:93:21)
+    at Object.&lt;anonymous&gt; (C:\Users\Luke\source\repos\serverless-sailingweb\backend\__tests__\integration\laps.test.js:76:1)
+    at Runtime._execModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:867:68)
+    at Runtime._loadModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:577:12)
+    at Runtime.requireModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:433:10)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:202:13
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:27:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:47:9)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:52:7
+    at new Promise (&lt;anonymous&gt;)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:44:12
+    at _jasmine (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:207:19)
+    at jasmine2 (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:60:19)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:385:24
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:161:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:181:9)
+    at processTicksAndRejections (internal/process/next_tick.js:81:5)</failure>
     </testcase>
-    <testcase classname=" createEvent mutation creates and returns event" name=" createEvent mutation creates and returns event" time="0.723">
-    </testcase>
-    <testcase classname=" removeEvent mutation removes event" name=" removeEvent mutation removes event" time="0.304">
-    </testcase>
-    <testcase classname=" startRace starts the race" name=" startRace starts the race" time="0.082">
-    </testcase>
-    <testcase classname=" getRaceStart gets the start time of the race" name=" getRaceStart gets the start time of the race" time="0.137">
-    </testcase>
-    <testcase classname=" startRace removes a race start time" name=" startRace removes a race start time" time="0.073">
+    <testcase classname=" updateLap updates lap" name=" updateLap updates lap" time="5.019">
+      <failure>: Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Spec.js:116:22)
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\setup_jest_globals.js:80:9)
+    at specFactory (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:575:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:644:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:132:23)
+    at test (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:93:21)
+    at Object.&lt;anonymous&gt; (C:\Users\Luke\source\repos\serverless-sailingweb\backend\__tests__\integration\laps.test.js:104:1)
+    at Runtime._execModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:867:68)
+    at Runtime._loadModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:577:12)
+    at Runtime.requireModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:433:10)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:202:13
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:27:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:47:9)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:52:7
+    at new Promise (&lt;anonymous&gt;)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:44:12
+    at _jasmine (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:207:19)
+    at jasmine2 (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:60:19)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:385:24
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:161:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:181:9)
+    at processTicksAndRejections (internal/process/next_tick.js:81:5)</failure>
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-08-16T14:42:27" time="0.749" tests="1">
-    <testcase classname=" getBoatsOfHelm works" name=" getBoatsOfHelm works" time="0.063">
+  <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2019-12-30T17:01:58" time="5.593" tests="1">
+    <testcase classname=" allBoatData" name=" allBoatData" time="5.009">
+      <failure>: Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Spec.js:116:22)
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\setup_jest_globals.js:80:9)
+    at specFactory (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:575:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:644:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:132:23)
+    at test (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:93:21)
+    at Object.&lt;anonymous&gt; (C:\Users\Luke\source\repos\serverless-sailingweb\backend\__tests__\integration\boatData.test.js:6:1)
+    at Runtime._execModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:867:68)
+    at Runtime._loadModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:577:12)
+    at Runtime.requireModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:433:10)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:202:13
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:27:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:47:9)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:52:7
+    at new Promise (&lt;anonymous&gt;)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:44:12
+    at jasmine2 (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:60:19)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:385:24
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:161:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:181:9)
+    at processTicksAndRejections (internal/process/next_tick.js:81:5)</failure>
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-08-16T14:42:27" time="0.702" tests="1">
-    <testcase classname=" allBoatData" name=" allBoatData" time="0.058">
+  <testsuite name="undefined" errors="0" failures="8" skipped="0" timestamp="2019-12-30T17:01:37" time="45.41" tests="8">
+    <testcase classname=" allEvents query returns event" name=" allEvents query returns event" time="5.06">
+      <failure>: Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Spec.js:116:22)
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\setup_jest_globals.js:80:9)
+    at specFactory (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:575:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:644:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:132:23)
+    at test (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:93:21)
+    at Object.&lt;anonymous&gt; (C:\Users\Luke\source\repos\serverless-sailingweb\backend\__tests__\integration\events.test.js:6:1)
+    at Runtime._execModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:867:68)
+    at Runtime._loadModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:577:12)
+    at Runtime.requireModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:433:10)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:202:13
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:27:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:47:9)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:52:7
+    at new Promise (&lt;anonymous&gt;)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:44:12
+    at _jasmine (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:207:19)
+    at jasmine2 (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:60:19)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:385:24
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:161:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:181:9)
+    at processTicksAndRejections (internal/process/next_tick.js:81:5)</failure>
+    </testcase>
+    <testcase classname=" recentEvents query returns event" name=" recentEvents query returns event" time="5.016">
+      <failure>: Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Spec.js:116:22)
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\setup_jest_globals.js:80:9)
+    at specFactory (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:575:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:644:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:132:23)
+    at test (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:93:21)
+    at Object.&lt;anonymous&gt; (C:\Users\Luke\source\repos\serverless-sailingweb\backend\__tests__\integration\events.test.js:33:1)
+    at Runtime._execModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:867:68)
+    at Runtime._loadModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:577:12)
+    at Runtime.requireModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:433:10)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:202:13
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:27:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:47:9)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:52:7
+    at new Promise (&lt;anonymous&gt;)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:44:12
+    at _jasmine (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:207:19)
+    at jasmine2 (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:60:19)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:385:24
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:161:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:181:9)
+    at processTicksAndRejections (internal/process/next_tick.js:81:5)</failure>
+    </testcase>
+    <testcase classname=" specificEvent query returns event" name=" specificEvent query returns event" time="5.001">
+      <failure>: Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Spec.js:116:22)
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\setup_jest_globals.js:80:9)
+    at specFactory (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:575:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:644:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:132:23)
+    at test (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:93:21)
+    at Object.&lt;anonymous&gt; (C:\Users\Luke\source\repos\serverless-sailingweb\backend\__tests__\integration\events.test.js:68:1)
+    at Runtime._execModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:867:68)
+    at Runtime._loadModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:577:12)
+    at Runtime.requireModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:433:10)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:202:13
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:27:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:47:9)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:52:7
+    at new Promise (&lt;anonymous&gt;)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:44:12
+    at _jasmine (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:207:19)
+    at jasmine2 (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:60:19)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:385:24
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:161:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:181:9)
+    at processTicksAndRejections (internal/process/next_tick.js:81:5)</failure>
+    </testcase>
+    <testcase classname=" createEvent mutation creates and returns event" name=" createEvent mutation creates and returns event" time="5.006">
+      <failure>: Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Spec.js:116:22)
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\setup_jest_globals.js:80:9)
+    at specFactory (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:575:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:644:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:132:23)
+    at test (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:93:21)
+    at Object.&lt;anonymous&gt; (C:\Users\Luke\source\repos\serverless-sailingweb\backend\__tests__\integration\events.test.js:106:1)
+    at Runtime._execModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:867:68)
+    at Runtime._loadModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:577:12)
+    at Runtime.requireModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:433:10)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:202:13
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:27:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:47:9)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:52:7
+    at new Promise (&lt;anonymous&gt;)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:44:12
+    at _jasmine (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:207:19)
+    at jasmine2 (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:60:19)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:385:24
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:161:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:181:9)
+    at processTicksAndRejections (internal/process/next_tick.js:81:5)</failure>
+    </testcase>
+    <testcase classname=" removeEvent mutation removes event" name=" removeEvent mutation removes event" time="5.012">
+      <failure>: Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Spec.js:116:22)
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\setup_jest_globals.js:80:9)
+    at specFactory (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:575:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:644:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:132:23)
+    at test (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:93:21)
+    at Object.&lt;anonymous&gt; (C:\Users\Luke\source\repos\serverless-sailingweb\backend\__tests__\integration\events.test.js:159:1)
+    at Runtime._execModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:867:68)
+    at Runtime._loadModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:577:12)
+    at Runtime.requireModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:433:10)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:202:13
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:27:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:47:9)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:52:7
+    at new Promise (&lt;anonymous&gt;)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:44:12
+    at _jasmine (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:207:19)
+    at jasmine2 (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:60:19)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:385:24
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:161:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:181:9)
+    at processTicksAndRejections (internal/process/next_tick.js:81:5)</failure>
+    </testcase>
+    <testcase classname=" startRace starts the race" name=" startRace starts the race" time="5.015">
+      <failure>: Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Spec.js:116:22)
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\setup_jest_globals.js:80:9)
+    at specFactory (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:575:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:644:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:132:23)
+    at test (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:93:21)
+    at Object.&lt;anonymous&gt; (C:\Users\Luke\source\repos\serverless-sailingweb\backend\__tests__\integration\events.test.js:221:1)
+    at Runtime._execModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:867:68)
+    at Runtime._loadModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:577:12)
+    at Runtime.requireModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:433:10)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:202:13
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:27:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:47:9)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:52:7
+    at new Promise (&lt;anonymous&gt;)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:44:12
+    at _jasmine (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:207:19)
+    at jasmine2 (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:60:19)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:385:24
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:161:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:181:9)
+    at processTicksAndRejections (internal/process/next_tick.js:81:5)</failure>
+    </testcase>
+    <testcase classname=" getRaceStart gets the start time of the race" name=" getRaceStart gets the start time of the race" time="5.008">
+      <failure>: Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Spec.js:116:22)
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\setup_jest_globals.js:80:9)
+    at specFactory (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:575:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:644:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:132:23)
+    at test (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:93:21)
+    at Object.&lt;anonymous&gt; (C:\Users\Luke\source\repos\serverless-sailingweb\backend\__tests__\integration\events.test.js:248:1)
+    at Runtime._execModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:867:68)
+    at Runtime._loadModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:577:12)
+    at Runtime.requireModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:433:10)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:202:13
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:27:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:47:9)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:52:7
+    at new Promise (&lt;anonymous&gt;)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:44:12
+    at _jasmine (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:207:19)
+    at jasmine2 (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:60:19)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:385:24
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:161:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:181:9)
+    at processTicksAndRejections (internal/process/next_tick.js:81:5)</failure>
+    </testcase>
+    <testcase classname=" startRace removes a race start time" name=" startRace removes a race start time" time="5.007">
+      <failure>: Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Spec.js:116:22)
+    at new Spec (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\setup_jest_globals.js:80:9)
+    at specFactory (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:575:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\Env.js:644:24)
+    at Env.it (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:132:23)
+    at test (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:93:21)
+    at Object.&lt;anonymous&gt; (C:\Users\Luke\source\repos\serverless-sailingweb\backend\__tests__\integration\events.test.js:289:1)
+    at Runtime._execModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:867:68)
+    at Runtime._loadModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:577:12)
+    at Runtime.requireModule (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\node_modules\jest-runtime\build\index.js:433:10)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:202:13
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:27:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:47:9)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:52:7
+    at new Promise (&lt;anonymous&gt;)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:44:12
+    at _jasmine (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:207:19)
+    at jasmine2 (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\@jest\core\node_modules\jest-jasmine2\build\index.js:60:19)
+    at C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:385:24
+    at Generator.next (&lt;anonymous&gt;)
+    at asyncGeneratorStep (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:161:24)
+    at _next (C:\Users\Luke\source\repos\serverless-sailingweb\backend\node_modules\jest-runner\build\runTest.js:181:9)
+    at processTicksAndRejections (internal/process/next_tick.js:81:5)</failure>
     </testcase>
   </testsuite>
 </testsuites>

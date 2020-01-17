@@ -1,6 +1,42 @@
 import * as db from './dynamo';
 import uuidv4 from 'uuid/v4'
 
+export const removePerson = async (args) => {
+  console.log(args);
+  let getParams = {
+    TableName: "Races",
+    KeyConditionExpression: "eventId = :eventId and begins_with(type_id, :type_id) and boatName = :boatName and "+ 
+    "boatNumber = :boatNumber and pY = :pY",
+    ExpressionAttributeValues: {
+      ':eventId': "person",
+      ":type_id": args.RemovePersonData.name,
+      ":boatName": args.RemovePersonData.boatName,
+      ":boatNumber": args.RemovePersonData.boatNumber,
+      ":pY": args.RemovePersonData.pY
+    } 
+  };
+  let result = await db.queryItem(getParams)
+  if (result.length != 0) {
+    result = result.map(elem => {
+      return {
+        DeleteRequest: {
+          Key: { eventId: elem.eventId, type_id: elem.type_id }
+        }
+      }
+    })
+    let params = {
+      RequestItems: {
+        'Races': result
+      }
+    };
+    return db.batchDelete(params, args)
+  }
+  else {
+    return null;
+ 
+ }
+}
+
 export const newPerson = async (args) =>  {
   const userId = uuidv4();
     let params = {

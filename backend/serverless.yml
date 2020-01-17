@@ -2,7 +2,7 @@
 service: SailingWeb
 provider: 
 
-  memorySize: 3008
+  memorySize: 1024
   name: aws
   runtime: nodejs10.x
   environment:

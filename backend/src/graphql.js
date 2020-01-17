@@ -6,7 +6,7 @@ import typeDefs from './schema.graphql'
 import { allBoatData, createBoat } from './dynamoResolvers/boatData'
 import { recentEvents, allEvents, createEvent, removeEvent, startRace, getRaceStart } from './dynamoResolvers/events'
 import {signOn, specificEvent, removeFromRace} from './dynamoResolvers/signOn'
-import {newPerson, allHelms, getBoatsOfHelm} from './dynamoResolvers/helm'
+import {newPerson, allHelms, getBoatsOfHelm, removePerson} from './dynamoResolvers/helm'
 import {createLap, getLapsOfRace, updateLap} from './dynamoResolvers/laps'
 
 const resolvers = {
@@ -31,6 +31,7 @@ const resolvers = {
     updateLap: (parent, args) => updateLap(args.input),
     startRace: (parent, args) => startRace(args.input),
     removeFromRace: (parent, args) => removeFromRace(args.input),
+    removePerson: (parent, args) => removePerson(args.input),
   }
 };
 

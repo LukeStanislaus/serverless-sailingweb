@@ -26,8 +26,29 @@
     updateLap(input: UpdateLapInput!): UpdateLapPayload
     startRace(input: StartRaceInput!): StartRacePayload
     removeFromRace(input: RemoveFromRaceInput!): RemoveFromRacePayload
+    removePerson(input: RemovePersonInput!): RemovePersonPayload
   }
 
+type RemovePersonPayloadData{
+  name: String!
+  boatName: String!
+  boatNumber: String!
+  pY: Int!
+}
+
+type RemovePersonPayload{
+  RemovePersonPayloadData: RemovePersonPayloadData!
+}
+  input RemovePersonInput{
+    RemovePersonData: RemovePersonInputData!
+  }
+
+input RemovePersonInputData{
+  name: String!
+boatName: String!
+boatNumber: String!
+pY: Int!
+}
   input RemoveFromRaceInput {
     RemoveFromRaceData: RemoveFromRaceInputData!
   }

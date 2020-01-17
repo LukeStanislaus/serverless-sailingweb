@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link, Router } from '@reach/router'
 import { ApolloProvider} from '@apollo/react-hooks'
-//import { client } from './apolloClient'
 import SignOn from './signOn'
 import ViewRace from './viewRace'
 import ManageRace from './manageRace/manageRace'
 import { } from 'react-bootstrap'
+import ManageData from './manageData'
 import Home from './home'
 import NewPerson from './newPerson'
 import './app.css'
@@ -28,9 +28,9 @@ function App() {
         <SignOn path="/SignOn" />
         <ManageRace path="/ManageRace" />
         <NewPerson path="/NewPerson" />
+        <ManageData path="/ManageData" />
       </Router>
-      <WebSocket />
-  {/*<ErrorMessage setError={setError} error={error} />*/}
+      <WebSocket /> 
     </ApolloProvider>
     <footer style={{ paddingLeft: "3%", paddingTop: "40px" }}><p style={{ borderTopStyle: "solid", borderTopWidth: "1px" }}>By Luke Stanislaus</p></footer>
   </>);
