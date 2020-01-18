@@ -25,7 +25,7 @@ export default ({ eventId, maxLaps, viewOnly = false , hook=null}) => {
     const { data, loading, error } = useQuery(GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START,
         { variables: GetLapsOfRaceInput })
     if (loading) return <tr />
-    if (error) { console.log(error); return <tr></tr> }
+    if (error) { return <tr></tr> }
     if (data.specificEvent.length === 0) return null
     const peoplel = data.specificEvent.map((elem) => { return { helm: elem, laps: data.getLapsOfRace.filter(element => element.userId === elem.userId) } })
 
@@ -67,7 +67,7 @@ export default ({ eventId, maxLaps, viewOnly = false , hook=null}) => {
     if (true) {
         const { data, loading, error } = useQuery(ORDER_BY);
         if (loading) return <tr />
-        if (error) { console.log(error); return <tr></tr> }
+        if (error) { return <tr></tr> }
         const sorted = RaceRows.sort(data.orderBy.type == null ? (a, b) => true : comparisons[data.orderBy.type])
         let items = (data.orderBy.reverse ? sorted.reverse() : sorted)
         if (oldData !== []) {
@@ -78,8 +78,6 @@ export default ({ eventId, maxLaps, viewOnly = false , hook=null}) => {
         oldData = items
         let lastPlace = 0
         items.forEach(elem=> elem.place > lastPlace ? lastPlace = elem.place: null)
-        console.log(items);
-        console.log(lastPlace);
         let maxCorrectedTime= 0
         let minCorrectedTime = 0
          try{

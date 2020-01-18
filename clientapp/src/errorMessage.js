@@ -2,7 +2,6 @@ import React from 'react'
 import Modal from 'react-modal'
 
 export default function({error, setError}){
-    console.log(error);
 //const [oldError, setOldError] = useState("")
    // const [isOpen, setIsOpen] = useState(true);
     //useEffect(()=>{

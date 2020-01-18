@@ -12,7 +12,6 @@ export default () => {
         ws.onmessage = (event) => {
             try {
                 let data = JSON.parse(event.data);
-                console.log(data)
                 switch (data.type) {
                     case "newLap": {
                         const getLapsOfRaceInput = {
@@ -97,7 +96,7 @@ export default () => {
                 }
             }
             catch (e) {
-                if (e.name === "Invariant Violation") { console.log("invariant");  }
+                if (e.name === "Invariant Violation") {  }
                 else {
                     throw e;
                 }

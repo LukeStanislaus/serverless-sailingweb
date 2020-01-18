@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import StartRaceButton from './startRaceButton'
 import TimePicker from './timePicker'
 /* global ServerDate*/
-console.log(ServerDate);
 export default ({ startTime, eventId, viewOnly=false }) => {
   let [newTime, setNewTime] = useState(new Date(startTime))
   let [editTime, setEditTime] = useState(false)

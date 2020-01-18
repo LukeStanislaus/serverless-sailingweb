@@ -11,9 +11,7 @@ export const removePerson = async ({RemovePersonData: {name, boatName, boatNumbe
     } 
   };
   let result = await db.queryItem(getParams)
-  //console.log(result);
   let item = result.filter(elem=> elem.pY === pY && elem.boatName === boatName && elem.boatNumber === boatNumber)
-  console.log(item);
   if (item.length != 0) {
     let req = item.map(elem => {
       return {

@@ -63,7 +63,7 @@ export default () => {
     <Autocomplete type={"text"}
         inputProps={{ className: "form-control",
         value:boatName,
-        onChange:(e) => { console.log(e.target.value); setBoatName(e.target.value); },
+        onChange:(e) => { setBoatName(e.target.value); },
         onSelect:(val) => { 
           let boat = data.allBoatData.find(elem => elem.boatName === val)
           if(boat===undefined) return;

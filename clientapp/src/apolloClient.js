@@ -30,9 +30,6 @@ const RetryLinker = new RetryLink({
   attempts: {
     max: Infinity,
     retryIf: (error, _operation) => {
-      console.log("retry if");
-      console.log(error);
-      //cache.writeData({data:{error:error.message}})
       return !!error}
   }
 })

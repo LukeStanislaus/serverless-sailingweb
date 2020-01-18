@@ -1,0 +1,9 @@
+mutation removePerson($input:RemovePersonInput!){
+  removePerson(input:$input){
+RemovePersonPayloadData{
+name
+boatName
+boatNumber
+pY
+}}
+}
