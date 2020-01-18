@@ -10,7 +10,7 @@ export const createLap =async  (args) => {
     ReturnValues: "ALL_OLD"
   }
   const res = await db.createItem(params)
-  return {...res, lapId: lapId}
+  return {...params.Item, lapId: lapId}
 }
 
 

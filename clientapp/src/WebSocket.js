@@ -12,6 +12,7 @@ export default () => {
         ws.onmessage = (event) => {
             try {
                 let data = JSON.parse(event.data);
+                console.log(data);
                 switch (data.type) {
                     case "newLap": {
                         const getLapsOfRaceInput = {

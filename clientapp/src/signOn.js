@@ -140,7 +140,8 @@ function useSelectedRace(boatClass, name, signOnInput) {
   if (error) obj = 'error'
 
   const [signOn] = useMutation(SIGN_ON, {
-    update(cache, { data: { signOn: { signOn: person } } }) {
+    update(cache, { data: { signOn } }) {
+      if(signOn==null) return
       const specificEventInputVariables = {
         input: {
           eventData: {
@@ -150,7 +151,7 @@ function useSelectedRace(boatClass, name, signOnInput) {
       }
       try {
         let helmsInRaces = cache.readQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables })
-        let helmsInSpecificRace = helmsInRaces.specificEvent.concat(person)
+        let helmsInSpecificRace = helmsInRaces.specificEvent.concat(signOn.person)
         cache.writeQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables, data: { specificEvent: helmsInSpecificRace } })
       }
       catch (e) {
@@ -174,12 +175,13 @@ function useSelectedRace(boatClass, name, signOnInput) {
           }
         }
       };
+      
       let x= await signOn(variables);
-      console.log(x);
-      x.data.signOn!==null?next():next(false, "That person is already in the race!")
+      
+    x.data.signOn!==null?next(true, "Success!"):next(true, "Already in race!")
     }}
     type="primary"
-    style={{
+    style={{"width":"200px",
       "--button-raise-level": "4px",
       "--button-hover-pressure": 3, "zIndex": 0
     }}>Enter Race</AwesomeButtonProgress>)

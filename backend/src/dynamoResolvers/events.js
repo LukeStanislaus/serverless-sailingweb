@@ -43,7 +43,7 @@ export const allEvents = () => {
   }
   return db.scan(params)
 }
-export const createEvent = (args) => {
+export const createEvent =async (args) => {
   const eventId = uuidv4();
   let params = {
     TableName: "Races",
@@ -53,10 +53,10 @@ export const createEvent = (args) => {
       eventName: args.event.eventName,
       calendarData: args.event.calendarData,
       eventTimeStamp: args.event.eventTimeStamp
-    },
-    ReturnValues: "ALL_OLD"
+    }
   }
-  return { event: db.createItem(params) }
+  await db.createItem(params)
+  return { event:  params.Item}
 }
 export const recentEvents = (args) => {
   let params = {
