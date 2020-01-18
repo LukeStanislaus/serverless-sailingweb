@@ -11,6 +11,7 @@ export default () => {
         console.info("Websocket connected");
         ws.onmessage = (event) => {
             try {
+                console.log("message recieved");
                 let data = JSON.parse(event.data);
                 console.log(data);
                 switch (data.type) {

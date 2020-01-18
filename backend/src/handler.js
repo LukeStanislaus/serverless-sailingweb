@@ -112,6 +112,8 @@ async function broadcast(event, context) {
             }
             return broadcastMessage(data)
           }
+        
+        default:{return}
         }
       }
 
