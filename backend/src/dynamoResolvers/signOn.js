@@ -8,10 +8,7 @@ export const signOn = async (args) => {
   }
   let x = await db.createItem(params)
   if (Object.getOwnPropertyNames(x).length == 1) return {signOn: params.Item}
-  return {
-    signOn:  null
-    
-  }
+  return null
 }
 
 export const specificEvent = (args) => {

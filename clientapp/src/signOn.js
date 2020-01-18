@@ -176,7 +176,7 @@ function useSelectedRace(boatClass, name, signOnInput) {
       };
       let x= await signOn(variables);
       console.log(x);
-      next(x.data.signOn!==null)
+      x.data.signOn!==null?next():next(false, "That person is already in the race!")
     }}
     type="primary"
     style={{
