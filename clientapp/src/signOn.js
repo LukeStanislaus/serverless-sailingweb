@@ -174,8 +174,9 @@ function useSelectedRace(boatClass, name, signOnInput) {
           }
         }
       };
-      await signOn(variables);
-      next()
+      let x= await signOn(variables);
+      console.log(x);
+      next(x.data.signOn!==null)
     }}
     type="primary"
     style={{

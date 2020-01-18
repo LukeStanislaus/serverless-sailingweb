@@ -21,7 +21,7 @@ export function get(params) {
 export function createItem(params) {
   return new Promise((resolve, reject) =>
     dynamoDb.put(params).promise()
-      .then(() => resolve(params.Item))
+      .then((data) => resolve(data))
       .catch(err => reject(err)),
   );
 }
