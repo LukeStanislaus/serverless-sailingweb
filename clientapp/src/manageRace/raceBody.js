@@ -2,8 +2,7 @@ import React from 'react'
 import RaceRow from './raceRow'
 import { useQuery } from '@apollo/react-hooks'
 import { loader } from 'graphql.macro'
-const GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START = loader('../graphqlQueries/GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START.graphql')
-const ORDER_BY = loader("../graphqlQueries/ORDER_BY.graphql")
+const GET_LAPS_OF_RACE_SPECIFIC_EVENT_GET_RACE_START_AND_ORDER_BY = loader('../graphqlQueries/GET_LAPS_OF_RACE_SPECIFIC_EVENT_GET_RACE_START_AND_ORDER_BY.graphql')
 
 var oldData = [];
 export default ({ eventId, maxLaps, viewOnly = false , hook=null}) => {
@@ -22,7 +21,7 @@ export default ({ eventId, maxLaps, viewOnly = false , hook=null}) => {
         }
 
     }
-    const { data, loading, error } = useQuery(GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START,
+    const { data, loading, error } = useQuery(GET_LAPS_OF_RACE_SPECIFIC_EVENT_GET_RACE_START_AND_ORDER_BY,
         { variables: GetLapsOfRaceInput })
     if (loading) return <tr />
     if (error) { return <tr></tr> }
@@ -64,10 +63,6 @@ export default ({ eventId, maxLaps, viewOnly = false , hook=null}) => {
 
     }
     let raceStart = data.getRaceStart
-    if (true) {
-        const { data, loading, error } = useQuery(ORDER_BY);
-        if (loading) return <tr />
-        if (error) { return <tr></tr> }
         const sorted = RaceRows.sort(data.orderBy.type == null ? (a, b) => true : comparisons[data.orderBy.type])
         let items = (data.orderBy.reverse ? sorted.reverse() : sorted)
         if (oldData !== []) {
@@ -92,5 +87,5 @@ export default ({ eventId, maxLaps, viewOnly = false , hook=null}) => {
         let correctedTimeData = {maxCorrectedTime:  maxCorrectedTime, minCorrectedTime: minCorrectedTime}
         if(hook) hook({correctedTimeData, items, raceStart: raceStart})
         return <>{items.map(elem => <RaceRow correctedTimeData={correctedTimeData} viewOnly={viewOnly} eventId={elem.eventId} key={elem.key} place={elem.place} maxLaps={viewOnly ? undefined : maxLaps} change={elem.change} correctedTime={elem.correctedTime} person={elem.person} />)}</>
-    }
+    
 }

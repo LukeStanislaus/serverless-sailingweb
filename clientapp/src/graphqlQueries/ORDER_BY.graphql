@@ -1,7 +1,0 @@
-query orderBy{
-    orderBy @client {
-        reverse
-        type
-    }
-    
-}

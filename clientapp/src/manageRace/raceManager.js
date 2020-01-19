@@ -6,9 +6,8 @@ import { loader } from 'graphql.macro'
 import StartRaceButton from './startRaceButton'
 import RaceTimer from './raceTimer'
 import { AwesomeButton } from 'react-awesome-button'
-const GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START = loader('../graphqlQueries/GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START.graphql')
+const GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START = loader('../graphqlQueries/GET_LAPS_OF_RACE_SPECIFIC_EVENT_GET_RACE_START_AND_ORDER_BY.graphql')
 const SELECT_ORDER_BY = loader('../graphqlQueries/SELECT_ORDER_BY.graphql')
-const ORDER_BY = loader("../graphqlQueries/ORDER_BY.graphql")
 
 export default ({selectedRace, viewOnly=false, hook= null}) => {
     const getLapsOfRaceAndSignOnInput = {
@@ -31,15 +30,7 @@ export default ({selectedRace, viewOnly=false, hook= null}) => {
 
 
     }
-    const [selectOrderBy] = useMutation(SELECT_ORDER_BY, {
-        refetchQueries: () => {
-            return [
-                {
-                    query: ORDER_BY
-                }
-            ]
-        }
-    })
+    const [selectOrderBy] = useMutation(SELECT_ORDER_BY)
     const { data, loading, error } = useQuery(GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START,
         { variables: getLapsOfRaceAndSignOnInput })
     if (loading) return <div />;
@@ -51,7 +42,6 @@ export default ({selectedRace, viewOnly=false, hook= null}) => {
         if (laps.length > max) max = laps.length
         return person
     });
-
     return (<>{data.getRaceStart === null ?
         !viewOnly&&<StartRaceButton shouldEarlyStart={true} buttonText={"Press here to start the race"} startTime={new Date().getTime()} eventId={selectedRace.eventId} /> :
         <RaceTimer eventId={selectedRace.eventId} startTime={data.getRaceStart} viewOnly={viewOnly}/>}

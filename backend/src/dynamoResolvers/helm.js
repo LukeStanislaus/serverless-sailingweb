@@ -40,8 +40,8 @@ export const newPerson = async (args) =>  {
         Item: {...args.newPersonData, type_id: args.newPersonData.name+"_"+ userId, eventId: "person"},
         ReturnValues: "ALL_OLD"
     }
-    const obj = await db.createItem(params);
-    return {newPerson: {...obj, userId: userId}}
+    await db.createItem(params);
+    return {newPerson: params.Item}
 }
 
 export const allHelms = async (args) => {
