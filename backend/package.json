@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "jest": "jest --watch 2> jest.txt"
+    "jest": "jest --watchAll"
   },
   "author": "",
   "license": "ISC",
@@ -41,9 +41,10 @@
     "jest": "^24.7.1"
   },
   "jest": {
-    "reporters": [
-      "default",
-      "jest-junit"
+    "reporters": ["default",
+      ["./node_modules/jest-html-reporter", {
+        "pageTitle": "Test Report"
+      }]
     ],
     "collectCoverage": true,
     "collectCoverageFrom": [
@@ -53,8 +54,5 @@
       "cobertura",
       "html"
     ]
-  },
-  "jest-junit": {
-    "output": "./tests/result/junit.xml"
   }
 }

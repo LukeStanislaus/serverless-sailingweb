@@ -88,7 +88,12 @@ function SignOn() {
   const [name, setName] = useState("")
   const [boatClass, setBoatClass] = useState(null)
   const [notes, setNotes] = useState("")
-
+ function reset(){
+   setCrew("")
+   setName("")
+   setBoatClass("")
+   setNotes("")
+ }
   const signOnInput = {
     input: {
       signOn: {
@@ -124,7 +129,7 @@ function SignOn() {
 {useCrewName(crew, setCrew)}
     Notes
         <input value={notes} onChange={e => setNotes(e.target.value)} /><div align="center" style={{ "paddingTop": "50px" }}>
-      {useSelectedRace(boatClass, name, signOnInput)}
+      {useSelectedRace(boatClass, name, signOnInput, reset)}
 
       <div><Link className={"navbar-text"} to="/NewPerson">Name not in list? Click here.</Link></div>
 
@@ -132,7 +137,7 @@ function SignOn() {
   </>
   )
 }
-function useSelectedRace(boatClass, name, signOnInput) {
+function useSelectedRace(boatClass, name, signOnInput, reset) {
   let obj = null
   const { data, loading, error } = useQuery(SELECTED_RACE)
   const queryData = data;
@@ -177,7 +182,7 @@ function useSelectedRace(boatClass, name, signOnInput) {
       };
       
       let x= await signOn(variables);
-      
+      reset()
     x.data.signOn!==null?next(true, "Success!"):next(true, "Already in race!")
     }}
     type="primary"

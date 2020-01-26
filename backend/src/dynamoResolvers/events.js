@@ -30,7 +30,7 @@ export const removeEvent = async (args) => {
   }
 }
 
-export const allEvents = () => {
+export const allEvents = async () => {
   let params = {
     TableName: "Races",
     IndexName: "eventId-eventTimeStamp-index",
@@ -38,10 +38,13 @@ export const allEvents = () => {
       'eventId',
       'eventTimeStamp',
       'calendarData',
-      'eventName'
+      'eventName',
+      'finished'
     ],
   }
-  return db.scan(params)
+  let res = await db.scan(params)
+  let updatedRes = res.map(elem=>elem.finished===undefined?{finished: false, ...elem}:elem)
+  return updatedRes
 }
 export const createEvent =async (args) => {
   const eventId = uuidv4();
@@ -78,12 +81,15 @@ export const startRace = async (args) => {
     Key: { eventId: args.StartRaceData.eventId, type_id: "event_" + args.StartRaceData.eventId },
     UpdateExpression: "set #startTime = :startTime",
     ExpressionAttributeNames: { "#startTime": "startTime" },
+    ReturnValues: "ALL_NEW",
     ExpressionAttributeValues: {
       ":startTime": args.StartRaceData.startTime
     }
   }
-  const res = await db.updateItem(params, args);
-  return res
+  let res
+  res = await db.updateItem(params, args);
+  console.log(res.Attributes)
+  return{StartRaceData: res.Attributes}
 }
 
 export const getRaceStart = async (args) => {
@@ -99,4 +105,19 @@ export const getRaceStart = async (args) => {
   let result = array[0]==undefined  ?null: array[0].startTime
   return result
 
+}
+
+export const updateRace = async (args) => {
+  const params = {
+    TableName: "Races",
+    Key: { eventId: args.UpdateRaceInputData.eventId, type_id: "event_" + args.UpdateRaceInputData.eventId },
+    UpdateExpression: "set #finished = :finished",
+    ExpressionAttributeNames: { "#finished": "finished" },
+    ReturnValues: "ALL_NEW",
+    ExpressionAttributeValues: {
+      ":finished": args.UpdateRaceInputData.finished
+    }
+  }
+  const res = await db.updateItem(params, args);
+  return  { UpdateRacePayloadData: res.Attributes}
 }

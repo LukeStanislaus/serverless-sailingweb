@@ -4,7 +4,7 @@ import { ApolloServer } from 'apollo-server-lambda';
 import GraphQLLong from "graphql-type-long"
 import typeDefs from './schema.graphql'
 import { allBoatData, createBoat } from './dynamoResolvers/boatData'
-import { recentEvents, allEvents, createEvent, removeEvent, startRace, getRaceStart } from './dynamoResolvers/events'
+import { recentEvents, allEvents, createEvent, removeEvent, startRace, getRaceStart, updateRace } from './dynamoResolvers/events'
 import {signOn, specificEvent, removeFromRace} from './dynamoResolvers/signOn'
 import {newPerson, allHelms, getBoatsOfHelm, removePerson} from './dynamoResolvers/helm'
 import {createLap, getLapsOfRace, updateLap} from './dynamoResolvers/laps'
@@ -32,6 +32,7 @@ const resolvers = {
     startRace: (parent, args) => startRace(args.input),
     removeFromRace: (parent, args) => removeFromRace(args.input),
     removePerson: (parent, args) => removePerson(args.input),
+    updateRace: (parent, args) => updateRace(args.input),
   }
 };
 

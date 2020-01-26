@@ -24,11 +24,11 @@ const cache = new InMemoryCache({
 const RetryLinker = new RetryLink({
   delay: {
     initial: 300,
-    max: 1000,
-    jitter: false
+    max: 10000,
+    jitter: true
   },
   attempts: {
-    max: Infinity,
+    max: 500,
     retryIf: (error, _operation) => {
       return !!error}
   }

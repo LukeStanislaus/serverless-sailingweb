@@ -7,7 +7,7 @@ export const removePerson = async ({RemovePersonData: {name, boatName, boatNumbe
     KeyConditionExpression: "eventId = :eventId and begins_with(type_id, :type_id)",
     ExpressionAttributeValues: {
       ':eventId': "person",
-      ":type_id": name,
+      ":type_id": name, 
     } 
   };
   let result = await db.queryItem(getParams)

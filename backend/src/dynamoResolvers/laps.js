@@ -54,7 +54,6 @@ export const updateLap = async (args) => {
 
   }
   else {
-
     const params = {
       TableName: "Races",
       Key: { eventId: args.LapData.eventId, type_id: "lap_" + args.LapData.lapId },
@@ -62,12 +61,16 @@ export const updateLap = async (args) => {
       ExpressionAttributeNames: { "#lapTime": "lapTime" },
       ExpressionAttributeValues: {
         ":lapTime": args.LapData.lapTime
-      }
+      },
+      ReturnValues: "ALL_NEW"
     }
-    const res = await db.updateItem(params, args);
+console.log("object")
+    const res = await db.updateItem(params);
+    let lapId = res.Attributes.type_id.split("_")[1]
     return {
       Lap: {
-        ...(res.LapData)
+        lapId, 
+        ...(res.Attributes)
       }
     }
   }

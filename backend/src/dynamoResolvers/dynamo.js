@@ -26,10 +26,10 @@ export function createItem(params) {
   );
 }
 
-export function updateItem(params, args) {
+export function updateItem(params) {
   return new Promise((resolve, reject) =>
     dynamoDb.update(params).promise()
-      .then(() => resolve(args))
+      .then(data => resolve(data))
       .catch(err => reject(err)),
   );
 }

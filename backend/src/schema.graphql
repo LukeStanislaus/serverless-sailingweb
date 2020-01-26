@@ -27,7 +27,27 @@
     startRace(input: StartRaceInput!): StartRacePayload
     removeFromRace(input: RemoveFromRaceInput!): RemoveFromRacePayload
     removePerson(input: RemovePersonInput!): RemovePersonPayload
+    updateRace(input: UpdateRaceInput!): UpdateRacePayload
   }
+input UpdateRaceInputData{
+  eventId: ID!
+  finished: Boolean!
+}
+
+input UpdateRaceInput{
+  UpdateRaceInputData: UpdateRaceInputData!
+}
+
+type UpdateRacePayloadData{
+eventId: ID!
+finished: Boolean!
+
+}
+
+type UpdateRacePayload{
+  UpdateRacePayloadData: UpdateRacePayloadData!
+}
+
 
 type RemovePersonPayloadData{
   name: String!
@@ -197,6 +217,7 @@ pY: Int!
     eventName: String!
     eventTimeStamp: Long!
     calendarData: calendarData
+    finished: Boolean!
   }
   input SignOnInput {
     signOn: SignOnInputData!
@@ -225,7 +246,7 @@ pY: Int!
     end: Long!
   }
   type CreateEventPayload {
-    event: Event
+    event: Event 
   }
   input CreateEventInput {
     event: CreateEventData!
