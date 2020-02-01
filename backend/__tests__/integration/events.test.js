@@ -312,3 +312,33 @@ test("startRace removes a race start time", async ()=> {
   const res = await response.json()
 expect(res.data.startRace.StartRaceData.startTime).toEqual(null)
 })
+test("updateRace updates a race", async ()=> {
+
+  let item = {
+    startTime: 1,
+    eventId: "1",
+    finished: true
+  }
+  const UpdateRaceInputObj = {
+    input:{
+      UpdateRaceInputData: item
+    }
+  }
+  const response = await fetch('http://localhost:3000/graphql', {
+    method: 'post',
+    body: JSON.stringify({
+      query: `mutation updateRace($input:UpdateRaceInput!){
+        updateRace(input:$input){
+          UpdateRacePayloadData{
+            eventId 
+            finished
+            startTime
+          }
+        }
+      }
+      `,
+      variables: UpdateRaceInputObj})
+  })
+  const res = await response.json()
+expect(res.data.updateRace.UpdateRacePayloadData).toEqual(item)
+})

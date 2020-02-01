@@ -1,5 +1,6 @@
 import * as db from './dynamo';
 import uuidv4 from 'uuid/v4'
+import { CloudWatchLogs } from 'aws-sdk';
 
 export const removeEvent = async (args) => {
   let getParams = {
@@ -43,10 +44,10 @@ export const allEvents = async () => {
     ],
   }
   let res = await db.scan(params)
-  let updatedRes = res.map(elem=>elem.finished===undefined?{finished: false, ...elem}:elem)
+  let updatedRes = res.map(elem => elem.finished === undefined ? { finished: false, ...elem } : elem)
   return updatedRes
 }
-export const createEvent =async (args) => {
+export const createEvent = async (args) => {
   const eventId = uuidv4();
   let params = {
     TableName: "Races",
@@ -59,7 +60,7 @@ export const createEvent =async (args) => {
     }
   }
   await db.createItem(params)
-  return { event:  params.Item}
+  return { event: params.Item }
 }
 export const recentEvents = (args) => {
   let params = {
@@ -89,35 +90,40 @@ export const startRace = async (args) => {
   let res
   res = await db.updateItem(params, args);
   console.log(res.Attributes)
-  return{StartRaceData: res.Attributes}
+  return { StartRaceData: res.Attributes }
 }
 
 export const getRaceStart = async (args) => {
   let params = {
-    TableName: "Races", 
-    KeyConditionExpression: 'eventId = :eventId and begins_with(type_id, :type_id)',   
+    TableName: "Races",
+    KeyConditionExpression: 'eventId = :eventId and begins_with(type_id, :type_id)',
     ExpressionAttributeValues: {
       ':eventId': args.eventId,
       ':type_id': "event_" + args.eventId
     }
   }
   const array = await db.queryItem(params);
-  let result = array[0]==undefined  ?null: array[0].startTime
+  let result = array[0] == undefined ? null : array[0].startTime
   return result
 
 }
 
-export const updateRace = async (args) => {
+export const updateRace = async ({UpdateRaceInputData:{finished, startTime, eventId}}) => {
+
   const params = {
     TableName: "Races",
-    Key: { eventId: args.UpdateRaceInputData.eventId, type_id: "event_" + args.UpdateRaceInputData.eventId },
-    UpdateExpression: "set #finished = :finished",
-    ExpressionAttributeNames: { "#finished": "finished" },
+    Key: { eventId: eventId, type_id: "event_" + eventId },
+    UpdateExpression: "Set #finished = :finished, #startTime = :startTime",
+    ExpressionAttributeNames: {
+      "#finished": "finished",
+      "#startTime": "startTime"
+    },
     ReturnValues: "ALL_NEW",
     ExpressionAttributeValues: {
-      ":finished": args.UpdateRaceInputData.finished
+      ":finished": finished,
+      ":startTime": startTime
     }
   }
-  const res = await db.updateItem(params, args);
-  return  { UpdateRacePayloadData: res.Attributes}
+  const res = await db.updateItem(params);
+  return { UpdateRacePayloadData: res.Attributes }
 }

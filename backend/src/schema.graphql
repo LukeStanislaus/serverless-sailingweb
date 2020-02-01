@@ -1,3 +1,4 @@
+  
   schema {
     query: RootQuery
     mutation: RootMutation
@@ -5,6 +6,7 @@
 
   scalar Long
 
+  "All Queries"
   type RootQuery {
     allHelms: [Person]
     allBoatData: [BoatData]
@@ -16,6 +18,7 @@
     getRaceStart(input: GetRaceStartInput!): Long
   }
 
+  "All Mutations"
   type RootMutation {
     createBoat(input: CreateBoatInput!): CreateBoatPayload
     createEvent(input: CreateEventInput!): CreateEventPayload
@@ -24,7 +27,7 @@
     newPerson(input: NewPersonInput!): NewPersonPayload
     createLap(input: CreateLapInput!): CreateLapPayload
     updateLap(input: UpdateLapInput!): UpdateLapPayload
-    startRace(input: StartRaceInput!): StartRacePayload
+    startRace(input: StartRaceInput!): StartRacePayload @deprecated(reason: "Use 'updateRace'")
     removeFromRace(input: RemoveFromRaceInput!): RemoveFromRacePayload
     removePerson(input: RemovePersonInput!): RemovePersonPayload
     updateRace(input: UpdateRaceInput!): UpdateRacePayload
@@ -32,6 +35,7 @@
 input UpdateRaceInputData{
   eventId: ID!
   finished: Boolean!
+  startTime: Long!
 }
 
 input UpdateRaceInput{
@@ -39,8 +43,9 @@ input UpdateRaceInput{
 }
 
 type UpdateRacePayloadData{
-eventId: ID!
-finished: Boolean!
+  eventId: ID!
+  finished: Boolean!
+  startTime: Long!
 
 }
 
