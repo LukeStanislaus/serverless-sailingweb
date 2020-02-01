@@ -3,26 +3,27 @@ import { AwesomeButton } from 'react-awesome-button'
 import { useMutation } from '@apollo/react-hooks'
 import 'react-awesome-button/dist/themes/theme-red.css';
 import {loader} from 'graphql.macro'
-const START_RACE = loader('../graphqlQueries/START_RACE.graphql')
+const UPDATE_RACE = loader('../graphqlQueries/UPDATE_RACE.graphql')
 const GET_RACE_START = loader('../graphqlQueries/GET_RACE_START.graphql')
 
-export default ({ eventId, buttonText, startTime, shouldEarlyStart }) => {
+export default ({ eventId, buttonText, startTime, shouldEarlyStart, finished }) => {
     const [earlyStart, setEarlyStart] = useState(false)
-    const startRaceVariables = {
+    const updateRaceVariables = {
         input: {
-            StartRaceData: {
+            UpdateRaceInputData: {
                 startTime: shouldEarlyStart ? startTime == null ? null : earlyStart ? startTime + 300000 : startTime : startTime,
-                eventId: eventId
+                eventId: eventId,
+                finished: finished
             }
         }
     }
 
-    const [startRace] = useMutation(START_RACE, {variables: startRaceVariables, 
+    const [updateRace] = useMutation(UPDATE_RACE, {variables: updateRaceVariables, 
         update(cache){
         cache.writeQuery({
             query: GET_RACE_START,
             variables: {input:{ eventId: eventId}},
-            data:{getRaceStart: startRaceVariables.input.StartRaceData.startTime} 
+            data:{getRaceStart: updateRaceVariables.input.UpdateRaceInputData.startTime} 
         })
     }})
     return <>{shouldEarlyStart && <>
@@ -32,7 +33,7 @@ export default ({ eventId, buttonText, startTime, shouldEarlyStart }) => {
             onChange={() => setEarlyStart(!earlyStart)} />
         Would you like to start the timer 5 minutes early?
 </>}<AwesomeButton style={{"zIndex":0}}
-            onPress={startRace}>
+            onPress={updateRace}>
             {buttonText}
         </AwesomeButton></>
 }

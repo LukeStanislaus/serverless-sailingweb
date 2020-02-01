@@ -62,7 +62,7 @@ export const createEvent = async (args) => {
   await db.createItem(params)
   return { event: params.Item }
 }
-export const recentEvents = (args) => {
+export const recentEvents = async (args) => {
   let params = {
     TableName: "Races",
     IndexName: "eventId-eventTimeStamp-index",
@@ -72,8 +72,9 @@ export const recentEvents = (args) => {
       ':end': args.range.end
     }
   }
-
-  return db.scan(params)
+let res = await db.scan(params)
+let updatedRes = res.map(elem => elem.finished === undefined ? { finished: false, ...elem } : elem)
+  return updatedRes
 }
 
 export const startRace = async (args) => {

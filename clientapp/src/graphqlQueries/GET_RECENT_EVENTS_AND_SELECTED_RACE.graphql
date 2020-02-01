@@ -3,11 +3,13 @@ query getRecentEvents($input:RecentEventsInput!) {
     eventId
     eventName
     eventTimeStamp
+    finished
 }
 
 selectedRace @client{
             eventName
             eventId
             eventTimeStamp
+            finished
         }
 }

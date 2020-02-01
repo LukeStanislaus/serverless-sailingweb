@@ -1,0 +1,9 @@
+mutation updateRace($input:UpdateRaceInput!){
+  updateRace(input:$input){
+    UpdateRacePayloadData{
+      eventId 
+      finished
+      startTime
+    }
+  }
+}
