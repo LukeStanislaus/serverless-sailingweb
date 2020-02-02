@@ -168,10 +168,11 @@ async function broadcast(event, context) {
             
             const newImage = record.dynamodb.NewImage
             const data = {
-              type: "updateStartTime",
+              type: "updateRace",
               payload: {
                 eventId: eventId,
-                startTime: parseInt(newImage.startTime.N)
+                startTime: parseInt(newImage.startTime.N),
+                finished: newImage.finished.BOOL
               }
             }
             return broadcastMessage(data)

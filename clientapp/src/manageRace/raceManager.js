@@ -43,8 +43,8 @@ export default ({selectedRace, viewOnly=false, hook= null}) => {
         return person
     });
     return (<>{data.getRaceStart === null ?
-        !viewOnly&&<StartRaceButton shouldEarlyStart={true} buttonText={"Press here to start the race"} startTime={new Date().getTime()} eventId={selectedRace.eventId} /> :
-        <RaceTimer eventId={selectedRace.eventId} startTime={data.getRaceStart} viewOnly={viewOnly}/>}
+        !viewOnly&&<StartRaceButton finshed ={selectedRace.finished} shouldEarlyStart={true} buttonText={"Press here to start the race"} startTime={new Date().getTime()} eventId={selectedRace.eventId} /> :
+        <RaceTimer finished={selectedRace.finished} eventId={selectedRace.eventId} startTime={data.getRaceStart} viewOnly={viewOnly}/>}
         <table style={{ "display": "block", "overflowX": "auto", "whiteSpace": "nowrap" }}><tbody><RaceHeader maxLaps={viewOnly?undefined:max} viewOnly={viewOnly}/>
             <RaceBody hook={hook} eventId={selectedRace.eventId} people={array} maxLaps={max} viewOnly={viewOnly}/>
         </tbody>

@@ -1,9 +1,10 @@
-mutation creaateEvent($input:CreateEventInput!){
+mutation createEvent($input:CreateEventInput!){
   createEvent(input:$input){
     event{
       eventId
       eventName
       eventTimeStamp
+      finished
     }
   }
 }

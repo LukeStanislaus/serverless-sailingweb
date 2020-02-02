@@ -56,7 +56,8 @@ export const createEvent = async (args) => {
       type_id: "event_" + eventId,
       eventName: args.event.eventName,
       calendarData: args.event.calendarData,
-      eventTimeStamp: args.event.eventTimeStamp
+      eventTimeStamp: args.event.eventTimeStamp,
+      finished: false
     }
   }
   await db.createItem(params)

@@ -3,5 +3,6 @@ query selectedRace {
         eventName
         eventId
         eventTimeStamp
+        finished
     }
     }

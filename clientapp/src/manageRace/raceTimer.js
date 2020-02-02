@@ -13,7 +13,7 @@ let Timer = ()=><h2>{toHHMMSS(((time - startTime)/1000).toString())}</h2>
   return !viewOnly?<><div style={{ padding: "2%" }} onClick={() => setEditTime(!editTime)} ><Timer />
   </div>
     {editTime && <><TimePicker setNewTime={setNewTime} newTime={newTime} />
-     <input type={"checkbox"} value={finished} onClick={()=>setLocalFinished(!localFinished)}/> Race finished?
+     <input type={"checkbox"} checked={localFinished} onChange={()=>setLocalFinished(!localFinished)}/> Race finished?
       <StartRaceButton shouldEarlyStart={false} finished={localFinished} startTime={newTime == null ? null : newTime.getTime()}
         buttonText={"Update Start Time"} eventId={eventId} /></>}
   </>:(<><Timer/> </>)

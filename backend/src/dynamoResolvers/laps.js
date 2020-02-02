@@ -64,7 +64,6 @@ export const updateLap = async (args) => {
       },
       ReturnValues: "ALL_NEW"
     }
-console.log("object")
     const res = await db.updateItem(params);
     let lapId = res.Attributes.type_id.split("_")[1]
     return {
