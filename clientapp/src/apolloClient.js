@@ -6,7 +6,6 @@ import {typeDefs} from './schema.graphql'
 import { RetryLink } from "apollo-link-retry"
 import { ApolloLink } from "apollo-link"
 
-
 const cache = new InMemoryCache({
   dataIdFromObject: object =>{ 
     switch (object.__typename)
@@ -34,7 +33,7 @@ const RetryLinker = new RetryLink({
   }
 })
 const link =new HttpLink({
-  uri: "https://n9v7x5w1g8.execute-api.us-east-1.amazonaws.com/dev/graphql",
+  uri: 'https://n9v7x5w1g8.execute-api.us-east-1.amazonaws.com/dev/graphql',
   headers: {
       //'Access-Control-Allow-Origin': '*',
       //'Access-Control-Allow-Credentials': true,    

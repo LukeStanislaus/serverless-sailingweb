@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 test('getBoatsOfHelm works', async () => {
 
     let input = {
-          helmName: ""
+          helmName: " "
       }
       const helm = await fetch('http://localhost:3000/graphql', {
     method: 'post',

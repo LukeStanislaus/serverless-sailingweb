@@ -41,11 +41,6 @@
     "jest": "^24.7.1"
   },
   "jest": {
-    "reporters": ["default",
-      ["./node_modules/jest-html-reporter", {
-        "pageTitle": "Test Report"
-      }]
-    ],
     "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
