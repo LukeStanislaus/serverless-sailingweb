@@ -29,6 +29,7 @@ jobs:
         run: echo Hello, world!
 
       - name: Backend
+        shell: pwsh
         env: 
           keyId: ${{ secrets.AWS_ACCESS_KEY_ID }}
           accessKey: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
