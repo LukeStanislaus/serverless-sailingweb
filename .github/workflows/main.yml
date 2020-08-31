@@ -41,11 +41,11 @@ jobs:
           yarn exec sls offline start
           yarn exec sls deploy
           cd ..
-          env: {
-                AWS_ACCESS_KEY_ID: $(keyId),
-                AWS_SECRET_ACCESS_KEY: $(accessKey)
+        env: 
+          AWS_ACCESS_KEY_ID: $(keyId),
+          AWS_SECRET_ACCESS_KEY: $(accessKey)
 
-          }
+          
 
       - name: Clientapp
         run: |
