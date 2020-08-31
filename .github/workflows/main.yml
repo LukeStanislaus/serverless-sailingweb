@@ -42,8 +42,8 @@ jobs:
           yarn exec sls deploy
           cd ..
         env: 
-          AWS_ACCESS_KEY_ID: $(keyId),
-          AWS_SECRET_ACCESS_KEY: $(accessKey)
+          keyId: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          accessKey: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
           
 
