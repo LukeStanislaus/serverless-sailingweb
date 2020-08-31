@@ -29,6 +29,9 @@ jobs:
         run: echo Hello, world!
 
       - name: Backend
+        env: 
+          keyId: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          accessKey: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
           sudo apt-get update
           sudo apt-get install -y default-jre 
@@ -41,9 +44,6 @@ jobs:
           yarn exec sls offline start
           yarn exec sls deploy
           cd ..
-        env: 
-          keyId: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          accessKey: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
           
 
