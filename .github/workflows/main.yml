@@ -36,7 +36,7 @@ jobs:
           yarn
           yarn global add serverless
           yarn global add firebase-tools
-          yarn exec sls config credentials --provider aws --key "$keyId" --secret "$accessKey" 
+          yarn exec sls config credentials --provider aws --key $keyId --secret $accessKey
           yarn exec sls dynamodb install
           yarn exec sls offline start
           yarn exec sls deploy
