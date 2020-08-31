@@ -34,8 +34,8 @@ jobs:
           keyId: ${{ secrets.AWS_ACCESS_KEY_ID }}
           accessKey: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          sudo apt-get update
-          sudo apt-get install -y default-jre 
+          sudo apt update
+          sudo apt install -y default-jre 
           cd backend
           yarn
           yarn global add serverless
