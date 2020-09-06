@@ -2,6 +2,13 @@ import React from 'react'
 import RaceRow from './raceRow'
 import { useQuery } from '@apollo/react-hooks'
 import { loader } from 'graphql.macro'
+import styled from 'styled-components'
+import { inlineFragmentOnNonCompositeErrorMessage } from 'graphql/validation/rules/FragmentsOnCompositeTypes'
+let Tr = styled.tr`
+
+:nth-child(even) {background-color: #f2f2f2;}
+:hover {background-color: #dddddd;}
+`
 const GET_LAPS_OF_RACE_SPECIFIC_EVENT_GET_RACE_START_AND_ORDER_BY = loader('../graphqlQueries/GET_LAPS_OF_RACE_SPECIFIC_EVENT_GET_RACE_START_AND_ORDER_BY.graphql')
 
 var oldData = [];
@@ -25,7 +32,7 @@ export default ({ eventId, maxLaps, viewOnly = false , hook=null}) => {
         { variables: GetLapsOfRaceInput })
     if (loading) return <tr />
     if (error) { return <tr></tr> }
-    if (data.specificEvent.length === 0) return null
+   // if (data.specificEvent.length === 0) return <><Tr><td><div></div></td></Tr><Tr></Tr><Tr></Tr></>
     const peoplel = data.specificEvent.map((elem) => { return { helm: elem, laps: data.getLapsOfRace.filter(element => element.userId === elem.userId) } })
 
     const correctedTimes = peoplel.map(elem => {
@@ -37,14 +44,14 @@ export default ({ eventId, maxLaps, viewOnly = false , hook=null}) => {
     })
     let RaceRows = []
     let correctedTimesSorted = correctedTimes.sort((a, b) => a.correctedTime - b.correctedTime)
-    if (correctedTimesSorted.length === 0) return <tr></tr>
+    //if (correctedTimesSorted.length === 0) return <tr></tr>
     let places = 1;
     correctedTimesSorted = correctedTimesSorted.map((elem) => {
         return { ...elem, place: elem.correctedTime ? places++ : null }
     })
     peoplel.forEach((element, index) => {
         let arr = correctedTimesSorted.filter(elem => elem.userId === element.helm.userId)
-        if (arr.length === 0) return <tr></tr>
+        //if (arr.length === 0) return <tr></tr>
         let correctedTime = arr[0].correctedTime
         RaceRows.push({ eventId: eventId, key: index, place: arr[0].place, correctedTime: correctedTime, person: element })
     });
@@ -86,6 +93,24 @@ export default ({ eventId, maxLaps, viewOnly = false , hook=null}) => {
         }
         let correctedTimeData = {maxCorrectedTime:  maxCorrectedTime, minCorrectedTime: minCorrectedTime}
         if(hook) hook({correctedTimeData, items, raceStart: raceStart})
-        return <>{items.map(elem => <RaceRow correctedTimeData={correctedTimeData} viewOnly={viewOnly} eventId={elem.eventId} key={elem.key} place={elem.place} maxLaps={viewOnly ? undefined : maxLaps} change={elem.change} correctedTime={elem.correctedTime} person={elem.person} />)}</>
+        let rows = items.map(elem => <RaceRow correctedTimeData={correctedTimeData} 
+            viewOnly={viewOnly} eventId={elem.eventId} key={elem.key} place={elem.place} 
+            maxLaps={viewOnly ? undefined : maxLaps} change={elem.change} correctedTime={elem.correctedTime} 
+            person={elem.person} />) 
+        if (rows.length < 3){
+            for (let index = 0; index <= 4-rows.length; index++) {
+                let row = []
+                for (let i = 0; i < 6; i++) {
+                    
+                    // forgive me...
+                    row.push(<td key={i}><div style={{"display":"inline-block"}}  ></div></td>)
+                    
+                }
+                row = <Tr key={index}>{row}</Tr>
+                rows.push(row)
+                
+            }
+        }
+        return <>{rows}</>
     
 }
