@@ -26,7 +26,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: echo Hello, worl
 
         # yarn exec sls config credentials --provider aws --key "$keyId" --secret "$accessKey"
       - name: Backend
@@ -35,15 +35,11 @@ jobs:
           keyId: ${{ secrets.AWS_ACCESS_KEY_ID }}
           accessKey: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          sudo apt update
-          sudo apt install -y default-jre 
+          sudo apt-get update
+          sudo apt-get install -y default-jre 
           cd backend
           yarn
-          yarn global add serverless
-          yarn global add firebase-tools
-          yarn exec sls dynamodb install
-          yarn exec sls offline start
-          yarn exec sls deploy
+          yarn ci
           cd ..
 
           
