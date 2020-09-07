@@ -26,7 +26,7 @@ jobs:
 
         # yarn exec sls config credentials --provider aws --key "$keyId" --secret "$accessKey"
       - name: Backend
-        shell: pwsh
+        shell: sh
         env: 
           keyId: ${{ secrets.AWS_ACCESS_KEY_ID }}
           accessKey: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
