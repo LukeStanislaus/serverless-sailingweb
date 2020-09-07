@@ -41,9 +41,9 @@ jobs:
           yarn
           yarn global add serverless
           yarn global add firebase-tools
-          serverless dynamodb install
-          serverless offline start
-          serverless deploy
+          yarn exec serverless dynamodb install
+          yarn exec serverless offline start
+          yarn exec serverless deploy
           cd ..
 
           
