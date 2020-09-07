@@ -97,7 +97,8 @@ async function broadcast(event, context) {
                 boatNumber: newImage.boatNumber.S,
                 pY: newImage.pY.N?newImage.pY.N:null,
                 notes: newImage.notes.S?newImage.notes.S:null,
-                crewName: newImage.crewName.S?newImage.crewName.S:null
+                crewName: newImage.crewName.S?newImage.crewName.S:null,
+                __typename: "SignOn"
               }
             }
             return broadcastMessage(data)
@@ -107,7 +108,7 @@ async function broadcast(event, context) {
               type: "removePerson",
               payload: {
                 eventId: eventId,
-                userId: userId
+                userId: userId,
               }
             }
             return broadcastMessage(data)

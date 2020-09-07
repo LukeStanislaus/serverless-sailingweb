@@ -3,7 +3,6 @@ import RaceRow from './raceRow'
 import { useQuery } from '@apollo/react-hooks'
 import { loader } from 'graphql.macro'
 import styled from 'styled-components'
-import { inlineFragmentOnNonCompositeErrorMessage } from 'graphql/validation/rules/FragmentsOnCompositeTypes'
 let Tr = styled.tr`
 
 :nth-child(even) {background-color: #f2f2f2;}
@@ -97,6 +96,7 @@ export default ({ eventId, maxLaps, viewOnly = false , hook=null}) => {
             viewOnly={viewOnly} eventId={elem.eventId} key={elem.key} place={elem.place} 
             maxLaps={viewOnly ? undefined : maxLaps} change={elem.change} correctedTime={elem.correctedTime} 
             person={elem.person} />) 
+        console.log(rows.length)
         if (rows.length < 3){
             for (let index = 0; index <= 4-rows.length; index++) {
                 let row = []

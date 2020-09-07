@@ -183,8 +183,9 @@ function useSelectedRace(boatClass, name, signOnInput, reset) {
       
       let x= await signOn(variables);
       reset()
-    x.data.signOn!==null?next(true, "Success!"):next(true, "Already in race!")
+    x.data.signOn!==null?next(true):next(true, "Already in race!")
     }}
+    size="large"
     type="primary"
     style={{"width":"200px",
       "--button-raise-level": "4px",
