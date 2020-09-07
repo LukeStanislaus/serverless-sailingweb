@@ -24,10 +24,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, worl
-
         # yarn exec sls config credentials --provider aws --key "$keyId" --secret "$accessKey"
       - name: Backend
         shell: bash
@@ -38,12 +34,8 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y default-jre 
           cd backend
-          yarn
           yarn ci
           cd ..
-
-          
-          
 
       - name: Clientapp
         run: |
