@@ -24,13 +24,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, worl
-
         # yarn exec sls config credentials --provider aws --key "$keyId" --secret "$accessKey"
       - name: Backend
-        shell: bash
+        shell: sh
         env: 
           keyId: ${{ secrets.AWS_ACCESS_KEY_ID }}
           accessKey: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
