@@ -42,9 +42,6 @@ jobs:
           yarn ci
           cd ..
 
-          
-          
-
       - name: Clientapp
         run: |
           cd clientapp
