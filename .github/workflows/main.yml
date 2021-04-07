@@ -20,8 +20,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Setup Node.js environment
-    - uses: actions/checkout@v2
-      uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+        uses: actions/setup-node@v1
 
         # yarn exec sls config credentials --provider aws --key "$keyId" --secret "$accessKey"
       - name: Backend
