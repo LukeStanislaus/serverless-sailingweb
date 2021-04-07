@@ -6,7 +6,7 @@ import {loader} from 'graphql.macro'
 const UPDATE_RACE = loader('../graphqlQueries/UPDATE_RACE.graphql')
 const GET_RACE_START = loader('../graphqlQueries/GET_RACE_START.graphql')
 
-export default ({ eventId, buttonText, startTime, shouldEarlyStart, finished }) => {
+export default ({ eventId, buttonText, startTime, shouldEarlyStart, finished=false }) => {
     const [earlyStart, setEarlyStart] = useState(false)
     const updateRaceVariables = {
         input: {
