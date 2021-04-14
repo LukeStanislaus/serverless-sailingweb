@@ -19,21 +19,7 @@ const cache = new InMemoryCache({
     
   }
 });
-const cachee = new InMemoryCache({
-  typePolicies: { // Type policy map
-    Product: {
-      fields: { // Field policy map for the Product type
-        isInCart: { // Field policy for the isInCart field
-          read(_, { variables }) { // The read function for the isInCart field
-            return localStorage.getItem('CART').includes(
-              variables.productId
-            );
-          }
-        }
-      }
-    }
-  }
-});
+
 const RetryLinker = new RetryLink({
   delay: {
     initial: 300,
