@@ -145,8 +145,7 @@ function useSelectedRace(boatClass, name, signOnInput, reset) {
   if (error) obj = 'error'
 
   const [signOn] = useMutation(SIGN_ON, {
-    update(cache, { data: { signOn } }) {
-      if(signOn==null) return
+    update(cache, { data: { signOn  } }) {
       const specificEventInputVariables = {
         input: {
           eventData: {
@@ -154,14 +153,20 @@ function useSelectedRace(boatClass, name, signOnInput, reset) {
           }
         }
       }
-      try {
         let helmsInRaces = cache.readQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables })
-        let helmsInSpecificRace = helmsInRaces.specificEvent.concat(signOn.person)
-        cache.writeQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables, data: { specificEvent: helmsInSpecificRace } })
-      }
-      catch (e) {
-        if (e.toString().substring(0, 9) !== "Invariant") throw e;
-      }
+        let helmsInSpecificRace = helmsInRaces.specificEvent.concat(signOn.signOn)
+
+        cache.writeQuery({ 
+
+          query: SPECIFIC_EVENT, 
+          variables: specificEventInputVariables,
+          data: { specificEvent: helmsInSpecificRace } 
+
+        })
+
+      
+        //if (e.toString().substring(0, 9) !== "Invariant") throw e;
+      
     }
   })
 
