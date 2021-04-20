@@ -34,6 +34,7 @@ jobs:
           sudo apt-get install -y default-jre 
           cd backend
           yarn
+          serverless
           yarn dlx -q sls config credentials --provider aws --key "$key_id" --secret "$access_key" 
           yarn dlx -q sls dynamodb install
           yarn dlx -q sls offline start
