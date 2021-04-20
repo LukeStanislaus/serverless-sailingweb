@@ -34,10 +34,10 @@ jobs:
           sudo apt-get install -y default-jre 
           cd backend
           yarn
-          yarn dlx sls config credentials --provider aws --key "$key_id" --secret "$access_key" 
-          yarn dlx sls dynamodb install
-          yarn dlx sls offline start
-          yarn dlx sls deploy
+          yarn dlx -q sls config credentials --provider aws --key "$key_id" --secret "$access_key" 
+          yarn dlx -q sls dynamodb install
+          yarn dlx -q sls offline start
+          yarn dlx -q sls deploy
           cd ..
 
       - name: Clientapp
