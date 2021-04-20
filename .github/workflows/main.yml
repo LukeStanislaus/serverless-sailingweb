@@ -34,6 +34,10 @@ jobs:
           sudo apt-get install -y default-jre 
           cd backend
           yarn
+          yarn exec sls config credentials --provider aws --key "$key_id" --secret "$access_key" 
+          yarn exec sls dynamodb install
+          yarn exec sls offline start
+          yarn exec sls deploy
           cd ..
 
       - name: Clientapp
