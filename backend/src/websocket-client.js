@@ -2,12 +2,8 @@
 const db = require("./db")
 const AWS = require('aws-sdk');
 
-async function send(ConnectionId, payload){
-    const client = new AWS.ApiGatewayManagementApi({
-        apiVersion: '2018-11-29',
-        endpoint: "https://c7s4ipb33a.execute-api.us-east-1.amazonaws.com/dev",
-        logger: console
-      });
+async function send(ConnectionId, payload, client){
+
 const data = JSON.stringify(payload)
         console.log(data)
         await client.postToConnection({

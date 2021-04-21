@@ -54,7 +54,7 @@ async function sendMessage(event, context) {
   let results = (await db.fetchConnections()).forEach(async (elem) => {
     const client = new AWS.ApiGatewayManagementApi({
       apiVersion: '2018-11-29',
-      endpoint: "https://705dyjpxp6.execute-api.us-east-1.amazonaws.com/dev/"
+      endpoint: event.requestContext.domainName + '/' + event.requestContext.stage
     });
     await ws.send(elem.pk,
       body.content
