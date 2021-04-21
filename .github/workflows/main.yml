@@ -35,8 +35,8 @@ jobs:
           cd backend
           yarn
           yarn serverless config credentials --provider aws --key "$key_id" --secret "$access_key" 
-          yarn serverless dynamodb install && sls offline start && sls deploy
-          yarn serverless offline start
+          yarn serverless dynamodb install 
+          yarn ci
           yarn serverless deploy
           cd ..
 
