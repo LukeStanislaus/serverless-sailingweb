@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "start-server": "serverless offline start",
+    "test": "echo jest",
     "jest": "jest --watchAll",
-    "ci": "serverless dynamodb install && serverless offline start && serverless deploy"
+    "ci": "start-server-and-test start-server http://localhost:3000 test"
   },
   "author": "",
   "license": "ISC",
@@ -33,6 +34,7 @@
     "serverless-jest-plugin": "^0.2.1",
     "serverless-offline": "^6.9.0",
     "serverless-webpack": "^5.2.0",
+    "start-server-and-test": "^1.12.1",
     "uuid": "^3.3.2",
     "webpack": "^4.30.0",
     "webpack-node-externals": "^1.7.2"
