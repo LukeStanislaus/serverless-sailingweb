@@ -63,11 +63,11 @@ async function sendMessage(event, context) {
 
   return success;
 }
-async function broadcastMessage(data) {
+async function broadcastMessageFull(data, client) {
   console.log("broadcast message")
   const items = (await db.fetchConnections()).map(elem=>{
      console.log("mapping connections to sending")
-     return ws.send(elem.pk, data);
+     return ws.send(elem.pk, data, client);
   })
   await Promise.all(items)
 }
@@ -77,7 +77,11 @@ async function broadcast(event, context) {
   // disconnections, messages, etc
   // get all connections for channel of interest
   // broadcast the news
-
+  const client = new AWS.ApiGatewayManagementApi({
+    apiVersion: '2018-11-29',
+    endpoint: event.requestContext.domainName + '/' + event.requestContext.stage
+  });
+  broadcastMessage = (data) => broadcastMessage(data, client)
   console.log(JSON.stringify(event))
   const results = event.Records.map(record=> {
     const eventId = (record.dynamodb.Keys.eventId.S)
