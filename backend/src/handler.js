@@ -79,7 +79,7 @@ async function broadcast(event, context) {
   // broadcast the news
   const client = new AWS.ApiGatewayManagementApi({
     apiVersion: '2018-11-29',
-    endpoint: event.requestContext.domainName + '/' + event.requestContext.stage
+    endpoint: "https://705dyjpxp6.execute-api.us-east-1.amazonaws.com/dev/"
   });
   broadcastMessage = (data) => broadcastMessage(data, client)
   console.log(JSON.stringify(event))
