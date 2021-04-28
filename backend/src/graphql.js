@@ -38,6 +38,9 @@ const resolvers = {
 
 const server = new ApolloServer({ typeDefs, 
   resolvers,
+  playground:{
+tabs:[{endpoint:"http://localhost:3000/dev/graphql"}]
+  }
 }); 
 export {server}
 exports.graphqlHandler = server.createHandler({

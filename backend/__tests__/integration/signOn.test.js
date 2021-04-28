@@ -14,7 +14,7 @@ test("signOn mutation signs on a person", async () => {
           pY: 0
         }
     }
-  const signOn = await fetch('http://localhost:3000/graphql', {
+  const signOn = await fetch('http://localhost:3000/dev/graphql', {
     method: 'post',
     body: JSON.stringify({
       query: `mutation signOn($input: SignOnInput!){
@@ -35,7 +35,7 @@ test("signOn mutation signs on a person", async () => {
   })
   const signOnJson = await signOn.json();
   expect(signOnJson.data.signOn).toEqual(obj)
-  const response = await fetch('http://localhost:3000/graphql', {
+  const response = await fetch('http://localhost:3000/dev/graphql', {
     method: 'post',
     body: JSON.stringify({
       query: `mutation removeEvent($input: RemoveEventInput!){
@@ -54,7 +54,7 @@ test("signOn mutation signs on a person", async () => {
     }`})
   })
   const responseJson = await response.json();
-  const check = await fetch('http://localhost:3000/graphql', {
+  const check = await fetch('http://localhost:3000/dev/graphql', {
     method: 'post',
     body: JSON.stringify({
       query: `query {
@@ -80,7 +80,7 @@ test("RemoveFromRace from removes someone from a race", async ()=>{
       pY: 0
     }
 }
-const signOn = await fetch('http://localhost:3000/graphql', {
+const signOn = await fetch('http://localhost:3000/dev/graphql', {
 method: 'post',
 body: JSON.stringify({
   query: `mutation signOn($input: SignOnInput!){
@@ -99,7 +99,7 @@ body: JSON.stringify({
       input: obj
   }})
 })
-  const response = await fetch('http://localhost:3000/graphql', {
+  const response = await fetch('http://localhost:3000/dev/graphql', {
     method: 'post',
     body: JSON.stringify({
       query: `mutation removeFromRace($input:RemoveFromRaceInput!){
@@ -120,7 +120,7 @@ body: JSON.stringify({
   })
   const responseJson = await response.json()
   expect(responseJson.data.removeFromRace.RemoveFromRaceData.userId).toEqual("1")
-  const res = await fetch('http://localhost:3000/graphql', {
+  const res = await fetch('http://localhost:3000/dev/graphql', {
     method: 'post',
     body: JSON.stringify({
       query: `query specificEvent($input:SpecificEventInput!){

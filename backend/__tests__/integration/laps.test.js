@@ -7,7 +7,7 @@ test('newlap creates a new lap', async ()=> {
           lapTime: 0
         
     }
-  const newLap = await fetch('http://localhost:3000/graphql', {
+  const newLap = await fetch('http://localhost:3000/dev/graphql', {
     method: 'post',
     body: JSON.stringify({
       query: `mutation newLap ($input:CreateLapInput!){
@@ -28,7 +28,7 @@ test('newlap creates a new lap', async ()=> {
   let obj1 = {
     eventId: "2"
   }
-  const getLap = await fetch('http://localhost:3000/graphql', {
+  const getLap = await fetch('http://localhost:3000/dev/graphql', {
     method: 'post',
     body: JSON.stringify({
       query: `query getLap ($input:GetLapsOfRaceInput!){
@@ -54,7 +54,7 @@ test('getLaps returns laps', async ()=> {
 let obj1 = {
   eventId: "1"
 }
-const getLap = await fetch('http://localhost:3000/graphql', {
+const getLap = await fetch('http://localhost:3000/dev/graphql', {
   method: 'post',
   body: JSON.stringify({
     query: `query getLap ($input:GetLapsOfRaceInput!){
@@ -80,7 +80,7 @@ test('updateLap removes lap', async ()=> {
       lapId: "3"
     }
 }
-  const updateLap = await fetch('http://localhost:3000/graphql', {
+  const updateLap = await fetch('http://localhost:3000/dev/graphql', {
     method: 'post',
     body: JSON.stringify({
       query: `mutation updateLap($input: UpdateLapInput!){
@@ -109,7 +109,7 @@ test('updateLap updates lap', async ()=> {
       lapTime: 1
     }
 }
-  const updateLap = await fetch('http://localhost:3000/graphql', {
+  const updateLap = await fetch('http://localhost:3000/dev/graphql', {
     method: 'post',
     body: JSON.stringify({
       query: `mutation updateLap($input: UpdateLapInput!){

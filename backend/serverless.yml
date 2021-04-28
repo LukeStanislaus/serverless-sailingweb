@@ -164,3 +164,7 @@ functions:
           path: graphql
           method: post
           cors: true 
+      - http:
+          path: graphql
+          method: get
+          cors: true

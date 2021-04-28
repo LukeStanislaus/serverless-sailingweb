@@ -5,7 +5,7 @@ import BoatData from '../seed/BoatData';
 
 test("allBoatData",  async () => {
 
-  const response=  await fetch('http://localhost:3000/graphql', {
+  const response=  await fetch('http://localhost:3000/dev/graphql', {
       method: 'post',
       body:JSON.stringify({query: `
       query{

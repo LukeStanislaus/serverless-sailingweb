@@ -5,7 +5,7 @@ test('getBoatsOfHelm works', async () => {
     let input = {
           helmName: " "
       }
-      const helm = await fetch('http://localhost:3000/graphql', {
+      const helm = await fetch('http://localhost:3000/dev/graphql', {
     method: 'post',
     body: JSON.stringify({
       query: `query getBoatsOfHelm($input: GetBoatsOfHelmInput!) {
@@ -43,7 +43,7 @@ test('removePerson works', async () => {
     }
     
   
-    const helm = await fetch('http://localhost:3000/graphql', {
+    const helm = await fetch('http://localhost:3000/dev/graphql', {
   method: 'post',
   body: JSON.stringify({
     query: `mutation removePerson($input:RemovePersonInput!){

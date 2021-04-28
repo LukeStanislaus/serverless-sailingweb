@@ -1,20 +1,22 @@
 {
+
+
   "name": "serverless-dynamodb-test",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-server": "serverless offline start",
-    "test": "echo jest",
+    "start": "serverless offline start",
+    "test": "jest",
     "jest": "jest --watchAll",
-    "ci": "start-server-and-test start-server http://localhost:3000 test"
+    "ci": "start-server-and-test 'yarn start' http-get://localhost:3000/dev/graphql 'yarn test'"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
-    "apollo-server-lambda": "^2.4.8",
+    "apollo-server-lambda": "^2.23.0",
     "aws-sdk": "^2.437.0",
     "babel-loader": "^8.0.5",
     "babel-preset-env": "^1.7.0",
