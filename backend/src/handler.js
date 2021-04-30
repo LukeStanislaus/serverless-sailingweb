@@ -81,7 +81,7 @@ async function broadcast(event, context) {
     apiVersion: '2018-11-29',
     endpoint: "https://705dyjpxp6.execute-api.us-east-1.amazonaws.com/dev/"
   });
-  broadcastMessage = (data) => broadcastMessage(data, client)
+  broadcastMessage = async (data) => await broadcastMessageFull(data, client)
   console.log(JSON.stringify(event))
   const results = event.Records.map(record=> {
     const eventId = (record.dynamodb.Keys.eventId.S)
