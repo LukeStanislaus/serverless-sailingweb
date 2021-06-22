@@ -59,7 +59,7 @@ export default () => {
             <FormControl value={name} onChange={(e) => setName(e.target.value)} type="text" />
   </div>
     <div>
-      Enter boat name:
+      Enter boat class:
     <Autocomplete type={"text"}
         inputProps={{ className: "form-control",
         value:boatName,

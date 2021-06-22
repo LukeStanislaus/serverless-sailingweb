@@ -18,13 +18,9 @@ export default () => {
         dots: true,
         infinite: true,
         speed: 300,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-         adaptiveHeight: true,
-         centerMode: true,
-         variableWidth: true,
-         autoplay: true,
-         mobileFirst: true
+        centerMode: true,
+        autoplay: true,
+        variableWidth: true
       };
 
     return <>
