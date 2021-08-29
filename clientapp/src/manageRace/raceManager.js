@@ -31,6 +31,7 @@ export default ({selectedRace, viewOnly=false, hook= null}) => {
 
     }
     const [selectOrderBy] = useMutation(SELECT_ORDER_BY)
+    
     const { data, loading, error } = useQuery(GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START,
         { variables: getLapsOfRaceAndSignOnInput })
     if (loading) return <div />;
