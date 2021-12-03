@@ -11,7 +11,7 @@ const timeRounded = Math.round((new Date().getTime() / 100000)) * 100000
 const recentEventsInput = {
     input: {
         range: {
-            start: timeRounded - 1000000000,
+            start: 0,
             end: (timeRounded + 10000000000)
         }
     }
