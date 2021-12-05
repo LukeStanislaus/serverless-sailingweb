@@ -73,7 +73,7 @@ const [removeEvent] = useMutation(REMOVE_EVENT, {
     
 if (error) return <div>{error.message}</div>
 if (loading) return <Createable/>
-let sortedRecentEvents= data.recentEvents?data.recentEvents.sort((a,b)=>{ return a.eventTimeStamp-b.eventTimeStamp}): null
+let sortedRecentEvents= data.recentEvents?data.recentEvents.sort((a,b)=>{ return -(a.eventTimeStamp-b.eventTimeStamp)}): null
 
     return (<>Select a Race:
     {<Createable
