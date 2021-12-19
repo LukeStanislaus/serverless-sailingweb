@@ -11,7 +11,7 @@ let Tr = styled.tr`
 const GET_LAPS_OF_RACE_SPECIFIC_EVENT_GET_RACE_START_AND_ORDER_BY = loader('../graphqlQueries/GET_LAPS_OF_RACE_SPECIFIC_EVENT_GET_RACE_START_AND_ORDER_BY.graphql')
 
 var oldData = [];
-export default ({ eventId, maxLaps, viewOnly = false, hook = null }) => {
+export default ({ eventId, maxLaps, viewOnly = false }) => {
     const GetLapsOfRaceInput = {
         input: {
             eventId: eventId
@@ -60,22 +60,18 @@ export default ({ eventId, maxLaps, viewOnly = false, hook = null }) => {
     }
     const comparisons = {
 
-        "Helm Name": (a, b) => toLowerCaseHelper(a.person.helm.helmName) > toLowerCaseHelper(b.person.helm.helmName)?1:-1,
-        "Boat Class": (a, b) => toLowerCaseHelper(a.person.helm.boatName) > toLowerCaseHelper(b.person.helm.boatName)?1:-1,
-        "Sail Number": (a, b) => toLowerCaseHelper(a.person.helm.boatNumber) > toLowerCaseHelper(b.person.helm.boatNumber)?1:-1,
+        "Helm Name": (a, b) => toLowerCaseHelper(a.person.helm.helmName) > toLowerCaseHelper(b.person.helm.helmName) ? 1 : -1,
+        "Boat Class": (a, b) => toLowerCaseHelper(a.person.helm.boatName) > toLowerCaseHelper(b.person.helm.boatName) ? 1 : -1,
+        "Sail Number": (a, b) => toLowerCaseHelper(a.person.helm.boatNumber) > toLowerCaseHelper(b.person.helm.boatNumber) ? 1 : -1,
         "Place": (a, b) => (a.place === null) - (b.place === null) || +(a.place > b.place) || -(a.place < b.place),
         "PY": (a, b) => (a.person.helm.pY === null) - (b.person.helm.pY === null) || +(a.person.helm.pY > b.person.helm.pY) || -(a.person.helm.pY < b.person.helm.pY),
         "Corrected Time": (a, b) => (a.correctedTime === null) - (b.correctedTime === null) ||
             +(a.correctedTime > b.correctedTime) || -(a.correctedTime < b.correctedTime),
 
     }
-    let raceStart = data.getRaceStart
-    console.log(RaceRows[0])
-    //const sorted = RaceRows.sort(data.orderBy.type == null ? (a, b) => true : comparisons[data.orderBy.type])
-    
+
     const sorted = RaceRows.sort(data.orderBy.type == null ? (a, b) => true : comparisons[data.orderBy.type])
-    console.log(sorted)
-    console.log(data.orderBy.type == null ? (a, b) => true : comparisons[data.orderBy.type])
+
     let items = (data.orderBy.reverse ? sorted.reverse() : sorted)
     if (oldData !== []) {
         items.forEach((elem, newIndex) => oldData
@@ -88,6 +84,7 @@ export default ({ eventId, maxLaps, viewOnly = false, hook = null }) => {
     items.forEach(elem => elem.place > lastPlace ? lastPlace = elem.place : null)
     let maxCorrectedTime = 0
     let minCorrectedTime = 0
+
     try {
         maxCorrectedTime = items.find(elem => elem.place === lastPlace).correctedTime
 
@@ -97,8 +94,9 @@ export default ({ eventId, maxLaps, viewOnly = false, hook = null }) => {
         maxCorrectedTime = 0
         minCorrectedTime = 0
     }
+
     let correctedTimeData = { maxCorrectedTime: maxCorrectedTime, minCorrectedTime: minCorrectedTime }
-    if (hook) hook({ correctedTimeData, items, raceStart: raceStart })
+
     let rows = items.map(elem => <RaceRow correctedTimeData={correctedTimeData}
         viewOnly={viewOnly} eventId={elem.eventId} key={elem.key} place={elem.place}
         maxLaps={viewOnly ? undefined : maxLaps} change={elem.change} correctedTime={elem.correctedTime}
