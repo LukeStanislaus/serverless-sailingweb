@@ -15,7 +15,7 @@
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "apollo-server-lambda": "^2.23.0",
-    "aws-sdk": "^2.437.0",
+    "aws-sdk": "^2.814.0",
     "babel-loader": "^8.0.5",
     "babel-preset-env": "^1.7.0",
     "global": "^4.3.2",
