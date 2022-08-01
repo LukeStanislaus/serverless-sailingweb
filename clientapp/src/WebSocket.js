@@ -10,9 +10,7 @@ export default () => {
     ws.onopen = () => {
         console.info("Websocket connected");
         ws.onmessage = (event) => {
-            try {
-                console.log("Data recieved")
-                let data = JSON.parse(event.data);
+            try {                let data = JSON.parse(event.data);
                 console.log(data)
                 switch (data.type) {
                     case "newLap": {
@@ -36,15 +34,15 @@ export default () => {
 
                     }
                         break;
-                    case "updateLap": {
-                        const inputData = { input: { eventId: data.payload.eventId } }
-                        let { getLapsOfRace } = client.readQuery({
-                            query: GET_LAPS_OF_RACE,
-                            variables: inputData
-                        })
-                        let removedArray = getLapsOfRace.filter(elem => elem.lapId !== data.payload.lapId)
-                        if (data.payload.lapTime == null) {
-                        }
+                        case "updateLap": {
+                            const inputData = { input: { eventId: data.payload.eventId } }
+                            let { getLapsOfRace } = client.readQuery({
+                                query: GET_LAPS_OF_RACE,
+                                variables: inputData
+                            })
+                            let removedArray = getLapsOfRace.filter(elem => elem.lapId !== data.payload.lapId)
+                            if (data.payload.lapTime == null) {
+                            }
                         else {
                             const lap = { ...(data.payload), __typename: "Lap" }
                             removedArray = removedArray.concat(lap)
