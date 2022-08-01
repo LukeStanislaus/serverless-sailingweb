@@ -4,7 +4,7 @@ provider:
 
   memorySize: 1024
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs16.x
   environment:
   role: arn:aws:iam::118983564982:role/sailingweb
   websocketsApiName: sailingWebSocket
