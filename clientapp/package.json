@@ -13,7 +13,7 @@
     "apollo-link-error": "^1.1.12",
     "apollo-link-retry": "^2.2.15",
     "babel-plugin-inline-import": "^3.0.0",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
     "graphql": "^14.3.1",
