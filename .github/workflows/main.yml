@@ -22,7 +22,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
-
+        with:
+          node-version: 12
         # yarn exec sls config credentials --provider aws --key "$keyId" --secret "$accessKey"
       - name: Backend
         shell: sh
