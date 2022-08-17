@@ -31,12 +31,12 @@ jobs:
           access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
           sudo apt-get update
-          sudo apt-get install -y default-jre 
+          sudo apt-get install openjdk-8-jdk-headless
           cd backend
           yarn
           yarn serverless config credentials --provider aws --key "$key_id" --secret "$access_key" 
           yarn serverless dynamodb install 
-          yarn ci
+           yarn ci
           yarn serverless deploy
           cd ..
 

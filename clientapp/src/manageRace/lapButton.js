@@ -36,7 +36,7 @@ export default ({eventId, lapsCount, userId}) => {
         input: {
             eventId: eventId,
             userId: userId,
-            lapTime: ServerDate.getTime()
+            lapTime: ServerDate.getTime().toString()
         }
     }});
     setColour("Secondary");

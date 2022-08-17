@@ -3,7 +3,7 @@
         "eventId": "1",
         "type_id": "event_1",
         "eventName": "test",
-        "eventTimeStamp": 0
+        "eventTimeStamp": "0"
 
     },
     {

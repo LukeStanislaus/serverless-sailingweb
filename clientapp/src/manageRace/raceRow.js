@@ -18,7 +18,7 @@ export default ({ eventId, correctedTime, place, maxLaps, person, viewOnly = fal
 
             }
         }
-        person.laps.sort((a, b) => a.lapTime - b.lapTime).reverse()
+        person.laps.sort((a, b) => parseInt(a.lapTime) - parseInt(b.lapTime)).reverse()
         raceCells.push(person.laps.map(element =>
             <RaceCell key={element.lapId} lap={element} eventId={eventId} />
         ));

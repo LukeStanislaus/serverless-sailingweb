@@ -1,35 +1,61 @@
 #serverless.yml
 service: SailingWeb
-provider: 
 
+
+
+provider: 
   memorySize: 1024
   name: aws
+  region: eu-west-2
   runtime: nodejs16.x
   environment:
-  role: arn:aws:iam::118983564982:role/sailingweb
   websocketsApiName: sailingWebSocket
   websocketsApiRouteSelectionExpression: $request.body.action
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - "execute-api:ManageConnections"
-      Resource:
-        - "arn:aws:execute-api:*:*:**/@connections/*"
-    - Effect: Allow
-      Action:
-        - "dynamodb:PutItem"
-        - "dynamodb:GetItem"
-        - "dynamodb:UpdateItem"
-        - "dynamodb:DeleteItem"
-        - "dynamodb:BatchGetItem"
-        - "dynamodb:BatchWriteItem"
-        - "dynamodb:Query"
-      Resource:
-        - Fn::GetAtt: [WebSocketTable, Arn]
-        - Fn::Join:
-            - '/'
-            - - Fn::GetAtt: [WebSocketTable, Arn]
-              - '*'
+  iam:
+    role: 
+       - statements:
+          - Effect: Allow
+            Action:
+              - "lambda:InvokeFunction"
+              - "lambda:InvokeFunctionConfiguration"
+            Resource:
+              - "*"
+          - Effect: Allow
+            Action:
+              - "execute-api:ManageConnections"
+            Resource:
+              - "arn:aws:execute-api:*:*:**/@connections/*"
+          - Effect: Allow
+            Action:
+              - "dynamodb:PutItem"
+              - "dynamodb:GetItem"
+              - "dynamodb:UpdateItem"
+              - "dynamodb:DeleteItem"
+              - "dynamodb:BatchGetItem"
+              - "dynamodb:BatchWriteItem"
+              - "dynamodb:Query"
+            Resource:
+              - Fn::GetAtt: [WebSocketTable, Arn]
+              - Fn::Join:
+                  - '/'
+                  - - Fn::GetAtt: [WebSocketTable, Arn]
+                    - '*'
+          - Effect: Allow
+            Action:
+              - "dynamodb:PutItem"
+              - "dynamodb:GetItem"
+              - "dynamodb:UpdateItem"
+              - "dynamodb:DeleteItem"
+              - "dynamodb:BatchGetItem"
+              - "dynamodb:BatchWriteItem"
+              - "dynamodb:Query"
+            Resource:
+              - Fn::GetAtt: [Races, Arn]
+              - Fn::Join:
+                  - '/'
+                  - - Fn::GetAtt: [Races, Arn]
+                    - '*'
+              
 resources:
   Resources:
     WebSocketTable:
@@ -117,7 +143,7 @@ custom:
   webpack:
     webpackConfig: './webpack.config.js'   # Name of webpack configuration file
     includeModules: true   # Node modules configuration for packaging
-    packager: 'npm'   # Packager that will be used to package your external modules
+    packager: npm  # Packager that will be used to package your external modules
   serverless-offline:
     exec: "yarn run test"
 functions:

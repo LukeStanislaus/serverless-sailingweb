@@ -33,14 +33,16 @@ const RetryLinker = new RetryLink({
   }
 })
 const link =new HttpLink({
-  uri: 'https://8llgowjljj.execute-api.us-east-1.amazonaws.com/dev/graphql',
+  uri: 'http://localhost:3000/dev/graphql',
   headers: {
       //'Access-Control-Allow-Origin': '*',
       //'Access-Control-Allow-Credentials': true,    
       //"Access-Control-Allow-Methods": "*"
 
     },
-    mode: "cors"
+    fetchOptions: {
+      mode: 'no-cors'
+    }
   })
 export const client = new ApolloClient({
   link: ApolloLink.from([RetryLinker, link]),

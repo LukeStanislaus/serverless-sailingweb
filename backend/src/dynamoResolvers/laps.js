@@ -2,6 +2,7 @@ import * as db from './dynamo'
 import uuid4v from 'uuid/v4'
 export const createLap =async  (args) => {
   const lapId= uuid4v();
+  args.lapTime = parseInt(args.lapTime)
   let params = {
     TableName: "Races",
     Item: {
@@ -28,7 +29,7 @@ export const getLapsOfRace = async (args) => {
     return {
       userId: elem.userId,
       eventId: elem.eventId,
-      lapTime: elem.lapTime,
+      lapTime: elem.lapTime.toString(),
       lapId: elem.type_id.split("_")[1]
     }
   })
@@ -60,7 +61,7 @@ export const updateLap = async (args) => {
       UpdateExpression: "set #lapTime = :lapTime",
       ExpressionAttributeNames: { "#lapTime": "lapTime" },
       ExpressionAttributeValues: {
-        ":lapTime": args.LapData.lapTime
+        ":lapTime": parseInt(args.LapData.lapTime)
       },
       ReturnValues: "ALL_NEW"
     }

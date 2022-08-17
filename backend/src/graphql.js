@@ -1,7 +1,6 @@
 // graphql.js
 
 import { ApolloServer } from 'apollo-server-lambda';
-import GraphQLLong from "graphql-type-long"
 import typeDefs from './schema.graphql'
 import { allBoatData, createBoat } from './dynamoResolvers/boatData'
 import { recentEvents, allEvents, createEvent, removeEvent, startRace, getRaceStart, updateRace } from './dynamoResolvers/events'
@@ -10,7 +9,6 @@ import {newPerson, allHelms, getBoatsOfHelm, removePerson} from './dynamoResolve
 import {createLap, getLapsOfRace, updateLap} from './dynamoResolvers/laps'
 
 const resolvers = {
-  Long: GraphQLLong,
   RootQuery: {
     allBoatData: () => allBoatData(),
     allEvents: () => allEvents(),

@@ -4,7 +4,6 @@
     mutation: RootMutation
   }
 
-  scalar Long
 
   "All Queries"
   type RootQuery {
@@ -15,7 +14,7 @@
     specificEvent(input: SpecificEventInput!): [SignOn]
     getBoatsOfHelm(input: GetBoatsOfHelmInput!): [BoatOfHelmData]
     getLapsOfRace(input: GetLapsOfRaceInput!): [Lap]
-    getRaceStart(input: GetRaceStartInput!): Long
+    getRaceStart(input: GetRaceStartInput!): String
   }
 
   "All Mutations"
@@ -35,7 +34,7 @@
 input UpdateRaceInputData{
   eventId: ID!
   finished: Boolean!
-  startTime: Long!
+  startTime: String!
 }
 
 input UpdateRaceInput{
@@ -45,7 +44,7 @@ input UpdateRaceInput{
 type UpdateRacePayloadData{
   eventId: ID!
   finished: Boolean!
-  startTime: Long!
+  startTime: String!
 
 }
 
@@ -95,7 +94,7 @@ pY: Int!
   }
   type StartRaceReturnData {
     eventId: ID!
-    startTime: Long
+    startTime: String
   }
   input StartRaceInput {
     StartRaceData: StartRaceData!
@@ -103,7 +102,7 @@ pY: Int!
   }
   input StartRaceData {
     eventId: ID!
-    startTime: Long
+    startTime: String
   }
   input GetRaceStartInput{
     eventId: ID!
@@ -117,13 +116,13 @@ pY: Int!
 
   type UpdatedLap {
     eventId: ID!
-    lapTime: Long
+    lapTime: String
     lapId: ID!
   }
 
   input LapData {
     eventId: ID!
-    lapTime: Long
+    lapTime: String
     lapId: ID!
   }
   input GetLapsOfRaceInput {
@@ -133,20 +132,20 @@ pY: Int!
   type Lap{
     userId: ID!
     eventId: ID!
-    lapTime: Long!
+    lapTime: String!
     lapId: ID!
   }
   type CreateLapPayload {
     eventId: ID!
     userId: ID!
-    lapTime: Long!
+    lapTime: String!
     lapId: ID!
   }
 
   input CreateLapInput {
     eventId: ID!
     userId: ID!
-    lapTime: Long!
+    lapTime: String!
   }
 
   type BoatOfHelmData {
@@ -220,7 +219,7 @@ pY: Int!
   type Event {
     eventId: ID!
     eventName: String!
-    eventTimeStamp: Long!
+    eventTimeStamp: String!
     calendarData: calendarData
     finished: Boolean!
   }
@@ -247,8 +246,8 @@ pY: Int!
     range: RecentEventsInputRange!
   }
   input RecentEventsInputRange {
-    start: Long!
-    end: Long!
+    start: String!
+    end: String!
   }
   type CreateEventPayload {
     event: Event 
@@ -258,7 +257,7 @@ pY: Int!
   }
   input CreateEventData {
     eventName: String!
-    eventTimeStamp: Long!
+    eventTimeStamp: String!
     calendarData: calendarDataInput
   }
   input CreatorInput {

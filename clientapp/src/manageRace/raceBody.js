@@ -36,8 +36,8 @@ export default ({ eventId, maxLaps, viewOnly = false }) => {
 
     const correctedTimes = peoplel.map(elem => {
         if (elem.laps.length === 0) return { eventId: eventId, userId: elem.helm.userId, correctedTime: null, __typename: "CorrectedTime" }
-        const lastLapTime = elem.laps.sort((a, b) => a.lapTime - b.lapTime).reverse()[0].lapTime
-        const elapsedTime = lastLapTime - data.getRaceStart
+        const lastLapTime = elem.laps.sort((a, b) => parseInt(a.lapTime) - parseInt(b.lapTime)).reverse()[0].lapTime
+        const elapsedTime = parseInt(lastLapTime) - parseInt(data.getRaceStart)
         const correctedTime = Math.floor((Math.floor((elapsedTime / elem.helm.pY)) / elem.laps.length) * maxLaps);
         return { eventId: eventId, userId: elem.helm.userId, correctedTime: correctedTime, __typename: "CorrectedTime" }
     })

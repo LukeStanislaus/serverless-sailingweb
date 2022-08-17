@@ -133,7 +133,7 @@ async function broadcast(event, context) {
                 eventId: eventId,
                 userId: newImage.userId.S,
                 lapId: (record.dynamodb.Keys.type_id.S.split("_")[1]), // in a lap, the lapid is part of type_id, such is why we cant use the userid for above
-                lapTime: parseInt(newImage.lapTime.N)
+                lapTime: newImage.lapTime.N
               }
             }
             return broadcastMessage(data)
@@ -146,7 +146,7 @@ async function broadcast(event, context) {
                 eventId: eventId,
                 userId: newImage.userId.S,
                 lapId: (record.dynamodb.Keys.type_id.S.split("_")[1]), // in a lap, the lapid is part of type_id, such is why we cant use the userid for above
-                lapTime: parseInt(newImage.lapTime.N)
+                lapTime: newImage.lapTime.N
               }
             }
             return broadcastMessage(data)
@@ -176,7 +176,7 @@ async function broadcast(event, context) {
               type: "updateRace",
               payload: {
                 eventId: eventId,
-                startTime: parseInt(newImage.startTime.N),
+                startTime: newImage.startTime.N.toString(),
                 finished: newImage.finished.BOOL
               }
             }

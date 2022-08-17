@@ -1,6 +1,5 @@
 import * as db from './dynamo';
 import uuidv4 from 'uuid/v4'
-import { CloudWatchLogs } from 'aws-sdk';
 
 export const removeEvent = async (args) => {
   let getParams = {
@@ -44,7 +43,10 @@ export const allEvents = async () => {
     ],
   }
   let res = await db.scan(params)
-  let updatedRes = res.map(elem => elem.finished === undefined ? { finished: false, ...elem } : elem)
+  let updatedRes = res.map(elem => {
+    elem.eventTimeStamp = elem.eventTimeStamp.toString();
+    return elem
+  })
   return updatedRes
 }
 export const createEvent = async (args) => {
@@ -56,7 +58,7 @@ export const createEvent = async (args) => {
       type_id: "event_" + eventId,
       eventName: args.event.eventName,
       calendarData: args.event.calendarData,
-      eventTimeStamp: args.event.eventTimeStamp,
+      eventTimeStamp: parseInt(args.event.eventTimeStamp),
       finished: false
     }
   }
@@ -69,13 +71,12 @@ export const recentEvents = async (args) => {
     IndexName: "eventId-eventTimeStamp-index",
     FilterExpression: "eventTimeStamp between :start and :end",
     ExpressionAttributeValues: {
-      ':start': args.range.start,
-      ':end': args.range.end
+      ':start': parseInt(args.range.start),
+      ':end': parseInt(args.range.end)
     }
   }
-let res = await db.scan(params)
-let updatedRes = res.map(elem => elem.finished === undefined ? { finished: false, ...elem } : elem)
-  return updatedRes
+  let res = await db.scan(params)
+  return res
 }
 
 export const startRace = async (args) => {
@@ -86,12 +87,10 @@ export const startRace = async (args) => {
     ExpressionAttributeNames: { "#startTime": "startTime" },
     ReturnValues: "ALL_NEW",
     ExpressionAttributeValues: {
-      ":startTime": args.StartRaceData.startTime
+      ":startTime": args.StartRaceData.startTime?parseInt(args.StartRaceData.startTime):null
     }
   }
-  let res
-  res = await db.updateItem(params, args);
-  console.log(res.Attributes)
+  let res = await db.updateItem(params, args);
   return { StartRaceData: res.Attributes }
 }
 
@@ -105,12 +104,11 @@ export const getRaceStart = async (args) => {
     }
   }
   const array = await db.queryItem(params);
-  let result = array[0] == undefined ? null : array[0].startTime
-  return result
+  return array[0] == undefined ? null : array[0].startTime.toString()
 
 }
 
-export const updateRace = async ({UpdateRaceInputData:{finished, startTime, eventId}}) => {
+export const updateRace = async ({ UpdateRaceInputData: { finished, startTime, eventId } }) => {
 
   const params = {
     TableName: "Races",
@@ -123,7 +121,7 @@ export const updateRace = async ({UpdateRaceInputData:{finished, startTime, even
     ReturnValues: "ALL_NEW",
     ExpressionAttributeValues: {
       ":finished": finished,
-      ":startTime": startTime
+      ":startTime": parseInt(startTime)
     }
   }
   const res = await db.updateItem(params);

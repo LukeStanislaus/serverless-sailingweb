@@ -3,6 +3,7 @@
 /.dynamodb
 /.serverless
 /coverage
+/.aws
 .yarn/*
 !.yarn/patches
 !.yarn/releases

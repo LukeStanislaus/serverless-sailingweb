@@ -23,7 +23,7 @@ export default (props) => {
       LapData: {
         eventId: props.eventId,
         lapId: props.lap.lapId,
-        lapTime: newTime == null ? newTime : new Date(newTime).getTime()
+        lapTime: newTime == null ? newTime : new Date(newTime).getTime().toString()
       }
     }
   }

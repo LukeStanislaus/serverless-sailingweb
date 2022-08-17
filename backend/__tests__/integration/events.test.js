@@ -23,7 +23,7 @@ test("allEvents query returns event", async () => {
     return {
       eventId: elem.eventId,
       eventName: elem.eventName,
-      eventTimeStamp: elem.eventTimeStamp
+      eventTimeStamp: elem.eventTimeStamp.toString() // we account for the fact that behind the scenes, this is a int
     }
   })
   expect(result.data.allEvents).toEqual(RacesEvents);
@@ -46,19 +46,19 @@ test("recentEvents query returns event", async () => {
             "input": {
               "range":
               {
-                "start": 0,
-                "end": 0
+                "start": "0",
+                "end": "0"
               }
             }
           }`})
   })
   const result = await response.json()
-  const Filter = Races.filter(elem => elem.eventTimeStamp == 0)
+  const Filter = Races.filter(elem => elem.eventTimeStamp == "0")
   const RacesEvents = Filter.map(elem => {
     return {
       eventId: elem.eventId,
       eventName: elem.eventName,
-      eventTimeStamp: elem.eventTimeStamp
+      eventTimeStamp: elem.eventTimeStamp.toString() // we account for the fact that behind the scenes, this is an int
     }
   })
   expect(result.data.recentEvents).toEqual(RacesEvents);
@@ -108,7 +108,7 @@ test("createEvent mutation creates and returns event", async () => {
     input: {
       event:{
         eventName: "test",
-        eventTimeStamp: 0
+        eventTimeStamp: "0"
       } 
     }
   }
@@ -159,7 +159,7 @@ test("createEvent mutation creates and returns event", async () => {
 test("removeEvent mutation removes event", async () => {
   const obj = {"event":{
     "eventName": "test",
-    "eventTimeStamp": 0
+    "eventTimeStamp": "0"
   }}
   const create = await fetch('http://localhost:3000/dev/graphql', {
     method: 'post',
@@ -177,7 +177,7 @@ test("removeEvent mutation removes event", async () => {
       "input": {
         "event":{
           "eventName": "test",
-          "eventTimeStamp": 0
+          "eventTimeStamp": "0"
         } 
       }
     }`})
@@ -222,7 +222,7 @@ test('startRace starts the race', async () => {
   const inputObj = {
     input: {
       StartRaceData: {
-        startTime: 0,
+        startTime: "0",
         eventId: "0"
       }
     }
@@ -249,7 +249,7 @@ test('getRaceStart gets the start time of the race', async () => {
   const inputObj = {
     input: {
       StartRaceData: {
-        startTime: 0,
+        startTime: "0",
         eventId: "4"
       }
     }
@@ -282,7 +282,7 @@ test('getRaceStart gets the start time of the race', async () => {
       variables: getRaceStartInputObj})
   })
   const responseJson = await response.json();
-  expect(responseJson.data.getRaceStart).toEqual(0)
+  expect(responseJson.data.getRaceStart).toEqual("0")
   
 })
 
@@ -315,7 +315,7 @@ expect(res.data.startRace.StartRaceData.startTime).toEqual(null)
 test("updateRace updates a race", async ()=> {
 
   let item = {
-    startTime: 1,
+    startTime: "1",
     eventId: "1",
     finished: true
   }

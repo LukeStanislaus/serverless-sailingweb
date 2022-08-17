@@ -11,8 +11,8 @@ const timeRounded = Math.round((new Date().getTime() / 100000)) * 100000
 const recentEventsInput = {
     input: {
         range: {
-            start: 0,
-            end: (timeRounded + 10000000000)
+            start: "0",
+            end: (timeRounded + 10000000000).toString()
         }
     }
 }
@@ -73,7 +73,8 @@ const [removeEvent] = useMutation(REMOVE_EVENT, {
     
 if (error) return <div>{error.message}</div>
 if (loading) return <Createable/>
-let sortedRecentEvents= data.recentEvents?data.recentEvents.sort((a,b)=>{ return -(a.eventTimeStamp-b.eventTimeStamp)}): null
+let sortedRecentEvents= data.recentEvents?data.recentEvents.sort((a,b)=>{ return -(parseInt(a.eventTimeStamp)-
+    parseInt(b.eventTimeStamp))}): null
 
     return (<>Select a Race:
     {<Createable
@@ -91,7 +92,7 @@ let sortedRecentEvents= data.recentEvents?data.recentEvents.sort((a,b)=>{ return
             {includeCreateRace && <button style={{"float":"right"}} onClick={e=>{removeEvent({variables:{input:{event:{eventId:elem.eventId}}}})}} children={"Remove Race"}type={"button"}/>}
             </div>}
             }
-            onCreateOption={(elem)=>  addRace({ variables: { input: { event: { eventName: elem, eventTimeStamp: Date.now() } } } })}
+            onCreateOption={(elem)=>  addRace({ variables: { input: { event: { eventName: elem, eventTimeStamp: Date.now().toString() } } } })}
             isValidNewOption={(elem)=> elem!==""&&includeCreateRace}
             onChange={setRace}
         />}

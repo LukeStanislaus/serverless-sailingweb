@@ -1,5 +1,5 @@
 {
-  "name": "serverless-dynamodb-test",
+  "name": "serverless-sailingweb-backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "start": "serverless offline start",
     "test": "jest",
     "jest": "jest --watchAll",
-    "ci": "start-server-and-test 'yarn start' http-get://localhost:3000/dev/graphql 'yarn test'"
+    "ci": "start-server-and-test 'yarn run start' http-get://localhost:3000/dev/graphql 'yarn run test'"
   },
   "author": "",
   "license": "ISC",
@@ -21,7 +21,6 @@
     "global": "^4.3.2",
     "graphql": "^14.2.1",
     "graphql-tag": "^2.10.1",
-    "graphql-type-long": "^0.1.1",
     "imports-loader": "^0.8.0",
     "jest-junit": "^6.3.0",
     "node-fetch": "^2.3.0",
@@ -33,7 +32,7 @@
     "serverless-dynamodb-local": "^0.2.37",
     "serverless-jest-plugin": "^0.2.1",
     "serverless-offline": "^9.1.2",
-    "serverless-webpack": "^5.2.0",
+    "serverless-webpack": "^5.8.0",
     "start-server-and-test": "^1.12.1",
     "uuid": "^3.3.2",
     "webpack": "^4.30.0",
@@ -44,7 +43,7 @@
     "jest": "^24.7.1"
   },
   "jest": {
-    "setTimeout": {"Error": 20000},
+    "testTimeout": 50000,
     "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"

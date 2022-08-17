@@ -4,7 +4,7 @@ test('newlap creates a new lap', async ()=> {
     let obj = {
           eventId: "2",
           userId: "2",
-          lapTime: 0
+          lapTime: "0"
         
     }
   const newLap = await fetch('http://localhost:3000/dev/graphql', {
@@ -106,7 +106,7 @@ test('updateLap updates lap', async ()=> {
     LapData: {
       eventId: "4",
       lapId: "4",
-      lapTime: 1
+      lapTime: "1"
     }
 }
   const updateLap = await fetch('http://localhost:3000/dev/graphql', {
@@ -126,6 +126,6 @@ test('updateLap updates lap', async ()=> {
       }})
   })
   const updateLapJson = await updateLap.json()
-  expect(updateLapJson.data.updateLap.Lap.lapTime).toEqual(1)
+  expect(updateLapJson.data.updateLap.Lap.lapTime).toEqual("1")
 
 })

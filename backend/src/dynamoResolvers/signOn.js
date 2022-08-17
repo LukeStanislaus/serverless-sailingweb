@@ -29,7 +29,7 @@ export const removeFromRace = async (args) => {
       Key: { eventId: args.RemoveFromRaceData.eventId, type_id: "signOn_" + args.RemoveFromRaceData.userId }
     }
   }
-
+// TODO: REMOVE LAPS WHEN YOU DELETE SOMEONE!
   const params = {
     RequestItems: {
       'Races': [result]
