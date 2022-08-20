@@ -146,7 +146,7 @@ custom:
   webpack:
     webpackConfig: './webpack.config.js'   # Name of webpack configuration file
     includeModules: true   # Node modules configuration for packaging
-    packager: yarn  # Packager that will be used to package your external modules
+    packager: npm  # Packager that will be used to package your external modules
   serverless-offline:
     exec: "yarn run test"
 functions:
