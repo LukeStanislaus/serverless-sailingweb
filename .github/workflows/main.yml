@@ -39,7 +39,7 @@ jobs:
           yarn run serverless config credentials --provider aws --key "$key_id" --secret "$access_key" 
           yarn run serverless dynamodb install 
           yarn ci
-          npx serverless deploy
+          yarn serverless deploy
           cd ..
 
       - name: Clientapp
