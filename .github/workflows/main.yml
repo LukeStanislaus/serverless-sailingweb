@@ -43,6 +43,7 @@ jobs:
           yarn serverless deploy
           cd ..
 
+
       - name: Clientapp
         shell: sh
         env:
