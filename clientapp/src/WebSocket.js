@@ -6,7 +6,7 @@ const GET_RACE_START = loader('./graphqlQueries/GET_RACE_START.graphql')
 
 export default () => {
     let client = useApolloClient()
-    let ws = new WebSocket("wss://qsbgsxx2se.execute-api.eu-west-2.amazonaws.com/dev/")
+    let ws = new WebSocket("wss://4s4i7341f0.execute-api.eu-west-2.amazonaws.com/dev/")
     ws.onopen = () => {
         console.info("Websocket connected");
         ws.onmessage = (event) => {
