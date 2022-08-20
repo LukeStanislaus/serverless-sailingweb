@@ -24,6 +24,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+        run: |
+          sudo apt-get update
+          sudo apt-get install openjdk-8-jdk-headless
+          sudo apt-get install python
         # yarn exec sls config credentials --provider aws --key "$keyId" --secret "$accessKey"
       - name: Backend
         shell: sh
@@ -31,9 +35,7 @@ jobs:
           key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          sudo apt-get update
-          sudo apt-get install openjdk-8-jdk-headless
-          sudo apt-get install python
+
           cd backend
           yarn 
           yarn run serverless config credentials --provider aws --key "$key_id" --secret "$access_key" 
