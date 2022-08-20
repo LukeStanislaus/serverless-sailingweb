@@ -34,11 +34,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install openjdk-8-jdk-headless
           cd backend
-          yarn
-          yarn serverless config credentials --provider aws --key "$key_id" --secret "$access_key" 
-          yarn serverless dynamodb install 
-           yarn ci
-          yarn serverless deploy
+          npm i
+          npx serverless config credentials --provider aws --key "$key_id" --secret "$access_key" 
+          npx serverless dynamodb install 
+          npm run ci
+          npx serverless deploy
           cd ..
 
       - name: Clientapp
@@ -47,8 +47,8 @@ jobs:
           firebase_deploy_key: ${{ secrets.FIREBASE_DEPLOY_KEY }}
         run: |
           cd clientapp
-          yarn
-          yarn build
+          npm i
+          npm build
           npx firebase-tools deploy --token "$firebase_deploy_key" --non-interactive
 
       # Runs a set of commands using the runners shell
