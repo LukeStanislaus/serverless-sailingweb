@@ -33,6 +33,7 @@ provider:
               - "dynamodb:DeleteItem"
               - "dynamodb:BatchGetItem"
               - "dynamodb:BatchWriteItem"
+              - "dynamodb:Scan"
               - "dynamodb:Query"
             Resource:
               - Fn::GetAtt: [WebSocketTable, Arn]
