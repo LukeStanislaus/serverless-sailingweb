@@ -35,7 +35,7 @@ jobs:
           sudo apt-get install openjdk-8-jdk-headless
           cd backend
           npm i
-          npx serverless config credentials --provider aws --key "$key_id" --secret "$access_key" 
+          yarn run serverless config credentials --provider aws --key "$key_id" --secret "$access_key" 
           npx serverless dynamodb install 
           npm run ci
           npx serverless deploy
