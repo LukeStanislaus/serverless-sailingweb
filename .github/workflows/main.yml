@@ -36,7 +36,7 @@ jobs:
           sudo apt-get install openjdk-8-jdk-headless
           sudo apt-get install python
           cd backend
-          yarn 
+          npm i 
           yarn run serverless config credentials --provider aws --key "$key_id" --secret "$access_key" 
           yarn run serverless dynamodb install 
           yarn ci
