@@ -76,6 +76,10 @@ export const recentEvents = async (args) => {
     }
   }
   let res = await db.scan(params)
+  res = res.map(elem=>{
+    elem.finished = elem.finished?elem.finished:false
+  return elem
+  })
   return res
 }
 
@@ -104,7 +108,7 @@ export const getRaceStart = async (args) => {
     }
   }
   const array = await db.queryItem(params);
-  return array[0] == undefined ? null : array[0].startTime.toString()
+  return array[0] ?  array[0].startTime?array[0].startTime.toString():null : null // consider if event doesnt exist, or start time not set
 
 }
 

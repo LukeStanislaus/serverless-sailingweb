@@ -41,7 +41,7 @@ const link =new HttpLink({
 
     },
     fetchOptions: {
-      mode: 'no-cors'
+      mode: 'cors'
     }
   })
 export const client = new ApolloClient({

@@ -7,7 +7,8 @@
     "start": "serverless offline start",
     "test": "jest",
     "jest": "jest --watchAll",
-    "ci": "start-server-and-test 'yarn run start' http-get://localhost:3000/dev/graphql 'yarn run test'"
+    "ci": "start-server-and-test 'yarn run start' http-get://localhost:3000/dev/graphql 'yarn run test'",
+    "hot": "start-server-and-test 'yarn run start' http-get://localhost:3000/dev/graphql 'yarn run jest'"
   },
   "author": "",
   "license": "ISC",

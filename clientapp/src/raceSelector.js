@@ -16,7 +16,7 @@ const recentEventsInput = {
         }
     }
 }
-
+console.log(timeRounded)
 
 
 
@@ -72,7 +72,7 @@ const [removeEvent] = useMutation(REMOVE_EVENT, {
     })
     
 if (error) return <div>{error.message}</div>
-if (loading) return <Createable/>
+if (loading)  return <Createable placeholder={"Loading..."}/>
 let sortedRecentEvents= data.recentEvents?data.recentEvents.sort((a,b)=>{ return -(parseInt(a.eventTimeStamp)-
     parseInt(b.eventTimeStamp))}): null
 
@@ -92,7 +92,10 @@ let sortedRecentEvents= data.recentEvents?data.recentEvents.sort((a,b)=>{ return
             {includeCreateRace && <button style={{"float":"right"}} onClick={e=>{removeEvent({variables:{input:{event:{eventId:elem.eventId}}}})}} children={"Remove Race"}type={"button"}/>}
             </div>}
             }
-            onCreateOption={(elem)=>  addRace({ variables: { input: { event: { eventName: elem, eventTimeStamp: Date.now().toString() } } } })}
+            onCreateOption={(elem)=> 
+                 {addRace({ variables: { input: { event: { eventName: elem, eventTimeStamp: Date.now().toString() } } } })
+                console.log("Created option")}
+            }
             isValidNewOption={(elem)=> elem!==""&&includeCreateRace}
             onChange={setRace}
         />}

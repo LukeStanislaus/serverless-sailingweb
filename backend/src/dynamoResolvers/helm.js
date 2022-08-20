@@ -41,7 +41,8 @@ export const newPerson = async (args) =>  {
         ReturnValues: "ALL_OLD"
     }
     await db.createItem(params);
-    return {newPerson: params.Item}
+    return {newPerson: {...params.Item, userId}}
+
 }
 
 export const allHelms = async (args) => {

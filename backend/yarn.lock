@@ -13277,8 +13277,8 @@ fsevents@~2.3.2:
   linkType: hard
 
 "minipass-fetch@npm:^2.0.3":
-  version: 2.1.0
-  resolution: "minipass-fetch@npm:2.1.0"
+  version: 2.1.1
+  resolution: "minipass-fetch@npm:2.1.1"
   dependencies:
     encoding: ^0.1.13
     minipass: ^3.1.6
@@ -13287,7 +13287,7 @@ fsevents@~2.3.2:
   dependenciesMeta:
     encoding:
       optional: true
-  checksum: 3aad05a27f894003e14459c062685ac37c34f278b84df9fe4031909a967b78256f74486206a805af1d3447b53fe715182abe029561ea217bc6a07819028682d2
+  checksum: 1be3101d99076382a7f95335b90b7296945bfab8d337a51a85f108213a57d6b3723320c3a54530ea1fbccdb7aa3c9941f030b5c5d0a6ed71ff05a0d3ee3de4e4
   languageName: node
   linkType: hard
 

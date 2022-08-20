@@ -10,7 +10,8 @@ export default () => {
     ws.onopen = () => {
         console.info("Websocket connected");
         ws.onmessage = (event) => {
-            try {                let data = JSON.parse(event.data);
+            try {
+                let data = JSON.parse(event.data);
                 console.log(data)
                 switch (data.type) {
                     case "newLap": {
@@ -34,15 +35,15 @@ export default () => {
 
                     }
                         break;
-                        case "updateLap": {
-                            const inputData = { input: { eventId: data.payload.eventId } }
-                            let { getLapsOfRace } = client.readQuery({
-                                query: GET_LAPS_OF_RACE,
-                                variables: inputData
-                            })
-                            let removedArray = getLapsOfRace.filter(elem => elem.lapId !== data.payload.lapId)
-                            if (data.payload.lapTime == null) {
-                            }
+                    case "updateLap": {
+                        const inputData = { input: { eventId: data.payload.eventId } }
+                        let { getLapsOfRace } = client.readQuery({
+                            query: GET_LAPS_OF_RACE,
+                            variables: inputData
+                        })
+                        let removedArray = getLapsOfRace.filter(elem => elem.lapId !== data.payload.lapId)
+                        if (data.payload.lapTime == null) {
+                        }
                         else {
                             const lap = { ...(data.payload), __typename: "Lap" }
                             removedArray = removedArray.concat(lap)
@@ -64,7 +65,7 @@ export default () => {
                         }
                         let { specificEvent } = client.readQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables })
                         if (specificEvent.every(elem => elem.userId !== data.payload.userId)) {
-                            client.writeQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables, data: {specificEvent:specificEvent.concat({ "__typename": "SignOn", ...data.payload })} })
+                            client.writeQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables, data: { specificEvent: specificEvent.concat({ "__typename": "SignOn", ...data.payload }) } })
                         }
                         break;
                     }
@@ -86,8 +87,8 @@ export default () => {
                         console.log(data.payload)
                         client.writeQuery({
                             query: GET_RACE_START,
-                            variables: { input:{ eventId: data.payload.eventId}},
-                            data:{getRaceStart: data.payload.startTime} 
+                            variables: { input: { eventId: data.payload.eventId } },
+                            data: { getRaceStart: data.payload.startTime }
                         })
                         break;
                     }
@@ -97,7 +98,7 @@ export default () => {
                 }
             }
             catch (e) {
-                if (e.name === "Invariant Violation") {  }
+                if (e.name === "Invariant Violation") { }
                 else {
                     throw e;
                 }
