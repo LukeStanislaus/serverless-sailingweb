@@ -35,9 +35,6 @@ const RetryLinker = new RetryLink({
 const link =new HttpLink({
   uri: 'https://rhvzwuhewi.execute-api.eu-west-2.amazonaws.com/dev/graphql',
   headers: {
-      //'Access-Control-Allow-Origin': '*',
-      //'Access-Control-Allow-Credentials': true,    
-      //"Access-Control-Allow-Methods": "*"
 
     },
     fetchOptions: {
