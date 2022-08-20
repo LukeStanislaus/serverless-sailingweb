@@ -33,6 +33,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install openjdk-8-jdk-headless
+          sudo apt-get install python
           cd backend
           yarn 
           yarn run serverless config credentials --provider aws --key "$key_id" --secret "$access_key" 
