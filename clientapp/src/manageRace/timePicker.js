@@ -4,10 +4,12 @@ import React from 'react'
 
 export default ({setNewTime, newTime }) => {
     return <TimePicker maxDetail={"second"} onChange={val=> {
+        if (typeof val !== "string") return
         if (val == null) {setNewTime(null); return;}
         const date = new Date().setHours(val.split(":")[0]);
         const finalDate = new Date(date).setMinutes(val.split(":")[1])
         const secondsDate = new Date(finalDate).setSeconds(val.split(":")[2])
+        console.log(new Date(secondsDate))
         setNewTime(new Date(secondsDate))
     
     

@@ -3,18 +3,18 @@ import StartRaceButton from './startRaceButton'
 import TimePicker from './timePicker'
 /* global ServerDate*/
 export default ({ finished = false,startTime, eventId, viewOnly=false }) => {
-  let [newTime, setNewTime] = useState(new Date(startTime).toString())
+  let [newTime, setNewTime] = useState(new Date(startTime))
   let [editTime, setEditTime] = useState(false)
-  let [time, setTime] = useState(ServerDate.getTime().toString())
+  let [time, setTime] = useState(ServerDate.getTime())
   let [localFinished, setLocalFinished] = useState(finished)
   useInterval(() =>{setTime(time + 1000);setTime(ServerDate.getTime())}, 1000)
-
-let Timer = ()=><h2>{toHHMMSS(((parseInt(time) - parseInt(startTime))/1000).toString())}</h2>
+let Timer = ()=><h2>{toHHMMSS(((time - startTime)/1000))}</h2>
+console.log(newTime)
   return !viewOnly?<><div style={{ padding: "2%" }} onClick={() => setEditTime(!editTime)} ><Timer />
   </div>
     {editTime && <><TimePicker setNewTime={setNewTime} newTime={newTime} />
      <input type={"checkbox"} checked={localFinished} onChange={()=>setLocalFinished(!localFinished)}/> Race finished?
-      <StartRaceButton shouldEarlyStart={false} finished={localFinished} startTime={newTime == null ? null : newTime.getTime().toString()}
+      <StartRaceButton shouldEarlyStart={false} finished={localFinished} startTime={newTime == null ? null : newTime.getTime()}
         buttonText={"Update Start Time"} eventId={eventId} /></>}
   </>:(<><Timer/> </>)
 }

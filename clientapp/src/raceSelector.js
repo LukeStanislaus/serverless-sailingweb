@@ -16,7 +16,6 @@ const recentEventsInput = {
         }
     }
 }
-console.log(timeRounded)
 
 
 
@@ -76,7 +75,7 @@ if (loading)  return <Createable placeholder={"Loading..."}/>
 
 let sortedRecentEvents= data.recentEvents?data.recentEvents.sort((a,b)=>{ return -(parseInt(a.eventTimeStamp)-
     parseInt(b.eventTimeStamp))}): null
-    console.table(sortedRecentEvents)
+    
     return (<>Select a Race:
     {<Createable
     autoFocus
@@ -85,7 +84,6 @@ let sortedRecentEvents= data.recentEvents?data.recentEvents.sort((a,b)=>{ return
             value={data.selectedRace}
             options={sortedRecentEvents}
             formatOptionLabel={elem => {
-                console.log(elem)
                 if (elem.__isNew__)return elem.label+", " + new Date(Date.now()).toLocaleTimeString()+ ", " + new Date(Date.now()).toDateString()
                 return <div>{elem.eventName + ", " +
                     new Date(parseInt(elem.eventTimeStamp)).toLocaleTimeString() + ", " +
