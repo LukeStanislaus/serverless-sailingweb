@@ -1,7 +1,7 @@
 
 import * as db from './dynamo';
 
-export const allBoatData = ()=> {
+export const allBoatData = async ()=> {
     let params = {
       TableName: "BoatData",    
       AttributesToGet: [
@@ -10,10 +10,10 @@ export const allBoatData = ()=> {
         'crew',
       ],
     }
-    return db.scan(params)
+    return await db.scan(params)
   }
   
-export const createBoat = (args) => {
+export const createBoat = async (args) => {
   let params = {
     TableName: "BoatData",
     Item: {
@@ -23,6 +23,7 @@ export const createBoat = (args) => {
     },
     ReturnValues: "ALL_OLD"
   }
-  return {boatData: db.createItem(params)}
+  await db.createItem(params)
+  return {boatData: params.Item}
   }
 

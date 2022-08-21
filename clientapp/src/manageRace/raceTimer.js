@@ -10,13 +10,15 @@ export default ({ finished = false,startTime, eventId, viewOnly=false }) => {
   useInterval(() =>{setTime(time + 1000);setTime(ServerDate.getTime())}, 1000)
 let Timer = ()=><h2>{toHHMMSS(((time - startTime)/1000))}</h2>
 console.log(newTime)
-  return !viewOnly?<><div style={{ padding: "2%" }} onClick={() => setEditTime(!editTime)} ><Timer />
-  </div>
-    {editTime && <><TimePicker setNewTime={setNewTime} newTime={newTime} />
-     <input type={"checkbox"} checked={localFinished} onChange={()=>setLocalFinished(!localFinished)}/> Race finished?
-      <StartRaceButton shouldEarlyStart={false} finished={localFinished} startTime={newTime == null ? null : newTime.getTime()}
-        buttonText={"Update Start Time"} eventId={eventId} /></>}
-  </>:(<><Timer/> </>)
+  return !viewOnly ? 
+<><input type={"checkbox"} checked={localFinished} onChange={()=>setLocalFinished(!localFinished)}/> Race finished?
+
+        
+    {!finished&&<div style={{ padding: "2%" }} onClick={() => setEditTime(!editTime)} ><Timer /></div>
+}   <>{editTime &&!finished&& <TimePicker setNewTime={setNewTime} newTime={newTime} />}</>
+ <StartRaceButton shouldEarlyStart={false} finished={localFinished} startTime={newTime == null ? null : newTime.getTime()}
+        buttonText={"Update"} eventId={eventId} />
+</>:(<><Timer/> </>)
 }
 
 

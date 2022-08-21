@@ -45,7 +45,7 @@ export default ({ selectedRace, viewOnly = false }) => {
     });
     return (<>{data.getRaceStart === null ?
         !viewOnly && <StartRaceButton finshed={selectedRace.finished} shouldEarlyStart={true} buttonText={"Press here to start the race"} startTime={new Date().getTime()} eventId={selectedRace.eventId} /> :
-        !selectedRace.finished && <RaceTimer finished={selectedRace.finished} eventId={selectedRace.eventId} startTime={parseInt(data.getRaceStart)} viewOnly={viewOnly} />}
+         <RaceTimer finished={selectedRace.finished} eventId={selectedRace.eventId} startTime={parseInt(data.getRaceStart)} viewOnly={viewOnly} />}
         <table style={{ "display": "block", "overflowX": "auto", "whiteSpace": "nowrap", "top":"300" }}><tbody><RaceHeader maxLaps={viewOnly ? undefined : max} viewOnly={viewOnly} />
             <RaceBody eventId={selectedRace.eventId} people={array} maxLaps={max} viewOnly={viewOnly} />
         </tbody>
