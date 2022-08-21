@@ -73,9 +73,10 @@ const [removeEvent] = useMutation(REMOVE_EVENT, {
     
 if (error) return <div>{error.message}</div>
 if (loading)  return <Createable placeholder={"Loading..."}/>
+
 let sortedRecentEvents= data.recentEvents?data.recentEvents.sort((a,b)=>{ return -(parseInt(a.eventTimeStamp)-
     parseInt(b.eventTimeStamp))}): null
-
+    console.table(sortedRecentEvents)
     return (<>Select a Race:
     {<Createable
     autoFocus
@@ -84,11 +85,11 @@ let sortedRecentEvents= data.recentEvents?data.recentEvents.sort((a,b)=>{ return
             value={data.selectedRace}
             options={sortedRecentEvents}
             formatOptionLabel={elem => {
-                
+                console.log(elem)
                 if (elem.__isNew__)return elem.label+", " + new Date(Date.now()).toLocaleTimeString()+ ", " + new Date(Date.now()).toDateString()
                 return <div>{elem.eventName + ", " +
-                    new Date(elem.eventTimeStamp).toLocaleTimeString() + ", " +
-            new Date(elem.eventTimeStamp).toDateString() + (elem.finished?" - FINISHED":"")}
+                    new Date(parseInt(elem.eventTimeStamp)).toLocaleTimeString() + ", " +
+            new Date(parseInt(elem.eventTimeStamp)).toDateString() + (elem.finished?" - FINISHED":"")}
             {includeCreateRace && <button style={{"float":"right"}} onClick={e=>{removeEvent({variables:{input:{event:{eventId:elem.eventId}}}})}} children={"Remove Race"}type={"button"}/>}
             </div>}
             }

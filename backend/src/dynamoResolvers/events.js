@@ -76,9 +76,9 @@ export const recentEvents = async (args) => {
     }
   }
   let res = await db.scan(params)
-  res = res.map(elem=>{
-    elem.finished = elem.finished?elem.finished:false
-  return elem
+  res = res.map(elem => {
+    elem.finished = elem.finished ? elem.finished : false
+    return elem
   })
   return res
 }
@@ -91,7 +91,7 @@ export const startRace = async (args) => {
     ExpressionAttributeNames: { "#startTime": "startTime" },
     ReturnValues: "ALL_NEW",
     ExpressionAttributeValues: {
-      ":startTime": args.StartRaceData.startTime?parseInt(args.StartRaceData.startTime):null
+      ":startTime": args.StartRaceData.startTime ? parseInt(args.StartRaceData.startTime) : null
     }
   }
   let res = await db.updateItem(params, args);
@@ -108,8 +108,8 @@ export const getRaceStart = async (args) => {
     }
   }
   const array = await db.queryItem(params);
-  let startRaceNullable= array[0] ?  array[0].startTime.toString():null  // consider if event doesnt exist, or start time not set
-  return startRaceNullable? startRaceNullable.toString():null
+  // consider if event doesnt exist, or start time not set
+  return array[0].startTime.toString()
 }
 
 export const updateRace = async ({ UpdateRaceInputData: { finished, startTime, eventId } }) => {
