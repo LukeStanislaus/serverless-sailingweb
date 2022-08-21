@@ -99,7 +99,7 @@ export default () => {
     </div>
     <div>
       Enter boat PY:
-    <FormControl value={pY} onChange={(e) => setPY(parseInt(e.target.value))} type="number" />
+    <FormControl value={pY} onChange={(e) => parseInt(e.target.value)>0?setPY(parseInt(e.target.value)):setPY(1)} type="number" />
     </div><div style={{ paddingTop: "20px" }}>
     <AwesomeButtonProgress
       disabled={name ===""|| boatName===""||boatNumber ===""||pY===""}
