@@ -51,12 +51,7 @@ provider:
               - "dynamodb:BatchWriteItem"
               - "dynamodb:Query"
               - "dynamodb:Scan"
-            Resource:
-              - Fn::GetAtt: [Races, Arn]
-              - Fn::Join:
-                  - '/'
-                  - - Fn::GetAtt: [Races, Arn]
-                    - '*'
+            Resource: "*"
                     
               
 resources:
