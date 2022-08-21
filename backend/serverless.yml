@@ -17,6 +17,7 @@ provider:
        statements:
         - Effect: Allow
           Action:
+            - "execute-api:Invoke"
             - "lambda:InvokeFunction"
             - "lambda:InvokeFunctionConfiguration"
             - "dynamodb:PutItem"
