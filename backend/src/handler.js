@@ -79,7 +79,7 @@ async function broadcast(event, context) {
   // broadcast the news
   const client = new AWS.ApiGatewayManagementApi({
     apiVersion: '2018-11-29',
-    endpoint: "https://rhvzwuhewi.execute-api.eu-west-2.amazonaws.com/dev/graphql"
+    endpoint: "https://rhvzwuhewi.execute-api.eu-west-2.amazonaws.com/dev/"
   });
   broadcastMessage = async (data) => await broadcastMessageFull(data, client)
   console.log(JSON.stringify(event))
