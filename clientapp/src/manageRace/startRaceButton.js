@@ -11,7 +11,8 @@ export default ({ eventId, buttonText, startTime, shouldEarlyStart, finished=fal
     const updateRaceVariables = {
         input: {
             UpdateRaceInputData: {
-                startTime: shouldEarlyStart ? startTime == null ? null : earlyStart ? startTime + 300000 : startTime : startTime,
+                startTime: (shouldEarlyStart ? startTime == null ? null : earlyStart ?
+                     startTime + 300000 : startTime : startTime).toString(),
                 eventId: eventId,
                 finished: finished
             }

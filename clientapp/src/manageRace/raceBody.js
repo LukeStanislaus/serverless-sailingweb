@@ -32,12 +32,15 @@ export default ({ eventId, maxLaps, viewOnly = false }) => {
     if (loading) return <tr />
     if (error) { return <tr></tr> }
     // if (data.specificEvent.length === 0) return <><Tr><td><div></div></td></Tr><Tr></Tr><Tr></Tr></>
-    const peoplel = data.specificEvent.map((elem) => { return { helm: elem, laps: data.getLapsOfRace.filter(element => element.userId === elem.userId) } })
+    const people1 = data.specificEvent.map((elem) => { return { helm: elem, laps: 
+        data.getLapsOfRace.filter(element => element.userId === elem.userId).map(elem => {return{...elem, 
+            lapTime:parseInt(elem.lapTime)}})
+    } })
 
-    const correctedTimes = peoplel.map(elem => {
+    const correctedTimes = people1.map(elem => {
         if (elem.laps.length === 0) return { eventId: eventId, userId: elem.helm.userId, correctedTime: null, __typename: "CorrectedTime" }
-        const lastLapTime = elem.laps.sort((a, b) => parseInt(a.lapTime) - parseInt(b.lapTime)).reverse()[0].lapTime
-        const elapsedTime = parseInt(lastLapTime) - parseInt(data.getRaceStart)
+        const lastLapTime = elem.laps.sort((a, b) => (a.lapTime) - (b.lapTime)).reverse()[0].lapTime
+        const elapsedTime = (lastLapTime) - (data.getRaceStart)
         const correctedTime = Math.floor((Math.floor((elapsedTime / elem.helm.pY)) / elem.laps.length) * maxLaps);
         return { eventId: eventId, userId: elem.helm.userId, correctedTime: correctedTime, __typename: "CorrectedTime" }
     })
@@ -48,7 +51,7 @@ export default ({ eventId, maxLaps, viewOnly = false }) => {
     correctedTimesSorted = correctedTimesSorted.map((elem) => {
         return { ...elem, place: elem.correctedTime ? places++ : null }
     })
-    peoplel.forEach((element, index) => {
+    people1.forEach((element, index) => {
         let arr = correctedTimesSorted.filter(elem => elem.userId === element.helm.userId)
         //if (arr.length === 0) return <tr></tr>
         let correctedTime = arr[0].correctedTime
