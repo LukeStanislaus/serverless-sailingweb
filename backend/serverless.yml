@@ -12,9 +12,20 @@ provider:
   websocketsApiName: sailingWebSocket
   websocketsApiRouteSelectionExpression: $request.body.action
   iam:
-    role: 
+    role:
+      name: MainRole
        - statements:
-
+          - Effect: Allow
+            Action:
+              - "dynamodb:PutItem"
+              - "dynamodb:GetItem"
+              - "dynamodb:UpdateItem"
+              - "dynamodb:DeleteItem"
+              - "dynamodb:BatchGetItem"
+              - "dynamodb:BatchWriteItem"
+              - "dynamodb:Query"
+              - "dynamodb:Scan"
+            Resource: "*"
 resources:
   Resources:
     WebSocketTable:
