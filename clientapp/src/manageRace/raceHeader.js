@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useMutation } from '@apollo/react-hooks'
-import { AwesomeButton } from 'react-awesome-button'
 import { loader } from 'graphql.macro'
 import styled from 'styled-components'
 let Tr = styled.tr`
@@ -19,7 +18,6 @@ padding: 8px;
 const SELECT_ORDER_BY = loader('../graphqlQueries/SELECT_ORDER_BY.graphql')
 const ORDER_BY = loader("../graphqlQueries/ORDER_BY.graphql")
 export default ({ maxLaps, viewOnly=false }) => {
-    let laps = []
 
     const [selectOrderBy] = useMutation(SELECT_ORDER_BY, {
         refetchQueries: () => {
@@ -30,24 +28,31 @@ export default ({ maxLaps, viewOnly=false }) => {
             ]
         }
     })
-    for (let index = maxLaps; index > 0; index--) {
-        laps.push(<Th key={index}>{index}</Th>)
 
-    }
-    let viewOnlyHeaders = [{text: "Helm Name", order: true}, {text: "PY", order: true}, {text: "Boat Class", order: true}, {text: "Sail Number", order: true}, {text: "Place", order: true}, {text: "Corrected Time", order: true}]
+    let viewOnlyHeaders = ["Helm Name", "PY", "Boat Class", "Sail Number", "Place"]
 
     let manageRaceHeaders = viewOnlyHeaders.slice()
-    manageRaceHeaders.splice(4, 0, {text: "Lap", order: false})
-    manageRaceHeaders.splice(1, 1)
+
+    manageRaceHeaders.splice(4, 0, "Lap")
+
+    manageRaceHeaders.splice(1, 1) // remove py from manage race
+
+    for (let index = maxLaps; index > 0; index--) {
+        manageRaceHeaders.push(index)
+
+    }
+    manageRaceHeaders.push("Corrected Time")
+    viewOnlyHeaders.push("Corrected Time")
+    manageRaceHeaders.push("Elapsed Time")
+    viewOnlyHeaders.push("Elapsed Time")
     return <Tr>
-        {(viewOnly? viewOnlyHeaders: manageRaceHeaders).map(({text: elem, order}) =><Th key={elem}> {order? <HeaderCell selectOrderBy={selectOrderBy} text={elem} />: <div>{elem}</div>}</Th>)}
-        {laps}
+        {(viewOnly? viewOnlyHeaders: manageRaceHeaders).map(elem =>
+        <Th key={elem}> <HeaderCell selectOrderBy={selectOrderBy} text={elem} /></Th>)}
+
 
     </Tr>
 }
 
 function HeaderCell({ text, selectOrderBy }) {
-    const [picker, setPicker] = useState(false)
-
-    return <div onClick={e => setPicker(!picker)}>{text}{picker && <AwesomeButton onPress={() => selectOrderBy({ variables: { input: { SelectOrderByInput: { type: text } } } })}>Order by {text}? </AwesomeButton>}</div>
+    return <div onClick={e => selectOrderBy({ variables: { input: { SelectOrderByInput: { type: text } } } })}>{text}</div>
 } 

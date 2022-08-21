@@ -8,7 +8,7 @@ let Tr = styled.tr`
 :nth-child(even) {background-color: #f2f2f2;}
 :hover {background-color: #dddddd;}
 `
-export default ({ eventId, correctedTime, place, maxLaps, person, viewOnly = false, change, correctedTimeData: { maxCorrectedTime, minCorrectedTime } }) => {
+export default ({ eventId, elapsedTime, correctedTime, place, maxLaps, person, viewOnly = false, change, correctedTimeData: { maxCorrectedTime, minCorrectedTime } }) => {
     let raceCells = []
     if (!viewOnly) {
         if (maxLaps > person.laps.length) {
@@ -55,8 +55,14 @@ export default ({ eventId, correctedTime, place, maxLaps, person, viewOnly = fal
             {!viewOnly && <td key={"lap"}><LapButton eventId={eventId} userId={person.helm.userId} lapsCount={person.laps.length} /></td>}
             <td key={"place"}>{place ? place + " " + icon : ""}</td>
 
-            <td key={"correctedTime"}><div style={viewOnly ? { width: ((maxCorrectedTime - correctedTime) / (maxCorrectedTime - minCorrectedTime)) * 100 + "%", backgroundColor: "red" } : {}}>{correctedTime == null ? "" : correctedTime}</div></td>
 
-            {raceCells}</Tr>
+            {raceCells}
+            <td key={"correctedTime"}><div style={viewOnly ? { width: ((maxCorrectedTime - correctedTime) / 
+            (maxCorrectedTime - minCorrectedTime)) * 100 + "%", backgroundColor: "red" } : {}}>{correctedTime == null ? "" :
+             correctedTime}</div></td>
+
+                         <td key={"elapsedTime"}><div>{elapsedTime == null ? "" :
+             elapsedTime}</div></td>
+</Tr>
     </>
 }
