@@ -108,7 +108,7 @@ export const getRaceStart = async (args) => {
     }
   }
   const array = await db.queryItem(params);
-  if (!array[0]) return null;
+  if (array[0].startTime==undefined) return null;
   // consider if event doesnt exist, or start time not set
   return array[0].startTime.toString()
 }
