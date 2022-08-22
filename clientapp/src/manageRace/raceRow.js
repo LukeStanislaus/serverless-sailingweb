@@ -3,6 +3,8 @@ import RaceCell from './raceCell'
 import LapButton from './lapButton'
 import ManageHelm from './manageHelm'
 import styled from 'styled-components'
+import toHHMMSS from '../toHHMMSS'
+
 let Tr = styled.tr`
 
 :nth-child(even) {background-color: #f2f2f2;}
@@ -45,6 +47,8 @@ export default ({ eventId, elapsedTime, correctedTime, place, maxLaps, person, v
     else if (change === "down") {
         icon = " ↓"
     }
+    console.log(correctedTime)
+    console.log(elapsedTime)
     return <>
         <Tr>
             {viewOnly ? <td style={{ backgroundColor: award }} key="helmName">{person.helm.helmName}</td> : <ManageHelm key={"helmName"} helm={person.helm} eventId={eventId}></ManageHelm>}
@@ -59,10 +63,10 @@ export default ({ eventId, elapsedTime, correctedTime, place, maxLaps, person, v
             {raceCells}
             <td key={"correctedTime"}><div style={viewOnly ? { width: ((maxCorrectedTime - correctedTime) / 
             (maxCorrectedTime - minCorrectedTime)) * 100 + "%", backgroundColor: "red" } : {}}>{correctedTime == null ? "" :
-             correctedTime}</div></td>
+             toHHMMSS(correctedTime)}</div></td>
 
                          <td key={"elapsedTime"}><div>{elapsedTime == null ? "" :
-             elapsedTime}</div></td>
+             toHHMMSS(elapsedTime)}</div></td>
 </Tr>
     </>
 }

@@ -42,7 +42,7 @@ export default ({ eventId, maxLaps, viewOnly = false }) => {
         const elapsedTime = (lastLapTime) - (data.getRaceStart)
         const correctedTime = Math.floor((Math.floor((elapsedTime / elem.helm.pY)) / elem.laps.length) * maxLaps);
         return { eventId: eventId, userId: elem.helm.userId, correctedTime: correctedTime, 
-            elapsedTime: elapsedTime, __typename: "CorrectedTime" }
+            elapsedTime: elapsedTime/1000, __typename: "CorrectedTime" }
     })
     let RaceRows = []
     let correctedTimesSorted = correctedTimes.sort((a, b) => a.correctedTime - b.correctedTime)
