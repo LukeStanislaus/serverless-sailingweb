@@ -11,7 +11,6 @@ const SELECTED_RACE = loader('./graphqlQueries/SELECTED_RACE.graphql')
 const GET_BOATS = loader('./graphqlQueries/GET_BOATS.graphql')
 const SIGN_ON = loader('./graphqlQueries/SIGN_ON.graphql')
 const ALL_HELMS = loader('./graphqlQueries/ALL_HELMS.graphql')
-const SPECIFIC_EVENT = loader('./graphqlQueries/SPECIFIC_EVENT.graphql')
 
 function useCrewName(crew, setCrew) {
   const { loading, error, data } = useQuery(ALL_HELMS)
@@ -37,9 +36,10 @@ function useCrewName(crew, setCrew) {
         .filter(onlyUnique)
         .filter(elem => elem.toString().toLowerCase().includes(value.toString().toLowerCase())))}
     inputProps={{
-      type: 'search',
+      className: "form-control",
       value: crew,
-      onChange: (e) => { setCrew(e.target.value) }
+      onChange: (e) => { setCrew(e.target.value) },
+      placeholder: "Enter..."
     }
     }
   />
@@ -70,7 +70,7 @@ function useHelmName(name, setName) {
   return <Select
     isClearable
     key={"HelmName"}
-    options={data.allHelms.filter((value, index, self) =>{
+    options={data.allHelms.filter((value, index, self) => {
       return index === self.findIndex((t) => (
         t.name === value.name
       ))
@@ -82,18 +82,17 @@ function useHelmName(name, setName) {
 
 }
 
-
 function SignOn() {
   const [crew, setCrew] = useState("")
   const [name, setName] = useState("")
   const [boatClass, setBoatClass] = useState(null)
   const [notes, setNotes] = useState("")
- function reset(){
-   setCrew("")
-   setName("")
-   setBoatClass("")
-   setNotes("")
- }
+  function reset() {
+    setCrew("")
+    setName("")
+    setBoatClass("")
+    setNotes("")
+  }
   const signOnInput = {
     input: {
       signOn: {
@@ -120,15 +119,16 @@ function SignOn() {
     <h1 style={{ paddingBottom: "30px" }}>Sign onto a race</h1>
     <SelectRace AfterSelection={() => <div>done</div>} />
     Helm Name:
-{useHelmName(name, setName)}
+    {useHelmName(name, setName)}
     <div>
       Boat Class:
-        {useBoatClass(boatClass, setBoatClass, boatClassVariables)}
+      {useBoatClass(boatClass, setBoatClass, boatClassVariables)}
     </div>
     Crew Name:
-{useCrewName(crew, setCrew)}
-    Notes
-        <input value={notes} onChange={e => setNotes(e.target.value)} /><div align="center" style={{ "paddingTop": "50px" }}>
+    {useCrewName(crew, setCrew)}
+    Notes:
+    <input placeholder='Enter...' className={"form-control"} value={notes} onChange={e => setNotes(e.target.value)} />
+    <div align="center" style={{ "paddingTop": "50px" }}>
       {useSelectedRace(boatClass, name, signOnInput, reset)}
 
       <div><Link className={"navbar-text"} to="/NewPerson">Name not in list? Click here.</Link></div>
@@ -137,6 +137,7 @@ function SignOn() {
   </>
   )
 }
+
 function useSelectedRace(boatClass, name, signOnInput, reset) {
   let obj = null
   const { data, loading, error } = useQuery(SELECTED_RACE)
@@ -144,31 +145,7 @@ function useSelectedRace(boatClass, name, signOnInput, reset) {
   if (loading) obj = "Loading"
   if (error) obj = 'error'
 
-  const [signOn] = useMutation(SIGN_ON, {
-    update(cache, { data: { signOn  } }) {
-      const specificEventInputVariables = {
-        input: {
-          eventData: {
-            eventId: queryData.selectedRace.eventId
-          }
-        }
-      }
-        let helmsInRaces = cache.readQuery({ query: SPECIFIC_EVENT, variables: specificEventInputVariables })
-        let helmsInSpecificRace = helmsInRaces.specificEvent.concat(signOn.signOn)
-
-        cache.writeQuery({ 
-
-          query: SPECIFIC_EVENT, 
-          variables: specificEventInputVariables,
-          data: { specificEvent: helmsInSpecificRace } 
-
-        })
-
-      
-        //if (e.toString().substring(0, 9) !== "Invariant") throw e;
-      
-    }
-  })
+  const [signOn] = useMutation(SIGN_ON)
 
 
 
@@ -185,14 +162,15 @@ function useSelectedRace(boatClass, name, signOnInput, reset) {
           }
         }
       };
-      
-      let x= await signOn(variables);
+
+      let x = await signOn(variables);
       reset()
-    x.data.signOn!==null?next(true):next(true, "Already in race!")
+      x.data.signOn !== null ? next(true) : next(true, "Already in race!")
     }}
     size="large"
     type="primary"
-    style={{"width":"200px",
+    style={{
+      "width": "100%",
       "--button-raise-level": "4px",
       "--button-hover-pressure": 3, "zIndex": 0
     }}>Enter Race</AwesomeButtonProgress>)

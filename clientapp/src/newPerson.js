@@ -100,10 +100,12 @@ export default () => {
     <div>
       Enter boat PY:
     <FormControl value={pY} onChange={(e) => parseInt(e.target.value)>0?setPY(parseInt(e.target.value)):setPY(1)} type="number" />
-    </div><div style={{ paddingTop: "20px" }}>
+    </div><div align={"center"} style={{ paddingTop: "20px" }}>
     <AwesomeButtonProgress
       disabled={name ===""|| boatName===""||boatNumber ===""||pY===""}
-        //cssModule={AwesomeButtonStyles}
+        //cssModule={AwesomeButtonStyles} 
+        type={"primary"}
+        style={{"width": "100%"}}
         onPress={async (element, next) => { await newPersonFunc(); next(); }}>
         Enter new person
         </AwesomeButtonProgress>
