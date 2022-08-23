@@ -47,8 +47,6 @@ export default ({ eventId, elapsedTime, correctedTime, place, maxLaps, person, v
     else if (change === "down") {
         icon = " ↓"
     }
-    console.log(correctedTime)
-    console.log(elapsedTime)
     return <>
         <Tr>
             {viewOnly ? <td style={{ backgroundColor: award }} key="helmName">{person.helm.helmName}</td> : <ManageHelm key={"helmName"} helm={person.helm} eventId={eventId}></ManageHelm>}

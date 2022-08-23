@@ -93,7 +93,7 @@ let sortedRecentEvents= data.recentEvents?data.recentEvents.sort((a,b)=>{ return
             }
             onCreateOption={(elem)=> 
                  {addRace({ variables: { input: { event: { eventName: elem, eventTimeStamp: Date.now().toString() } } } })
-                console.log("Created option")}
+                }
             }
             isValidNewOption={(elem)=> elem!==""&&includeCreateRace}
             onChange={setRace}

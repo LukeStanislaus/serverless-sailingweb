@@ -10,7 +10,6 @@ export default ({ finished = false,startTime, eventId, viewOnly=false }) => {
   let [localFinished, setLocalFinished] = useState(finished)
   useInterval(() =>{setTime(time + 1000);setTime(ServerDate.getTime())}, 1000)
 let Timer = ()=><h2>{toHHMMSS(((time - startTime)/1000))}</h2>
-console.log(newTime)
   return !viewOnly ? 
 <><input type={"checkbox"} checked={localFinished} onChange={()=>setLocalFinished(!localFinished)}/> Race finished?
 

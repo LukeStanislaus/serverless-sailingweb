@@ -12,7 +12,6 @@ export default () => {
         ws.onmessage = (event) => {
             try {
                 let data = JSON.parse(event.data);
-                console.log(data)
                 switch (data.type) {
                     case "newLap": {
                         const getLapsOfRaceInput = {
@@ -84,7 +83,6 @@ export default () => {
                         break;
                     }
                     case "updateRace": {
-                        console.log(data.payload)
                         client.writeQuery({
                             query: GET_RACE_START,
                             variables: { input: { eventId: data.payload.eventId } },

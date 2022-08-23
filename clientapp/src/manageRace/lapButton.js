@@ -21,7 +21,6 @@ export default ({eventId, lapsCount, userId}) => {
     }
     const [newLap] = useMutation(NEW_LAP, { update(cache, { data: lap }) {
             const getLapsOfRace = cache.readQuery({ query: GET_LAPS_OF_RACE, variables: getLapsOfRaceInput })
-            console.log(getLapsOfRace);
             lap.createLap = { ...(lap.createLap), __typename: "Lap" }
             const newLaps = getLapsOfRace.getLapsOfRace.concat(lap.createLap)
             cache.writeQuery({
