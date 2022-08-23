@@ -17,8 +17,8 @@ function App() {
   return <div style={{ paddingLeft: "3%", paddingRight: "3%" }}>
     <ApolloProvider client={client}>
       
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <Link className={"navbar-brand"} to="#">Whitefriars</Link>
+      <nav class="navbar navbar-expand-lg navbar-light bg-info">
+      <Link style={{paddingLeft: "1.5%"}} className={"navbar-brand"} to="#">Whitefriars</Link>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
