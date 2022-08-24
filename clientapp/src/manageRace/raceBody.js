@@ -104,10 +104,15 @@ export default ({ eventId, maxLaps, viewOnly = false }) => {
     items.forEach(elem => elem.place > lastPlace ? lastPlace = elem.place : null)
     let maxCorrectedTime = 0
     let minCorrectedTime = 0
-    if (items.length !== 0) {
+    console.log(items)
+    try {
         maxCorrectedTime = items.find(elem => elem.place === lastPlace).correctedTime
 
         minCorrectedTime = items.find(elem => elem.place === 1).correctedTime
+    }
+    catch{
+        maxCorrectedTime =0
+        minCorrectedTime =0
     }
     
     let correctedTimeData = { maxCorrectedTime: maxCorrectedTime, minCorrectedTime: minCorrectedTime }
