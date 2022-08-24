@@ -3,7 +3,7 @@ import RaceSelector from '../raceSelector'
 import { loader } from 'graphql.macro'
 import { useQuery } from '@apollo/react-hooks'
 import RaceManager from './raceManager'
-import {Link} from '@reach/router'
+import {LinkContainer} from 'react-router-bootstrap'
 const SELECTED_RACE = loader('../graphqlQueries/SELECTED_RACE.graphql')
 
 export default () => {
@@ -13,5 +13,5 @@ export default () => {
     if (loading) return "Loading..."
     return (<> <h1>Manage a race</h1> <RaceSelector includeCreateRace />
     {data.selectedRace !== null &&
-        <RaceManager selectedRace={data.selectedRace} />}<Link to="/ManageData">Manage Data</Link></>)
+        <RaceManager selectedRace={data.selectedRace} />}<LinkContainer to="/ManageData"><>Manage Data</></LinkContainer></>)
 }

@@ -1,0 +1,36 @@
+[debug] [2022-08-24T17:31:46.720Z] ----------------------------------------------------------------------
+[debug] [2022-08-24T17:31:46.721Z] Command:       /usr/bin/node /home/luke/.npm/_npx/7750544ccf494d8b/node_modules/.bin/firebase deploy
+[debug] [2022-08-24T17:31:46.722Z] CLI Version:   11.7.0
+[debug] [2022-08-24T17:31:46.722Z] Platform:      linux
+[debug] [2022-08-24T17:31:46.722Z] Node Version:  v16.16.0
+[debug] [2022-08-24T17:31:46.726Z] Time:          Wed Aug 24 2022 18:31:46 GMT+0100 (British Summer Time)
+[debug] [2022-08-24T17:31:46.726Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-08-24T17:31:46.730Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-08-24T17:31:46.802Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-08-24T17:31:46.802Z] > authorizing via signed-in user (lukestanislaus23@gmail.com)
+[debug] [2022-08-24T17:31:46.803Z] [iam] checking project sailingweb-7e38f for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-08-24T17:31:46.804Z] > refreshing access token with scopes: []
+[debug] [2022-08-24T17:31:46.804Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-08-24T17:31:46.804Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-08-24T17:31:46.917Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-08-24T17:31:46.918Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-08-24T17:31:46.960Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/sailingweb-7e38f:testIamPermissions [none]
+[debug] [2022-08-24T17:31:46.960Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/sailingweb-7e38f:testIamPermissions x-goog-quota-user=projects/sailingweb-7e38f
+[debug] [2022-08-24T17:31:46.961Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sailingweb-7e38f:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-08-24T17:31:47.077Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-08-24T17:31:47.077Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2022-08-24T17:31:47.231Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/sailingweb-7e38f:testIamPermissions 200
+[debug] [2022-08-24T17:31:47.231Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sailingweb-7e38f:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-08-24T17:31:47.232Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sailingweb-7e38f [none]
+[debug] [2022-08-24T17:31:47.495Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sailingweb-7e38f 200
+[debug] [2022-08-24T17:31:47.495Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sailingweb-7e38f {"projectId":"sailingweb-7e38f","projectNumber":"793084216576","displayName":"sailingweb","name":"projects/sailingweb-7e38f","resources":{"hostingSite":"sailingweb-7e38f","realtimeDatabaseInstance":"sailingweb-7e38f","storageBucket":"sailingweb-7e38f.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_ab7754ee-24f6-4684-a907-8d038c87f4ff"}
+[info] 
+[info] === Deploying to 'sailingweb-7e38f'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-08-24T17:31:47.497Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sailingweb-7e38f [none]
+[debug] [2022-08-24T17:31:47.831Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sailingweb-7e38f 200
+[debug] [2022-08-24T17:31:47.832Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sailingweb-7e38f {"projectId":"sailingweb-7e38f","projectNumber":"793084216576","displayName":"sailingweb","name":"projects/sailingweb-7e38f","resources":{"hostingSite":"sailingweb-7e38f","realtimeDatabaseInstance":"sailingweb-7e38f","storageBucket":"sailingweb-7e38f.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_ab7754ee-24f6-4684-a907-8d038c87f4ff"}
+[debug] [2022-08-24T17:31:47.833Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/793084216576/sites/sailingweb-7e38f/versions [none]
+[debug] [2022-08-24T17:31:47.833Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/793084216576/sites/sailingweb-7e38f/versions {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}

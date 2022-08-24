@@ -5,7 +5,7 @@ import { AwesomeButtonProgress } from 'react-awesome-button'
 import "react-awesome-button/dist/styles.css";
 import Select from 'react-select'
 import SelectRace from './raceSelector'
-import { Link } from '@reach/router'
+import { LinkContainer } from 'react-router-bootstrap'
 import { loader } from 'graphql.macro'
 const SELECTED_RACE = loader('./graphqlQueries/SELECTED_RACE.graphql')
 const GET_BOATS = loader('./graphqlQueries/GET_BOATS.graphql')
@@ -131,8 +131,11 @@ function SignOn() {
     <div align="center" style={{ "paddingTop": "50px" }}>
       {useSelectedRace(boatClass, name, signOnInput, reset)}
 
-      <div><Link className={"navbar-text"} to="/NewPerson">Name not in list? Click here.</Link></div>
-
+      <div><LinkContainer className={"navbar-text"} to="/NewPerson"><>Name not in list? Click here.</></LinkContainer></div>
+      <iframe title="Weather" width="650" height="450" src="https://embed.windy.com/embed2.html?lat=51.660&lon=-1.932&
+      detailLat=51.471&detailLon=-2.082&width=650&height=450&zoom=11&level=surface&overlay=wind&product=ecmwf&menu=&
+      message=&marker=true&calendar=now&pressure=true&type=map&location=coordinates&detail=true&metricWind=kt&metricTemp=%C2%B0C&
+      radarRange=-1" frameborder="0"></iframe>
     </div>
   </>
   )
