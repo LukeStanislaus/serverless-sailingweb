@@ -206,7 +206,7 @@ function useSelectedRace(boatClass, name, signOnInput, reset) {
         // boatNumber: boatNumber,
         // pY: pY
   //    }
-    }
+   // }
   //}
   //const [createPerson] = useMutation(NEW_PERSON, {
   //  variables: newPersonInput, refetchQueries: [{ query: ALL_HELMS },
