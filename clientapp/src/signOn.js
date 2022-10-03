@@ -12,7 +12,7 @@ const SELECTED_RACE = loader('./graphqlQueries/SELECTED_RACE.graphql')
 const GET_BOATS = loader('./graphqlQueries/GET_BOATS.graphql')
 const SIGN_ON = loader('./graphqlQueries/SIGN_ON.graphql')
 const ALL_HELMS = loader('./graphqlQueries/ALL_HELMS.graphql')
-const NEW_PERSON = loader('./graphqlQueries/NEW_PERSON.graphql')
+//const NEW_PERSON = loader('./graphqlQueries/NEW_PERSON.graphql')
 
 function useCrewName(crew, setCrew) {
   const { loading, error, data } = useQuery(ALL_HELMS)
@@ -198,16 +198,16 @@ function useSelectedRace(boatClass, name, signOnInput, reset) {
   const queryData = data;
   if (loading) obj = "Loading"
   if (error) obj = 'error'
-  const newPersonInput = {
-    input: {
-      newPersonData: {
-        name: name,
-        boatName: boatClass,
+  //const newPersonInput = {
+  //  input: {
+  //    newPersonData: {
+  //      name: name,
+  //      boatName: boatClass,
         // boatNumber: boatNumber,
         // pY: pY
-      }
+  //    }
     }
-  }
+  //}
   //const [createPerson] = useMutation(NEW_PERSON, {
   //  variables: newPersonInput, refetchQueries: [{ query: ALL_HELMS },
   //  { query: GET_BOATS, variables: { input: { helmName: name } } }]
