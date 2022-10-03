@@ -1,0 +1,18 @@
+[debug] [2022-10-03T10:53:59.234Z] ----------------------------------------------------------------------
+[debug] [2022-10-03T10:53:59.235Z] Command:       /usr/bin/node /mnt/c/Users/lukes/AppData/Local/Yarn/Data/global/node_modules/firebase-tools/lib/bin/firebase.js deploy
+[debug] [2022-10-03T10:53:59.236Z] CLI Version:   9.10.0
+[debug] [2022-10-03T10:53:59.236Z] Platform:      linux
+[debug] [2022-10-03T10:53:59.236Z] Node Version:  v16.16.0
+[debug] [2022-10-03T10:53:59.247Z] Time:          Mon Oct 03 2022 11:53:59 GMT+0100 (British Summer Time)
+[debug] [2022-10-03T10:53:59.248Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-10-03T10:53:59.265Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-10-03T10:53:59.323Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-10-03T10:53:59.323Z] > authorizing via signed-in user (lukestanislaus23@gmail.com)
+[debug] [2022-10-03T10:53:59.324Z] [iam] checking project sailingweb-7e38f for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-10-03T10:53:59.325Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2022-10-03T10:53:59.326Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-10-03T10:53:59.523Z] <<< HTTP RESPONSE 200 {"date":"Mon, 03 Oct 2022 10:53:59 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-10-03T10:53:59.551Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/sailingweb-7e38f:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
