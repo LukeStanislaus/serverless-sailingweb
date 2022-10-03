@@ -80,8 +80,7 @@ function useBoatClass(boatName, setBoatName, boatClassVariables, newPerson, setN
     options={data ? data.getBoatsOfHelm : []}
 
     getOptionLabel={elem =>{
-      if(elem.value) return elem.value + ", " +
-      "0000" + ". (PY 1000)"
+      if(elem.value) return elem.value + ", 0000. (PY 1000)"
       console.log(elem)
       return elem.boatName + ", " +
       elem.boatNumber + ". (PY " + elem.pY + ")"}
