@@ -1,0 +1,11 @@
+mutation newPerson($input:NewPersonInput!) {
+  newPerson(input:$input){
+    newPerson{
+      userId
+      name
+      boatName
+      boatNumber
+      pY
+    }
+  }
+}

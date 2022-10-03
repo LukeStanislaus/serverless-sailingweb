@@ -71,7 +71,7 @@ const [removeEvent] = useMutation(REMOVE_EVENT, {
     })
     
 if (error) return <div>{error.message}</div>
-if (loading)  return <Createable placeholder={"Loading..."}/>
+if (loading)  return <Createable isLoading />
 
 let sortedRecentEvents= data.recentEvents?data.recentEvents.sort((a,b)=>{ return -(parseInt(a.eventTimeStamp)-
     parseInt(b.eventTimeStamp))}): null

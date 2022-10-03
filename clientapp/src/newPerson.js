@@ -7,20 +7,7 @@ import Autocomplete from 'react-autosuggest'
 import { loader } from 'graphql.macro'
 const GET_BOATS = loader('./graphqlQueries/GET_BOATS.graphql')
 const ALL_HELMS = loader('./graphqlQueries/ALL_HELMS.graphql')
-
-const newPerson = gql`
-mutation newPerson($input:NewPersonInput!) {
-  newPerson(input:$input){
-    newPerson{
-      userId
-      name
-      boatName
-      boatNumber
-      pY
-    }
-  }
-}
-`
+const NEW_PERSON = loader('./graphqlQueries/NEW_PERSON.graphql')
 
 export default () => {
   const [name, setName] = useState("")
@@ -47,7 +34,7 @@ export default () => {
     }`)
 
 
-  let [newPersonFunc] = useMutation(newPerson, { variables: newPersonInput, refetchQueries: [{ query: ALL_HELMS }, 
+  let [newPersonFunc] = useMutation(NEW_PERSON, { variables: newPersonInput, refetchQueries: [{ query: ALL_HELMS }, 
     {query:GET_BOATS, variables:{input:{helmName:name}}}] 
   })
   let [suggestions, setSuggestions] = useState(null)
