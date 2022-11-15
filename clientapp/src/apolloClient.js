@@ -2,7 +2,7 @@ import {ApolloClient} from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import {InMemoryCache} from 'apollo-cache-inmemory'
 import {resolvers} from './resolvers'
-import {typeDefs} from './schema.graphql'
+import typeDefs from './schema.graphql'
 import { RetryLink } from "apollo-link-retry"
 import { ApolloLink } from "apollo-link"
 

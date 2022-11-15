@@ -4,7 +4,7 @@ import { useQuery, useMutation } from '@apollo/react-hooks'
 import { AwesomeButtonProgress } from 'react-awesome-button'
 const ALL_HELMS = loader("./graphqlQueries/ALL_HELMS.graphql")
 const REMOVE_PERSON = loader("./graphqlQueries/REMOVE_PERSON.graphql")
-export default () => {
+let manageData = () => {
     let obj
     const { data, loading, error } = useQuery(ALL_HELMS)
     const [remove] = useMutation(REMOVE_PERSON, {
@@ -62,3 +62,4 @@ export default () => {
     }
     return obj
 }
+export default manageData

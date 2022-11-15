@@ -28,7 +28,7 @@ const comparisons = {
 }
 
 var oldData = [];
-export default ({ eventId, maxLaps, viewOnly = false }) => {
+let raceBody = ({ eventId, maxLaps, viewOnly = false }) => {
     const GetLapsOfRaceInput = {
         input: {
             eventId: eventId
@@ -138,3 +138,4 @@ export default ({ eventId, maxLaps, viewOnly = false }) => {
     return <>{rows}</>
 
 }
+export default raceBody

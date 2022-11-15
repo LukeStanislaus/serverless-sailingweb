@@ -5,7 +5,7 @@ import { loader } from 'graphql.macro'
 const REMOVE_FROM_RACE = loader('../graphqlQueries/REMOVE_FROM_RACE.graphql')
 const SPECIFIC_EVENT = loader('../graphqlQueries/SPECIFIC_EVENT.graphql')
 
-export default ({ helm, eventId }) => {
+let manageHelm = ({ helm, eventId }) => {
     const removeFromRaceInput = {
         input: {
             RemoveFromRaceData: {
@@ -33,3 +33,4 @@ export default ({ helm, eventId }) => {
     {editHelm && <AwesomeButton onPress={() => removeFromRace()} >Remove</AwesomeButton>}
 </td>
 }
+export default manageHelm

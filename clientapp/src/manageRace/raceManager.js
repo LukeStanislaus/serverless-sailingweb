@@ -8,8 +8,7 @@ import RaceTimer from './raceTimer'
 import { AwesomeButton } from 'react-awesome-button'
 const GET_LAPS_OF_RACE_SPECIFIC_EVENT_AND_GET_RACE_START = loader('../graphqlQueries/GET_LAPS_OF_RACE_SPECIFIC_EVENT_GET_RACE_START_AND_ORDER_BY.graphql')
 const SELECT_ORDER_BY = loader('../graphqlQueries/SELECT_ORDER_BY.graphql')
-
-export default ({ selectedRace, viewOnly = false }) => {
+let RaceManager = ({ selectedRace, viewOnly = false }) => {
     const getLapsOfRaceAndSignOnInput = {
         input:
         {
@@ -54,3 +53,4 @@ export default ({ selectedRace, viewOnly = false }) => {
 
 }
 
+export default RaceManager

@@ -3,7 +3,7 @@ import StartRaceButton from './startRaceButton'
 import TimePicker from './timePicker'
 import toHHMMSS from '../toHHMMSS'
 /* global ServerDate*/
-export default ({ finished = false,startTime, eventId, viewOnly=false }) => {
+let RaceTimer = ({ finished = false,startTime, eventId, viewOnly=false }) => {
   let [newTime, setNewTime] = useState(new Date(startTime))
   let [editTime, setEditTime] = useState(false)
   let [time, setTime] = useState(ServerDate.getTime())
@@ -42,3 +42,4 @@ function useInterval(callback, delay) {
     }
   }, [delay]);
 }
+export default RaceTimer

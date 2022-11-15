@@ -17,7 +17,7 @@ padding: 8px;
 `
 const SELECT_ORDER_BY = loader('../graphqlQueries/SELECT_ORDER_BY.graphql')
 const ORDER_BY = loader("../graphqlQueries/ORDER_BY.graphql")
-export default ({ maxLaps, viewOnly=false }) => {
+let RaceHeader =  ({ maxLaps, viewOnly=false }) => {
 
     const [selectOrderBy] = useMutation(SELECT_ORDER_BY, {
         refetchQueries: () => {
@@ -56,3 +56,4 @@ export default ({ maxLaps, viewOnly=false }) => {
 function HeaderCell({ text, selectOrderBy }) {
     return <div onClick={e => selectOrderBy({ variables: { input: { SelectOrderByInput: { type: text } } } })}>{text}</div>
 } 
+export default RaceHeader

@@ -10,7 +10,7 @@ padding: 8px;
 `
 const GET_LAPS_OF_RACE = loader('../graphqlQueries/GET_LAPS_OF_RACE.graphql')
 const UPDATE_LAP = loader('../graphqlQueries/UPDATE_LAP.graphql')
-export default (props) => {
+let raceCell = (props) => {
   if (props.lap === undefined) return <td></td>
   const [editTime, setEditTime] = useState(false)
   const [newTime, setNewTime] = useState(props.lap.lapTime)
@@ -54,4 +54,4 @@ export default (props) => {
     </Td>
 }
 
-
+export default raceCell 

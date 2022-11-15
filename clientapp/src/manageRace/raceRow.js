@@ -10,7 +10,7 @@ let Tr = styled.tr`
 :nth-child(even) {background-color: #f2f2f2;}
 :hover {background-color: #dddddd;}
 `
-export default ({ eventId, elapsedTime, correctedTime, place, maxLaps, person, viewOnly = false, change, correctedTimeData: { maxCorrectedTime, minCorrectedTime } }) => {
+let RaceRow = ({ eventId, elapsedTime, correctedTime, place, maxLaps, person, viewOnly = false, change, correctedTimeData: { maxCorrectedTime, minCorrectedTime } }) => {
     let raceCells = []
     if (!viewOnly) {
         if (maxLaps > person.laps.length) {
@@ -68,3 +68,4 @@ export default ({ eventId, elapsedTime, correctedTime, place, maxLaps, person, v
 </Tr>
     </>
 }
+export default RaceRow
