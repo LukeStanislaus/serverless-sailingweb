@@ -6,7 +6,7 @@ import RaceManager from './raceManager'
 import {LinkContainer} from 'react-router-bootstrap'
 const SELECTED_RACE = loader('../graphqlQueries/SELECTED_RACE.graphql')
 
-let manageRace = () => {
+let ManageRace = () => {
 
     const { loading, data, error } = useQuery(SELECTED_RACE)
     if (error) throw error
@@ -15,4 +15,4 @@ let manageRace = () => {
     {data.selectedRace !== null &&
         <RaceManager selectedRace={data.selectedRace} />}<LinkContainer to="/ManageData"><>Manage Data</></LinkContainer></>)
 }
-export default manageRace
+export default ManageRace

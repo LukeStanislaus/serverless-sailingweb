@@ -1,6 +1,6 @@
 
 
-export default (str) => {
+let ToHHMMSS = (str) => {
     let negative = false
     var sec_num = parseInt(str, 10); // don't forget the second param :/
     if(sec_num <0) {sec_num = sec_num*-1
@@ -16,3 +16,4 @@ export default (str) => {
     let timestring  =hours+':'+minutes+':'+seconds 
     return negative? "-" +timestring: timestring;
   }
+  export default ToHHMMSS

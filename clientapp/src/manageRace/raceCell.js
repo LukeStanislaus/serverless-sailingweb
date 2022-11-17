@@ -10,8 +10,12 @@ padding: 8px;
 `
 const GET_LAPS_OF_RACE = loader('../graphqlQueries/GET_LAPS_OF_RACE.graphql')
 const UPDATE_LAP = loader('../graphqlQueries/UPDATE_LAP.graphql')
-let raceCell = (props) => {
-  if (props.lap === undefined) return <td></td>
+let RaceCell = (props) => {
+  let visible={}
+  if (props.lap === undefined) {
+    visible= {display: "none"}
+    props = {lap: {lapTime: 0}}
+  }
   const [editTime, setEditTime] = useState(false)
   const [newTime, setNewTime] = useState(props.lap.lapTime)
   useEffect(() => {
@@ -45,7 +49,8 @@ let raceCell = (props) => {
       }
 
     }})
-    return <Td key={props.lap.lapId}>{<div onClick={() => setEditTime(!editTime)}>{(new Date(props.lap.lapTime)).toLocaleTimeString()}</div>}
+    return <Td style={visible} key={props.lap.lapId}>
+      {<div onClick={() => setEditTime(!editTime)}>{(new Date(props.lap.lapTime)).toLocaleTimeString()}</div>}
       {editTime && <><TimePicker
         newTime={new Date(newTime)}
         setNewTime={setNewTime} />
@@ -54,4 +59,4 @@ let raceCell = (props) => {
     </Td>
 }
 
-export default raceCell 
+export default RaceCell 

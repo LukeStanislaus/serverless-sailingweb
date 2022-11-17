@@ -6,7 +6,7 @@ const NEW_LAP = loader('../graphqlQueries/NEW_LAP.graphql')
 
 /* global ServerDate*/
 const GET_LAPS_OF_RACE = loader('../graphqlQueries/GET_LAPS_OF_RACE.graphql')
-let lapButton = ({eventId, lapsCount, userId}) => {
+let LapButton = ({eventId, lapsCount, userId}) => {
     const [colour, setColour] = useState("primary")
     useEffect(()=>{
         if(colour!=="primary") setTimeout(()=>setColour("primary"), 1500);
@@ -42,4 +42,4 @@ let lapButton = ({eventId, lapsCount, userId}) => {
 
     }}>Lap ({lapsCount})</AwesomeButton>
 }
-export default lapButton
+export default LapButton

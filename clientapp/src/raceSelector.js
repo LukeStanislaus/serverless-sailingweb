@@ -19,7 +19,7 @@ const recentEventsInput = {
 
 
 
-export default ({ includeCreateRace = false }) => {
+let RaceSelector = ({ includeCreateRace = false }) => {
     const { loading, data, error } = useQuery(GET_RECENT_EVENTS_AND_SELECTED_RACE,
         { variables: recentEventsInput })
     const [selectRaceFunc] = useMutation(SELECT_RACE, {
@@ -100,3 +100,4 @@ let sortedRecentEvents= data.recentEvents?data.recentEvents.sort((a,b)=>{ return
         />}
         </>)
 }
+export default RaceSelector

@@ -4,7 +4,7 @@ const GET_LAPS_OF_RACE = loader('./graphqlQueries/GET_LAPS_OF_RACE.graphql')
 const SPECIFIC_EVENT = loader('./graphqlQueries/SPECIFIC_EVENT.graphql')
 const GET_RACE_START = loader('./graphqlQueries/GET_RACE_START.graphql')
 
-let websocket = () => {
+let Websocket = () => {
     let client = useApolloClient()
     let ws = new WebSocket("wss://4s4i7341f0.execute-api.eu-west-2.amazonaws.com/dev/")
     ws.onopen = () => {
@@ -105,4 +105,4 @@ let websocket = () => {
     }
     return null
 }
-export default websocket
+export default Websocket

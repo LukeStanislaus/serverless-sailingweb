@@ -5,7 +5,7 @@ const iconPath = process.env.PUBLIC_URL + 'assets/images/';
 //   'feature' can be one of 'lossy', 'lossless', 'alpha' or 'animation'.
 //   'callback(feature, result)' will be passed back the detection result (in an asynchronous way!)
 
-let home = () => {
+let Home = () => {
     let [webp, setWebp] = useState(true)
     var img = new Image();
 
@@ -48,4 +48,4 @@ const Info = () => {
         You probably want to sign on, the link is at the top!</div>
 }
 
-export default home
+export default Home

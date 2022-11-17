@@ -1,8 +1,8 @@
 //import React from 'react'
 //import { Line } from 'react-chartjs-2'
 
-export default ()=>null
-
+let ViewGraph = ()=>null
+export default ViewGraph
 // export default ({data:{correctedTimeData:{maxCorrectedTime, minCorrectedTime}, items, raceStart}}) => {
 //     let firstLapTime = 0
 //     items.forEach(elem=>elem)

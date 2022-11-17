@@ -2,7 +2,7 @@
 import TimePicker from 'react-time-picker'
 import React from 'react'
 
-export default ({setNewTime, newTime }) => {
+let TimePickerElement = ({setNewTime, newTime }) => {
     return <TimePicker maxDetail={"second"} onChange={val=> {
         if (val == null) {setNewTime(null); return;}
         if (typeof val !== "string") return
@@ -14,3 +14,4 @@ export default ({setNewTime, newTime }) => {
     
     }} value={newTime}/> 
 }
+export default TimePickerElement

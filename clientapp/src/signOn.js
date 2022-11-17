@@ -12,7 +12,7 @@ const SELECTED_RACE = loader('./graphqlQueries/SELECTED_RACE.graphql')
 const GET_BOATS = loader('./graphqlQueries/GET_BOATS.graphql')
 const SIGN_ON = loader('./graphqlQueries/SIGN_ON.graphql')
 const ALL_HELMS = loader('./graphqlQueries/ALL_HELMS.graphql')
-//const NEW_PERSON = loader('./graphqlQueries/NEW_PERSON.graphql')
+const NEW_PERSON = loader('./graphqlQueries/NEW_PERSON.graphql')
 
 function useCrewName(crew, setCrew) {
   const { loading, error, data } = useQuery(ALL_HELMS)
@@ -48,7 +48,7 @@ function useCrewName(crew, setCrew) {
 
 }
 
-function useBoatClass(boatName, setBoatName, boatClassVariables, newPerson, setNewPerson, pY, setPY, boatNumber, setBoatNumber) {
+function useBoatClass(boatName, setBoatName, boatClassVariables, newBoat, setNewBoat, pY, setPY, boatNumber, setBoatNumber) {
   const { loading, error, data } = useQuery(GET_BOATS, { skip: boatClassVariables.input.helmName == null, variables: boatClassVariables })
   if (loading) return <Creatable isLoading />
   if (error) return `Error! ${error.message}`
@@ -56,14 +56,12 @@ function useBoatClass(boatName, setBoatName, boatClassVariables, newPerson, setN
     isClearable
 
     onCreateOption={val => {
-      console.log(val)
-      setNewPerson(true)
+      setNewBoat(true)
       setBoatName(val)
     }}
     key={"BoatClass"}
     value={boatName? { boatName: boatName, pY: pY, boatNumber: boatNumber }:null}
     onChange={(val) => {
-      console.log(val)
       if(val){
       setBoatName(val.boatName)
       setBoatNumber(val.boatNumber)
@@ -75,18 +73,17 @@ function useBoatClass(boatName, setBoatName, boatClassVariables, newPerson, setN
         setBoatNumber(null)
         setPY(null)
       }
-      setNewPerson(false)
+      setNewBoat(false)
     }}
     options={data ? data.getBoatsOfHelm : []}
 
     getOptionLabel={elem =>{
       if(elem.value) return elem.value + ", 0000. (PY 1000)"
-      console.log(elem)
       return elem.boatName + ", " +
       elem.boatNumber + ". (PY " + elem.pY + ")"}
     }
   />
-    {newPerson && <>
+    {newBoat && <>
       New Boat Number:
       <input value={boatNumber} onChange={e => {
         setBoatNumber(e.target.value)
@@ -104,7 +101,7 @@ function useBoatClass(boatName, setBoatName, boatClassVariables, newPerson, setN
     }</>
 }
 
-function useHelmName(name, setName) {
+function useHelmName(name, setName, setNewPerson) {
   const { loading, error, data } = useQuery(ALL_HELMS)
   if (error) return `Error! ${error.message}`
   if (loading) return <Creatable isLoading />
@@ -125,13 +122,20 @@ function useHelmName(name, setName) {
     })}
     value={name}
     getOptionLabel={elem => elem.name}
-    onChange={(val) => { setName(val); }}
+    onChange={(val) => {
+      setNewPerson(false);
+       setName(val); }}
+      onCreateOption={val => {
+        setNewPerson(true)
+        setName(val)
+      }}
   />
 
 }
 
 function SignOn() {
   const [newPerson, setNewPerson] = useState(false)
+  const [newBoat, setNewBoat] = useState(false)
   const [crew, setCrew] = useState("")
   const [name, setName] = useState("")
   const [boatName, setBoatName] = useState('')
@@ -144,20 +148,17 @@ function SignOn() {
     setBoatName("")
     setNotes("")
   }
-  const signOnInput = {
-    input: {
-      signOn: {
-        userId: name == null ? null : name.userId,
+  const signOn = {
+        userId: name == null?null:name.userId,
         helmName: name == null ? null : name.name,
-        boatName: boatName == null ? null : boatName.boatName,
-        boatNumber: boatName == null ? null : boatName.boatNumber,
-        crewName: crew === "" ? null : crew,
-        pY: boatName == null ? null : boatName.pY,
-        notes: notes === "" ? null : notes
+        boatName: boatName,
+        boatNumber: boatNumber,
+        crewName: crew,
+        pY: pY,
+        notes: notes
 
       }
-    }
-  }
+  
   const boatClassVariables = {
     input: {
       helmName: name == null ? null : name.name
@@ -170,17 +171,18 @@ function SignOn() {
     <h1 style={{ paddingBottom: "30px" }}>Sign onto a race</h1>
     <SelectRace AfterSelection={() => <div>done</div>} />
     Helm Name:
-    {useHelmName(name, setName)}
+    {useHelmName(name, setName, setNewPerson)}
     <div>
       Boat Class:
-      {useBoatClass(boatName, setBoatName, boatClassVariables, newPerson, setNewPerson, pY, setPY, boatNumber, setBoatNumber)}
+      {useBoatClass(boatName, setBoatName, boatClassVariables, newBoat, 
+        setNewBoat, pY, setPY, boatNumber, setBoatNumber)}
     </div>
     Crew Name:
     {useCrewName(crew, setCrew)}
     Notes:
     <input placeholder='Enter...' className={"form-control"} value={notes} onChange={e => setNotes(e.target.value)} />
     <div align="center" style={{ "paddingTop": "50px" }}>
-      {useSelectedRace(boatName, name, signOnInput, reset)}
+      {useSelectedRace(boatName, name, signOn, reset, newPerson, newBoat)}
 
       <div><LinkContainer to="/NewPerson"><Nav.Link>Name not in list? Click here. </Nav.Link></LinkContainer></div>
       <iframe title="Weather" width="650" height="450" src="https://embed.windy.com/embed2.html?lat=51.660&lon=-1.932&
@@ -192,39 +194,41 @@ function SignOn() {
   )
 }
 
-function useSelectedRace(boatClass, name, signOnInput, reset) {
+function useSelectedRace(boatName, name, signOnVal, reset, newPerson, newBoat) {
   let obj = null
   const { data, loading, error } = useQuery(SELECTED_RACE)
   const queryData = data;
   if (loading) obj = "Loading"
   if (error) obj = 'error'
-  //const newPersonInput = {
-  //  input: {
-  //    newPersonData: {
-  //      name: name,
-  //      boatName: boatClass,
-        // boatNumber: boatNumber,
-        // pY: pY
-  //    }
-   // }
-  //}
-  //const [createPerson] = useMutation(NEW_PERSON, {
-  //  variables: newPersonInput, refetchQueries: [{ query: ALL_HELMS },
-  //  { query: GET_BOATS, variables: { input: { helmName: name } } }]
-  //})
+  const newPersonInput = {
+   input: {
+     newPersonData: {
+       name: signOnVal.helmName,
+       boatName: signOnVal.boatName,
+        boatNumber: signOnVal.boatNumber,
+        pY: signOnVal.pY
+     }
+   }
+  }
+  const [createPerson] = useMutation(NEW_PERSON, {
+   variables: newPersonInput, refetchQueries: [{ query: ALL_HELMS },
+   { query: GET_BOATS, variables: { input: { helmName: signOnVal.helmName } } }]
+  })
   const [signOn] = useMutation(SIGN_ON)
-
-
-
   obj = (<AwesomeButtonProgress
-    disabled={(boatClass === "" || name === "" || queryData.selectedRace === null)}
+    disabled={(signOnVal.boatClass === "" || 
+    signOnVal.name === "" || queryData.selectedRace === null)}
     ripple
     onPress={async (e, next) => {
+
+      if(newBoat){
+         let res = await createPerson();console.log(res)
+      }
       const variables = {
         variables: {
           input: {
             signOn: {
-              ...signOnInput.input.signOn, eventId: queryData.selectedRace.eventId
+              ...signOnVal, eventId: queryData.selectedRace.eventId
             }
           }
         }

@@ -9,7 +9,7 @@ const GET_BOATS = loader('./graphqlQueries/GET_BOATS.graphql')
 const ALL_HELMS = loader('./graphqlQueries/ALL_HELMS.graphql')
 const NEW_PERSON = loader('./graphqlQueries/NEW_PERSON.graphql')
 
-export default () => {
+let NewPerson = () => {
   const [name, setName] = useState("")
   const [boatName, setBoatName] = useState("")
   const [boatNumber, setBoatNumber] = useState("")
@@ -106,3 +106,4 @@ export default () => {
 
   </>)
 }
+export default NewPerson
