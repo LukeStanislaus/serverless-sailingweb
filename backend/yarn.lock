@@ -15487,9 +15487,9 @@ fsevents@~2.3.2:
   linkType: hard
 
 "qs@npm:~6.5.2":
-  version: 6.5.2
-  resolution: "qs@npm:6.5.2"
-  checksum: fa0410eff2c05ce3328e11f82db4015e7819c986ee056d6b62b06ae112f4929af09ea3b879ca168ff9f0338f50972bba487ad0e46c879e42bfaf63c3c2ea7f09
+  version: 6.5.3
+  resolution: "qs@npm:6.5.3"
+  checksum: 2e9f69a9dbd57c14b5da27f430ece3ec0d500faf2d3ca516d19b530e4471647d8f6c4e75a3984361861549aea487f438b7f8e80628f10468fb7431e8d22558c6
   languageName: node
   linkType: hard
 
