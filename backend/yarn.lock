@@ -12708,9 +12708,9 @@ fsevents@~2.3.2:
   linkType: hard
 
 "luxon@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "luxon@npm:3.0.1"
-  checksum: 0ef9cd9fdbf0bf4c83dfe7149cd62eb6972843337809e8363a8d5226b4e800877f8f9ef01a83ba219df2e507e9fad98de3ffd7b47d77275f721adfa92c10a43f
+  version: 3.2.1
+  resolution: "luxon@npm:3.2.1"
+  checksum: 62a488897e99b439032fab9b0076d7ff2230e83b174b02933b6d571dd8b45bf77a6c36138bea8cb236d31e928e7613eb8bc95d13a7916dc8a93916a6b9c7b7fe
   languageName: node
   linkType: hard
 
