@@ -6085,9 +6085,9 @@ __metadata:
   linkType: hard
 
 "cookiejar@npm:^2.1.3":
-  version: 2.1.3
-  resolution: "cookiejar@npm:2.1.3"
-  checksum: a5ab508f6778ecfe8d020d6584ce398d1d1542c240a712c31e4891e92f00430d2d6648996eaeb8b0daa899f671e247128cba53ba5800bbb88ece45f204a083f4
+  version: 2.1.4
+  resolution: "cookiejar@npm:2.1.4"
+  checksum: 6feea7026fcded4daf471e82d24c3f78d96855f3e2d836c2a2e08e6299369dcccd6776cc21e374330ad3c84329f767a68764344f746f2dc61745093c629ad0f7
   languageName: node
   linkType: hard
 
