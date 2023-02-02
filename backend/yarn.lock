@@ -15714,7 +15714,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"react-static@npm:^7.0.9":
+"react-static@npm:^7.6.2":
   version: 7.6.2
   resolution: "react-static@npm:7.6.2"
   dependencies:
@@ -16897,7 +16897,7 @@ resolve@1.1.7:
     jest-junit: ^6.3.0
     node-fetch: ^2.3.0
     path: ^0.12.7
-    react-static: ^7.0.9
+    react-static: ^7.6.2
     sanitize-html: ^1.20.1
     serverless: ^3.21.0
     serverless-dynamodb-client: 0.0.2
