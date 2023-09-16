@@ -40,9 +40,8 @@ let ManageData = () => {
                         }
                     }
                 })
-
-                next(response.data.removePerson !== null)
-            }}>Remove Person</AwesomeButtonProgress></td>
+                if(response.data.removePerson === null) next(false)
+            }}>Delete</AwesomeButtonProgress></td>
             <td key={"boatName"}>{elem.boatName}</td>
             <td key={"boatNumber"}>{elem.boatNumber}</td>
             <td key={"pY"}>{elem.pY}</td>
@@ -51,7 +50,7 @@ let ManageData = () => {
             <tbody>
                 <tr>
                     <th>Name</th>
-                    <th>Remove Person</th>
+                    <th></th>
                     <th>Boat Class</th>
                     <th>Boat Number</th>
                     <th>PY</th>

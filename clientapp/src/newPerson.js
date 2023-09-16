@@ -39,7 +39,7 @@ let NewPerson = () => {
   })
   let [suggestions, setSuggestions] = useState(null)
   if (loading) return <>loading</>
-  if(suggestions == null) setSuggestions(data.allBoatData === undefined ? [] : data.allBoatData.map((elem) =>
+  if(suggestions == null) setSuggestions(data === undefined ? [] : data.allBoatData.map((elem) =>
   { return { elem: elem, id: elem.boatName, label: elem.boatName, name: elem.boatName } }))
   newPersonObj = <><div>
     Enter helm name:

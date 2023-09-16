@@ -88,7 +88,7 @@ let sortedRecentEvents= data.recentEvents?data.recentEvents.sort((a,b)=>{ return
                 return <div>{elem.eventName + ", " +
                     new Date(parseInt(elem.eventTimeStamp)).toLocaleTimeString() + ", " +
             new Date(parseInt(elem.eventTimeStamp)).toDateString() + (elem.finished?" - FINISHED":"")}
-            {includeCreateRace && <button style={{"float":"right"}} onClick={e=>{removeEvent({variables:{input:{event:{eventId:elem.eventId}}}})}} children={"Remove Race"}type={"button"}/>}
+            {includeCreateRace && <button style={{"float":"right"}} onClick={e=>{removeEvent({variables:{input:{event:{eventId:elem.eventId}}}})}} children={"Delete Race"}type={"button"}/>}
             </div>}
             }
             onCreateOption={(elem)=> 
